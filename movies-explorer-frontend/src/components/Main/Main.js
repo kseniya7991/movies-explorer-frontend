@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./Main.css";
+import Promo from "../Promo/Promo";
 
 function Main() {
   return (
     <div>
-      <section className="Main__portfolio">
+      <Promo />
+      {/*  <section className="Main__portfolio">
         <h3>Портфолио</h3>
         <hr />
         <ul>
@@ -14,7 +16,7 @@ function Main() {
           <li></li>
           <li></li>
         </ul>
-      </section>
+      </section> */}
     </div>
   );
 }

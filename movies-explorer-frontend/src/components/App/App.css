@@ -1,4 +1,6 @@
 .App {
   background-color: #202020;
+  font-family: 'Inter', Arial, sans-serif;
+  overflow:hidden;
+  min-width: 320px;
 }
-
