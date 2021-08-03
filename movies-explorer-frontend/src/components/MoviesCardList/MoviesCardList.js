@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./SavedMovies.css";
+import "./MoviesCardList.css";
 
-function SavedMovies() {
+function MoviesCardList() {
   return (
-    <section className="SavedMovies">
+    <section className="MoviesCardList">
       <button type="button">Еще</button>
     </section>
   );
 }
 
-export default SavedMovies;
+export default MoviesCardList;
