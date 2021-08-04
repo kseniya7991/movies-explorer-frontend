@@ -6,17 +6,19 @@ import "./Promo.css";
 
 function Promo() {
   return (
-    <section className="Promo">
-      <h1 className="Promo__title">
-        Учебный проект студента факультета Веб&#8209;разработки.
-      </h1>
-      <img
-        src={promo}
-        alt="Спираль"
-        title="Спираль"
-        className="Promo__img"
-      ></img>
-    </section>
+    <div className="Promo__background">
+      <section className="Promo">
+        <h1 className="Promo__title">
+          Учебный проект студента факультета Веб&#8209;разработки.
+        </h1>
+        <img
+          src={promo}
+          alt="Спираль"
+          title="Спираль"
+          className="Promo__img"
+        ></img>
+      </section>
+    </div>
   );
 }
 

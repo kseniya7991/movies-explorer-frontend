@@ -1,29 +1,35 @@
 .Promo {
-    background-color: #073042;
     position: relative;
-    top: 0;
     z-index: 0;
-    min-width: 320px;
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 142px 70px 40px 70px;
+
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    padding-bottom: 40px;
-    margin: 0;
-    padding: 134px 70px 60px 70px;
     justify-content: space-between;
+
+    overflow: hidden;
+}
+
+.Promo__background {
+    background-color: #073042;
     top: -80px;
+    position: relative;
 }
 
 .Promo__title{
-    padding-bottom: 100px;
     max-width: 624px;
+    margin: 0;
+    padding-bottom: 100px;
+    align-self: flex-start;
+
     color: #fff;
-    font-weight: normal;
     font-size: 40px;
     line-height: 52px;
-    margin: 0;
-    align-self: flex-start;
+    font-weight: normal;
     text-align: left;
+    word-wrap: break-word;
 }
 
 .Promo__img {
@@ -33,24 +39,22 @@
     align-self: flex-end;
 }
 
-@media screen and (max-width: 1000px) and (min-width: 769px) {
+@media screen and (max-width: 1000px) {
     .Promo {
         padding: 374px 44px 70px 44px;
     }
     .Promo__title{
         margin-top: -20%;
+        max-width: 100%;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .Promo {
-        padding: 374px 44px 70px 44px;
-    }
     .Promo__title{
-        text-align: center;
-        max-width: 100%;
         padding-bottom: 140px;
         margin-top: 0;
+        align-self: center;
+        text-align: center;
     }
     .Promo__img {
         align-self: center;
@@ -59,23 +63,29 @@
 
 @media screen and (max-width: 500px) and (min-width: 320px) {
     .Promo__title{
-        padding-top: 40vh;
+        padding-bottom: 20%;
         font-size: 9vw;
-        padding-right: 4vw;
-        padding-left: 4vw;
+        line-height: 12vw;
+    }
+    .Promo{
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 80%;
     }
 }
 
+@media screen and (max-width: 340px) {
+    .Promo__title{
+        max-width: 300px;
+    }
+}
 
 @media screen and (max-width: 320px) {
     .Promo {
-        padding-bottom: 40px;
-    }
-    .Promo__img {
-        left: -50%;
+        padding: 257px 10px 40px 10px;
     }
     .Promo__title{
-        padding: 255px 10px 60px 10px;
+        padding-bottom: 60px;
         font-size: 31px;
         line-height: 39px;
     }
