@@ -1,7 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
 
-import "./SavedMovies.css";
+import './SavedMovies.css';
 
 function SavedMovies() {
   return (

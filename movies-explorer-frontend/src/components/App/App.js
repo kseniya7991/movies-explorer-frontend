@@ -1,10 +1,10 @@
-import React from "react";
-import "./App.css";
-import { Switch, Route, Link } from "react-router-dom";
+import React from 'react';
+import './App.css';
+import { Route } from 'react-router-dom';
 
-//Импорт компонентов
-import Header from "../Header/Header";
-import Main from "../Main/Main";
+// Импорт компонентов
+import Header from '../Header/Header';
+import Main from '../Main/Main';
 /* import Movies from "../Movies";
 import SavedMovies from "../SavedMovies";
 import Profile from "../Profile";
@@ -19,7 +19,7 @@ function App() {
       <Route path="/">
         <Main />
       </Route>
-      {/*<Route path="/movies">
+      {/* <Route path="/movies">
         <Movies />
      </Route>
      <Route path="/saved-movies">

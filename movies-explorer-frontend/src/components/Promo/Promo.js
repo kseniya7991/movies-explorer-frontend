@@ -1,12 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import promo from "../../images/promo.svg";
+import React from 'react';
+import promo from '../../images/promo.svg';
 
-import "./Promo.css";
+import './Promo.css';
 
 function Promo() {
   return (
-    <div className="Promo__background">
       <section className="Promo">
         <h1 className="Promo__title">
           Учебный проект студента факультета Веб&#8209;разработки.
@@ -18,7 +16,6 @@ function Promo() {
           className="Promo__img"
         ></img>
       </section>
-    </div>
   );
 }
 

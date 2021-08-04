@@ -1,8 +1,7 @@
-import React from "react";
-import { Link, Switch } from "react-router-dom";
-import SignForm from "../SignForm";
+import React from 'react';
+import SignForm from '../SignForm/SignForm';
 
-import "./Register.css";
+import './Register.css';
 
 function Register() {
   return <SignForm />;

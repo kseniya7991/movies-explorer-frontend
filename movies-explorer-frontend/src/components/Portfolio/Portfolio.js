@@ -1,7 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
 
-import "./Portfolio.css";
+import './Portfolio.css';
 
 function Portfolio() {
   return (

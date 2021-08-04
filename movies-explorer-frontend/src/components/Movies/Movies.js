@@ -1,7 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
 
-import "./Footer.css";
+import './Movies.css';
 
 function Movies() {
   return <div></div>;

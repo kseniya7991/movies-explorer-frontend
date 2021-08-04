@@ -3,19 +3,15 @@
     z-index: 0;
     margin: 0 auto;
     max-width: 1280px;
-    padding: 142px 70px 40px 70px;
+    padding: 50px 70px 40px 70px;
+
+    background-color: #073042;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     overflow: hidden;
-}
-
-.Promo__background {
-    background-color: #073042;
-    top: -80px;
-    position: relative;
 }
 
 .Promo__title{
@@ -33,15 +29,15 @@
 }
 
 .Promo__img {
-    height: 230px;
+    height: 244px;
     width: 722px;
     position: relative;
     align-self: flex-end;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
     .Promo {
-        padding: 374px 44px 70px 44px;
+        padding: 300px 44px 70px 44px;
     }
     .Promo__title{
         margin-top: -20%;
@@ -58,10 +54,11 @@
     }
     .Promo__img {
         align-self: center;
+        height: 230px;
     }
 }
 
-@media screen and (max-width: 500px) and (min-width: 320px) {
+@media screen and (max-width: 480px) and (min-width: 320px) {
     .Promo__title{
         padding-bottom: 20%;
         font-size: 9vw;
@@ -82,7 +79,7 @@
 
 @media screen and (max-width: 320px) {
     .Promo {
-        padding: 257px 10px 40px 10px;
+        padding: 183px 10px 40px 10px;
     }
     .Promo__title{
         padding-bottom: 60px;

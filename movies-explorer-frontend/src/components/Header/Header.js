@@ -1,12 +1,12 @@
-import React from "react";
-import logo from "../../images/logo.svg";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../images/logo.svg';
 
-import "./Header.css";
+import './Header.css';
 
 function Header() {
   return (
-    <header className="Header">
+    <header className="Header Header_promo">
       <Link to="/">
         <img className="Header__logo" src={logo} alt="Фильмы" title="Фильмы" />
       </Link>
