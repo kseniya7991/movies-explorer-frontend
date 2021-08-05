@@ -1,12 +1,9 @@
 .AboutProject {
     padding: 110px 70px;
-}
+    margin: 0 auto;
+    max-width: 1280px;
 
-.AboutProject__title {
-    margin: 0;
-    padding-bottom: 23px;
-
-    font-weight: normal;
+    font-family: 'Inter', Arial, sans-serif;
 }
 
 .AboutProject__text-block {
@@ -98,10 +95,6 @@
         grid-row-gap: 22px;
         padding-bottom: 93px;
     }
-    .AboutProject__description {
-        font-size: 12px;
-        line-height: 18px;
-    }
 }
 
 @media screen and (max-width: 767px) and (min-width: 481px){
@@ -149,10 +142,6 @@
     .AboutProject__subtitle {
         font-size: 18px;
         line-height: 22px;
-    }
-    .AboutProject__description {
-        font-size: 11px;
-        line-height: 16px;
     }
 
 }
