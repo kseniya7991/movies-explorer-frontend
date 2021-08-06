@@ -20,7 +20,7 @@
     font-size: 50px;
     line-height: 58px;
 
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 }
 
 .resume__profession {
@@ -28,7 +28,7 @@
     font-size: 18px;
     line-height: 20px;
 
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 }
 
 .resume__about {
@@ -36,7 +36,7 @@
     font-size: 14px;
     line-height: 22px;
     text-overflow: clip;
-    padding-bottom: 15px;
+    padding-bottom: 40px;
 }
 
 .resume__links {
@@ -104,6 +104,9 @@
 }
 
 @media screen and (max-width: 768px) {
+    .AboutMe {
+        padding: 90px 50px;
+    }
     .resume__name {
         font-size: 40px;
         line-height: 40px;
@@ -129,6 +132,9 @@
 }
 
 @media screen and (max-width: 480px) {
+    .AboutMe {
+        padding: 70px 14px;
+    }
     .AboutMe__resume {
         grid-template-columns: 1fr;
     
