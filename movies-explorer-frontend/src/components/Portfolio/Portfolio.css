@@ -1,5 +1,74 @@
+@import url();
+
 .Portfolio {
-    padding: 110px 70px 125px 70px;
-    margin: 0 auto;
-    max-width: 1280px;
+    font-family: 'Inter', Arial, sans-serif;
 }
+
+.Portfolio__title {
+    font-size: 18px;
+    line-height: 20px;
+    color: #8B8B8B;
+    font-style: normal;
+    font-weight: normal;
+
+    padding-bottom: 30px;
+    margin: 0;
+}
+
+.Portfolio__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Portfolio__list-item {
+    font-size: 30px;
+    line-height: 50px;
+
+    padding-bottom: 19px;
+    padding-top: 20px;
+    border-bottom: 1px solid #fff;
+    padding-right: 25px;
+
+    position: relative;
+}
+
+.Portfolio__list-item::after {
+    content: '';
+    background: url('../../images/arrow.svg');
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: auto;
+    width: 25px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+@media screen and (max-width: 768px) {
+    .Portfolio__list-item {
+        font-size: 28px;
+        line-height: 50px;
+    }
+    .Portfolio__list-item::after {
+        width: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Portfolio__title {
+        font-size: 14px;
+        line-height: 20px;
+        padding-bottom: 20px;
+    }
+    .Portfolio__list-item {
+        font-size: 18px;
+        line-height: 28px;
+    }  
+    .Portfolio__list-item::after {
+        width: 15px;
+    }
+}
+

@@ -4,6 +4,7 @@ import './AboutMe.css';
 import '../Main/Main.css';
 
 import photo from '../../images/profile-photo.jpg';
+import Portfolio from '../Portfolio/Portfolio';
 
 function AboutMe() {
   return (
@@ -26,10 +27,7 @@ function AboutMe() {
           <li className="resume__links-item">LinkedIn</li>
         </ul>
       </div>
-        <ul>
-          <li></li>
-          <li></li>
-        </ul>
+    <Portfolio />
     </section>
   );
 }
