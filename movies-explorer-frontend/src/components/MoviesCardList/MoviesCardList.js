@@ -1,12 +1,13 @@
 import React from 'react';
 
 import './MoviesCardList.css';
+import MoviesCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList() {
   return (
-    <section className="MoviesCardList">
-      <button type="button">Еще</button>
-    </section>
+    <ul className="MoviesCardList">
+      <MoviesCard />
+    </ul>
   );
 }
 
