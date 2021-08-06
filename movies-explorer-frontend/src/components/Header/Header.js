@@ -6,10 +6,13 @@ import './Header.css';
 
 function Header() {
   return (
-    <header className="Header Header_promo">
+    <header className="Header">
+{/*     <header className="Header Header_promo"> */}
       <Link to="/">
         <img className="Header__logo" src={logo} alt="Фильмы" title="Фильмы" />
       </Link>
+
+{/*       Блок для неавторизованного пользователя */}
       <div className="Header__sign-wrap">
         <Link className="Header__signup" to="signup">
           Регистрация
@@ -18,6 +21,9 @@ function Header() {
           Войти
         </Link>
       </div>
+
+{/*       Блок для авторизованного пользователя */}
+
     </header>
   );
 }
