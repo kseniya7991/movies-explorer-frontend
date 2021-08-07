@@ -1,0 +1,94 @@
+/* Переключатель */
+
+.FilterCheckbox {
+  display: flex;
+  margin-top: 30px;
+}
+
+.FilterCheckbox__switch-description {
+  font-size: 13px;
+  line-height: 18px;
+
+  margin: 0 14px;
+}
+
+.FilterCheckbox__switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.FilterCheckbox__checkbox {
+  display: none;
+}
+
+.FilterCheckbox__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3ddc84;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+
+.FilterCheckbox__slider::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  right: 6px;
+  top: 6px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+
+  border-radius: 50%;
+}
+
+.FilterCheckbox__checkbox:checked + .FilterCheckbox__slider {
+  background-color: #ccc;
+}
+
+.FilterCheckbox__checkbox:focus + .FilterCheckbox__slider {
+  box-shadow: 0 0 1px #ccc;
+}
+
+.FilterCheckbox__checkbox:checked + .FilterCheckbox__slider:before {
+  -webkit-transform: translateX(-16px);
+  -ms-transform: translateX(-16px);
+  transform: translateX(-16px);
+}
+
+@media screen and (max-width: 768px) {
+  .FilterCheckbox {
+    flex-direction: row-reverse;
+  }
+  .FilterCheckbox__switch-description {
+    margin: 0 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .FilterCheckbox__search {
+    line-height: 18px;
+    font-size: 18px;
+  }
+  .FilterCheckbox__search::placeholder {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .FilterCheckbox {
+    justify-content: center;
+    margin-top: 41px;
+  }
+  .FilterCheckbox__search::placeholder {
+    font-size: 18px;
+  }
+}
