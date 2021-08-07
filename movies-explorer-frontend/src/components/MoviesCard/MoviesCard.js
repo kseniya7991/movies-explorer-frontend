@@ -12,7 +12,7 @@ function MoviesCard() {
           <p className="MoviesCard__time">27 минут</p>
         </div>
         <img className="MoviesCard__image" src={film}></img>
-        <button className="MoviesCard__button-save" type="button">Сохранить</button>
+        <button className="MoviesCard__button-save MoviesCard__button-save_active" type="button">&#10003;</button>
       </li>
 
       <li className="MoviesCard">
@@ -30,7 +30,7 @@ function MoviesCard() {
           <p className="MoviesCard__time">27 минут</p>
         </div>
         <img className="MoviesCard__image" src={film}></img>
-        <button className="MoviesCard__button-save" type="button">Сохранить</button>
+        <button className="MoviesCard__button-save MoviesCard__button-save_active" type="button">&#10003;</button>
       </li>
 
       <li className="MoviesCard">
@@ -48,7 +48,7 @@ function MoviesCard() {
           <p className="MoviesCard__time">27 минут</p>
         </div>
         <img className="MoviesCard__image" src={film}></img>
-        <button className="MoviesCard__button-save" type="button">Сохранить</button>
+        <button className="MoviesCard__button-save MoviesCard__button-save_active" type="button">&#10003;</button>
       </li>
     </>
   );

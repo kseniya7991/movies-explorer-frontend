@@ -1,64 +1,83 @@
 .MoviesCard {
-    background-color: #222222;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-/*     min-width: 300px;
-    min-height: 271px;
-    max-width: 360px;
-    max-height: 320px; */
+  background-color: #222222;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
 }
 
 .MoviesCard__title-wrap {
-    padding: 18px;
+  padding: 18px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
 
-    font-family: "Inter", Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
 }
 
 .MoviesCard__title {
-    margin: 0;
+  margin: 0;
 
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 18px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+
+  padding-right: 10px;
 }
 
 .MoviesCard__time {
-    margin: 0;
+  margin: 0;
 
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 18px;
-    color: #8B8B8B;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;
+  color: #8b8b8b;
 }
 
 .MoviesCard__image {
-    object-fit: cover;
-    min-width: 100%;
-    min-height: 168px;
-    max-height: 200px;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 168px;
+  max-height: 200px;
 }
 
 .MoviesCard__button-save {
-    margin: 18px 0;
-    padding: 9px 15px;
+  width: 100px;
+  height: 29px;
+  margin: 18px 0;
+  padding: 9px;
 
-    background-color: #313131;
+  background-color: #313131;
 
-    font-weight: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 11px;
+  text-align: center;
+  color: #fff;
+
+  border: 0;
+  border-radius: 30px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.MoviesCard__button-save_active {
+  background-color: #ee3465;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 320px) {
+  .MoviesCard__title {
     font-size: 12px;
-    line-height: 11px;
-    text-align: center;
-    color: #fff;
+  }
 
-    border: 0;
-    border-radius: 30px;
+  .MoviesCard__time {
+    font-size: 10px;
+  }
 }
