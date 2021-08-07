@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   color: #fff;
 }
 
@@ -43,6 +44,27 @@
   min-width: 100%;
   min-height: 168px;
   max-height: 200px;
+}
+
+.MoviesCard__image::before {
+  content: "Ой, кажется мы потеряли картинку. Скоро ее найдем :)";
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 25px;
+  color: #fff;
+  display: block;
+  text-align: center;
+  padding-top: 30%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.MoviesCard__image::after {
+  content: "";
+  display: block;
+  padding-bottom: 25%;
 }
 
 .MoviesCard__button-save {
