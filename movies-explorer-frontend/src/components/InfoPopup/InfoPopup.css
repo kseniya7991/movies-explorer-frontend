@@ -1,0 +1,22 @@
+.InfoPopup {
+  position: fixed;
+  z-index: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  background-color: #202020;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  -webkit-transition-duration: 0.5s, 0s;
+  -o-transition-duration: 0.5s, 0s;
+  transition-duration: 0.5s, 0s;
+  -webkit-transition-delay: 0s, 0s;
+  -o-transition-delay: 0s, 0s;
+  transition-delay: 0s, 0s;
+}

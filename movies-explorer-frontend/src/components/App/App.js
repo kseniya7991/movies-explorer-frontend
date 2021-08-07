@@ -7,24 +7,34 @@ import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import Movies from '../Movies/Movies';
+import Login from '../Login/Login';
 /* import SavedMovies from "../SavedMovies";
 import Profile from "../Profile";
-import Login from "../Login";
 import Register from "../Register"; */
+import InfoPopup from '../InfoPopup/InfoPopup';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+       <InfoPopup />
       <Switch>
-         <Route path="/movies">
-            <Movies />
-         </Route>
-         <Route path="/">
-            <Main />
-         </Route>
+        <Route path="/movies">
+          <Header />
+          <Movies />
+          <Footer />
+        </Route>
+        <Route exact path="/">
+          <Header />
+          <Main />
+          <Footer />
+        </Route>
       </Switch>
-      <Footer />
+
+      <Switch>
+        <Route path="/signin">
+          <Login />
+        </Route>
+      </Switch>
       {/* <Route path="/movies">
         <Movies />
      </Route>
