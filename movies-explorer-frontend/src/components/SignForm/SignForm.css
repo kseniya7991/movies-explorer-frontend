@@ -51,6 +51,11 @@
   padding-bottom: 65px;
 }
 
+.SignForm__inputs-block {
+  display: flex;
+  flex-direction: column;
+}
+
 .SignForm__buttons {
   display: flex;
   flex-direction: column;
@@ -71,6 +76,10 @@
   font-size: 14px;
   line-height: 17px;
   font-weight: normal;
+}
+
+.SignForm_disabled {
+  display: none;
 }
 
 .SignForm__input-text:focus {
@@ -120,5 +129,8 @@
   }
   .SignForm {
     width: 100%;
+  }
+  .logo_sign {
+    align-self: center;
   }
 }

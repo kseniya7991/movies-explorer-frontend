@@ -8,9 +8,10 @@ import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import Movies from '../Movies/Movies';
 import Login from '../Login/Login';
-/* import SavedMovies from "../SavedMovies";
-import Profile from "../Profile";
-import Register from "../Register"; */
+/* import Profile from "../Profile";
+import SavedMovies from "../SavedMovies";
+import Profile from "../Profile"; */
+import Register from '../Register/Register';
 import InfoPopup from '../InfoPopup/InfoPopup';
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
       </Switch>
 
       <Switch>
+        <Route path="/signup">
+          <Register />
+        </Route>
         <Route path="/signin">
           <Login />
         </Route>
