@@ -83,22 +83,31 @@ import './Profile.css';
 function Profile() {
   return (
     <section className="Profile">
-    <form className="Profile__form">
-      <h2 className="Profile__title">Привет!</h2>
-      <div className="Profile__inputs-block">
-        <label htmlFor="password" className="Profile__label">
-          Имя
-        </label>
-        <input className="Profile__input" type="text"></input>
-      </div>
-      <div className="Profile__inputs-block">
-        <label htmlFor="password" className="Profile__label">
-          E-mail
-        </label>
-        <input className="Profile__input" type="email"></input>
-      </div>
-      <button className="Profile__submit-btn" type="submit">Редактировать</button>
-    </form>
+      <form className="Profile__form">
+        <div>
+          <h2 className="Profile__title">Привет!</h2>
+          <div className="Profile__inputs-block">
+            <label htmlFor="password" className="Profile__label">
+              Имя
+            </label>
+            <input className="Profile__input" type="text"></input>
+          </div>
+          <div className="Profile__inputs-block">
+            <label htmlFor="password" className="Profile__label">
+              E-mail
+            </label>
+            <input className="Profile__input" type="email"></input>
+          </div>
+        </div>
+        <div>
+          <button className="Profile__submit-btn" type="submit">
+            Редактировать
+          </button>
+          <button className="Profile__logout-btn" type="button">
+            Выйти из аккаунта
+          </button>
+        </div>
+      </form>
     </section>
   );
 }
