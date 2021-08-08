@@ -9,25 +9,38 @@ import Footer from '../Footer/Footer';
 import Movies from '../Movies/Movies';
 import Login from '../Login/Login';
 /* import Profile from "../Profile";
-import SavedMovies from "../SavedMovies";
-import Profile from "../Profile"; */
+import SavedMovies from "../SavedMovies"; */
+import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import InfoPopup from '../InfoPopup/InfoPopup';
 
 function App() {
+/*   const [loggedIn, setLoggedIn] = useState(true);
+
+  function handleLoggedIn() {
+    setLoggedIn(!loggedIn);
+  }
+
+  console.log(handleLoggedIn); */
+
   return (
     <div className="App">
        <InfoPopup />
+
       <Switch>
         <Route path="/movies">
-          <Header />
+        <Header />
           <Movies />
           <Footer />
         </Route>
         <Route exact path="/">
-          <Header />
+        <Header />
           <Main />
           <Footer />
+        </Route>
+        <Route path="/profile">
+          <Header />
+          <Profile />
         </Route>
       </Switch>
 

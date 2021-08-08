@@ -5,6 +5,9 @@ import logo from '../../images/logo.svg';
 import './Header.css';
 
 function Header() {
+/*   if (!isLogged) {
+    return null;
+  } */
   return (
     <header className="Header">
 {/*     <header className="Header Header_promo"> */}

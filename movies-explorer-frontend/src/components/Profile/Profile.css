@@ -1,0 +1,173 @@
+.Profile {
+}
+
+.Profile__form {
+  height: 100vh;
+  width: 410px;
+  margin: 0 auto;
+  padding: 74px 0 70px 0;
+
+  font-family: "Inter", Arial, sans-serif;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.Profile__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+
+  text-align: center;
+
+  padding-bottom: 123px;
+  margin: 0;
+}
+
+.Profile__label {
+  width: 10%;
+  font-size: 10px;
+  line-height: 12px;
+  padding-bottom: 5px;
+
+  color: #fff;
+}
+
+.Profile__submit-btn {
+  justify-self: end;
+}
+
+.SignForm__inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  padding-bottom: 65px;
+}
+
+.Profile__inputs-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  position: relative;
+  padding-bottom: 13px;
+  margin-bottom: 17px;
+
+  border-bottom: 1px solid #424242;
+}
+
+.Profile__inputs-block:focus-within {
+  border-bottom: 1px solid #c7c7c7;
+  transition: 0.7s;
+}
+
+.Profile__inputs-block:last-of-type {
+  border: 1px solid transparent;
+}
+
+.Profile__inputs-block:last-of-type:focus-within {
+  border-bottom: 1px solid #c7c7c7;
+  transition: 0.7s;
+}
+
+.SignForm__password_unvisible {
+  background-image: url("../../images/unvisible.png");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: center;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 13px;
+  right: 5px;
+}
+
+.SignForm__password_visible {
+  background-image: url("../../images/visible.png");
+}
+
+.SignForm__buttons {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 70px;
+}
+
+.Profile__input {
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  width: 80%;
+
+  font-family: "Inter", Arial, sans-serif;
+  color: #fff;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: normal;
+  text-align: right;
+}
+
+.SignForm_disabled {
+  display: none;
+}
+
+.SignForm__input-text:focus {
+  border-bottom: 1px solid #c7c7c7;
+  transition: 0.7s;
+}
+
+.SignForm__register-btn {
+  background-color: #4285f4;
+
+  font-family: "Inter", Arial, sans-serif;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+
+  padding: 13px;
+  margin-bottom: 16px;
+  border-radius: 3px;
+  border: 0;
+
+  cursor: pointer;
+}
+
+.SignForm__text {
+  margin: 0;
+
+  font-family: "Inter", Arial, sans-serif;
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8b8b8b;
+}
+
+.SignForm__link {
+  text-decoration: none;
+  color: #4285f4;
+}
+
+@media screen and (max-width: 480px) {
+  .SignForm__block {
+    width: 80%;
+    padding: 56px 0 30px 0;
+  }
+  .SignForm {
+    width: 100%;
+  }
+  .logo_sign {
+    align-self: center;
+  }
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './SignForm.css';
@@ -7,6 +7,12 @@ import logo from '../../images/logo.svg';
 function SignForm({
   name, title, buttonValue, text, linkText,
 }) {
+  const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+
+  function onShowPassword() {
+    setIsVisiblePassword(!isVisiblePassword);
+  }
+
   return (
     <div className="SignForm__block">
       <form className="SignForm">
@@ -51,9 +57,16 @@ function SignForm({
             </label>
             <input
               className="SignForm__input-text"
-              type="password"
+              type={`${isVisiblePassword ? 'text' : 'password'}`}
               id="password"
             ></input>
+            <button
+              className={`SignForm__password_unvisible ${
+                isVisiblePassword ? 'SignForm__password_visible' : ''
+              }`}
+              onClick={onShowPassword}
+              type="button"
+            />
           </div>
         </section>
 
