@@ -4,18 +4,16 @@ import logo from '../../images/logo.svg';
 
 import './Header.css';
 
-function Header() {
-/*   if (!isLogged) {
-    return null;
-  } */
+function Header({ children, isLogged }) {
   return (
-    <header className="Header">
+    <header className={`Header ${isLogged ? 'Header_disabled' : ''}`}>
 {/*     <header className="Header Header_promo"> */}
       <Link to="/">
         <img className="Header__logo" src={logo} alt="Фильмы" title="Фильмы" />
       </Link>
+      {children}
 
-{/*       Блок для неавторизованного пользователя */}
+{/*     Блок для неавторизованного пользователя
       <div className="Header__sign-wrap">
         <Link className="Header__signup" to="signup">
           Регистрация
@@ -25,7 +23,7 @@ function Header() {
         </Link>
       </div>
 
-{/*       Блок для авторизованного пользователя */}
+      Блок для авторизованного пользователя  */}
 
     </header>
   );

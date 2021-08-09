@@ -12,6 +12,10 @@
   font-family: "Inter", Arial, sans-serif;
 }
 
+.Header_disabled {
+  display: none;
+}
+
 .Header_promo {
   background-color: #073042;
 }
@@ -19,32 +23,6 @@
 .Header__logo {
   width: 38px;
   height: 38px;
-}
-
-.Header__sign-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-.Header__signup {
-  padding-right: 30px;
-
-  text-decoration: none;
-  color: #fff;
-}
-
-.Header__signin {
-  padding: 8px 20px;
-
-  color: #000;
-  background-color: #3ddc84;
-  text-decoration: none;
-  line-height: normal;
-
-  border: none;
-  border-radius: 3px;
 }
 
 @media screen and (max-width: 767px) and (min-width: 480px) {
@@ -57,11 +35,5 @@
   .Header {
     padding: 18px 14px;
     font-size: 10px;
-  }
-  .Header__signup {
-    padding-right: 14px;
-  }
-  .Header__signin {
-    padding: 5px 12px;
   }
 }
