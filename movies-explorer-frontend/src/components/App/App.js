@@ -12,15 +12,14 @@ import Movies from '../Movies/Movies';
 import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
-/* import Profile from '../Profile/Profile'; */
 import Register from '../Register/Register';
 import InfoPopup from '../InfoPopup/InfoPopup';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
-import HeaderUnauth from '../Header/HeaderUnauth/HeaderUnauth';
+/* import HeaderUnauth from '../Header/HeaderUnauth/HeaderUnauth'; */
 import HeaderAuth from '../Header/HeaderAuth/HeaderAuth';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   /*   const history = useHistory();
 
   useEffect(() => {
@@ -42,41 +41,24 @@ function App() {
       <Switch>
         <Route exact path={['/movies', '/saved-movies', '/profile', '/']}>
           <Header isLogged={loggedIn}>
-            <ProtectedRoute exact path="/" component={HeaderUnauth} loggedIn={loggedIn} name="unauth"/>
-           <ProtectedRoute
-              exact
-              path={['/movies', '/saved-movies', '/profile']}
-              component={HeaderAuth}
-              loggedIn={loggedIn}
-            />
+            <ProtectedRoute
+                 exact
+                 path={['/movies', '/saved-movies', '/profile', '/']}
+                 component={HeaderAuth}
+                 loggedIn={loggedIn}
+               />
 
           </Header>
         </Route>
       </Switch>
 
       <Switch>
-        <Route path="/movies">
-          <Header />
-          <Movies />
-          <Footer />
-        </Route>
-        <Route path="/saved-movies">
-          <Header />
-          <SavedMovies />
-          <Footer />
-        </Route>
+        <ProtectedRoute path="/movies" loggedIn={loggedIn} component={Movies} />
+        <ProtectedRoute path="/saved-movies" loggedIn={loggedIn} component={SavedMovies} />
         <Route exact path="/">
-          <Header />
-          <Main />
-          <Footer />
+        <Main />
         </Route>
-        <Route path="/profile">
-          <Header />
-          <Profile />
-        </Route>
-      </Switch>
-
-      <Switch>
+        <ProtectedRoute path="/profile" loggedIn={loggedIn} component={Profile} />
         <Route path="/signup">
           <Register />
         </Route>
@@ -87,6 +69,11 @@ function App() {
           <NotFoundPage />
         </Route>
       </Switch>
+
+      <Route exact path={['/movies', '/saved-movies', '/']}>
+        <Footer />
+      </Route>
+
       {/* <Route path="/movies">
         <Movies />
      </Route>
