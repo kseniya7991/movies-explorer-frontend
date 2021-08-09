@@ -8,11 +8,12 @@ import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import Movies from '../Movies/Movies';
 import Login from '../Login/Login';
-/* import Profile from "../Profile";
-import SavedMovies from "../SavedMovies"; */
+/* import Profile from "../Profile"; */
+import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import InfoPopup from '../InfoPopup/InfoPopup';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 function App() {
 /*   const [loggedIn, setLoggedIn] = useState(true);
@@ -29,8 +30,13 @@ function App() {
 
       <Switch>
         <Route path="/movies">
-        <Header />
+          <Header />
           <Movies />
+          <Footer />
+        </Route>
+        <Route path="/saved-movies">
+          <Header />
+          <SavedMovies />
           <Footer />
         </Route>
         <Route exact path="/">
@@ -50,6 +56,9 @@ function App() {
         </Route>
         <Route path="/signin">
           <Login />
+        </Route>
+        <Route path="/*">
+          <NotFoundPage />
         </Route>
       </Switch>
       {/* <Route path="/movies">

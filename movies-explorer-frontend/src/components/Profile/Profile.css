@@ -121,11 +121,6 @@
   text-align: right;
 }
 
-@media screen and (max-width: 768px) {
-  .Profile {
-  }
-}
-
 @media screen and (max-width: 480px) {
   .Profile {
     width: 80%;
