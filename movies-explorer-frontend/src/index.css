@@ -6,8 +6,15 @@ body {
   min-width: 320px;
   font-family: "Inter", Arial, sans-serif;
   position: relative;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  color: #fff;
+}
+
+@media screen and (min-width: 1280px) {
+  body {
+    margin: 0 auto;
+  }
 }

@@ -24,7 +24,7 @@ function App() {
   console.log(handleLoggedIn); */
 
   return (
-    <div className="App">
+    <div>
        <InfoPopup />
 
       <Switch>

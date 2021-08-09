@@ -14,8 +14,8 @@ function SignForm({
   }
 
   return (
-    <div className="SignForm__block">
-      <form className="SignForm">
+    <section className="SignForm">
+      <form className="SignForm__form">
         <img
           className="Header__logo logo_sign"
           src={logo}
@@ -90,7 +90,7 @@ function SignForm({
         </section>
       </form>
       <p></p>
-    </div>
+    </section>
   );
 }
 
