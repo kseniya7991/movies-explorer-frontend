@@ -1,91 +1,89 @@
 .Promo {
-    position: relative;
-    z-index: 0;
-    margin: 0 auto;
-    max-width: 1280px;
-    padding: 50px 70px 40px 70px;
+  position: relative;
+  z-index: 0;
+  padding: 50px 70px 40px 70px;
 
-    background-color: #073042;
+  background-color: #073042;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
 }
 
-.Promo__title{
-    max-width: 624px;
-    margin: 0;
-    padding-bottom: 100px;
-    align-self: flex-start;
+.Promo__title {
+  max-width: 624px;
+  margin: 0;
+  padding-bottom: 100px;
+  align-self: flex-start;
 
-    color: #fff;
-    font-size: 40px;
-    line-height: 52px;
-    font-weight: normal;
-    text-align: left;
-    word-wrap: break-word;
+  color: #fff;
+  font-size: 40px;
+  line-height: 52px;
+  font-weight: normal;
+  text-align: left;
+  word-wrap: break-word;
 }
 
 .Promo__img {
-    height: 244px;
-    width: 722px;
-    position: relative;
-    align-self: flex-end;
+  height: 244px;
+  width: 722px;
+  position: relative;
+  align-self: flex-end;
 }
 
 @media screen and (max-width: 1024px) {
-    .Promo {
-        padding: 300px 44px 70px 44px;
-    }
-    .Promo__title{
-        margin-top: -20%;
-        max-width: 100%;
-    }
+  .Promo {
+    padding: 300px 44px 70px 44px;
+  }
+  .Promo__title {
+    margin-top: -20%;
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .Promo__title{
-        padding-bottom: 140px;
-        margin-top: 0;
-        align-self: center;
-        text-align: center;
-    }
-    .Promo__img {
-        align-self: center;
-        height: 230px;
-    }
+  .Promo__title {
+    padding-bottom: 140px;
+    margin-top: 0;
+    align-self: center;
+    text-align: center;
+  }
+  .Promo__img {
+    align-self: center;
+    height: 230px;
+  }
 }
 
 @media screen and (max-width: 480px) and (min-width: 320px) {
-    .Promo__title{
-        padding-bottom: 20%;
-        font-size: 9vw;
-        line-height: 12vw;
-    }
-    .Promo{
-        padding-right: 10px;
-        padding-left: 10px;
-        padding-top: 80%;
-    }
+  .Promo__title {
+    padding-bottom: 20%;
+    font-size: 9vw;
+    line-height: 12vw;
+  }
+  .Promo {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 80%;
+  }
 }
 
 @media screen and (max-width: 340px) {
-    .Promo__title{
-        max-width: 300px;
-    }
+  .Promo__title {
+    max-width: 300px;
+  }
 }
 
 @media screen and (max-width: 320px) {
-    .Promo {
-        padding: 183px 10px 40px 10px;
-    }
-    .Promo__title{
-        padding-bottom: 60px;
-        font-size: 31px;
-        line-height: 39px;
-    }
+  .Promo {
+    padding: 183px 10px 40px 10px;
+  }
+  .Promo__title {
+    padding-bottom: 60px;
+    font-size: 31px;
+    line-height: 39px;
+  }
 }

@@ -1,151 +1,149 @@
 .AboutMe {
-    padding: 110px 70px 125px 70px;
-    margin: 0 auto;
-    max-width: 1280px;
+  padding: 110px 70px 125px 70px;
+  max-width: 1280px;
 }
 
 .AboutMe__resume {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: min-content min-content min-content 1fr;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: min-content min-content min-content 1fr;
 
-    padding: 66px 0px 100px 0px;
-    grid-column-gap: 270px;
+  padding: 66px 0px 100px 0px;
+  grid-column-gap: 270px;
 
-    font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
 }
 
 .resume__name {
-    margin: 0;
-    font-size: 50px;
-    line-height: 58px;
+  margin: 0;
+  font-size: 50px;
+  line-height: 58px;
 
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .resume__profession {
-    margin: 0;
-    font-size: 18px;
-    line-height: 20px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 20px;
 
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .resume__about {
-    margin: 0;
-    font-size: 14px;
-    line-height: 22px;
-    text-overflow: clip;
-    padding-bottom: 40px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  text-overflow: clip;
+  padding-bottom: 40px;
 }
 
 .resume__links {
-    margin: 0;
-    font-size: 14px;
-    line-height: 17px;
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-start;
-    align-self: flex-end;
-    padding: 0;
-    font-style: normal;
-    font-weight: normal;
+  margin: 0;
+  font-size: 14px;
+  line-height: 17px;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-end;
+  padding: 0;
+  font-style: normal;
+  font-weight: normal;
 }
 
 .resume__links-item {
-    padding-right: 20px;
+  padding-right: 20px;
 }
 
 .resume__links-item:last-child {
-    padding-right: 0;
+  padding-right: 0;
 }
 
 .resume__image {
-    border-radius: 10px;
-    height: 100%;
-    width: 90%;
-    align-self: center;
-    object-fit: cover;
-    grid-row: 1 / 5;
-    grid-column: 2 / 3;
+  border-radius: 10px;
+  height: 100%;
+  width: 90%;
+  align-self: center;
+  object-fit: cover;
+  grid-row: 1 / 5;
+  grid-column: 2 / 3;
 }
 
 @media screen and (max-width: 1279px) {
-    .AboutMe__resume {
-        grid-column-gap: 10vw;
-    }
-    .resume__name {
-        font-size: 4vw;
-        line-height: 4vw;
-    }
-    .resume__profession {
-        font-size: 1.3vw;
-        line-height: 1.3vw;
-    }
-    .resume__about {
-        font-size: 1.3vw;
-        line-height: 1.9vw;
-    }
+  .AboutMe__resume {
+    grid-column-gap: 10vw;
+  }
+  .resume__name {
+    font-size: 4vw;
+    line-height: 4vw;
+  }
+  .resume__profession {
+    font-size: 1.3vw;
+    line-height: 1.3vw;
+  }
+  .resume__about {
+    font-size: 1.3vw;
+    line-height: 1.9vw;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-    .resume__name {
-        font-size: 40px;
-        line-height: 40px;
-    }
-    .resume__profession {
-        font-size: 12px;
-        line-height: 18px;  
-    }
-    .resume__about {
-        font-size: 12px;
-        line-height: 18px;  
-    }
+  .resume__name {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .resume__profession {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .resume__about {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .AboutMe {
-        padding: 90px 50px;
-    }
-    .resume__name {
-        font-size: 40px;
-        line-height: 40px;
-    }
-    .resume__profession {
-        font-size: 12px;
-        line-height: 18px;  
-    }
-    .resume__about {
-        font-size: 12px;
-        line-height: 18px;  
-    }
-    .resume__image {
-        height: 60%;
-        width: 100%;
-    }
+  .AboutMe {
+    padding: 90px 50px;
+  }
+  .resume__name {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .resume__profession {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .resume__about {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .resume__image {
+    height: 60%;
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .AboutMe__resume {
-        grid-column-gap: 4vw;
-    }
+  .AboutMe__resume {
+    grid-column-gap: 4vw;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .AboutMe {
-        padding: 70px 14px;
-    }
-    .AboutMe__resume {
-        grid-template-columns: 1fr;
-    
-        padding: 60px 0px 70px 0px;
-    }
-    .resume__image {
-        width: 100%;
-        height: 90%;
-        margin: 0 auto;
-        grid-area: 1 / 1 / 2 / 2;
-        align-self: flex-start;
-    }
-}
+  .AboutMe {
+    padding: 70px 14px;
+  }
+  .AboutMe__resume {
+    grid-template-columns: 1fr;
 
+    padding: 60px 0px 70px 0px;
+  }
+  .resume__image {
+    width: 100%;
+    height: 90%;
+    margin: 0 auto;
+    grid-area: 1 / 1 / 2 / 2;
+    align-self: flex-start;
+  }
+}

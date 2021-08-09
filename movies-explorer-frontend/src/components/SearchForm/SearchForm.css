@@ -1,9 +1,6 @@
 .SearchForm {
   padding: 70px 70px 50px 70px;
   font-family: "Inter", Arial, sans-serif;
-
-  margin: 0 auto;
-  max-width: 1280px;
 }
 
 .SearchForm__search {
@@ -68,109 +65,14 @@
   background-position: center;
 }
 
-.SerchForm__switch-wrap {
-    display: flex;
-    margin-top: 30px;
-}
-
-.SearchForm__switch-description {
-    font-size: 13px;
-    line-height: 18px;
-
-    margin: 0 14px;
-}
-
-
-
-/* Переключатель */
-.SearchForm__switch-block {
-  position: relative;
-  display: inline-block;
-  width: 36px;
-  height: 20px;
-
-}
-
-.SearchForm__checkbox {
-  display: none;
-}
-
-.SearchForm__slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #3DDC84;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  border-radius: 20px;
-}
-
-.SearchForm__slider::before {
-  position: absolute;
-  content: "";
-  height: 8px;
-  width: 8px;
-  right: 6px;
-  top: 6px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-
-  border-radius: 50%;
-}
-
-.SearchForm__checkbox:checked + .SearchForm__slider {
-    background-color: #ccc;
-  }
-
-.SearchForm__checkbox:focus + .SearchForm__slider {
-    box-shadow: 0 0 1px #ccc;
-  }
-
-.SearchForm__checkbox:checked + .SearchForm__slider:before {
-    -webkit-transform: translateX(-16px);
-    -ms-transform: translateX(-16px);
-    transform: translateX(-16px);
-}
-
-
 @media screen and (max-width: 768px) {
-    .SearchForm {
-        padding: 80px 30px 61px 30px;
-      }
-    .SerchForm__switch-wrap {
-        flex-direction: row-reverse;
-        margin-top: 30px;
-    }
-    .SearchForm__switch-description {
-        margin: 0 16px;
-    }
+  .SearchForm {
+    padding: 80px 30px 60px 30px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .SearchForm {
-        padding: 90px 14px 51px 14px;
-      }
-    .SearchForm__search {
-        line-height: 18px;
-        font-size: 18px;
-    }
-    .SearchForm__search::placeholder {
-        font-size: 22px;
-    }
-      
-}
-
-@media screen and (max-width: 320px) {
-    .SerchForm__switch-wrap {
-        justify-content: center;
-        margin-top: 41px;
-    }
-    .SearchForm__search::placeholder {
-        font-size: 18px;
-    }
-      
+  .SearchForm {
+    padding: 84px 14px 50px 14px;
+  }
 }

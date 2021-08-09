@@ -1,78 +1,81 @@
 .Footer {
-    padding: 80px 70px 20px 70px;
-    margin: 0 auto;
-    max-width: 1280px;
-
-    font-family: 'Inter', Arial, sans-serif;
+  padding: 80px 70px 20px 70px;
+  margin-top: auto;
+  font-family: "Inter", Arial, sans-serif;
 }
 
 .Footer__title {
-    margin: 0;
-    padding-bottom: 20px;
+  margin: 0;
+  padding-bottom: 20px;
 
-    text-align: center;
-    font-size: 13px;
-    line-height: 16px;
-    color: #8B8B8B;
+  text-align: center;
+  font-size: 13px;
+  line-height: 16px;
+  color: #8b8b8b;
 }
 
 .Main__line_footer {
-    background-color: #424242;
+  background-color: #424242;
 }
 
 .Footer__wrap-block {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    font-size: 13px;
-    line-height: 16px;
-    padding-top: 20px;
+  font-size: 13px;
+  line-height: 16px;
+  padding-top: 20px;
 }
 
 .Footer__nav {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .Footer__nav-item {
-    padding-right: 20px;
-    text-decoration: none;
-    color: #fff;
+  padding-right: 20px;
+  text-decoration: none;
+  color: #fff;
 }
 
 .Footer__nav-item:last-child {
-    padding-right: 0;
+  padding-right: 0;
 }
 
 .Footer__year {
-    margin: 0;
-    padding-right: 20px;
+  margin: 0;
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .Footer {
+    padding: 80px 30px 20px 30px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .Footer {
-        padding: 80px 10px 10px 10px;
-    }
-    .Footer__wrap-block {
-        flex-direction: column-reverse;
-        align-items: center;
-        padding-top: 30px;
-    }
-    .Footer__year {
-        color: #8B8B8B;
-        padding-right: 0;
-    }
-    .Footer__nav-item {
-        padding-right: 0;
-        padding-bottom: 12px;
-    }
-    .Footer__nav-item:last-child {
-        padding-bottom: 30px;
-    }
-    .Footer__nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
+  .Footer {
+    padding: 80px 10px 10px 10px;
+  }
+  .Footer__wrap-block {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-top: 30px;
+  }
+  .Footer__year {
+    color: #8b8b8b;
+    padding-right: 0;
+  }
+  .Footer__nav-item {
+    padding-right: 0;
+    padding-bottom: 12px;
+  }
+  .Footer__nav-item:last-child {
+    padding-bottom: 30px;
+  }
+  .Footer__nav {
+    flex-direction: column;
+    align-items: center;
+  }
 }
