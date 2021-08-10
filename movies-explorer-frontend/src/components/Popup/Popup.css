@@ -1,11 +1,12 @@
-.InfoPopup {
+.Popup {
   position: fixed;
-  z-index: -1;
+  z-index: 0;
   right: 0;
   bottom: 0;
   top: 0;
   left: 0;
   background-color: #202020;
+  opacity: 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
@@ -13,6 +14,18 @@
   -ms-flex-align: center;
   align-items: center;
 
+  visibility: hidden;
+  -webkit-transition-duration: 0.5s, 0s;
+  -o-transition-duration: 0.5s, 0s;
+  transition-duration: 1s, 0s;
+  -webkit-transition-delay: 0s, 0s;
+  -o-transition-delay: 0s, 0s;
+  transition-delay: 0s, 0s;
+}
+
+.Popup_opened {
+  visibility: visible;
+  opacity: 0.5;
   -webkit-transition-duration: 0.5s, 0s;
   -o-transition-duration: 0.5s, 0s;
   transition-duration: 0.5s, 0s;

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import './Portfolio.css';
 import '../Main/Main.css';
 
@@ -8,9 +8,9 @@ function Portfolio() {
     <section className="Portfolio">
       <h3 className="Portfolio__title">Портфолио</h3>
       <ul className="Portfolio__list">
-        <li className="Portfolio__list-item">Статичный сайт</li>
-        <li className="Portfolio__list-item">Адаптивный сайт</li>
-        <li className="Portfolio__list-item">Одностраничное приложение</li>
+      <Link className="Portfolio__list-link" to="https://kseniya7991.github.io/how-to-learn/" ><li className="Portfolio__list-item">Статичный сайт</li></Link>
+      <Link className="Portfolio__list-link" to="https://kseniya7991.github.io/russian-travel/index.html"><li className="Portfolio__list-item">Адаптивный сайт</li></Link>
+      <Link className="Portfolio__list-link" to="https://kst.mesto.nomoredomains.club/"><li className="Portfolio__list-item">Одностраничное приложение</li></Link>
       </ul>
     </section>
   );

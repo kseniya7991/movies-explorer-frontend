@@ -12,6 +12,13 @@
   font-family: "Inter", Arial, sans-serif;
 }
 
+.Header__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
 .Header_disabled {
   display: none;
 }

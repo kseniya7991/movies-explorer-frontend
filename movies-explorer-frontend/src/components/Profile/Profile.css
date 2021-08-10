@@ -37,8 +37,9 @@
 
 .Profile__label {
   width: min-content;
-  font-size: 10px;
-  line-height: 12px;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 500;
   padding-bottom: 5px;
 
   color: #fff;

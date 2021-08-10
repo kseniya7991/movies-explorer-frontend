@@ -13,7 +13,7 @@ import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Register from '../Register/Register';
-import InfoPopup from '../InfoPopup/InfoPopup';
+/* import Popup from '../Popup/Popup'; */
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 /* import HeaderUnauth from '../Header/HeaderUnauth/HeaderUnauth'; */
 import HeaderAuth from '../Header/HeaderAuth/HeaderAuth';
@@ -36,8 +36,7 @@ function App() {
 
   return (
     <div className="App">
-      <InfoPopup />
-
+{/*       <Popup /> */}
       <Switch>
         <Route exact path={['/movies', '/saved-movies', '/profile', '/']}>
           <Header isLogged={loggedIn}>
