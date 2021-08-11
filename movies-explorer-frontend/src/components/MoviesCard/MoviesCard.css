@@ -1,4 +1,4 @@
-.MoviesCard {
+.moviesCard {
   background-color: #222222;
   overflow: hidden;
   position: relative;
@@ -9,7 +9,7 @@
   color: #fff;
 }
 
-.MoviesCard__title-wrap {
+.moviesCard__title-wrap {
   padding: 18px;
 
   display: flex;
@@ -20,7 +20,7 @@
   font-family: "Inter", Arial, sans-serif;
 }
 
-.MoviesCard__title {
+.moviesCard__title {
   margin: 0;
 
   font-weight: 500;
@@ -30,7 +30,7 @@
   padding-right: 10px;
 }
 
-.MoviesCard__time {
+.moviesCard__time {
   margin: 0;
 
   font-weight: normal;
@@ -39,14 +39,14 @@
   color: #8b8b8b;
 }
 
-.MoviesCard__image {
+.moviesCard__image {
   object-fit: cover;
   min-width: 100%;
   min-height: 168px;
   max-height: 200px;
 }
 
-.MoviesCard__image::before {
+.moviesCard__image::before {
   content: "Ой, кажется мы потеряли картинку. Скоро ее найдем :)";
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
@@ -61,13 +61,13 @@
   margin: 0 auto;
 }
 
-.MoviesCard__image::after {
+.moviesCard__image::after {
   content: "";
   display: block;
   padding-bottom: 25%;
 }
 
-.MoviesCard__button-save {
+.moviesCard__button-save {
   width: 100px;
   height: 29px;
   margin: 18px 0;
@@ -87,19 +87,56 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  cursor: pointer;
 }
 
-.MoviesCard__button-save_active {
+.moviesCard__button-save::before {
+  content: "Сохранить";
+}
+
+.moviesCard__button-save:focus::before {
+  content: "✓";
+  display: block;
+  transition: 0.1s;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 25px;
+  color: #fff;
+  position: relative;
+  text-align: center;
+  margin-top: -7px;
+}
+
+.moviesCard__button-save:focus {
+  background-color: #ee3465;
+  transition: 0.2s;
+}
+
+.moviesCard__button-save_active {
   background-color: #ee3465;
   transition: 0.5s;
 }
 
+.moviesCard__button-save_saved::before {
+  content: "✖";
+}
+
+.moviesCard__button-save_saved:focus::before {
+  content: "✖";
+}
+
+.moviesCard__button-save_saved:focus {
+  background-color: #313131;
+}
+
 @media screen and (max-width: 320px) {
-  .MoviesCard__title {
+  .moviesCard__title {
     font-size: 12px;
   }
 
-  .MoviesCard__time {
+  .moviesCard__time {
     font-size: 10px;
   }
 }

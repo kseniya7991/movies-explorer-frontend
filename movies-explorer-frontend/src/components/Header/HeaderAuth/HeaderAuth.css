@@ -1,5 +1,5 @@
 /* Ссылки в меню */
-.Header__link {
+.header__link {
   color: #fff;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 500;
@@ -10,14 +10,14 @@
   padding-right: 20px;
 }
 
-.Header__link:nth-last-child(2) {
+.header__link:nth-last-child(2) {
   padding-right: 0;
 }
-.Header__link:last-child {
+.header__link:last-child {
   padding-right: 0;
 }
 
-.Header__link-profile {
+.header__link-profile {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -26,11 +26,11 @@
   cursor: pointer;
 }
 
-.Header__logo-account {
+.header__logo-account {
   margin-left: 17px;
 }
 
-.Header__logo-account {
+.header__logo-account {
   width: 26px;
   height: 30px;
   background-color: #313131;
@@ -43,7 +43,7 @@
 }
 
 /* Стили меню для мобильной версии */
-.Header__wrap_mobile {
+.header__wrap_mobile {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -60,13 +60,13 @@
   transition: 0.5s;
 }
 
-.Header__wrap_mobile_opened {
+.header__wrap_mobile_opened {
   right: 0;
   transition: 0.5s;
 }
 
 /*Стили ссылок для мобильной версии */
-.Header__link_mobile {
+.header__link_mobile {
   padding: 0;
   padding-bottom: 4px;
   margin-bottom: 24px;
@@ -74,27 +74,27 @@
   transition: 0.2s;
 }
 
-.Header__link_mobile:hover {
+.header__link_mobile:hover {
   padding-bottom: 5px;
   border-bottom: 1px solid rgb(94, 94, 94);
   transition: 0.2s;
 }
 
-.Header__link_mobile_active {
+.header__link_mobile_active {
   border-bottom: 2px solid #fff;
 }
 
-.Header__link_mobile:last-child {
+.header__link_mobile:last-child {
   margin-top: auto;
   margin-bottom: 0;
 }
 
-.Header__link_disabled {
+.header__link_disabled {
   display: none;
 }
 
 /*Стили кнопки меню (гамбургер) */
-.Header__menu-btn {
+.header__menu-btn {
   width: 44px;
   height: 44px;
   background-image: url("../../../images/burgermenu.svg");
@@ -107,17 +107,17 @@
   display: none;
 }
 
-.Header__menu-btn:hover {
+.header__menu-btn:hover {
   transition: 0.5s;
   transform: skew(30deg);
 }
 
-.Header__menu-btn_enabled {
+.header__menu-btn_enabled {
   display: block;
 }
 
 /* Стили кнопки закрытия меню (крестик) */
-.Header__close-btn {
+.header__close-btn {
   width: 22px;
   height: 22px;
   background-color: transparent;
@@ -135,38 +135,38 @@
   display: none;
 }
 
-.Header__close-btn_enabled {
+.header__close-btn_enabled {
   display: block;
 }
 
-.Header__close-btn:hover {
+.header__close-btn:hover {
   transform: rotate(180deg);
   transition: 0.2s;
 }
 
 @media screen and (max-width: 480px) {
-  .Header__wrap_mobile {
+  .header__wrap_mobile {
     width: 100%;
     padding-top: 144px;
     padding-bottom: 50px;
   }
-  .Header__link_mobile {
+  .header__link_mobile {
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
   }
-  .Header__link_mobile {
+  .header__link_mobile {
     padding-bottom: 7px;
     margin-bottom: 17px;
     border-bottom: 2px solid transparent;
     transition: 0.2s;
   }
-  .Header__link_mobile:hover {
+  .header__link_mobile:hover {
     padding-bottom: 8px;
     border-bottom: 1px solid rgb(94, 94, 94);
     transition: 0.2s;
   }
-  .Header__link-profile {
+  .header__link-profile {
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;

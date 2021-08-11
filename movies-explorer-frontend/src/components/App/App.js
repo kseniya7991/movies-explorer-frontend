@@ -17,26 +17,27 @@ import Register from '../Register/Register';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 /* import HeaderUnauth from '../Header/HeaderUnauth/HeaderUnauth'; */
 import HeaderAuth from '../Header/HeaderAuth/HeaderAuth';
+import Preloader from '../Preloader/Preloader';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
-  /*   const history = useHistory();
-
-  useEffect(() => {
-    if (loggedIn) {
-      history.push('/');
-    }
-  }, [history, loggedIn]); */
+  /* Отключить прелоадер */
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleLoggedIn() {
     setLoggedIn(!loggedIn);
   }
 
+  /* Временное отображение прелоадера */
+  function handlePreloader() {
+    setIsLoading(isLoading);
+  }
+
   console.log(handleLoggedIn);
 
   return (
-    <div className="App">
-{/*       <Popup /> */}
+    <div className="app" onClick={handlePreloader}>
+      <Preloader isLoading={isLoading}/>
       <Switch>
         <Route exact path={['/movies', '/saved-movies', '/profile', '/']}>
           <Header isLogged={loggedIn}>

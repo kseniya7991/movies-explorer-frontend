@@ -1,4 +1,4 @@
-.SignForm {
+.signForm {
   align-self: center;
   position: relative;
   height: 100vh;
@@ -9,7 +9,7 @@
   padding: 30px;
 }
 
-.SignForm__form {
+.signForm__form {
   max-height: 100%;
   width: 396px;
 
@@ -21,7 +21,7 @@
   align-items: stretch;
 }
 
-.SignForm__title {
+.signForm__title {
   font-weight: 500;
   font-size: 24px;
   line-height: 29px;
@@ -33,7 +33,7 @@
   margin: 0;
 }
 
-.SignForm__label {
+.signForm__label {
   font-size: 10px;
   line-height: 12px;
   padding-bottom: 5px;
@@ -41,7 +41,7 @@
   color: #8b8b8b;
 }
 
-.SignForm__inputs {
+.signForm__inputs {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -50,13 +50,13 @@
   padding-bottom: 65px;
 }
 
-.SignForm__inputs-block {
+.signForm__inputs-block {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.SignForm__password_unvisible {
+.signForm__password_unvisible {
   background-image: url("../../images/unvisible.png");
   background-repeat: no-repeat;
   background-position-x: right;
@@ -71,18 +71,18 @@
   right: 5px;
 }
 
-.SignForm__password_visible {
+.signForm__password_visible {
   background-image: url("../../images/visible.png");
 }
 
-.SignForm__buttons {
+.signForm__buttons {
   display: flex;
   flex-direction: column;
 
   padding-top: 130px;
 }
 
-.SignForm__input-text {
+.signForm__input-text {
   position: relative;
   background-color: transparent;
   border: 0;
@@ -98,16 +98,16 @@
   font-weight: normal;
 }
 
-.SignForm_disabled {
+.signForm_disabled {
   display: none;
 }
 
-.SignForm__input-text:focus {
+.signForm__input-text:focus {
   border-bottom: 1px solid #c7c7c7;
   transition: 0.7s;
 }
 
-.SignForm__register-btn {
+.signForm__register-btn {
   background-color: #4285f4;
 
   font-family: "Inter", Arial, sans-serif;
@@ -125,7 +125,7 @@
   cursor: pointer;
 }
 
-.SignForm__text {
+.signForm__text {
   margin: 0;
 
   font-family: "Inter", Arial, sans-serif;
@@ -137,19 +137,19 @@
   color: #8b8b8b;
 }
 
-.SignForm__link {
+.signForm__link {
   text-decoration: none;
   color: #4285f4;
 }
 
 @media screen and (max-width: 480px) {
-  .SignForm {
+  .signForm {
     width: 80%;
     padding-top: 56px;
     padding-bottom: 30px;
   }
 
-  .SignForm__form {
+  .signForm__form {
     width: 100%;
     height: 100%;
   }
@@ -158,23 +158,23 @@
     align-self: center;
   }
 
-  .SignForm__title {
+  .signForm__title {
     padding-top: 50px;
     padding-bottom: 80px;
     text-align: center;
   }
 
-  .SignForm__buttons {
+  .signForm__buttons {
     margin-top: auto;
     padding-top: 0;
   }
 
-  .SignForm__register-btn {
+  .signForm__register-btn {
     font-size: 12px;
     line-height: 15px;
   }
 
-  .SignForm__text {
+  .signForm__text {
     font-size: 12px;
     line-height: 15px;
   }

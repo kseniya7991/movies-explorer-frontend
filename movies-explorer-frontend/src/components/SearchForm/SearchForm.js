@@ -6,17 +6,17 @@ import './SearchForm.css';
 
 function SearchForm() {
   return (
-    <form className="SearchForm">
-      <div className="SearchForm__search-block">
+    <form className="searchForm">
+      <div className="searchForm__search-block">
         <input
-          className="SearchForm__search"
+          className="searchForm__search"
           type="search"
           placeholder="Фильм"
         ></input>
-        <div className="SearchForm__find-block">
+        <div className="searchForm__find-block">
           <input
             type="submit"
-            className="SearchForm__find-btn"
+            className="searchForm__find-btn"
             value=""
           ></input>
         </div>

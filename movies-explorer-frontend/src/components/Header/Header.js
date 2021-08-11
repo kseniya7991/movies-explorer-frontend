@@ -7,10 +7,10 @@ import HeaderUnauth from './HeaderUnauth/HeaderUnauth';
 
 function Header({ children, isLogged }) {
   return (
-    <header className={'Header'}>
+    <header className={'header'}>
 {/*     <header className="Header Header_promo"> */}
       <Link to="/">
-        <img className="Header__logo" src={logo} alt="Фильмы" title="Фильмы" />
+        <img className="header__logo" src={logo} alt="Фильмы" title="Фильмы" />
       </Link>
       {children}
       {isLogged ? '' : <HeaderUnauth />}

@@ -1,4 +1,4 @@
-.NotFoundPage {
+.notFoundPage {
   align-self: center;
   position: relative;
   height: 100vh;
@@ -12,7 +12,7 @@
   padding-right: 30px;
 }
 
-.NotFoundPage__error {
+.notFoundPage__error {
   font-style: normal;
   font-weight: normal;
   font-size: 140px;
@@ -24,7 +24,7 @@
   margin-bottom: 10px;
 }
 
-.NotFoundPage__text {
+.notFoundPage__text {
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -35,7 +35,7 @@
   margin: 0;
 }
 
-.NotFoundPage__previous-link {
+.notFoundPage__previous-link {
   font-size: 14px;
   line-height: 17px;
   text-align: center;
@@ -46,30 +46,30 @@
 }
 
 @media screen and (max-width: 768px) and (min-width: 480px) {
-  .NotFoundPage__error {
+  .notFoundPage__error {
     font-size: 17vw;
     line-height: 20vw;
   }
-  .NotFoundPage__text {
+  .notFoundPage__text {
     font-size: 14px;
     line-height: 17px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .NotFoundPage {
+  .notFoundPage {
     padding-left: 10px;
     padding-right: 10px;
   }
-  .NotFoundPage__error {
+  .notFoundPage__error {
     font-size: 80px;
     line-height: 97px;
   }
-  .NotFoundPage__text {
+  .notFoundPage__text {
     font-size: 12px;
     line-height: 15px;
   }
-  .NotFoundPage__previous-link {
+  .notFoundPage__previous-link {
     font-size: 12px;
     line-height: 15px;
   }

@@ -1,4 +1,4 @@
-.Profile {
+.profile {
   height: 100vh;
   position: relative;
   display: flex;
@@ -7,7 +7,7 @@
   padding: 70px 30px;
 }
 
-.Profile__form {
+.profile__form {
   margin: 0 auto;
   max-height: 500px;
   height: 100%;
@@ -24,7 +24,7 @@
   box-sizing: border-box;
 }
 
-.Profile__title {
+.profile__title {
   font-weight: 500;
   font-size: 24px;
   line-height: 29px;
@@ -35,7 +35,7 @@
   margin: 0;
 }
 
-.Profile__label {
+.profile__label {
   width: min-content;
   font-size: 11px;
   line-height: 13px;
@@ -46,7 +46,7 @@
   white-space: nowrap;
 }
 
-.Profile__submit-btn {
+.profile__submit-btn {
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -64,7 +64,7 @@
   cursor: pointer;
 }
 
-.Profile__logout-btn {
+.profile__logout-btn {
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -81,7 +81,7 @@
   cursor: pointer;
 }
 
-.Profile__inputs-block {
+.profile__inputs-block {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -93,21 +93,21 @@
   border-bottom: 1px solid #424242;
 }
 
-.Profile__inputs-block:focus-within {
+.profile__inputs-block:focus-within {
   border-bottom: 1px solid #c7c7c7;
   transition: 0.7s;
 }
 
-.Profile__inputs-block:last-of-type {
+.profile__inputs-block:last-of-type {
   border: 1px solid transparent;
 }
 
-.Profile__inputs-block:last-of-type:focus-within {
+.profile__inputs-block:last-of-type:focus-within {
   border-bottom: 1px solid #c7c7c7;
   transition: 0.7s;
 }
 
-.Profile__input {
+.profile__input {
   position: relative;
   background-color: transparent;
   border: 0;
@@ -123,14 +123,14 @@
 }
 
 @media screen and (max-width: 480px) {
-  .Profile {
+  .profile {
     width: 80%;
     padding-bottom: 40px;
   }
-  .Profile__form {
+  .profile__form {
     width: 100%;
   }
-  .Profile__title {
+  .profile__title {
     padding-bottom: 9vh;
   }
 }

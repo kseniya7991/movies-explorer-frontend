@@ -1,4 +1,4 @@
-.Header {
+.header {
   position: relative;
   padding: 18px 70px;
   z-index: 1;
@@ -12,34 +12,35 @@
   font-family: "Inter", Arial, sans-serif;
 }
 
-.Header__wrap {
+.header__wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
+  z-index: 2;
 }
 
-.Header_disabled {
+.header_disabled {
   display: none;
 }
 
-.Header_promo {
+.header_promo {
   background-color: #073042;
 }
 
-.Header__logo {
+.header__logo {
   width: 38px;
   height: 38px;
 }
 
 @media screen and (max-width: 767px) and (min-width: 480px) {
-  .Header {
+  .header {
     padding: 18px 30px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .Header {
+  .header {
     padding: 18px 14px;
     font-size: 10px;
   }

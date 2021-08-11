@@ -3,11 +3,11 @@ import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList() {
+function MoviesCardList({ isSavedMovies }) {
   return (
     <>
-    <ul className="MoviesCardList">
-      <MoviesCard />
+    <ul className="moviesCardList">
+      <MoviesCard isSavedMovies={isSavedMovies} />
     </ul>
   </>
   );

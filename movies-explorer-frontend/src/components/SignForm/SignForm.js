@@ -14,55 +14,55 @@ function SignForm({
   }
 
   return (
-    <section className="SignForm">
-      <form className="SignForm__form">
+    <section className="signForm">
+      <form className="signForm__form">
         <img
           className="Header__logo logo_sign"
           src={logo}
           alt="Фильмы"
           title="Фильмы"
         />
-        <h2 className="SignForm__title">{title}</h2>
+        <h2 className="signForm__title">{title}</h2>
 
-        <section className="SignForm__inputs">
+        <section className="signForm__inputs">
           <div
-            className={`SignForm__inputs-block ${
-              name === 'login' ? 'SignForm_disabled' : ''
+            className={`signForm__inputs-block ${
+              name === 'login' ? 'signForm_disabled' : ''
             }`}
           >
-            <label htmlFor="name" className="SignForm__label">
+            <label htmlFor="name" className="signForm__label">
               Имя
             </label>
             <input
-              className="SignForm__input-text"
+              className="signForm__input-text"
               type="text"
               id="name"
             ></input>
           </div>
 
-          <div className={'SignForm__inputs-block'}>
-            <label htmlFor="email" className="SignForm__label">
+          <div className={'signForm__inputs-block'}>
+            <label htmlFor="email" className="signForm__label">
               E-mail
             </label>
             <input
-              className="SignForm__input-text"
+              className="signForm__input-text"
               type="email"
               id="email"
             ></input>
           </div>
 
-          <div className={'SignForm__inputs-block'}>
-            <label htmlFor="password" className="SignForm__label">
+          <div className={'signForm__inputs-block'}>
+            <label htmlFor="password" className="signForm__label">
               Пароль
             </label>
             <input
-              className="SignForm__input-text"
+              className="signForm__input-text"
               type={`${isVisiblePassword ? 'text' : 'password'}`}
               id="password"
             ></input>
             <button
-              className={`SignForm__password_unvisible ${
-                isVisiblePassword ? 'SignForm__password_visible' : ''
+              className={`signForm__password_unvisible ${
+                isVisiblePassword ? 'signForm__password_visible' : ''
               }`}
               onClick={onShowPassword}
               type="button"
@@ -70,19 +70,19 @@ function SignForm({
           </div>
         </section>
 
-        <section className="SignForm__buttons">
+        <section className="signForm__buttons">
           <button
-            className="SignForm__register-btn"
+            className="signForm__register-btn"
             type="submit"
             value="buttonValue"
           >
             {buttonValue}
           </button>
-          <p className="SignForm__text">
+          <p className="signForm__text">
             {text}
             <Link
               to={`${name === 'login' ? '/signup' : '/signin'}`}
-              className="SignForm__link"
+              className="signForm__link"
             >
               {linkText}
             </Link>

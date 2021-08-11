@@ -3,12 +3,16 @@ import SearchForm from '../SearchForm/SearchForm';
 
 import './SavedMovies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
+/* import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList'; */
 
 function SavedMovies() {
   return (
-    <section className="SavedMovies">
+    <section className="savedMovies">
       <SearchForm />
-      <MoviesCardList />
+      <MoviesCardList isSavedMovies={true}/>
+
+      {/* Если фильмы ни один фильм не был сохранен */}
+     {/*  <EmptyMoviesList text='У вас еще нет сохраненных фильмов &#128148;' /> */}
     </section>
   );
 }

@@ -1,15 +1,15 @@
-.Movies {
+.movies {
   padding: 70px 70px 10px 70px;
 }
 
 @media screen and (max-width: 768px) {
-  .Movies {
+  .movies {
     padding: 70px 30px 30px 30px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .Movies {
+  .movies {
     padding: 40px 10px 30px 10px;
   }
 }

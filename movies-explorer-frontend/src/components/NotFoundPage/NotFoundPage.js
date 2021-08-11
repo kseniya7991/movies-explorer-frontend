@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import './NotFoundPage.css';
 
 function NotFoundPage() {
-  return <section className="NotFoundPage">
-      <p className="NotFoundPage__error">404</p>
-      <p className="NotFoundPage__text">Страница не найдена</p>
-      <Link to="/" className="NotFoundPage__previous-link">Назад</Link>
+  return <section className="notFoundPage">
+      <p className="notFoundPage__error">404</p>
+      <p className="notFoundPage__text">Страница не найдена</p>
+      <Link to="/" className="notFoundPage__previous-link">Назад</Link>
   </section>;
 }
 

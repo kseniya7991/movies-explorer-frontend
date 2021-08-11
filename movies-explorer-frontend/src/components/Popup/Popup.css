@@ -1,6 +1,6 @@
-.Popup {
+.popup {
   position: fixed;
-  z-index: 0;
+  z-index: 2;
   right: 0;
   bottom: 0;
   top: 0;
@@ -23,7 +23,7 @@
   transition-delay: 0s, 0s;
 }
 
-.Popup_opened {
+.popup_opened {
   visibility: visible;
   opacity: 0.5;
   -webkit-transition-duration: 0.5s, 0s;

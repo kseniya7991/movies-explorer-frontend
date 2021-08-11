@@ -1,18 +1,11 @@
-.Header__wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-.Header__signup {
+.header__signup {
   padding-right: 30px;
 
   text-decoration: none;
   color: #fff;
 }
 
-.Header__signin {
+.header__signin {
   padding: 8px 20px;
 
   color: #000;
@@ -25,10 +18,10 @@
 }
 
 @media screen and (max-width: 480px) {
-  .Header__signup {
+  .header__signup {
     padding-right: 14px;
   }
-  .Header__signin {
+  .header__signin {
     padding: 5px 12px;
   }
 }

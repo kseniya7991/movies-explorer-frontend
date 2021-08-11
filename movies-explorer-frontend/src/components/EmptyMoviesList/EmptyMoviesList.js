@@ -2,9 +2,9 @@ import React from 'react';
 
 import './EmptyMoviesList.css';
 
-function EmptyMoviesList() {
+function EmptyMoviesList({ text }) {
   return (
-    <p className="EmptyMoviesList">Мы не нашли ни одного фильма по вашему запросу&nbsp;&#128270;</p>
+    <p className="emptyMoviesList">{text}&nbsp;</p>
   );
 }
 

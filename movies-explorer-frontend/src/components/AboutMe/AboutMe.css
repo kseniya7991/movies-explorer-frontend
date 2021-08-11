@@ -1,9 +1,9 @@
-.AboutMe {
+.aboutMe {
   padding: 110px 70px 125px 70px;
   max-width: 1280px;
 }
 
-.AboutMe__resume {
+.aboutMe__resume {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: min-content min-content min-content 1fr;
@@ -11,7 +11,7 @@
   padding: 66px 0px 100px 0px;
   grid-column-gap: 270px;
 
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Inter", arial, sans-serif;
 }
 
 .resume__name {
@@ -70,7 +70,7 @@
 }
 
 @media screen and (max-width: 1279px) {
-  .AboutMe__resume {
+  .aboutMe__resume {
     grid-column-gap: 10vw;
   }
   .resume__name {
@@ -103,7 +103,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .AboutMe {
+  .aboutMe {
     padding: 90px 50px;
   }
   .resume__name {
@@ -125,16 +125,16 @@
 }
 
 @media screen and (max-width: 600px) {
-  .AboutMe__resume {
+  .aboutMe__resume {
     grid-column-gap: 4vw;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .AboutMe {
+  .aboutMe {
     padding: 70px 14px;
   }
-  .AboutMe__resume {
+  .aboutMe__resume {
     grid-template-columns: 1fr;
 
     padding: 60px 0px 70px 0px;

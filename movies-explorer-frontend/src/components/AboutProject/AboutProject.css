@@ -1,10 +1,10 @@
-.AboutProject {
+.aboutProject {
   padding: 110px 70px;
 
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Inter", arial, sans-serif;
 }
 
-.AboutProject__text-block {
+.aboutProject__text-block {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: min-content 1fr;
@@ -15,7 +15,7 @@
   padding-bottom: 110px;
 }
 
-.AboutProject__subtitle {
+.aboutProject__subtitle {
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
@@ -24,7 +24,7 @@
   margin: 0;
 }
 
-.AboutProject__description {
+.aboutProject__description {
   font-weight: normal;
   letter-spacing: 0.02em;
   font-size: 14px;
@@ -49,7 +49,7 @@
   grid-area: 2 / 2 / 3 / 3;
 }
 
-.AboutProject__progress-bar {
+.aboutProject__progress-bar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,10 +83,10 @@
 }
 
 @media screen and (max-width: 768px) {
-  .AboutProject {
+  .aboutProject {
     padding: 90px 50px;
   }
-  .AboutProject__text-block {
+  .aboutProject__text-block {
     grid-column-gap: 30px;
     grid-row-gap: 22px;
     padding-bottom: 93px;
@@ -94,24 +94,24 @@
 }
 
 @media screen and (max-width: 767px) and (min-width: 481px) {
-  .AboutProject {
+  .aboutProject {
     padding: 90px 8vw;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .AboutProject {
+  .aboutProject {
     padding: 70px 18px;
   }
-  .AboutProject__text-block {
+  .aboutProject__text-block {
     padding-top: 60px;
     padding-bottom: 60px;
   }
-  .AboutProject__progress-bar {
+  .aboutProject__progress-bar {
     font-size: 11px;
     line-height: 13px;
   }
-  .AboutProject__text-block {
+  .aboutProject__text-block {
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
     grid-row-gap: 16px;
@@ -135,7 +135,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  .AboutProject__subtitle {
+  .aboutProject__subtitle {
     font-size: 18px;
     line-height: 22px;
   }

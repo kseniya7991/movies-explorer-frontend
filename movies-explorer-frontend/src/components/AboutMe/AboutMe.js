@@ -8,10 +8,10 @@ import Portfolio from '../Portfolio/Portfolio';
 
 function AboutMe() {
   return (
-    <section className="AboutMe">
-      <h2 className="Main__title">Студент</h2>
-      <hr className="Main__line"/>
-      <div className="AboutMe__resume">
+    <section className="aboutMe">
+      <h2 className="main__title">Студент</h2>
+      <hr className="main__line"/>
+      <div className="aboutMe__resume">
         <p className="resume__name">Ксения</p>
         <p className="resume__profession">Junior фронтенд-разработчик, 24 года</p>
         <p className="resume__about">Я живу в городе Минске, Беларусь.

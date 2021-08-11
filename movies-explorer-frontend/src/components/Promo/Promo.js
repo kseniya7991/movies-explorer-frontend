@@ -5,15 +5,15 @@ import './Promo.css';
 
 function Promo() {
   return (
-      <section className="Promo">
-        <h1 className="Promo__title">
+      <section className="promo">
+        <h1 className="promo__title">
           Учебный проект студента факультета Веб&#8209;разработки.
         </h1>
         <img
           src={promo}
           alt="Спираль"
           title="Спираль"
-          className="Promo__img"
+          className="promo__img"
         ></img>
       </section>
   );

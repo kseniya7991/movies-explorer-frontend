@@ -36,21 +36,21 @@ function HeaderAuth() {
   return (
     <>
     <Popup popupOpened={menuOpened}/>
-   <button className={`Header__menu-btn ${isMobile ? 'Header__menu-btn_enabled' : ''} `} type="button" onClick={handleMenuOpening}/>
-      <nav className={`Header__wrap ${isMobile ? 'Header__wrap_mobile' : ''} ${menuOpened ? 'Header__wrap_mobile_opened' : ''}`}>
-        <button className={`Header__close-btn ${isMobile ? 'Header__close-btn_enabled' : ''} `} type="button" onClick={handleMenuOpening}/>
-      <Link className={`Header__link ${isMobile ? 'Header__link_mobile' : 'Header__link_disabled'} `} to="/" onClick={handleMenuOpening}>
+   <button className={`header__menu-btn ${isMobile ? 'header__menu-btn_enabled' : ''} `} type="button" onClick={handleMenuOpening}/>
+      <nav className={`header__wrap ${isMobile ? 'header__wrap_mobile' : ''} ${menuOpened ? 'header__wrap_mobile_opened' : ''}`}>
+        <button className={`header__close-btn ${isMobile ? 'header__close-btn_enabled' : ''} `} type="button" onClick={handleMenuOpening}/>
+      <Link className={`header__link ${isMobile ? 'header__link_mobile' : 'header__link_disabled'} `} to="/" onClick={handleMenuOpening}>
           Главная
         </Link>
-        <Link className={`Header__link ${isMobile ? 'Header__link_mobile' : ''} `} to="/movies" onClick={handleMenuOpening}>
+        <Link className={`header__link ${isMobile ? 'header__link_mobile' : ''} `} to="/movies" onClick={handleMenuOpening}>
           Фильмы
         </Link>
-        <Link className={`Header__link ${isMobile ? 'Header__link_mobile' : ''} `} to="/saved-movies" onClick={handleMenuOpening}>
+        <Link className={`header__link ${isMobile ? 'header__link_mobile' : ''} `} to="/saved-movies" onClick={handleMenuOpening}>
           Сохранённые фильмы
         </Link>
-        <Link className={`Header__link Header__link-profile ${isMobile ? 'Header__link_mobile' : ''} `} to="/profile" onClick={handleMenuOpening}>
+        <Link className={`header__link header__link-profile ${isMobile ? 'header__link_mobile' : ''} `} to="/profile" onClick={handleMenuOpening}>
           Аккаунт
-          <div className="Header__logo-account" />
+          <div className="header__logo-account" />
         </Link>
       </nav>
 </>
