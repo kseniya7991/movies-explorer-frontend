@@ -6,10 +6,10 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 function MoviesCardList({ isSavedMovies }) {
   return (
     <>
-    <ul className="moviesCardList">
-      <MoviesCard isSavedMovies={isSavedMovies} />
-    </ul>
-  </>
+      <ul className="moviesCardList">
+        <MoviesCard isSavedMovies={isSavedMovies} />
+      </ul>
+    </>
   );
 }
 

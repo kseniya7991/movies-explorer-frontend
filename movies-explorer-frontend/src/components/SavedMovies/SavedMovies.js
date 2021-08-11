@@ -9,10 +9,10 @@ function SavedMovies() {
   return (
     <section className="savedMovies">
       <SearchForm />
-      <MoviesCardList isSavedMovies={true}/>
+      <MoviesCardList isSavedMovies={true} />
 
       {/* Если фильмы ни один фильм не был сохранен */}
-     {/*  <EmptyMoviesList text='У вас еще нет сохраненных фильмов &#128148;' /> */}
+      {/*  <EmptyMoviesList text='У вас еще нет сохраненных фильмов &#128148;' /> */}
     </section>
   );
 }

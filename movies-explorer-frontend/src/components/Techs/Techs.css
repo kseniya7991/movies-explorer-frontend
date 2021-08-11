@@ -46,14 +46,20 @@
   background-color: #303030;
   border-radius: 10px;
 
+  transition: 0.5s;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.list-item__text {
   font-size: 14px;
   line-height: 17px;
+}
 
-  transition: 0.5s;
-  /* 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center; */
+.techs__list-item:hover .list-item__text {
+  color: transparent;
 }
 
 .techs__list-item:hover {
@@ -62,9 +68,41 @@
   /* background-image: url('https://www.shareicon.net/data/256x256/2016/07/08/117367_logo_512x512.png'); */
 }
 
-/* .list-item__text-color {
-    background-color: #303030;
-} */
+.techs__list-item_html:hover {
+  background-image: url("../../images/html.png");
+  background-size: contain;
+  transition: 0.5s;
+}
+
+.techs__list-item_css:hover {
+  background-image: url("../../images/css.png");
+  background-size: contain;
+}
+
+.techs__list-item_js:hover {
+  background-image: url("../../images/js.png");
+  background-size: contain;
+}
+
+.techs__list-item_react:hover {
+  background-image: url("../../images/react.png");
+  background-size: contain;
+}
+
+.techs__list-item_git:hover {
+  background-image: url("../../images/git.png");
+  background-size: contain;
+}
+
+.techs__list-item_express:hover {
+  background-image: url("../../images/express.png");
+  background-size: contain;
+}
+
+.techs__list-item_mongo:hover {
+  background-image: url("../../images/mongo.png");
+  background-size: contain;
+}
 
 @media screen and (max-width: 768px) {
   .techs__subtitle {

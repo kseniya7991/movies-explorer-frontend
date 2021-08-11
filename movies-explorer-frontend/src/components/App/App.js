@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-/* import { useHistory } from 'react-router'; */
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
@@ -13,52 +12,63 @@ import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Register from '../Register/Register';
-/* import Popup from '../Popup/Popup'; */
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
-/* import HeaderUnauth from '../Header/HeaderUnauth/HeaderUnauth'; */
 import HeaderAuth from '../Header/HeaderAuth/HeaderAuth';
 import Preloader from '../Preloader/Preloader';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  /* Временная переменная для тестирования шапки и роутов */
+  const loggedIn = true;
+
   /* Отключить прелоадер */
   const [isLoading, setIsLoading] = useState(false);
-
-  function handleLoggedIn() {
-    setLoggedIn(!loggedIn);
-  }
 
   /* Временное отображение прелоадера */
   function handlePreloader() {
     setIsLoading(isLoading);
   }
 
-  console.log(handleLoggedIn);
-
   return (
     <div className="app" onClick={handlePreloader}>
-      <Preloader isLoading={isLoading}/>
+      <Preloader isLoading={isLoading} />
       <Switch>
-        <Route exact path={['/movies', '/saved-movies', '/profile', '/']}>
-          <Header isLogged={loggedIn}>
+        <Route exact path={['/movies', '/saved-movies', '/profile']}>
+          <Header isLogged={loggedIn} isPromo={false}>
             <ProtectedRoute
-                 exact
-                 path={['/movies', '/saved-movies', '/profile', '/']}
-                 component={HeaderAuth}
-                 loggedIn={loggedIn}
-               />
-
+              exact
+              path={['/movies', '/saved-movies', '/profile']}
+              component={HeaderAuth}
+              loggedIn={loggedIn}
+            />
+          </Header>
+        </Route>
+        <Route exact path={'/'}>
+          <Header isLogged={loggedIn} isPromo={true}>
+            <ProtectedRoute
+              exact
+              path={'/'}
+              component={HeaderAuth}
+              loggedIn={loggedIn}
+            />
           </Header>
         </Route>
       </Switch>
 
       <Switch>
         <ProtectedRoute path="/movies" loggedIn={loggedIn} component={Movies} />
-        <ProtectedRoute path="/saved-movies" loggedIn={loggedIn} component={SavedMovies} />
+        <ProtectedRoute
+          path="/saved-movies"
+          loggedIn={loggedIn}
+          component={SavedMovies}
+        />
         <Route exact path="/">
-        <Main />
+          <Main />
         </Route>
-        <ProtectedRoute path="/profile" loggedIn={loggedIn} component={Profile} />
+        <ProtectedRoute
+          path="/profile"
+          loggedIn={loggedIn}
+          component={Profile}
+        />
         <Route path="/signup">
           <Register />
         </Route>
@@ -73,23 +83,6 @@ function App() {
       <Route exact path={['/movies', '/saved-movies', '/']}>
         <Footer />
       </Route>
-
-      {/* <Route path="/movies">
-        <Movies />
-     </Route>
-     <Route path="/saved-movies">
-        <SavedMovies />
-     </Route>
-     <Route path="/profile">
-        <Profile />
-     </Route>
-     <Route path="/signin">
-        <Login />
-     </Route>
-     <Route path="/signup">
-        <Register />
-     </Route>
-     <Footer /> */}
     </div>
   );
 }

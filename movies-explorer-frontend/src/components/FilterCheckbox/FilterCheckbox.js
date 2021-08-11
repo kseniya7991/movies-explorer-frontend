@@ -5,11 +5,13 @@ import './FilterCheckbox.css';
 function FilterCheckbox() {
   return (
     <div className="filterCheckbox">
-      <label className="filterCheckbox__switch">
+      <div className="filterCheckbox__switch">
         <input className="filterCheckbox__checkbox" type="checkbox"></input>
         <span className="filterCheckbox__slider"></span>
+      </div>
+      <label className="filterCheckbox__switch-description">
+        Короткометражки
       </label>
-      <span className="filterCheckbox__switch-description">Короткометражки</span>
     </div>
   );
 }

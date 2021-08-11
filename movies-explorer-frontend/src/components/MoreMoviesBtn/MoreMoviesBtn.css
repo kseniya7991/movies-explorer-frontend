@@ -20,6 +20,14 @@
 
   border: 1px solid #424242;
   border-radius: 7px;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.moreMoviesBtn__btn:hover {
+  border: 1px solid rgb(145, 145, 145);
+  transition: 0.2s;
 }
 
 @media screen and (max-width: 480px) {

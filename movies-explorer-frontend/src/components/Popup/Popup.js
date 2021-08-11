@@ -4,8 +4,7 @@ import './Popup.css';
 
 function Popup({ popupOpened }) {
   return (
-<section className={`popup ${popupOpened ? 'popup_opened' : ''}`}>
-</section>
+    <section className={`popup ${popupOpened ? 'popup_opened' : ''}`}></section>
   );
 }
 

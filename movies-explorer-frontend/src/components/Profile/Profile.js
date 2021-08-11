@@ -12,13 +12,21 @@ function Profile() {
             <label htmlFor="password" className="profile__label">
               Имя
             </label>
-            <input className="profile__input" type="text" placeholder="Виталий"></input>
+            <input
+              className="profile__input"
+              type="text"
+              placeholder="Виталий"
+            ></input>
           </div>
           <div className="profile__inputs-block">
             <label htmlFor="password" className="profile__label">
               E-mail
             </label>
-            <input className="profile__input" type="email" placeholder="vital90@mail.ru"></input>
+            <input
+              className="profile__input"
+              type="email"
+              placeholder="vital90@mail.ru"
+            ></input>
           </div>
         </div>
         <div>

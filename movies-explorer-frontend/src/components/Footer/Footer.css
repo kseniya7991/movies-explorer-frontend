@@ -34,13 +34,22 @@
 }
 
 .footer__nav-item {
-  padding-right: 20px;
+  margin-right: 20px;
   text-decoration: none;
   color: #fff;
+  border-bottom: 1px solid transparent;
+  box-sizing: content-box;
+  padding-bottom: 6px;
+}
+
+.footer__nav-item:hover {
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgb(94, 94, 94);
+  transition: 0.2s;
 }
 
 .footer__nav-item:last-child {
-  padding-right: 0;
+  margin-right: 0;
 }
 
 .footer__year {
@@ -68,11 +77,11 @@
     padding-right: 0;
   }
   .footer__nav-item {
-    padding-right: 0;
-    padding-bottom: 12px;
+    margin-right: 0;
+    margin-bottom: 12px;
   }
   .footer__nav-item:last-child {
-    padding-bottom: 30px;
+    margin-bottom: 30px;
   }
   .footer__nav {
     flex-direction: column;

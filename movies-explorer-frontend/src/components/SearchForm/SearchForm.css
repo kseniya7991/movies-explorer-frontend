@@ -25,19 +25,26 @@
   border-bottom: 1px solid #424242;
 
   padding-bottom: 13px;
-  cursor: pointer;
 }
 
 .searchForm__find-btn {
   background-color: #4285f4;
+  border: 2px solid transparent;
   border-radius: 48px;
   padding: 0;
-  border: 0;
 
   width: 100%;
   height: 100%;
 
   position: relative;
+  cursor: pointer;
+  transition: 0.2s;
+
+  z-index: -1;
+}
+.searchForm__find-btn:hover {
+  border: 2px solid #58d7e8;
+  transition: 0.2s;
 }
 
 .searchForm__find-block {
@@ -59,7 +66,7 @@
 
   position: absolute;
   margin: auto;
-  z-index: 1;
+  z-index: 0;
 
   background-repeat: no-repeat;
   background-size: contain;

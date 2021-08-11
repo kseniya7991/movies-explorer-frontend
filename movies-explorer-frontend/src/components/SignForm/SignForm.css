@@ -6,11 +6,12 @@
   align-items: center;
   flex-direction: row;
   justify-content: center;
-  padding: 30px;
+  padding: 70px 30px 70px 30px;
 }
 
 .signForm__form {
-  max-height: 100%;
+  height: 100%;
+  max-height: 560px;
   width: 396px;
 
   font-family: "Inter", Arial, sans-serif;
@@ -19,6 +20,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  justify-content: space-between;
 }
 
 .signForm__title {
@@ -46,8 +48,6 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-
-  padding-bottom: 65px;
 }
 
 .signForm__inputs-block {
@@ -78,8 +78,6 @@
 .signForm__buttons {
   display: flex;
   flex-direction: column;
-
-  padding-top: 130px;
 }
 
 .signForm__input-text {
@@ -96,6 +94,22 @@
   font-size: 14px;
   line-height: 17px;
   font-weight: normal;
+}
+
+.signForm__input-text_error {
+  color: #ee3465;
+}
+
+.signForm__text-error {
+  position: absolute;
+  bottom: 6px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #ee3465;
 }
 
 .signForm_disabled {

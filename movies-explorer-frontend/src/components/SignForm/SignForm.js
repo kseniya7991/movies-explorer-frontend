@@ -16,59 +16,64 @@ function SignForm({
   return (
     <section className="signForm">
       <form className="signForm__form">
-        <img
-          className="Header__logo logo_sign"
-          src={logo}
-          alt="Фильмы"
-          title="Фильмы"
-        />
-        <h2 className="signForm__title">{title}</h2>
+        <div>
+          <img
+            className="header__logo logo_sign"
+            src={logo}
+            alt="Фильмы"
+            title="Фильмы"
+          />
+          <h2 className="signForm__title">{title}</h2>
 
-        <section className="signForm__inputs">
-          <div
-            className={`signForm__inputs-block ${
-              name === 'login' ? 'signForm_disabled' : ''
-            }`}
-          >
-            <label htmlFor="name" className="signForm__label">
-              Имя
-            </label>
-            <input
-              className="signForm__input-text"
-              type="text"
-              id="name"
-            ></input>
-          </div>
-
-          <div className={'signForm__inputs-block'}>
-            <label htmlFor="email" className="signForm__label">
-              E-mail
-            </label>
-            <input
-              className="signForm__input-text"
-              type="email"
-              id="email"
-            ></input>
-          </div>
-
-          <div className={'signForm__inputs-block'}>
-            <label htmlFor="password" className="signForm__label">
-              Пароль
-            </label>
-            <input
-              className="signForm__input-text"
-              type={`${isVisiblePassword ? 'text' : 'password'}`}
-              id="password"
-            ></input>
-            <button
-              className={`signForm__password_unvisible ${
-                isVisiblePassword ? 'signForm__password_visible' : ''
+          <section className="signForm__inputs">
+            <div
+              className={`signForm__inputs-block ${
+                name === 'login' ? 'signForm_disabled' : ''
               }`}
-              onClick={onShowPassword}
-              type="button"
-            />
-          </div>
-        </section>
+            >
+              <label htmlFor="name" className="signForm__label">
+                Имя
+              </label>
+              <input
+                className="signForm__input-text"
+                type="text"
+                id="name"
+              ></input>
+            </div>
+
+            <div className={'signForm__inputs-block'}>
+              <label htmlFor="email" className="signForm__label">
+                E-mail
+              </label>
+              <input
+                className="signForm__input-text"
+                type="email"
+                id="email"
+              ></input>
+            </div>
+
+            <div className={'signForm__inputs-block'}>
+              <label htmlFor="password" className="signForm__label">
+                Пароль
+              </label>
+              <input
+                className="signForm__input-text signForm__input-text_error"
+                type={`${isVisiblePassword ? 'text' : 'password'}`}
+                id="password"
+              ></input>
+              <span className="signForm__text-error">
+                Что-то пошло не так..
+              </span>
+              <button
+                className={`signForm__password_unvisible ${
+                  isVisiblePassword ? 'signForm__password_visible' : ''
+                }`}
+                onClick={onShowPassword}
+                type="button"
+              />
+            </div>
+          </section>
+        </div>
 
         <section className="signForm__buttons">
           <button
