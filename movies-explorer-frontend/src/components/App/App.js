@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
@@ -13,31 +13,21 @@ import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Register from '../Register/Register';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
-import HeaderAuth from '../Header/HeaderAuth/HeaderAuth';
-import Preloader from '../Preloader/Preloader';
+import Navigation from '../Navigation/Navigation';
 
 function App() {
   /* Временная переменная для тестирования шапки и роутов */
   const loggedIn = true;
 
-  /* Отключить прелоадер */
-  const [isLoading, setIsLoading] = useState(false);
-
-  /* Временное отображение прелоадера */
-  function handlePreloader() {
-    setIsLoading(isLoading);
-  }
-
   return (
-    <div className="app" onClick={handlePreloader}>
-      <Preloader isLoading={isLoading} />
+    <div className="app">
       <Switch>
         <Route exact path={['/movies', '/saved-movies', '/profile']}>
           <Header isLogged={loggedIn} isPromo={false}>
             <ProtectedRoute
               exact
               path={['/movies', '/saved-movies', '/profile']}
-              component={HeaderAuth}
+              component={Navigation}
               loggedIn={loggedIn}
             />
           </Header>
@@ -47,7 +37,7 @@ function App() {
             <ProtectedRoute
               exact
               path={'/'}
-              component={HeaderAuth}
+              component={Navigation}
               loggedIn={loggedIn}
             />
           </Header>

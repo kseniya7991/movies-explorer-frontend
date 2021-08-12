@@ -20,8 +20,8 @@ function SignForm({
           <img
             className="header__logo logo_sign"
             src={logo}
-            alt="Фильмы"
-            title="Фильмы"
+            alt="Логотип проекта"
+            title="Логотип проекта"
           />
           <h2 className="signForm__title">{title}</h2>
 
@@ -38,6 +38,8 @@ function SignForm({
                 className="signForm__input-text"
                 type="text"
                 id="name"
+                placeholder="Виталий"
+                required
               ></input>
             </div>
 
@@ -49,6 +51,8 @@ function SignForm({
                 className="signForm__input-text"
                 type="email"
                 id="email"
+                placeholder="vital90@mail.ru"
+                required
               ></input>
             </div>
 
@@ -60,6 +64,7 @@ function SignForm({
                 className="signForm__input-text signForm__input-text_error"
                 type={`${isVisiblePassword ? 'text' : 'password'}`}
                 id="password"
+                required
               ></input>
               <span className="signForm__text-error">
                 Что-то пошло не так..

@@ -31,13 +31,13 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 780px) {
   .moviesCardList {
     padding: 70px 30px 30px 30px;
   }
 }
 
-@media screen and (max-width: 684px) {
+@media screen and (max-width: 700px) {
   .moviesCardList {
     grid-template-columns: minmax(300px, 360px);
     grid-auto-rows: 320px;

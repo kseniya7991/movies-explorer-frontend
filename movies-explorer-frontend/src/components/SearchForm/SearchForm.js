@@ -14,11 +14,11 @@ function SearchForm() {
           placeholder="Фильм"
         ></input>
         <div className="searchForm__find-block">
-          <input
+          <button
             type="submit"
             className="searchForm__find-btn"
             value=""
-          ></input>
+          ></button>
         </div>
       </div>
       <FilterCheckbox />

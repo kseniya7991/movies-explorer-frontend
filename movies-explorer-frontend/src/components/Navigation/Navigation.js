@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import './HeaderAuth.css';
-import '../Header.css';
-import Popup from '../../Popup/Popup';
+import './Navigation.css';
+import '../Header/Header.css';
+import Popup from '../Popup/Popup';
 
-function HeaderAuth() {
+function Navigation() {
   const [menuOpened, setMenuOpened] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -37,8 +37,8 @@ function HeaderAuth() {
     <>
       <Popup popupOpened={menuOpened} />
       <button
-        className={`header__menu-btn ${
-          isMobile ? 'header__menu-btn_enabled' : ''
+        className={`navigation__menu-btn ${
+          isMobile ? 'navigation__menu-btn_enabled' : ''
         } `}
         type="button"
         onClick={handleMenuOpening}
@@ -49,15 +49,15 @@ function HeaderAuth() {
         }`}
       >
         <button
-          className={`header__close-btn ${
-            isMobile ? 'header__close-btn_enabled' : ''
+          className={`navigation__close-btn ${
+            isMobile ? 'navigation__close-btn_enabled' : ''
           } `}
           type="button"
           onClick={handleMenuOpening}
         />
         <Link
-          className={`header__link ${
-            isMobile ? 'header__link_mobile' : 'header__link_disabled'
+          className={`navigation__link ${
+            isMobile ? 'navigation__link_mobile' : 'navigation__link_disabled'
           } `}
           to="/"
           onClick={handleMenuOpening}
@@ -65,32 +65,32 @@ function HeaderAuth() {
           Главная
         </Link>
         <Link
-          className={`header__link ${isMobile ? 'header__link_mobile' : ''} `}
+          className={`navigation__link ${isMobile ? 'navigation__link_mobile' : ''} `}
           to="/movies"
           onClick={handleMenuOpening}
         >
           Фильмы
         </Link>
         <Link
-          className={`header__link ${isMobile ? 'header__link_mobile' : ''} `}
+          className={`navigation__link ${isMobile ? 'navigation__link_mobile' : ''} `}
           to="/saved-movies"
           onClick={handleMenuOpening}
         >
           Сохранённые фильмы
         </Link>
         <Link
-          className={`header__link header__link-profile ${
-            isMobile ? 'header__link_mobile' : ''
+          className={`navigation__link navigation__link-profile ${
+            isMobile ? 'navigation__link_mobile' : ''
           } `}
           to="/profile"
           onClick={handleMenuOpening}
         >
           Аккаунт
-          <div className="header__logo-account" />
+          <div className="navigation__logo-account" />
         </Link>
       </nav>
     </>
   );
 }
 
-export default HeaderAuth;
+export default Navigation;

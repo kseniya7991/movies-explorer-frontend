@@ -24,7 +24,7 @@ function AboutMe() {
           потому что я геймер со стажем. В будущем интересно было бы попробовать
           фриланс.
         </p>
-        <img className="resume__image" src={photo}></img>
+        <img className="resume__image" src={photo} alt="Фото студента"></img>
         <ul className="resume__links">
           <li className="resume__links-item">GitHub</li>
           <li className="resume__links-item">LinkedIn</li>

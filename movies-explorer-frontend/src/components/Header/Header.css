@@ -20,6 +20,29 @@
   z-index: 2;
 }
 
+/* Стили меню для мобильной версии */
+.header__wrap_mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: fixed;
+  right: -100%;
+  width: 70vw;
+  bottom: 0;
+  top: 0;
+  background-color: #202020;
+
+  padding: 17% 8% 9% 8%;
+  box-sizing: border-box;
+
+  transition: 0.5s;
+}
+
+.header__wrap_mobile_opened {
+  right: 0;
+  transition: 0.5s;
+}
+
 .header_disabled {
   display: none;
 }
