@@ -1,4 +1,4 @@
-# movies-explorer-api
+# movies-explorer-frontend
 Web API for registration and authorization on site of films for the Yandex Praktirum diploma project.
 
 # Дипломный проект Movie (frontend)
