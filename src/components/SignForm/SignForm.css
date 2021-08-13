@@ -103,7 +103,7 @@
 .signForm__text-error {
   position: absolute;
   bottom: 6px;
-  font-family: Inter;
+  font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 10px;

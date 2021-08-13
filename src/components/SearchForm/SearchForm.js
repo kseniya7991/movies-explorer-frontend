@@ -14,6 +14,7 @@ function SearchForm() {
           placeholder="Фильм"
           required
         ></input>
+        <span className="searchForm__text-error">Что-то пошло не так..</span>
         <div className="searchForm__find-block">
           <button
             type="submit"
