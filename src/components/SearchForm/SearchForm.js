@@ -1,25 +1,37 @@
 import React from 'react';
+/* import { useForm } from 'react-hook-form'; */
 
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 import './SearchForm.css';
 
 function SearchForm() {
+/*   const { register } = useForm(); */
+  const errorMessage = '';
+  const isValid = true;
+
+  /*   const onSubmit = (data) => console.log(data); */
+  /*   const tester = () => console.log('smth'); */
+
   return (
-    <form className="searchForm">
+    <form className="searchForm" id="searchForm">
       <div className="searchForm__search-block">
         <input
+        name="searchField"
+          id="searchField"
           className="searchForm__search"
-          type="search"
+          type="text"
           placeholder="Фильм"
-          required
         ></input>
-        <span className="searchForm__text-error">Что-то пошло не так..</span>
+        {errorMessage && !isValid && (
+          <span className="searchForm__text-error">{errorMessage}</span>
+        )}
         <div className="searchForm__find-block">
           <button
             type="submit"
             className="searchForm__find-btn"
-            value=""
+            value="1"
+            form="searchForm"
           ></button>
         </div>
       </div>
@@ -29,3 +41,7 @@ function SearchForm() {
 }
 
 export default SearchForm;
+
+/* {errorMessage && !isValid && (
+  <span className="error">{errorMessage}</span>
+)} */
