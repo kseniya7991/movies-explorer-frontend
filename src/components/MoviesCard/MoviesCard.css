@@ -120,11 +120,11 @@
 }
 
 .moviesCard__button-save_saved::before {
-  content: "✖";
+  content: url("../../images/cross.png");
 }
 
 .moviesCard__button-save_saved:focus::before {
-  content: "✖";
+  content: url("../../images/cross.png");
 }
 
 .moviesCard__button-save_saved:focus {
