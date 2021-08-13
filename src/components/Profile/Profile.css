@@ -1,0 +1,136 @@
+.profile {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  padding: 70px 30px;
+}
+
+.profile__form {
+  margin: 0 auto;
+  max-height: 500px;
+  height: 100%;
+  width: 410px;
+
+  font-family: "Inter", Arial, sans-serif;
+  color: #fff;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.profile__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+
+  text-align: center;
+
+  padding-bottom: 15vh;
+  margin: 0;
+}
+
+.profile__label {
+  width: min-content;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 500;
+  padding-bottom: 5px;
+
+  color: #fff;
+  white-space: nowrap;
+}
+
+.profile__submit-btn {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  background-color: transparent;
+
+  font-family: "Inter", Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+
+  border: 0;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  display: block;
+  cursor: pointer;
+}
+
+.profile__logout-btn {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  background-color: transparent;
+
+  font-family: "Inter", Arial, sans-serif;
+  color: #ee3465;
+  text-align: center;
+
+  border: 0;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+}
+
+.profile__inputs-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  position: relative;
+
+  margin-bottom: 17px;
+
+  border-bottom: 1px solid #424242;
+}
+
+.profile__inputs-block:focus-within {
+  border-bottom: 1px solid #c7c7c7;
+  transition: 0.7s;
+}
+
+.profile__inputs-block:last-of-type {
+  border: 1px solid transparent;
+}
+
+.profile__inputs-block:last-of-type:focus-within {
+  border-bottom: 1px solid #c7c7c7;
+  transition: 0.7s;
+}
+
+.profile__input {
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  width: 100%;
+  padding-bottom: 13px;
+
+  font-family: "Inter", Arial, sans-serif;
+  color: #fff;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: normal;
+  text-align: right;
+}
+
+@media screen and (max-width: 480px) {
+  .profile {
+    width: 80%;
+    padding-bottom: 40px;
+  }
+  .profile__form {
+    width: 100%;
+  }
+  .profile__title {
+    padding-bottom: 9vh;
+  }
+}

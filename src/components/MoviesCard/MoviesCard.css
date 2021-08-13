@@ -1,0 +1,142 @@
+.moviesCard {
+  background-color: #222222;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.moviesCard__title-wrap {
+  padding: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.moviesCard__title {
+  margin: 0;
+
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+
+  padding-right: 10px;
+}
+
+.moviesCard__time {
+  margin: 0;
+
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;
+  color: #8b8b8b;
+}
+
+.moviesCard__image {
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 168px;
+  max-height: 200px;
+}
+
+.moviesCard__image::before {
+  content: "Ой, кажется мы потеряли картинку. Скоро ее найдем :)";
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 25px;
+  color: #fff;
+  display: block;
+  text-align: center;
+  padding-top: 20%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.moviesCard__image::after {
+  content: "";
+  display: block;
+  padding-bottom: 25%;
+}
+
+.moviesCard__button-save {
+  width: 100px;
+  height: 29px;
+  margin: 18px 0;
+  padding: 9px;
+
+  background-color: #313131;
+
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 11px;
+  text-align: center;
+  color: #fff;
+
+  border: 0;
+  border-radius: 30px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.moviesCard__button-save::before {
+  content: "Сохранить";
+}
+
+.moviesCard__button-save:focus::before {
+  content: "✓";
+  display: block;
+  transition: 0.1s;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 25px;
+  color: #fff;
+  position: relative;
+  text-align: center;
+  margin-top: -7px;
+}
+
+.moviesCard__button-save:focus {
+  background-color: #ee3465;
+  transition: 0.2s;
+}
+
+.moviesCard__button-save_active {
+  background-color: #ee3465;
+  transition: 0.5s;
+}
+
+.moviesCard__button-save_saved::before {
+  content: "✖";
+}
+
+.moviesCard__button-save_saved:focus::before {
+  content: "✖";
+}
+
+.moviesCard__button-save_saved:focus {
+  background-color: #313131;
+}
+
+@media screen and (max-width: 320px) {
+  .moviesCard__title {
+    font-size: 12px;
+  }
+
+  .moviesCard__time {
+    font-size: 10px;
+  }
+}

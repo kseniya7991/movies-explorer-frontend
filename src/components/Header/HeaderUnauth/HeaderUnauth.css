@@ -1,0 +1,27 @@
+.header__signup {
+  padding-right: 30px;
+
+  text-decoration: none;
+  color: #fff;
+}
+
+.header__signin {
+  padding: 8px 20px;
+
+  color: #000;
+  background-color: #3ddc84;
+  text-decoration: none;
+  line-height: normal;
+
+  border: none;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 480px) {
+  .header__signup {
+    padding-right: 14px;
+  }
+  .header__signin {
+    padding: 5px 12px;
+  }
+}
