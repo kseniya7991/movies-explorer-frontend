@@ -2,7 +2,10 @@ import React from 'react';
 
 import './MoreMoviesBtn.css';
 
-function MoreMoviesBtn() {
+function MoreMoviesBtn({ isEmpty }) {
+  if (isEmpty) {
+    return null;
+  }
   return (
     <div className="moreMoviesBtn__block">
       <button className="moreMoviesBtn__btn" type="button">

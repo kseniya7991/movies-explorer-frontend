@@ -7,17 +7,28 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 import MoreMoviesBtn from '../MoreMoviesBtn/MoreMoviesBtn';
 import Preloader from '../Preloader/Preloader';
-/* import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList'; */
+import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies() {
   /* Отображение прелоадера */
   const [isLoading, setIsLoading] = useState(false);
 
+  /* Проверка наличия фильмов в выдаче */
+  const [isListEmpty, setIsListEmpty] = useState(false);
+
   function handleSearchMovies() {
     setIsLoading(!isLoading);
     return api
       .getMovies()
-      .then((movies) => { console.log(movies); setIsLoading(false); })
+      .then((movies) => {
+        if (!movies) {
+          setIsListEmpty(true);
+        } else {
+          setIsListEmpty(false);
+          console.log(movies);
+        }
+        setIsLoading(false);
+      })
       .catch((err) => { console.log(err); setIsLoading(false); });
   }
 
@@ -26,11 +37,11 @@ function Movies() {
       <Preloader isLoading={isLoading} />
       <SearchForm onSubmit={handleSearchMovies}/>
 
-      <MoviesCardList />
-      <MoreMoviesBtn />
+      <MoviesCardList isEmpty={isListEmpty} />
+      <MoreMoviesBtn isEmpty={isListEmpty} />
 
       {/* Отображаем компонент, если фильмы не найдены */}
-     {/*        <EmptyMoviesList text='Мы ничего не нашли по вашему запросу &#128270;' /> */}
+     <EmptyMoviesList isEmpty={isListEmpty} text='Мы ничего не нашли по вашему запросу &#128270;' />
     </>
   );
 }

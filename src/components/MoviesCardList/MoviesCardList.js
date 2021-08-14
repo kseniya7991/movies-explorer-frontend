@@ -3,7 +3,10 @@ import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ isSavedMovies }) {
+function MoviesCardList({ isEmpty, isSavedMovies }) {
+  if (isEmpty) {
+    return null;
+  }
   return (
     <>
       <ul className="moviesCardList">
