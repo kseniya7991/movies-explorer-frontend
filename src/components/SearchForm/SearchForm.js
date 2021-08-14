@@ -1,5 +1,5 @@
 import React from 'react';
-/* import { useForm } from 'react-hook-form'; */
+import { useForm } from 'react-hook-form';
 
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
@@ -7,26 +7,26 @@ import '../SignForm/SignForm.css';
 import './SearchForm.css';
 
 function SearchForm() {
-/*   const { register } = useForm(); */
-  const errorMessage = '';
-  const isValid = true;
+  /* Хуки для валидации формы */
+  const { register, formState: { errors }, handleSubmit } = useForm();
+  const errorMessage = 'Нужно ввести ключевое слово';
 
-  /*   const onSubmit = (data) => console.log(data); */
-  const tester = () => console.log('smth');
+  const onSubmit = (data) => console.log(data);
 
   return (
-<form className="searchForm" onSubmit={tester}>
+    <form className="searchForm" onSubmit={handleSubmit(onSubmit)}>
       <div className="searchForm__search-block">
         <input
-        name="searchField"
+          {...register('searchField', { required: true })}
           id="searchField"
           className="searchForm__search"
           type="text"
           placeholder="Фильм"
         ></input>
-        {errorMessage && !isValid && (
-          <span className="searchForm__text-error">{errorMessage}</span>
-        )}
+        {errors.searchField?.type === 'required' && <span className={'searchForm__text-error'}>
+          {errorMessage}
+        </span>}
+
         <div className="searchForm__find-block">
           <button
             type="submit"
