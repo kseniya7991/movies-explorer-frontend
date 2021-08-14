@@ -2,16 +2,24 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
+import api from '../../utils/MoviesApi';
 
 import '../SignForm/SignForm.css';
 import './SearchForm.css';
 
 function SearchForm() {
+  function handleSearchMovies() {
+    return api
+      .getMovies()
+      .then((movies) => console.log(movies))
+      .catch((err) => console.log(err));
+  }
+
   /* Хуки для валидации формы */
   const { register, formState: { errors }, handleSubmit } = useForm();
   const errorMessage = 'Нужно ввести ключевое слово';
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = () => handleSearchMovies();
 
   return (
     <form className="searchForm" onSubmit={handleSubmit(onSubmit)}>
