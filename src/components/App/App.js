@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import ProtectedRoute from '../ProtectedRoute';
 
 // Импорт компонентов
@@ -14,13 +15,43 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Register from '../Register/Register';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Navigation from '../Navigation/Navigation';
+import InfoPopup from '../InfoPopup/InfoPopup';
 
 function App() {
+  const history = useHistory();
   /* Временная переменная для тестирования шапки и роутов */
   const loggedIn = true;
 
+  const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
+  const [statusInfoPopup, setStatusInfoPopup] = useState(false);
+  const [message, setMessage] = useState('');
+
+  function closeInfoPopup() {
+    if (statusInfoPopup) {
+      setIsInfoPopupOpen(false);
+      history.push('/sign-in');
+    } else {
+      setIsInfoPopupOpen(false);
+    }
+  }
+
+  function handleErrors() {
+    setMessage(
+      'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+    );
+    setIsInfoPopupOpen(true);
+  }
+
+  console.log(setStatusInfoPopup, setMessage);
+
   return (
     <div className="app">
+      <InfoPopup
+        isOpen={isInfoPopupOpen}
+        onClose={closeInfoPopup}
+        status={statusInfoPopup}
+        message={message}
+      />
       <Switch>
         <Route exact path={['/movies', '/saved-movies', '/profile']}>
           <Header isLogged={loggedIn} isPromo={false}>
@@ -45,7 +76,12 @@ function App() {
       </Switch>
 
       <Switch>
-        <ProtectedRoute path="/movies" loggedIn={loggedIn} component={Movies} />
+        <ProtectedRoute
+          path="/movies"
+          loggedIn={loggedIn}
+          component={Movies}
+          onShowError={handleErrors}
+        />
         <ProtectedRoute
           path="/saved-movies"
           loggedIn={loggedIn}

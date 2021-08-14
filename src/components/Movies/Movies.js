@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import api from '../../utils/MoviesApi';
+import filterByKey from '../../utils/FilterMovies';
 
 import './Movies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
@@ -9,7 +10,7 @@ import MoreMoviesBtn from '../MoreMoviesBtn/MoreMoviesBtn';
 import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
-function Movies() {
+function Movies({ onShowError }) {
   /* Отображение прелоадера */
   const [isLoading, setIsLoading] = useState(false);
 
@@ -21,6 +22,7 @@ function Movies() {
     return api
       .getMovies()
       .then((movies) => {
+        filterByKey(movies, 'Слон');
         if (!movies) {
           setIsListEmpty(true);
         } else {
@@ -29,7 +31,11 @@ function Movies() {
         }
         setIsLoading(false);
       })
-      .catch((err) => { console.log(err); setIsLoading(false); });
+      .catch((err) => {
+        console.log(err);
+        onShowError();
+        setIsLoading(false);
+      });
   }
 
   return (
