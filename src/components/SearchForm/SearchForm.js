@@ -6,11 +6,14 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import '../SignForm/SignForm.css';
 import './SearchForm.css';
 
-function SearchForm({ onSubmit }) {
+function SearchForm({ handleSearch }) {
   /* Хуки для валидации формы */
   const { register, formState: { errors }, handleSubmit } = useForm();
   const errorMessage = 'Нужно ввести ключевое слово';
 
+  const onSubmit = (data) => {
+    handleSearch(data.searchField.toString().toLowerCase());
+  };
   /* const onSubmit = () => handleSearchMovies(); */
 
   return (
