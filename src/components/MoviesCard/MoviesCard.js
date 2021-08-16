@@ -5,21 +5,17 @@ import './MoviesCard.css';
 function MoviesCard({ children }) {
   const url = 'https://api.nomoreparties.co';
 
-  console.log(url + children.image.url);
   const title = children.nameRU.toString();
   const duration = children.duration.toString();
-  console.log(duration);
 
   /* Расчет продолжительности фильма в часах и минутах */
   function handleTime(time) {
     if (time > 60) {
       const hours = Math.floor(time / 60);
-      console.log('часов', hours);
       let minutes = time - hours * 60;
       if (minutes < 5) {
         minutes = 0;
       }
-      console.log('hours', hours, 'minutes', minutes);
       const newTime = `${hours} ч ${minutes || ''} ${minutes ? 'мин' : ''}`;
       return newTime;
     }

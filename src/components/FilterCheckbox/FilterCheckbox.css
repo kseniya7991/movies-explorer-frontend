@@ -50,7 +50,7 @@
   border-radius: 50%;
 }
 
-.filterCheckbox__checkbox:checked + .filterCheckbox__slider {
+.filterCheckbox__checkbox_unchecked + .filterCheckbox__slider {
   background-color: #ccc;
 }
 
@@ -58,7 +58,7 @@
   box-shadow: 0 0 1px #ccc;
 }
 
-.filterCheckbox__checkbox:checked + .filterCheckbox__slider:before {
+.filterCheckbox__checkbox_unchecked + .filterCheckbox__slider:before {
   -webkit-transform: translateX(-16px);
   -ms-transform: translateX(-16px);
   transform: translateX(-16px);

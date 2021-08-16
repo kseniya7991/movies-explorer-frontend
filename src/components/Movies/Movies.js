@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import api from '../../utils/MoviesApi';
-import filterByKey from '../../utils/FilterMovies';
+import filterMovies from '../../utils/FilterMovies';
 
 import './Movies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
@@ -20,13 +20,13 @@ function Movies({ onShowError }) {
   /* Отфильтрованные по ключ. словам фильмы */
   const [filteredMovies, setFilteredMovies] = useState([]);
 
-  function handleSearchMovies(keys) {
+  function handleSearchMovies(keys, checkbox) {
     setIsLoading(!isLoading);
     return api
       .getMovies()
       .then((movies) => {
-        setFilteredMovies(filterByKey(movies, keys));
-        console.log(filterByKey(movies, keys));
+        setFilteredMovies(filterMovies(movies, keys, checkbox));
+        console.log(filterMovies(movies, keys, checkbox));
         if (!filteredMovies) {
           setIsListEmpty(true);
         } else {

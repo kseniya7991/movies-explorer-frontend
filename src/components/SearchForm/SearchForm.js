@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
@@ -7,12 +7,20 @@ import '../SignForm/SignForm.css';
 import './SearchForm.css';
 
 function SearchForm({ handleSearch }) {
+  /* Хук чекбокса "короткометражка" */
+  const [checked, setChecked] = useState(false);
+
+  function handleCheckbox() {
+    setChecked(!checked);
+  }
+
   /* Хуки для валидации формы */
   const { register, formState: { errors }, handleSubmit } = useForm();
   const errorMessage = 'Нужно ввести ключевое слово';
 
   const onSubmit = (data) => {
-    handleSearch(data.searchField.toString().toLowerCase());
+    const keys = (data.searchField.toString().toLowerCase());
+    handleSearch(keys, checked);
   };
 
   return (
@@ -33,11 +41,11 @@ function SearchForm({ handleSearch }) {
           <button
             type="submit"
             className="searchForm__find-btn"
-            value="1"
+            value=""
           ></button>
         </div>
       </div>
-      <FilterCheckbox />
+      <FilterCheckbox onClick={handleCheckbox} isChecked={checked}/>
     </form>
   );
 }
