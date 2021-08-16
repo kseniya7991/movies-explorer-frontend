@@ -14,7 +14,6 @@ function SearchForm({ handleSearch }) {
   const onSubmit = (data) => {
     handleSearch(data.searchField.toString().toLowerCase());
   };
-  /* const onSubmit = () => handleSearchMovies(); */
 
   return (
     <form className="searchForm" onSubmit={handleSubmit(onSubmit)}>

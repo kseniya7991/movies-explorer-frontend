@@ -3,14 +3,16 @@ import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ isEmpty, isSavedMovies }) {
+function MoviesCardList({ isEmpty, movies }) {
   if (isEmpty) {
     return null;
   }
   return (
     <>
       <ul className="moviesCardList">
-        <MoviesCard isSavedMovies={isSavedMovies} />
+      {movies.map(({ ...movie }) => (<MoviesCard key={movie.key}>{movie}</MoviesCard>))}
+        {/*
+        <MoviesCard isSavedMovies={isSavedMovies} /> */}
       </ul>
     </>
   );

@@ -17,19 +17,22 @@ function Movies({ onShowError }) {
   /* Проверка наличия фильмов в выдаче */
   const [isListEmpty, setIsListEmpty] = useState(false);
 
+  /* Отфильтрованные по ключ. словам фильмы */
+  const [filteredMovies, setFilteredMovies] = useState([]);
+
   function handleSearchMovies(keys) {
     setIsLoading(!isLoading);
     return api
       .getMovies()
       .then((movies) => {
-        const filteredMovies = filterByKey(movies, keys);
+        setFilteredMovies(filterByKey(movies, keys));
+        console.log(filterByKey(movies, keys));
         if (!filteredMovies) {
           setIsListEmpty(true);
         } else {
           setIsListEmpty(false);
         }
         setIsLoading(false);
-        console.log(filteredMovies);
       })
       .catch((err) => {
         console.log(err);
@@ -43,7 +46,7 @@ function Movies({ onShowError }) {
       <Preloader isLoading={isLoading} />
       <SearchForm handleSearch={handleSearchMovies}/>
 
-      <MoviesCardList isEmpty={isListEmpty} />
+      <MoviesCardList isEmpty={isListEmpty} movies={filteredMovies}/>
       <MoreMoviesBtn isEmpty={isListEmpty} />
 
       {/* Отображаем компонент, если фильмы не найдены */}

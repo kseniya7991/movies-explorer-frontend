@@ -1,5 +1,5 @@
 const filterByKey = (movies, searchKey) => {
-  const keys = searchKey.split(',').map((key) => key.trim()).filter((el) => el != null);
+  const keys = searchKey.split(',').map((key) => key.trim()).filter((el) => el.trim() !== '');
   const arrMovies = Array.from(movies);
 
   function filterMovies(key) {
