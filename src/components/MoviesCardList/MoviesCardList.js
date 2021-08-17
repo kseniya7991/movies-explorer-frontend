@@ -20,7 +20,7 @@ function MoviesCardList({ isEmpty, movies }) {
       <ul className="moviesCardList">
         {movies.map(({ ...movie }) => (
           <MoviesCard
-            key={movie.key}
+            key={movie.id}
             onClickSave={handleSaveMovie}
             movieIsSaved={movieIsSaved}
           >

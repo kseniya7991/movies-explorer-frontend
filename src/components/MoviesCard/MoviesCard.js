@@ -2,7 +2,9 @@ import React from 'react';
 
 import './MoviesCard.css';
 
-function MoviesCard({ children, onClickSave, movieIsSaved }) {
+function MoviesCard({
+  children, onClickSave, movieIsSaved,
+}) {
   const url = 'https://api.nomoreparties.co';
 
   const title = children.nameRU.toString();
