@@ -2,7 +2,7 @@ import React from 'react';
 
 import './MoviesCard.css';
 
-function MoviesCard({ children }) {
+function MoviesCard({ children, onClickSave, movieIsSaved }) {
   const url = 'https://api.nomoreparties.co';
 
   const title = children.nameRU.toString();
@@ -23,6 +23,11 @@ function MoviesCard({ children }) {
   }
   const newTime = handleTime(duration);
 
+  /* Функция сохранения фильма */
+  function handleClickOnSave() {
+    onClickSave(children);
+  }
+
   return (
     <>
       <li className="moviesCard">
@@ -32,9 +37,11 @@ function MoviesCard({ children }) {
         </div>
         <img className="moviesCard__image" src={url + children.image.url} alt="Фильм В погоне за Бенкси"></img>
         <button
-          className={'moviesCard__button-save'}
+          className={`moviesCard__button-save ${movieIsSaved ? 'moviesCard__button-save_active' : ''}`}
           type="button"
-        ></button>
+          onClick={handleClickOnSave}
+        >Сохранить
+        </button>
       </li>
 
 {/*       <li className="moviesCard">
