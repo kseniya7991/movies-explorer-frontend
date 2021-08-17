@@ -1,5 +1,4 @@
 const filterMovies = (movies, searchKey, checkbox) => {
-  console.log(checkbox);
   const keys = searchKey.split(',').map((key) => key.trim()).filter((el) => el.trim() !== '');
   const arrMovies = Array.from(movies);
 

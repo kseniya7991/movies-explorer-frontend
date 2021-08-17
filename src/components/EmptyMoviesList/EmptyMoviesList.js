@@ -6,7 +6,7 @@ function EmptyMoviesList({ isEmpty, text }) {
   if (!isEmpty) {
     return null;
   }
-  return <p className="emptyMoviesList">{text}&nbsp;</p>;
+  return <p className="emptyMoviesList">{text}&nbsp;&#128270;</p>;
 }
 
 export default EmptyMoviesList;

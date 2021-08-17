@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import api from '../../utils/MoviesApi';
 import filterMovies from '../../utils/FilterMovies';
@@ -11,14 +11,29 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError }) {
-  /* Отображение прелоадера */
-  const [isLoading, setIsLoading] = useState(false);
+  /* Отфильтрованные по ключ. словам фильмы */
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
   /* Проверка наличия фильмов в выдаче */
   const [isListEmpty, setIsListEmpty] = useState(false);
+  const [moviesBlockText, setMoviesBlockText] = useState('');
 
-  /* Отфильтрованные по ключ. словам фильмы */
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  /* Выдача фильмов */
+  useEffect(() => {
+    if (filteredMovies.length === 0) {
+      setIsListEmpty(true);
+    } else {
+      setIsListEmpty(false);
+    }
+    setMoviesBlockText('Мы ничего не нашли по вашему запросу');
+  }, [filteredMovies]);
+
+  useEffect(() => {
+    setMoviesBlockText('Введите запрос в строку поиска');
+  }, []);
+
+  /* Отображение прелоадера */
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleSearchMovies(keys, checkbox) {
     setIsLoading(!isLoading);
@@ -26,12 +41,7 @@ function Movies({ onShowError }) {
       .getMovies()
       .then((movies) => {
         setFilteredMovies(filterMovies(movies, keys, checkbox));
-        console.log(filterMovies(movies, keys, checkbox));
-        if (!filteredMovies) {
-          setIsListEmpty(true);
-        } else {
-          setIsListEmpty(false);
-        }
+        console.log(filteredMovies);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -50,7 +60,7 @@ function Movies({ onShowError }) {
       <MoreMoviesBtn isEmpty={isListEmpty} />
 
       {/* Отображаем компонент, если фильмы не найдены */}
-     <EmptyMoviesList isEmpty={isListEmpty} text='Мы ничего не нашли по вашему запросу &#128270;' />
+     <EmptyMoviesList isEmpty={isListEmpty} text={moviesBlockText}/>
     </>
   );
 }
