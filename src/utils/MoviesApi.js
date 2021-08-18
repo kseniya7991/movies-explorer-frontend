@@ -1,10 +1,10 @@
-/* const handleResponse = (res) => {
+const handleResponse = (res) => {
   if (!res.ok) {
     return Promise.reject(new Error(`Error: ${res.status}`));
   }
   return res.json();
 };
- */
+
 class Api {
   constructor({ baseUrl }) {
     this.baseUrl = baseUrl;
@@ -12,12 +12,12 @@ class Api {
 
   getMovies() {
     return fetch(`${this.baseUrl}`, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
     })
-      .then((res) => res.json())
+      .then(handleResponse)
       .then((data) => {
         console.log(data);
         localStorage.setItem('movies', JSON.stringify(data));

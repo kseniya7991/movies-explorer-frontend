@@ -37,7 +37,7 @@ function MoviesCard({
           <p className="moviesCard__title">{title}</p>
           <p className="moviesCard__time">{newTime}</p>
         </div>
-        <img className="moviesCard__image" src={url + children.image.url} alt="Фильм В погоне за Бенкси"></img>
+        <a href={children.trailerLink} target="_blank" rel="noreferrer" className="moviesCard__image-link"><img className="moviesCard__image" src={url + children.image.url} alt="Фильм В погоне за Бенкси"></img></a>
         <button
           className={`moviesCard__button-save ${movieIsSaved ? 'moviesCard__button-save_active' : ''}`}
           type="button"

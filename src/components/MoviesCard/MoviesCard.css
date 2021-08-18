@@ -50,6 +50,12 @@
   min-width: 100%;
   min-height: 168px;
   max-height: 200px;
+
+  cursor: pointer;
+}
+
+.moviesCard__image-link {
+  display: contents;
 }
 
 .moviesCard__image::before {

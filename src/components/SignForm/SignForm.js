@@ -4,18 +4,31 @@ import { Link } from 'react-router-dom';
 import './SignForm.css';
 import logo from '../../images/logo.svg';
 
+import { useForm } from '../ValidationForm/ValidationForm';
+
 function SignForm({
   name, title, buttonValue, text, linkText,
 }) {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
+  const {
+    values, handleChange, errors, isValid, resetForm,
+  } = useForm();
+
   function onShowPassword() {
     setIsVisiblePassword(!isVisiblePassword);
   }
 
+  function handleSubmit() {
+    console.log('отпрвлено', values);
+    if (isValid) {
+      resetForm();
+    }
+  }
+
   return (
     <section className="signForm">
-      <form className="signForm__form">
+      <form className="signForm__form" onSubmit={handleSubmit}>
         <div>
           <img
             className="header__logo logo_sign"
@@ -35,10 +48,12 @@ function SignForm({
                 Имя
               </label>
               <input
+                name="name"
                 className="signForm__input-text"
                 type="text"
                 id="name"
                 placeholder="Виталий"
+                onChange={handleChange}
                 required
               ></input>
             </div>
@@ -48,10 +63,12 @@ function SignForm({
                 E-mail
               </label>
               <input
+              name="email"
                 className="signForm__input-text"
                 type="email"
                 id="email"
                 placeholder="vital90@mail.ru"
+                onChange={handleChange}
                 required
               ></input>
             </div>
@@ -61,14 +78,16 @@ function SignForm({
                 Пароль
               </label>
               <input
+              name="password"
                 className="signForm__input-text signForm__input-text_error"
                 type={`${isVisiblePassword ? 'text' : 'password'}`}
                 id="password"
+                onChange={handleChange}
                 required
               ></input>
-              <span className="signForm__text-error">
-                Что-то пошло не так..
-              </span>
+              {!isValid && (
+                <span className="signForm__text-error">{errors}</span>
+              )}
               <button
                 className={`signForm__password_unvisible ${
                   isVisiblePassword ? 'signForm__password_visible' : ''
