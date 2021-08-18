@@ -11,6 +11,8 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError }) {
+  const [allMovies, setAllMovies] = useState([]);
+
   /* Отфильтрованные по ключ. словам фильмы */
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [selectedMovies, setSelectedMovies] = useState([]);
@@ -93,19 +95,30 @@ function Movies({ onShowError }) {
   // Запросы к API
   /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
   const handleSearchMovies = (keys, checkbox) => {
-    setIsLoading(!isLoading);
+    setIsLoading(true);
+    const arrayMovies = JSON.parse(localStorage.getItem('movies'));
 
-    return api
-      .getMovies()
-      .then((movies) => {
-        setFilteredMovies(filterMovies(movies, keys, checkbox));
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        onShowError();
-        setIsLoading(false);
-      });
+    if (!arrayMovies && allMovies.length === 0) {
+      return api
+        .getMovies()
+        .then((movies) => {
+          setAllMovies(movies);
+          setFilteredMovies(filterMovies(movies, keys, checkbox));
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          onShowError();
+          setIsLoading(false);
+        });
+    } if (allMovies.length !== 0) {
+      setFilteredMovies(filterMovies(allMovies, keys, checkbox));
+      setIsLoading(false);
+    } else {
+      setFilteredMovies(filterMovies(arrayMovies, keys, checkbox));
+      setIsLoading(false);
+    }
+    return null;
   };
 
   return (
