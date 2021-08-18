@@ -1,10 +1,10 @@
-const handleResponse = (res) => {
+/* const handleResponse = (res) => {
   if (!res.ok) {
     return Promise.reject(new Error(`Error: ${res.status}`));
   }
   return res.json();
 };
-
+ */
 class Api {
   constructor({ baseUrl }) {
     this.baseUrl = baseUrl;
@@ -17,7 +17,12 @@ class Api {
         'Content-Type': 'application/json',
       },
     })
-      .then(handleResponse);
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        localStorage.setItem('movies', JSON.stringify(data));
+        return data;
+      });
   }
 }
 

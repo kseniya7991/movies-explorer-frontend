@@ -3,8 +3,6 @@ import React from 'react';
 import './MoreMoviesBtn.css';
 
 function MoreMoviesBtn({ isEmpty, onMoreMovies, isEnabledBtn }) {
-  console.log(isEnabledBtn);
-
   function handleMoreMoviesBtn() {
     onMoreMovies();
   }

@@ -74,12 +74,10 @@ function Movies({ onShowError }) {
 
   useEffect(() => {
     if (selectedMovies.length === filteredMovies.length) {
-      console.log('все');
       setIsEnabledBtn(false);
     } else {
       setIsEnabledBtn(true);
     }
-    console.log(selectedMovies.length, filteredMovies.length);
   }, [selectedMovies]);
 
   /* При нажатии на кнопку "ещё"  */
@@ -96,6 +94,7 @@ function Movies({ onShowError }) {
   /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
   const handleSearchMovies = (keys, checkbox) => {
     setIsLoading(!isLoading);
+
     return api
       .getMovies()
       .then((movies) => {
