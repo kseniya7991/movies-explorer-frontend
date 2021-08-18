@@ -2,7 +2,9 @@ import React from 'react';
 
 import './MoreMoviesBtn.css';
 
-function MoreMoviesBtn({ isEmpty, onMoreMovies }) {
+function MoreMoviesBtn({ isEmpty, onMoreMovies, isEnabledBtn }) {
+  console.log(isEnabledBtn);
+
   function handleMoreMoviesBtn() {
     onMoreMovies();
   }
@@ -11,7 +13,7 @@ function MoreMoviesBtn({ isEmpty, onMoreMovies }) {
     return null;
   }
   return (
-    <div className="moreMoviesBtn__block">
+    <div className={`moreMoviesBtn__block ${isEnabledBtn ? '' : 'moreMoviesBtn__block_disabled'}`}>
       <button className="moreMoviesBtn__btn" type="button" onClick={handleMoreMoviesBtn}>
         Ещё
       </button>
