@@ -3,7 +3,11 @@ import SignForm from '../SignForm/SignForm';
 
 import './Login.css';
 
-function Login() {
+function Login({ onLogin }) {
+  function handleSubmitForm(values) {
+    onLogin(values);
+  }
+
   return (
     <SignForm
       name="login"
@@ -11,6 +15,7 @@ function Login() {
       buttonValue="Войти"
       text="Ещё не зарегистрированы? "
       linkText="Регистрация"
+      onSubmitForm={handleSubmitForm}
     />
   );
 }

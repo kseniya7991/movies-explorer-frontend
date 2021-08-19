@@ -26,7 +26,7 @@ function App() {
 
   const history = useHistory();
   /* Временная переменная для тестирования шапки и роутов */
-  const loggedIn = true;
+  const [loggedIn, setLoggedIn] = useState('false');
 
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
   const [statusInfoPopup, setStatusInfoPopup] = useState(false);
@@ -65,6 +65,21 @@ function App() {
         handleErrors();
         setIsLoading(false);
       });
+  }
+
+  function handleSubmitLogin(values) {
+    const { email, password } = values;
+    setIsLoading(true);
+
+    auth
+      .authorize(email, password)
+      .then((res) => {
+        if (res.token) {
+          setLoggedIn(true);
+          history.push('/movies');
+        }
+      })
+      .catch((err) => console.err(err));
   }
 
   console.log(setStatusInfoPopup, setMessage);
@@ -106,7 +121,7 @@ function App() {
           <Register onRegister={handleSubmitRegister}/>
         </Route>
         <Route exact path="/signin">
-          <Login />
+          <Login onLogin={handleSubmitLogin} />
         </Route>
         <Route exact path="/">
           <Main />
