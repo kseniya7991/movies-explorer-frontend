@@ -19,8 +19,6 @@ export const register = (name, email, password) => fetch('https://movies.kst.nom
   }),
 })
   .then((res) => {
-    console.log(res);
     res.json();
   })
-  .then((response) => console.log(response))
-  .catch((err) => console.log(err));
+  .then((response) => (response));
