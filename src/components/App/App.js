@@ -102,10 +102,10 @@ function App() {
       </Switch>
 
       <Switch>
-        <Route exact path="/sign-up">
+        <Route exact path="/signup">
           <Register onRegister={handleSubmitRegister}/>
         </Route>
-        <Route exact path="/sign-in">
+        <Route exact path="/signin">
           <Login />
         </Route>
         <Route exact path="/">
