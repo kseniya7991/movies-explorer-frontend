@@ -102,6 +102,18 @@ function App() {
       </Switch>
 
       <Switch>
+        <Route path="/signup">
+          <Register onRegister={handleSubmitRegister}/>
+        </Route>
+        <Route path="/signin">
+          <Login />
+        </Route>
+        <Route path="/*">
+          <NotFoundPage />
+        </Route>
+        <Route exact path="/">
+          <Main />
+        </Route>
         <ProtectedRoute
           path="/movies"
           loggedIn={loggedIn}
@@ -113,23 +125,11 @@ function App() {
           loggedIn={loggedIn}
           component={SavedMovies}
         />
-        <Route exact path="/">
-          <Main />
-        </Route>
         <ProtectedRoute
           path="/profile"
           loggedIn={loggedIn}
           component={Profile}
         />
-        <Route path="/signup">
-          <Register loggedIn={loggedIn} onRegister={handleSubmitRegister}/>
-        </Route>
-        <Route path="/signin">
-          <Login />
-        </Route>
-        <Route path="/*">
-          <NotFoundPage />
-        </Route>
       </Switch>
 
       <Route exact path={['/movies', '/saved-movies', '/']}>
