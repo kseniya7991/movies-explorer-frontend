@@ -58,7 +58,7 @@ function App() {
       .then((res) => {
         console.log(res);
         setIsLoading(false);
-        history.push('/');
+        history.push('/movies');
       })
       .catch((err) => {
         console.log(err);
