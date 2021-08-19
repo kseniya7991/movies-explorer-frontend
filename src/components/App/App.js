@@ -77,6 +77,7 @@ function App() {
         if (res.token) {
           setLoggedIn(true);
           history.push('/movies');
+          setIsLoading(false);
         }
       })
       .catch((err) => console.err(err));
