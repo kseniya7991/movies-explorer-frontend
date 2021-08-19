@@ -4,6 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import ProtectedRoute from '../ProtectedRoute';
 
+import mainApi from '../../utils/MainApi';
+
 // Импорт компонентов
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -16,8 +18,12 @@ import Register from '../Register/Register';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Navigation from '../Navigation/Navigation';
 import InfoPopup from '../InfoPopup/InfoPopup';
+import Preloader from '../Preloader/Preloader';
 
 function App() {
+  /* Отображение прелоадера */
+  const [isLoading, setIsLoading] = useState(false);
+
   const history = useHistory();
   /* Временная переменная для тестирования шапки и роутов */
   const loggedIn = true;
@@ -42,10 +48,29 @@ function App() {
     setIsInfoPopupOpen(true);
   }
 
+  function handleSubmitRegister(values) {
+    const { name, email, password } = values;
+    setIsLoading(true);
+
+    return mainApi
+      .register(name, email, password)
+      .then((res) => {
+        console.log(res);
+        setIsLoading(false);
+        history.push('/');
+      })
+      .catch((err) => {
+        console.log(err);
+        handleErrors();
+        setIsLoading(false);
+      });
+  }
+
   console.log(setStatusInfoPopup, setMessage);
 
   return (
     <div className="app">
+      <Preloader isLoading={isLoading} />
       <InfoPopup
         isOpen={isInfoPopupOpen}
         onClose={closeInfoPopup}
@@ -96,7 +121,7 @@ function App() {
           component={Profile}
         />
         <Route path="/signup">
-          <Register />
+          <Register onRegister={handleSubmitRegister}/>
         </Route>
         <Route path="/signin">
           <Login />

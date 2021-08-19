@@ -7,7 +7,7 @@ import logo from '../../images/logo.svg';
 import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
 function SignForm({
-  name, title, buttonValue, text, linkText,
+  name, title, buttonValue, text, linkText, onSubmitForm,
 }) {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
@@ -19,11 +19,11 @@ function SignForm({
     setIsVisiblePassword(!isVisiblePassword);
   }
 
-  function handleSubmit() {
-    console.log('отпрвлено', values);
-    console.log(errors);
+  function handleSubmit(e) {
+    e.preventDefault();
     if (isValid) {
       resetForm();
+      onSubmitForm(values);
     }
   }
 
@@ -57,7 +57,9 @@ function SignForm({
                 onChange={handleChange}
                 minLength="2"
                 maxLength="30"
+                pattern="^[a-zA-Zа-яёЁА-Я\s-]+$"
                 required
+                disabled={`${name === 'login' ? 'true' : ''}`}
               ></input>
                {errors.name && <span className="signForm__text-error">{errors.name}</span>}
             </div>
@@ -104,9 +106,10 @@ function SignForm({
 
         <section className="signForm__buttons">
           <button
-            className="signForm__register-btn"
+            className={`signForm__register-btn ${isValid ? '' : 'signForm__register-btn_disabled'}`}
             type="submit"
             value="buttonValue"
+            disabled={!isValid}
           >
             {buttonValue}
           </button>

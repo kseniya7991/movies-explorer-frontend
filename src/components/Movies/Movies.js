@@ -92,7 +92,7 @@ function Movies({ onShowError }) {
     setMoviesBlockText('Введите запрос в строку поиска');
   }, []);
 
-  // Запросы к API
+  // Запрос к API
   /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
   const handleSearchMovies = (keys, checkbox) => {
     setIsLoading(true);

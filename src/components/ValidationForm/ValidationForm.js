@@ -29,7 +29,7 @@ export function useFormWithValidation() {
     setErrors({ ...errors, [name]: target.validationMessage });
     setIsValid(target.closest('form').checkValidity());
   };
-  console.log(errors);
+  console.log(isValid);
 
   const resetForm = useCallback(
     (newValues = {}, newErrors = {}, newIsValid = false) => {
