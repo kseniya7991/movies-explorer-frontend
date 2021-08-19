@@ -122,7 +122,7 @@ function App() {
           component={Profile}
         />
         <Route path="/signup">
-          <Register onRegister={handleSubmitRegister}/>
+          <Register loggedIn={loggedIn} onRegister={handleSubmitRegister}/>
         </Route>
         <Route path="/signin">
           <Login />

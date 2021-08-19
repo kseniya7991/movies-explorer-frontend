@@ -7,7 +7,7 @@
 
 export const BASE_URL = 'https://movies.kst.nomoredomains.monster';
 
-export const register = (name, email, password) => fetch('https://movies.kst.nomoredomains.monster/signup', {
+export const register = (name, email, password) => fetch('https://movies.kst.nomoredomains.monster/api/signup', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
