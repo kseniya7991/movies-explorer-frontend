@@ -12,7 +12,7 @@ class Api {
 
   getMovies() {
     return fetch(`${this.baseUrl}`, {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
