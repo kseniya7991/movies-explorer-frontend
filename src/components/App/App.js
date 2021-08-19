@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router';
@@ -31,6 +31,23 @@ function App() {
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
   const [statusInfoPopup, setStatusInfoPopup] = useState(false);
   const [message, setMessage] = useState('');
+
+  function tokenCheck() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setLoggedIn(true);
+    }
+  }
+
+  useEffect(() => {
+    tokenCheck();
+  }, []);
+
+  useEffect(() => {
+    if (loggedIn) {
+      history.push('/movies');
+    }
+  }, [history, loggedIn]);
 
   function closeInfoPopup() {
     if (statusInfoPopup) {
