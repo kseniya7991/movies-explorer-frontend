@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import ProtectedRoute from '../ProtectedRoute';
 
-import mainApi from '../../utils/MainApi';
+import * as auth from '../../utils/MainApi';
 
 // Импорт компонентов
 import Header from '../Header/Header';
@@ -50,9 +50,10 @@ function App() {
 
   function handleSubmitRegister(values) {
     const { name, email, password } = values;
+    console.log(values);
     setIsLoading(true);
 
-    return mainApi
+    auth
       .register(name, email, password)
       .then((res) => {
         console.log(res);

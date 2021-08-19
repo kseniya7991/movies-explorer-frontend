@@ -50,7 +50,9 @@ function SignForm({
               </label>
               <input
                 name="name"
-                className={`signForm__input-text ${errors.name ? 'signForm__input-text_error' : ''}`}
+                className={`signForm__input-text ${
+                  errors.name ? 'signForm__input-text_error' : ''
+                }`}
                 type="text"
                 id="name"
                 placeholder="Виталий"
@@ -61,7 +63,9 @@ function SignForm({
                 required
                 disabled={`${name === 'login' ? 'true' : ''}`}
               ></input>
-               {errors.name && <span className="signForm__text-error">{errors.name}</span>}
+              {errors.name && (
+                <span className="signForm__text-error">{errors.name}</span>
+              )}
             </div>
 
             <div className={'signForm__inputs-block'}>
@@ -69,15 +73,19 @@ function SignForm({
                 E-mail
               </label>
               <input
-              name="email"
-                className={`signForm__input-text ${errors.email ? 'signForm__input-text_error' : ''}`}
+                name="email"
+                className={`signForm__input-text ${
+                  errors.email ? 'signForm__input-text_error' : ''
+                }`}
                 type="email"
                 id="email"
                 placeholder="vital90@mail.ru"
                 onChange={handleChange}
                 required
               ></input>
-              {errors.email && <span className="signForm__text-error">{errors.email}</span>}
+              {errors.email && (
+                <span className="signForm__text-error">{errors.email}</span>
+              )}
             </div>
 
             <div className={'signForm__inputs-block'}>
@@ -85,14 +93,18 @@ function SignForm({
                 Пароль
               </label>
               <input
-              name="password"
-              className={`signForm__input-text ${errors.password ? 'signForm__input-text_error' : ''}`}
+                name="password"
+                className={`signForm__input-text ${
+                  errors.password ? 'signForm__input-text_error' : ''
+                }`}
                 type={`${isVisiblePassword ? 'text' : 'password'}`}
                 id="password"
                 onChange={handleChange}
                 required
               ></input>
-              {errors.password && <span className="signForm__text-error">{errors.password}</span>}
+              {errors.password && (
+                <span className="signForm__text-error">{errors.password}</span>
+              )}
               <button
                 className={`signForm__password_unvisible ${
                   isVisiblePassword ? 'signForm__password_visible' : ''
@@ -106,7 +118,9 @@ function SignForm({
 
         <section className="signForm__buttons">
           <button
-            className={`signForm__register-btn ${isValid ? '' : 'signForm__register-btn_disabled'}`}
+            className={`signForm__register-btn ${
+              isValid ? '' : 'signForm__register-btn_disabled'
+            }`}
             type="submit"
             value="buttonValue"
             disabled={!isValid}

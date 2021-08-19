@@ -96,7 +96,8 @@ function Movies({ onShowError }) {
   /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
   const handleSearchMovies = (keys, checkbox) => {
     setIsLoading(true);
-    const arrayMovies = JSON.parse(localStorage.getItem('movies'));
+    /* const arrayMovies = JSON.parse(localStorage.getItem('movies')); */
+    const arrayMovies = localStorage.getItem('movies');
 
     if (!arrayMovies && allMovies.length === 0) {
       return api
