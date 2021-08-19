@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './SignForm.css';
 import logo from '../../images/logo.svg';
 
-import { useForm } from '../ValidationForm/ValidationForm';
+import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
 function SignForm({
   name, title, buttonValue, text, linkText,
@@ -13,7 +13,7 @@ function SignForm({
 
   const {
     values, handleChange, errors, isValid, resetForm,
-  } = useForm();
+  } = useFormWithValidation();
 
   function onShowPassword() {
     setIsVisiblePassword(!isVisiblePassword);
@@ -21,6 +21,7 @@ function SignForm({
 
   function handleSubmit() {
     console.log('отпрвлено', values);
+    console.log(errors);
     if (isValid) {
       resetForm();
     }
@@ -49,13 +50,16 @@ function SignForm({
               </label>
               <input
                 name="name"
-                className="signForm__input-text"
+                className={`signForm__input-text ${errors.name ? 'signForm__input-text_error' : ''}`}
                 type="text"
                 id="name"
                 placeholder="Виталий"
                 onChange={handleChange}
+                minLength="2"
+                maxLength="30"
                 required
               ></input>
+               {errors.name && <span className="signForm__text-error">{errors.name}</span>}
             </div>
 
             <div className={'signForm__inputs-block'}>
@@ -64,13 +68,14 @@ function SignForm({
               </label>
               <input
               name="email"
-                className="signForm__input-text"
+                className={`signForm__input-text ${errors.email ? 'signForm__input-text_error' : ''}`}
                 type="email"
                 id="email"
                 placeholder="vital90@mail.ru"
                 onChange={handleChange}
                 required
               ></input>
+              {errors.email && <span className="signForm__text-error">{errors.email}</span>}
             </div>
 
             <div className={'signForm__inputs-block'}>
@@ -79,15 +84,13 @@ function SignForm({
               </label>
               <input
               name="password"
-                className="signForm__input-text signForm__input-text_error"
+              className={`signForm__input-text ${errors.password ? 'signForm__input-text_error' : ''}`}
                 type={`${isVisiblePassword ? 'text' : 'password'}`}
                 id="password"
                 onChange={handleChange}
                 required
               ></input>
-              {!isValid && (
-                <span className="signForm__text-error">{errors}</span>
-              )}
+              {errors.password && <span className="signForm__text-error">{errors.password}</span>}
               <button
                 className={`signForm__password_unvisible ${
                   isVisiblePassword ? 'signForm__password_visible' : ''

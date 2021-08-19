@@ -96,6 +96,14 @@
   font-weight: normal;
 }
 
+.signForm__inputs-block:nth-child(2) .signForm__input-text {
+  margin-bottom: 30px;
+}
+
+.signForm__inputs-block:nth-child(2) .signForm__text-error {
+  bottom: 4px;
+}
+
 .signForm__input-text_error {
   color: #ee3465;
 }

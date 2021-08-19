@@ -9,8 +9,8 @@ export function useForm() {
     const { value } = target;
     const { name } = target;
     setValues({ ...values, [name]: value });
-    console.log(values);
   };
+  console.log(values);
 
   return { values, handleChange, setValues };
 }
@@ -29,6 +29,7 @@ export function useFormWithValidation() {
     setErrors({ ...errors, [name]: target.validationMessage });
     setIsValid(target.closest('form').checkValidity());
   };
+  console.log(errors);
 
   const resetForm = useCallback(
     (newValues = {}, newErrors = {}, newIsValid = false) => {
