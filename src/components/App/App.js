@@ -49,7 +49,7 @@ function App() {
     if (loggedIn) {
       history.push('/movies');
     }
-  }, [history, loggedIn]);
+  }, []);
 
   function closeInfoPopup() {
     if (statusInfoPopup) {
