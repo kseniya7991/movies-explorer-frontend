@@ -37,13 +37,16 @@ function App() {
     if (token) {
       setLoggedIn(true);
     }
+    console.log(loggedIn);
   }
 
   useEffect(() => {
     tokenCheck();
+    console.log(loggedIn);
   }, []);
 
   useEffect(() => {
+    console.log(loggedIn);
     if (loggedIn) {
       history.push('/movies');
     }
