@@ -50,6 +50,7 @@ function App() {
       history.push('/movies');
     }
   }, []); */
+  console.log(loggedIn);
 
   function closeInfoPopup() {
     if (statusInfoPopup) {
@@ -90,8 +91,7 @@ function App() {
 
     auth
       .register(name, email, password)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         setIsLoading(false);
         handleSubmitLogin({ email, password });
       })

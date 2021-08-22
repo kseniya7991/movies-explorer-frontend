@@ -20,10 +20,6 @@ export const register = (name, email, password) => fetch(`${BASE_URL}/signup`, {
 })
   .then((res) => {
     res.json();
-    console.log(res);
-  })
-  .then((response) => {
-    console.log(response);
   });
 
 export const authorize = (email, password) => fetch(`${BASE_URL}/signin`, {
