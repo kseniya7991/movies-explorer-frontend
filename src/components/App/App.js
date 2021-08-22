@@ -67,24 +67,6 @@ function App() {
     setIsInfoPopupOpen(true);
   }
 
-  function handleSubmitRegister(values) {
-    const { name, email, password } = values;
-    console.log(values);
-    setIsLoading(true);
-
-    auth
-      .register(name, email, password)
-      .then((res) => {
-        console.log(res);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        handleErrors();
-        setIsLoading(false);
-      });
-  }
-
   function handleSubmitLogin(values) {
     const { email, password } = values;
     setIsLoading(true);
@@ -99,6 +81,25 @@ function App() {
         }
       })
       .catch((err) => console.err(err));
+  }
+
+  function handleSubmitRegister(values) {
+    const { name, email, password } = values;
+    console.log(values);
+    setIsLoading(true);
+
+    auth
+      .register(name, email, password)
+      .then((res) => {
+        console.log(res);
+        setIsLoading(false);
+        handleSubmitLogin({ email, password });
+      })
+      .catch((err) => {
+        console.log(err);
+        handleErrors();
+        setIsLoading(false);
+      });
   }
 
   console.log(setStatusInfoPopup, setMessage);
