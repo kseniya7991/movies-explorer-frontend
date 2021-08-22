@@ -47,7 +47,7 @@ function App() {
     if (loggedIn) {
       history.push('/movies');
     }
-  }, [history, loggedIn]);
+  }, [loggedIn]);
 
   function closeInfoPopup() {
     if (statusInfoPopup) {
