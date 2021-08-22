@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import { useHistory } from 'react-router';
+/* import { useHistory } from 'react-router'; */
 import ProtectedRoute from '../ProtectedRoute';
 
 import * as auth from '../../utils/MainApi';
@@ -24,7 +24,7 @@ function App() {
   /* Отображение прелоадера */
   const [isLoading, setIsLoading] = useState(false);
 
-  const history = useHistory();
+  /* const history = useHistory(); */
   /* Временная переменная для тестирования шапки и роутов */
   const [loggedIn, setLoggedIn] = useState('false');
 
@@ -53,7 +53,7 @@ function App() {
   function closeInfoPopup() {
     if (statusInfoPopup) {
       setIsInfoPopupOpen(false);
-      history.push('/signin');
+      /*  history.push('/signin'); */
     } else {
       setIsInfoPopupOpen(false);
     }
@@ -146,7 +146,7 @@ function App() {
         </Route>
 
         <ProtectedRoute
-          path="/movies"
+          exact path="/movies"
           loggedIn={loggedIn}
           component={Movies}
           onShowError={handleErrors}
