@@ -37,25 +37,23 @@ function App() {
     if (token) {
       setLoggedIn(true);
     }
-    console.log(loggedIn);
   }
 
   useEffect(() => {
     tokenCheck();
-    console.log(loggedIn);
   }, []);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     console.log(loggedIn);
     if (loggedIn) {
       history.push('/movies');
     }
-  }, [loggedIn]);
+  }, [loggedIn]); */
 
   function closeInfoPopup() {
     if (statusInfoPopup) {
       setIsInfoPopupOpen(false);
-      history.push('/sign-in');
+      history.push('/signin');
     } else {
       setIsInfoPopupOpen(false);
     }
