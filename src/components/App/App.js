@@ -126,12 +126,9 @@ function App() {
         </Route>
         <Route exact path={'/'}>
           <Header isLogged={loggedIn} isPromo={true}>
-            <ProtectedRoute
-              exact
-              path={'/'}
-              component={`${loggedIn === true ? Navigation : HeaderUnauth}`}
-              loggedIn={!loggedIn}
-            />
+            <Route exact path={'/'}>
+            {() => (loggedIn === true ? <Navigation /> : <HeaderUnauth />)}
+            </Route>
           </Header>
         </Route>
       </Switch>
