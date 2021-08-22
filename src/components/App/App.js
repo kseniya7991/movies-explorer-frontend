@@ -93,7 +93,7 @@ function App() {
       .then((res) => {
         if (res.token) {
           setLoggedIn(true);
-          history.push('/movies');
+          /* history.push('/movies'); */
           setIsLoading(false);
         }
       })
