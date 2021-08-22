@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useHistory, useEffect } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 /* import { useHistory } from 'react-router'; */
@@ -24,7 +24,7 @@ function App() {
   /* Отображение прелоадера */
   const [isLoading, setIsLoading] = useState(false);
 
-  /* const history = useHistory(); */
+  const history = useHistory();
   /* Временная переменная для тестирования шапки и роутов */
   const [loggedIn, setLoggedIn] = useState('false');
 
@@ -32,7 +32,7 @@ function App() {
   const [statusInfoPopup, setStatusInfoPopup] = useState(false);
   const [message, setMessage] = useState('');
 
-  /*   function tokenCheck() {
+  function tokenCheck() {
     const token = localStorage.getItem('token');
     if (token) {
       setLoggedIn(true);
@@ -42,18 +42,18 @@ function App() {
   useEffect(() => {
     tokenCheck();
   }, []);
- */
-  /*   useEffect(() => {
+
+  useEffect(() => {
     console.log(loggedIn);
     if (loggedIn) {
       history.push('/movies');
     }
-  }, [loggedIn]); */
+  }, [loggedIn]);
 
   function closeInfoPopup() {
     if (statusInfoPopup) {
       setIsInfoPopupOpen(false);
-      /*  history.push('/signin'); */
+      history.push('/signin');
     } else {
       setIsInfoPopupOpen(false);
     }
@@ -93,7 +93,7 @@ function App() {
       .then((res) => {
         if (res.token) {
           setLoggedIn(true);
-          /* history.push('/movies'); */
+          history.push('/movies');
           setIsLoading(false);
         }
       })
