@@ -9,7 +9,7 @@ function Header({ children, isLogged, isPromo }) {
   return (
     <header className={`header ${isPromo ? 'header_promo' : ''}`}>
       <Link to="/">
-        <img className="header__logo" src={logo} alt="Фильмы" title="Фильмы" />
+        <img className="header__logo" src={logo} alt="Сервис Фильмы" title="Сервис Фильмы" />
       </Link>
       {children}
       {isLogged ? '' : <HeaderUnauth />}
