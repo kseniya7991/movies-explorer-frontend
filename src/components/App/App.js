@@ -36,7 +36,6 @@ function App() {
     const token = localStorage.getItem('token');
     if (token) {
       setLoggedIn(true);
-      console.log('открываем доступ');
     }
   }
 
@@ -45,7 +44,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log('открываем доступ и пушим на мувис');
     if (loggedIn === true) {
       history.push('/movies');
     }
