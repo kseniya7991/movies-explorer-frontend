@@ -45,10 +45,11 @@ function App() {
 
   useEffect(() => {
     console.log(loggedIn);
+    console.log('пушим');
     if (loggedIn) {
       history.push('/movies');
     }
-  }, [loggedIn]);
+  }, [history, loggedIn]);
 
   function closeInfoPopup() {
     if (statusInfoPopup) {
