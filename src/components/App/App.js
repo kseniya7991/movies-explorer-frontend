@@ -129,7 +129,7 @@ function App() {
             <ProtectedRoute
               exact
               path={'/'}
-              component={`${loggedIn === true ? <Navigation></Navigation> : <HeaderUnauth></HeaderUnauth>}`}
+              component={`${loggedIn === true ? Navigation : HeaderUnauth}`}
               loggedIn={!loggedIn}
             />
           </Header>
