@@ -44,13 +44,12 @@ function App() {
     tokenCheck();
   }, []);
 
-  /* useEffect(() => {
-    console.log(loggedIn);
-    console.log('пушим');
+  useEffect(() => {
+    console.log('открываем доступ и пушим на мувис');
     if (loggedIn) {
       history.push('/movies');
     }
-  }, []); */
+  }, [loggedIn]);
 
   console.log(loggedIn);
 
