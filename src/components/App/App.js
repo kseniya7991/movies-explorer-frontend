@@ -1,7 +1,7 @@
-import React, { useState, useHistory, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-/* import { useHistory } from 'react-router'; */
+import { useHistory } from 'react-router';
 import ProtectedRoute from '../ProtectedRoute';
 
 import * as auth from '../../utils/MainApi';
