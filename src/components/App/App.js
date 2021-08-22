@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router';
@@ -32,7 +32,7 @@ function App() {
   const [statusInfoPopup, setStatusInfoPopup] = useState(false);
   const [message, setMessage] = useState('');
 
-  function tokenCheck() {
+  /*   function tokenCheck() {
     const token = localStorage.getItem('token');
     if (token) {
       setLoggedIn(true);
@@ -42,7 +42,7 @@ function App() {
   useEffect(() => {
     tokenCheck();
   }, []);
-
+ */
   /*   useEffect(() => {
     console.log(loggedIn);
     if (loggedIn) {
