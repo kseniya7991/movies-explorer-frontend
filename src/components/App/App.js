@@ -129,7 +129,7 @@ function App() {
               exact
               path={'/'}
               component={Navigation}
-              loggedIn={loggedIn}
+              loggedIn={!loggedIn}
             />
           </Header>
         </Route>
