@@ -19,6 +19,7 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import Navigation from '../Navigation/Navigation';
 import InfoPopup from '../InfoPopup/InfoPopup';
 import Preloader from '../Preloader/Preloader';
+import HeaderUnauth from '../Header/HeaderUnauth/HeaderUnauth';
 
 function App() {
   /* Отображение прелоадера */
@@ -128,7 +129,7 @@ function App() {
             <ProtectedRoute
               exact
               path={'/'}
-              component={Navigation}
+              component={`${loggedIn === true ? <Navigation></Navigation> : <HeaderUnauth></HeaderUnauth>}`}
               loggedIn={!loggedIn}
             />
           </Header>
