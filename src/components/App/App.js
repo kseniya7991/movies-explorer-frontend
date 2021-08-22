@@ -46,7 +46,7 @@ function App() {
 
   useEffect(() => {
     console.log('открываем доступ и пушим на мувис');
-    if (loggedIn) {
+    if (loggedIn === true) {
       history.push('/movies');
     }
   }, [loggedIn]);
