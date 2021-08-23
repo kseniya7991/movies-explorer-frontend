@@ -93,7 +93,7 @@ function Profile({ onUpdateUser }) {
               required
             ></input>
             {errors.email && (
-              <span className="profile__text-error profile__text-error_email">{errors.email}</span>
+              <span className="profile__text-error">{errors.email}</span>
             )}
           </div>
         </div>
