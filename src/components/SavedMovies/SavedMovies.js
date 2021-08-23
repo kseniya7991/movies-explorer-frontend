@@ -21,7 +21,7 @@ function SavedMovies() {
   return (
     <section className="savedMovies">
       <SearchForm />
-      <MoviesCardList isEmty={isListEmpty} isSavedMovies={true} savedMovies={savedMovies}/>
+      <MoviesCardList isEmty={isListEmpty} isSavedMovies={true} movies={savedMovies}/>
 
       {/* Если фильмы ни один фильм не был сохранен */}
       {/*  <EmptyMoviesList text='У вас еще нет сохраненных фильмов &#128148;' /> */}
