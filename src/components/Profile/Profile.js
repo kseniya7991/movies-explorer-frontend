@@ -9,6 +9,7 @@ function Profile({ onUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  console.log(currentUser);
 
   useEffect(() => {
     if (currentUser) {
