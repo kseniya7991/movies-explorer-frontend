@@ -54,7 +54,7 @@ function App() {
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
         console.log(moviesData);
-        setSavedMovies(moviesData.movies);
+        setSavedMovies(moviesData);
       })
       .catch((err) => console.log(err));
   }, []);
