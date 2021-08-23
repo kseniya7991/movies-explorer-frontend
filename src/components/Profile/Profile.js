@@ -9,7 +9,6 @@ function Profile({ onUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [isChanged, setIsChanged] = useState(false);
 
   useEffect(() => {
     if (currentUser) {
@@ -26,11 +25,6 @@ function Profile({ onUpdateUser }) {
     resetForm,
   } = useFormWithValidation();
 
-  function checkChanging() {
-    console.log(values);
-    setIsChanged(true);
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
     if (isValid && currentUser.name !== name && currentUser.email !== email) {
@@ -41,13 +35,11 @@ function Profile({ onUpdateUser }) {
 
   function handleInputNameChange(e) {
     setName(e.target.value);
-    checkChanging();
     handleChange(e);
   }
 
   function handleInputEmailChange(e) {
     setEmail(e.target.value);
-    checkChanging();
     handleChange(e);
   }
 
@@ -95,7 +87,7 @@ function Profile({ onUpdateUser }) {
           </div>
         </div>
         <div>
-          <button className={`profile__submit-btn ${isChanged === true && isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit">
+          <button className={`profile__submit-btn ${isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit">
             Редактировать
           </button>
           <button className="profile__logout-btn" type="button">
