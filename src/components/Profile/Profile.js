@@ -7,8 +7,8 @@ import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
 function Profile({ onUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const { name } = currentUser.name;
-  const { email } = currentUser.email;
+  const { name = '' } = currentUser.name;
+  const { email = '' } = currentUser.email;
   console.log(currentUser);
 
   const {
@@ -41,6 +41,7 @@ function Profile({ onUpdateUser }) {
               className="profile__input"
               type="text"
               onChange={handleChange}
+              placeholder="Виталий"
             >{name}</input>
             {errors.name && (
               <span className="profile__text-error">{errors.name}</span>
@@ -55,9 +56,10 @@ function Profile({ onUpdateUser }) {
               className="profile__input"
               type="email"
               onChange={handleChange}
+              placeholder="vtal96@mail.ru"
             >{email}</input>
             {errors.email && (
-              <span className="profile__text-error">{errors.email}</span>
+              <span className="profile__text-error profile__text-error_email">{errors.email}</span>
             )}
           </div>
         </div>
