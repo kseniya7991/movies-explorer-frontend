@@ -3,12 +3,31 @@ import React from 'react';
 import './Profile.css';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
-function Profile() {
+import { useFormWithValidation } from '../ValidationForm/ValidationForm';
+
+function Profile({ onUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
   console.log(currentUser);
+
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    resetForm,
+  } = useFormWithValidation();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (isValid && currentUser.name !== values.name && currentUser.email !== values.email) {
+      resetForm();
+      onUpdateUser(values);
+    }
+  }
+
   return (
     <section className="profile">
-      <form className="profile__form">
+      <form className="profile__form" onSubmit={handleSubmit}>
         <div>
           <h2 className="profile__title">{`Привет, ${currentUser.name}!`}</h2>
           <div className="profile__inputs-block">
@@ -16,24 +35,34 @@ function Profile() {
               Имя
             </label>
             <input
+              name="name"
               className="profile__input"
               type="text"
               value={currentUser.name}
+              onChange={handleChange}
             ></input>
+            {errors.name && (
+              <span className="profile__text-error">{errors.name}</span>
+            )}
           </div>
           <div className="profile__inputs-block">
             <label htmlFor="password" className="profile__label">
               E-mail
             </label>
             <input
+              name="email"
               className="profile__input"
               type="email"
               value={currentUser.email}
+              onChange={handleChange}
             ></input>
+            {errors.email && (
+              <span className="profile__text-error">{errors.email}</span>
+            )}
           </div>
         </div>
         <div>
-          <button className="profile__submit-btn" type="submit">
+          <button className={`profile__submit-btn ${isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit">
             Редактировать
           </button>
           <button className="profile__logout-btn" type="button">

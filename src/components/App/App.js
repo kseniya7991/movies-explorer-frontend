@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import ProtectedRoute from '../ProtectedRoute';
 
-import * as auth from '../../utils/MainApi';
+import * as mainApi from '../../utils/MainApi';
 
 // Импорт компонентов
 import Header from '../Header/Header';
@@ -78,7 +78,7 @@ function App() {
     const { email, password } = values;
     setIsLoading(true);
 
-    auth
+    mainApi
       .authorize(email, password)
       .then((res) => {
         if (res.token) {
@@ -97,7 +97,7 @@ function App() {
     console.log(values);
     setIsLoading(true);
 
-    auth
+    mainApi
       .register(name, email, password)
       .then((res) => {
         if (res.message) {
@@ -114,6 +114,11 @@ function App() {
         handleErrors();
         setIsLoading(false);
       });
+  }
+
+  function handleUpdateUser(values) {
+    const { name, email } = values;
+    console.log(name, email);
   }
 
   console.log(setStatusInfoPopup, setMessage);
@@ -175,6 +180,7 @@ function App() {
             path="/profile"
             loggedIn={loggedIn}
             component={Profile}
+            onUpdateUser={handleUpdateUser}
           />
           <Route path="/*">
             <NotFoundPage />
