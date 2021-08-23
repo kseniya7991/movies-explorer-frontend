@@ -126,7 +126,7 @@ function Movies({ onShowError }) {
       <Preloader isLoading={isLoading} />
       <SearchForm handleSearch={handleSearchMovies} />
 
-      <MoviesCardList isEmpty={isListEmpty} movies={selectedMovies} />
+      <MoviesCardList isEmpty={isListEmpty} isSavedMovies={false} movies={selectedMovies} />
       <MoreMoviesBtn
         isEmpty={isListEmpty}
         onMoreMovies={showMoreMovies}

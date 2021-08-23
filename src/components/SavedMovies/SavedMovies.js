@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 
 import './SavedMovies.css';
@@ -8,11 +8,20 @@ import SavedMoviesContext from '../../contexts/SavedMoviesContext copy';
 
 function SavedMovies() {
   const savedMovies = React.useContext(SavedMoviesContext);
+
+  const [isListEmpty, setIsListEmpty] = useState(false);
+
+  useEffect(() => {
+    if (savedMovies) {
+      setIsListEmpty(false);
+    }
+  }, []);
+
   console.log(savedMovies);
   return (
     <section className="savedMovies">
       <SearchForm />
-      <MoviesCardList isSavedMovies={true} savedMovies={savedMovies}/>
+      <MoviesCardList isEmty={isListEmpty} isSavedMovies={true} savedMovies={savedMovies}/>
 
       {/* Если фильмы ни один фильм не был сохранен */}
       {/*  <EmptyMoviesList text='У вас еще нет сохраненных фильмов &#128148;' /> */}

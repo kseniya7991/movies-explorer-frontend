@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './MoviesCardList.css';
-/* import MoviesCard from '../MoviesCard/MoviesCard'; */
+import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ isEmpty, savedMovies }) {
-/*   const [movieIsSaved, setMovieIsSaved] = useState(false); */
-  console.log(savedMovies);
+function MoviesCardList({ isEmpty, isSavedMovies, movies }) {
+  const [movieIsSaved, setMovieIsSaved] = useState(false);
+  console.log(movies, isSavedMovies);
 
   /* Функция сохранения фильма - пока без обращения к API */
-  /*   function handleSaveMovie(movie) {
+  function handleSaveMovie(movie) {
     setMovieIsSaved(!movieIsSaved);
     console.log(movie);
-  } */
+  }
 
   if (isEmpty) {
     return null;
@@ -19,7 +19,7 @@ function MoviesCardList({ isEmpty, savedMovies }) {
   return (
     <>
       <ul className="moviesCardList">
-       {/*  {savedMovies.map(({ ...movie }) => (
+        {movies.map(({ ...movie }) => (
           <MoviesCard
             key={movie.id}
             onClickSave={handleSaveMovie}
@@ -27,7 +27,7 @@ function MoviesCardList({ isEmpty, savedMovies }) {
           >
             {movie}
           </MoviesCard>
-        ))} */}
+        ))}
         {/*
         <MoviesCard isSavedMovies={isSavedMovies} /> */}
       </ul>
