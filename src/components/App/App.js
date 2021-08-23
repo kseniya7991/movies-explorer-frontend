@@ -119,6 +119,12 @@ function App() {
   function handleUpdateUser(values) {
     const { name, email } = values;
     console.log(name, email);
+    setIsLoading(true);
+
+    return mainApi
+      .updateUser(name, email)
+      .then((userData) => setCurrentUser(userData.user))
+      .catch((err) => console.log(err));
   }
 
   console.log(setStatusInfoPopup, setMessage);

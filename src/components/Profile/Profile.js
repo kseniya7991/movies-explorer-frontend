@@ -26,6 +26,11 @@ function Profile({ onUpdateUser }) {
     resetForm,
   } = useFormWithValidation();
 
+  function checkChanging() {
+    console.log(values);
+    setIsChanged(true);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     if (isValid && currentUser.name !== name && currentUser.email !== email) {
@@ -36,22 +41,14 @@ function Profile({ onUpdateUser }) {
 
   function handleInputNameChange(e) {
     setName(e.target.value);
-    if (currentUser && currentUser.name !== e.target.value) {
-      setIsChanged(true);
-      handleChange(e);
-    } else {
-      setIsChanged(false);
-    }
+    checkChanging();
+    handleChange(e);
   }
 
   function handleInputEmailChange(e) {
     setEmail(e.target.value);
-    if (currentUser && currentUser.email !== e.target.value) {
-      setIsChanged(true);
-      handleChange(e);
-    } else {
-      setIsChanged(false);
-    }
+    checkChanging();
+    handleChange(e);
   }
 
   return (
