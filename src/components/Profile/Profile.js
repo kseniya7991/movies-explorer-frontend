@@ -93,7 +93,7 @@ function Profile({ onUpdateUser, message, status }) {
         </div>
         <div>
           <p className={`profile__api  ${status === false && showMessage === true ? 'profile__api_error profile__api_enabled' : ''}`}>{message}</p>
-          <p className={`profile__api  ${status === true && showMessage === true ? 'profile__api_successful' : ''}`}>{message}</p>
+          <p className={`profile__api  ${status === true && showMessage === true ? 'profile__api_successful profile__api_enabled' : ''}`}>{message}</p>
           <button className={`profile__submit-btn ${isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit" disabled={!isValid}>
             Редактировать
           </button>
