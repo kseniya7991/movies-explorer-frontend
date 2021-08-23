@@ -21,12 +21,18 @@ import InfoPopup from '../InfoPopup/InfoPopup';
 import Preloader from '../Preloader/Preloader';
 import HeaderUnauth from '../Header/HeaderUnauth/HeaderUnauth';
 
+// Импорт контекста
+import CurrentUserContext from '../../contexts/CurrentUserContext';
+
 function App() {
+  const history = useHistory();
+
+  const [currentUser, setCurrentUser] = useState({});
+
   /* Отображение прелоадера */
   const [isLoading, setIsLoading] = useState(false);
 
-  const history = useHistory();
-  /* Временная переменная для тестирования шапки и роутов */
+  /* Переменная залогинености пользователя */
   const [loggedIn, setLoggedIn] = useState('false');
 
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
@@ -78,8 +84,10 @@ function App() {
         if (res.token) {
           setLoggedIn(true);
           history.push('/movies');
-          setIsLoading(false);
         }
+      })
+      .then(() => {
+        setIsLoading(false);
       })
       .catch((err) => console.err(err));
   }
@@ -91,9 +99,11 @@ function App() {
 
     auth
       .register(name, email, password)
-      .then(() => {
+      .then((res) => {
+        console.log(res);
         setIsLoading(false);
         handleSubmitLogin({ email, password });
+        setCurrentUser(res);
       })
       .catch((err) => {
         console.log(err);
@@ -105,70 +115,73 @@ function App() {
   console.log(setStatusInfoPopup, setMessage);
 
   return (
-    <div className="app">
-      <Preloader isLoading={isLoading} />
-      <InfoPopup
-        isOpen={isInfoPopupOpen}
-        onClose={closeInfoPopup}
-        status={statusInfoPopup}
-        message={message}
-      />
-      <Switch>
-        <Route exact path={['/movies', '/saved-movies', '/profile']}>
-          <Header isLogged={loggedIn} isPromo={false}>
-            <ProtectedRoute
-              exact
-              path={['/movies', '/saved-movies', '/profile']}
-              component={Navigation}
-              loggedIn={loggedIn}
-            />
-          </Header>
-        </Route>
-        <Route exact path={'/'}>
-          <Header isLogged={loggedIn} isPromo={true}>
-            <Route exact path={'/'}>
-            {() => (loggedIn === true ? <Navigation /> : <HeaderUnauth />)}
-            </Route>
-          </Header>
-        </Route>
-      </Switch>
-
-      <Switch>
-        <Route exact path="/signup">
-          <Register onRegister={handleSubmitRegister}/>
-        </Route>
-        <Route exact path="/signin">
-          <Login onLogin={handleSubmitLogin} />
-        </Route>
-        <Route exact path="/">
-          <Main />
-        </Route>
-
-        <ProtectedRoute
-          exact path="/movies"
-          loggedIn={loggedIn}
-          component={Movies}
-          onShowError={handleErrors}
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="app">
+        <Preloader isLoading={isLoading} />
+        <InfoPopup
+          isOpen={isInfoPopupOpen}
+          onClose={closeInfoPopup}
+          status={statusInfoPopup}
+          message={message}
         />
-        <ProtectedRoute
-          path="/saved-movies"
-          loggedIn={loggedIn}
-          component={SavedMovies}
-        />
-        <ProtectedRoute
-          path="/profile"
-          loggedIn={loggedIn}
-          component={Profile}
-        />
-        <Route path="/*">
-          <NotFoundPage />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route exact path={['/movies', '/saved-movies', '/profile']}>
+            <Header isLogged={loggedIn} isPromo={false}>
+              <ProtectedRoute
+                exact
+                path={['/movies', '/saved-movies', '/profile']}
+                component={Navigation}
+                loggedIn={loggedIn}
+              />
+            </Header>
+          </Route>
+          <Route exact path={'/'}>
+            <Header isLogged={loggedIn} isPromo={true}>
+              <Route exact path={'/'}>
+                {() => (loggedIn === true ? <Navigation /> : <HeaderUnauth />)}
+              </Route>
+            </Header>
+          </Route>
+        </Switch>
 
-      <Route exact path={['/movies', '/saved-movies', '/']}>
-        <Footer />
-      </Route>
-    </div>
+        <Switch>
+          <Route exact path="/signup">
+            <Register onRegister={handleSubmitRegister} />
+          </Route>
+          <Route exact path="/signin">
+            <Login onLogin={handleSubmitLogin} />
+          </Route>
+          <Route exact path="/">
+            <Main />
+          </Route>
+
+          <ProtectedRoute
+            exact
+            path="/movies"
+            loggedIn={loggedIn}
+            component={Movies}
+            onShowError={handleErrors}
+          />
+          <ProtectedRoute
+            path="/saved-movies"
+            loggedIn={loggedIn}
+            component={SavedMovies}
+          />
+          <ProtectedRoute
+            path="/profile"
+            loggedIn={loggedIn}
+            component={Profile}
+          />
+          <Route path="/*">
+            <NotFoundPage />
+          </Route>
+        </Switch>
+
+        <Route exact path={['/movies', '/saved-movies', '/']}>
+          <Footer />
+        </Route>
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 
