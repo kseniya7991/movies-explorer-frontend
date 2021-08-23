@@ -137,7 +137,7 @@ function App() {
           setMessage(res.message);
         } else {
           setCurrentUser(res.user);
-          setMessage('');
+          setMessage('Данные обновлены успешно!');
         }
         setIsLoading(false);
       })
