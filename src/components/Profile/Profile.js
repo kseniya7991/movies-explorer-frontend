@@ -98,7 +98,7 @@ function Profile({ onUpdateUser }) {
           </div>
         </div>
         <div>
-          <button className={`profile__submit-btn ${isChanged === true ? 'profile__submit-btn_enabled' : ''}`} type="submit">
+          <button className={`profile__submit-btn ${isChanged === true && isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit">
             Редактировать
           </button>
           <button className="profile__logout-btn" type="button">
