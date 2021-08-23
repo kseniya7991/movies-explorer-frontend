@@ -40,7 +40,7 @@ export const authorize = (email, password) => fetch(`${BASE_URL}/signin`, {
     return null;
   });
 
-export const getUser = () => fetch(`${BASE_URL}`, {
+export const getUser = () => fetch(`${BASE_URL}/users/me`, {
   headers: {
     method: 'GET',
     authorization: localStorage.getItem('token'),
@@ -48,7 +48,7 @@ export const getUser = () => fetch(`${BASE_URL}`, {
 })
   .then((response) => response.json());
 
-export const updateUser = (name, email) => fetch(`${BASE_URL}`, {
+export const updateUser = (name, email) => fetch(`${BASE_URL}/users/me`, {
   method: 'PATCH',
   headers: {
     authorization: localStorage.getItem('token'),
