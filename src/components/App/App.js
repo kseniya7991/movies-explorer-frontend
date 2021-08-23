@@ -50,17 +50,17 @@ function App() {
 
   useEffect(() => {
     tokenCheck();
-    Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
-      .then(([userData, moviesData]) => {
-        setCurrentUser(userData.user);
-        setSavedMovies(moviesData.movies);
-      })
-      .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
     if (loggedIn === true) {
       history.push('/movies');
+      Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
+        .then(([userData, moviesData]) => {
+          setCurrentUser(userData.user);
+          setSavedMovies(moviesData.movies);
+        })
+        .catch((err) => console.log(err));
     }
   }, [loggedIn]);
 
