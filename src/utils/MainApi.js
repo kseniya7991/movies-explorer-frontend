@@ -19,9 +19,13 @@ export const register = (name, email, password) => fetch(`${BASE_URL}/signup`, {
   }),
 })
   .then((response) => {
-    response.json();
+    console.log(response.json());
+    return response.json();
   })
-  .then((res) => res);
+  .then((res) => {
+    console.log(res);
+    return res;
+  });
 
 export const authorize = (email, password) => fetch(`${BASE_URL}/signin`, {
   method: 'POST',
