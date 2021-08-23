@@ -5,7 +5,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
-function Profile({ onUpdateUser, errorMessage, status }) {
+function Profile({ onUpdateUser, message }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -91,8 +91,7 @@ function Profile({ onUpdateUser, errorMessage, status }) {
           </div>
         </div>
         <div>
-          <p className={`profile__api profile__api_error ${errorMessage && showMessage === true ? 'profile__api_enabled' : ''}`}>{errorMessage}</p>
-          <p className={`profile__api profile__api_successful ${status === true && showMessage === true ? 'profile__api_enabled' : ''}`}>Данные успешно обновлены!</p>
+          <p className={`profile__api  ${message ? 'profile__api_error' : 'profile__api_successful'} ${showMessage === true ? 'profile__api_enabled' : ''}`}>{`${message || 'Данные успешно обновлены!'}`}</p>
           <button className={`profile__submit-btn ${isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit" disabled={!isValid}>
             Редактировать
           </button>

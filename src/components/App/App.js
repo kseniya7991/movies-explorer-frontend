@@ -135,10 +135,9 @@ function App() {
       .then((res) => {
         if (res.message) {
           setMessage(res.message);
-          setStatusRequest(false);
         } else {
           setCurrentUser(res.user);
-          setStatusRequest(true);
+          setMessage('');
         }
         setIsLoading(false);
       })
@@ -208,8 +207,7 @@ function App() {
             loggedIn={loggedIn}
             component={Profile}
             onUpdateUser={handleUpdateUser}
-            errorMessage={message}
-            status={statusRequest}
+            message={message}
           />
           <Route path="/*">
             <NotFoundPage />
