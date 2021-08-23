@@ -129,6 +129,7 @@ function App() {
     const { name, email } = values;
     console.log(name, email);
     setIsLoading(true);
+    setMessage('');
 
     return mainApi
       .updateUser(name, email)
