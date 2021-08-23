@@ -138,7 +138,6 @@ function App() {
           setStatusRequest(false);
         } else {
           setCurrentUser(res.user);
-          setMessage('Данные обновлены успешно!');
           setStatusRequest(true);
         }
         setIsLoading(false);

@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 import api from '../../utils/MoviesApi';
 import filterMovies from '../../utils/FilterMovies';
 
-import CurrentUserContext from '../../contexts/CurrentUserContext';
-
 import './Movies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
@@ -13,9 +11,6 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError }) {
-  const currentUser = React.useContext(CurrentUserContext);
-
-  console.log(currentUser);
   const [allMovies, setAllMovies] = useState([]);
 
   /* Отфильтрованные по ключ. словам фильмы */
