@@ -104,7 +104,7 @@ function App() {
           setMessage(res.message);
           setIsInfoPopupOpen(true);
         } else {
-          setCurrentUser(res);
+          setCurrentUser({ name, email });
           handleSubmitLogin({ email, password });
         }
         setIsLoading(false);

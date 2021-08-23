@@ -10,7 +10,7 @@ function Profile() {
     <section className="profile">
       <form className="profile__form">
         <div>
-          <h2 className="profile__title">{`Привет, ${currentUser.user.name}!`}</h2>
+          <h2 className="profile__title">{`Привет, ${currentUser.name}!`}</h2>
           <div className="profile__inputs-block">
             <label htmlFor="password" className="profile__label">
               Имя
@@ -18,7 +18,7 @@ function Profile() {
             <input
               className="profile__input"
               type="text"
-            >{currentUser.user.name}</input>
+            >{currentUser.name}</input>
           </div>
           <div className="profile__inputs-block">
             <label htmlFor="password" className="profile__label">
@@ -27,7 +27,7 @@ function Profile() {
             <input
               className="profile__input"
               type="email"
-            >{currentUser.user.email}</input>
+            >{currentUser.email}</input>
           </div>
         </div>
         <div>
