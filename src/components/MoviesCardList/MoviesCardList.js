@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList({ isEmpty, isSavedMovies, movies }) {
-  const [movieIsSaved, setMovieIsSaved] = useState(false);
   console.log(movies, isSavedMovies);
 
   /* Функция сохранения фильма - пока без обращения к API */
   function handleSaveMovie(movie) {
-    setMovieIsSaved(!movieIsSaved);
     console.log(movie);
   }
 
@@ -24,7 +22,6 @@ function MoviesCardList({ isEmpty, isSavedMovies, movies }) {
             movie={movie}
             key={movie._id}
             onClickSave={handleSaveMovie}
-            movieIsSaved={movieIsSaved}
           />
         ))}
       </ul>

@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+/* import SavedMoviesContext from '../../contexts/SavedMoviesContext'; */
 
 import './MoviesCard.css';
 
-function MoviesCard({
-  movie, onClickSave, movieIsSaved,
-}) {
-  console.log(movie);
+function MoviesCard({ movie, onClickSave }) {
+  /*  const savedMovies = React.useContext(SavedMoviesContext); */
   const url = 'https://api.nomoreparties.co';
 
   const title = movie.nameRU.toString();
@@ -26,10 +25,16 @@ function MoviesCard({
   }
   const newTime = handleTime(duration);
 
+  const [isSaved, setIsSaved] = useState(false);
+
   /* Функция сохранения фильма */
   function handleClickOnSave() {
+    setIsSaved(true);
     onClickSave(movie);
   }
+
+  /* const isSaved = savedMovies.some((item) => item.id === movie.id); */
+  const isSavedBtn = `moviesCard__button-save ${isSaved ? 'moviesCard__button-save_active' : ''}`;
 
   return (
     <>
@@ -40,7 +45,7 @@ function MoviesCard({
         </div>
         <a href={movie.trailerLink} target="_blank" rel="noreferrer" className="moviesCard__image-link"><img className="moviesCard__image" src={url + movie.image.url} alt="Фильм В погоне за Бенкси"></img></a>
         <button
-          className={`moviesCard__button-save ${movieIsSaved ? 'moviesCard__button-save_active' : ''}`}
+          className={isSavedBtn}
           type="button"
           onClick={handleClickOnSave}
         >Сохранить

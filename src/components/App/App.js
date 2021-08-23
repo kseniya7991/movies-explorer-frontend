@@ -26,6 +26,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 
 function App() {
+  const [allSavedMovies, setAllSavedMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
@@ -48,6 +49,10 @@ function App() {
     }
   }
 
+  function filterAllSavedMovies() {
+    setSavedMovies(allSavedMovies.filter((movie) => movie.owner === currentUser._id));
+  }
+
   useEffect(() => {
     tokenCheck();
   }, []);
@@ -58,7 +63,8 @@ function App() {
       Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
         .then(([userData, moviesData]) => {
           setCurrentUser(userData.user);
-          setSavedMovies(moviesData.movies);
+          setAllSavedMovies(moviesData.movies);
+          filterAllSavedMovies();
         })
         .catch((err) => console.log(err));
     }
