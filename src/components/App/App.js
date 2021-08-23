@@ -36,7 +36,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState('false');
 
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
-  const [statusInfoPopup, setStatusInfoPopup] = useState(false);
+  const [statusRequest, setStatusRequest] = useState(false);
   const [message, setMessage] = useState('');
 
   function tokenCheck() {
@@ -68,7 +68,7 @@ function App() {
   console.log(loggedIn);
 
   function closeInfoPopup() {
-    if (statusInfoPopup) {
+    if (statusRequest) {
       setIsInfoPopupOpen(false);
       history.push('/signin');
     } else {
@@ -137,7 +137,7 @@ function App() {
           setMessage(res.message);
         } else {
           setCurrentUser(res.user);
-          setMessage('');
+          setStatusRequest(true);
         }
         setIsLoading(false);
       })
@@ -147,7 +147,7 @@ function App() {
       });
   }
 
-  console.log(setStatusInfoPopup, setMessage);
+  console.log(setStatusRequest, setMessage);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -156,7 +156,7 @@ function App() {
         <InfoPopup
           isOpen={isInfoPopupOpen}
           onClose={closeInfoPopup}
-          status={statusInfoPopup}
+          status={statusRequest}
           message={message}
         />
         <Switch>
@@ -208,6 +208,7 @@ function App() {
             component={Profile}
             onUpdateUser={handleUpdateUser}
             errorMessage={message}
+            status={statusRequest}
           />
           <Route path="/*">
             <NotFoundPage />
