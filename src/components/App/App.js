@@ -135,9 +135,11 @@ function App() {
       .then((res) => {
         if (res.message) {
           setMessage(res.message);
+          setStatusRequest(false);
         } else {
           setCurrentUser(res.user);
           setMessage('Данные обновлены успешно!');
+          setStatusRequest(true);
         }
         setIsLoading(false);
       })
@@ -208,6 +210,7 @@ function App() {
             component={Profile}
             onUpdateUser={handleUpdateUser}
             message={message}
+            status={statusRequest}
           />
           <Route path="/*">
             <NotFoundPage />
