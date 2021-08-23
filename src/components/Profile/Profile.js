@@ -32,6 +32,7 @@ function Profile({ onUpdateUser, message }) {
       resetForm();
       onUpdateUser({ name, email });
       setShowMessage(true);
+      console.log(message);
     }
   }
 
