@@ -18,7 +18,8 @@ function Profile() {
             <input
               className="profile__input"
               type="text"
-            >{currentUser.name}</input>
+              value={currentUser.name}
+            ></input>
           </div>
           <div className="profile__inputs-block">
             <label htmlFor="password" className="profile__label">
@@ -27,7 +28,8 @@ function Profile() {
             <input
               className="profile__input"
               type="email"
-            >{currentUser.email}</input>
+              value={currentUser.email}
+            ></input>
           </div>
         </div>
         <div>
