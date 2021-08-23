@@ -7,7 +7,7 @@ import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
 function Profile({ onUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const { email } = currentUser;
+  const { name, email } = currentUser;
   console.log(currentUser);
 
   const {
@@ -39,9 +39,9 @@ function Profile({ onUpdateUser }) {
               name="name"
               className="profile__input"
               type="text"
-              value={currentUser.name || ''}
+              value={currentUser.name}
               onChange={handleChange}
-            ></input>
+            >{name}</input>
             {errors.name && (
               <span className="profile__text-error">{errors.name}</span>
             )}

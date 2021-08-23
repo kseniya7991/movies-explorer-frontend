@@ -48,7 +48,10 @@
 
 .profile__text-error {
   position: absolute;
-  bottom: 6px;
+  bottom: 0px;
+  text-align: right;
+  width: 100%;
+
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
