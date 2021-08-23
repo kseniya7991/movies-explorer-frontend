@@ -149,6 +149,7 @@ function App() {
   }
 
   console.log(setStatusRequest, setMessage);
+  console.log(savedMovies);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
