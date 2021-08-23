@@ -61,6 +61,14 @@
   color: #ee3465;
 }
 
+.profile__api-error {
+  color: #ee3465;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0 10px 30px 10px;
+  text-align: center;
+}
+
 .profile__submit-btn {
   font-style: normal;
   font-weight: normal;

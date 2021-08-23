@@ -132,8 +132,12 @@ function App() {
 
     return mainApi
       .updateUser(name, email)
-      .then((userData) => {
-        setCurrentUser(userData.user);
+      .then((res) => {
+        if (res.message) {
+          setMessage(res.message);
+        } else {
+          setCurrentUser(res.user);
+        }
         setIsLoading(false);
       })
       .catch((err) => {
@@ -202,6 +206,7 @@ function App() {
             loggedIn={loggedIn}
             component={Profile}
             onUpdateUser={handleUpdateUser}
+            errorMessage={message}
           />
           <Route path="/*">
             <NotFoundPage />
