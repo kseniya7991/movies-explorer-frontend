@@ -9,6 +9,7 @@ function Profile({ onUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [isChanged, setIsChanged] = useState(false);
 
   useEffect(() => {
     if (currentUser) {
@@ -35,12 +36,20 @@ function Profile({ onUpdateUser }) {
 
   function handleInputNameChange(e) {
     setName(e.target.value);
-    handleChange(e);
+    if (currentUser && currentUser.name !== e.target.value) {
+      handleChange(e);
+    } else {
+      setIsChanged(false);
+    }
   }
 
   function handleInputEmailChange(e) {
     setEmail(e.target.value);
-    handleChange(e);
+    if (currentUser && currentUser.email !== e.target.value) {
+      handleChange(e);
+    } else {
+      setIsChanged(false);
+    }
   }
 
   return (
@@ -59,6 +68,10 @@ function Profile({ onUpdateUser }) {
               onChange={handleInputNameChange}
               placeholder="Виталий"
               value={name || ''}
+              pattern="^[a-zA-Zа-яёЁА-Я\s-]+$"
+              minLength="2"
+                maxLength="30"
+                required
             ></input>
             {errors.name && (
               <span className="profile__text-error">{errors.name}</span>
@@ -75,6 +88,7 @@ function Profile({ onUpdateUser }) {
               onChange={handleInputEmailChange}
               placeholder="vtal96@mail.ru"
               value={email || ''}
+              required
             ></input>
             {errors.email && (
               <span className="profile__text-error profile__text-error_email">{errors.email}</span>
@@ -82,7 +96,7 @@ function Profile({ onUpdateUser }) {
           </div>
         </div>
         <div>
-          <button className={`profile__submit-btn ${isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit">
+          <button className={`profile__submit-btn ${isChanged === true ? 'profile__submit-btn_enabled' : ''}`} type="submit">
             Редактировать
           </button>
           <button className="profile__logout-btn" type="button">
