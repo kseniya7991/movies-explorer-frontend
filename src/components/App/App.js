@@ -103,7 +103,7 @@ function App() {
         console.log(res);
         setIsLoading(false);
         handleSubmitLogin({ email, password });
-        setCurrentUser(res);
+        setCurrentUser({ name, email, password });
       })
       .catch((err) => {
         console.log(err);
