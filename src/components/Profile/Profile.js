@@ -40,7 +40,7 @@ function Profile() {
             Выйти из аккаунта
           </button> */}
           <button
-            className="profile__save-btn"
+            className="profile__save-btn profile__save-btn_enabled"
             type="submit"
             value="buttonValue"
           >

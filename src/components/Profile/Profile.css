@@ -98,6 +98,7 @@
 
   cursor: pointer;
   display: none;
+  width: 100%;
 }
 
 .profile__save-btn_enabled {
