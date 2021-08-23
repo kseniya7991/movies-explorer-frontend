@@ -33,6 +33,16 @@ function Profile({ onUpdateUser }) {
     }
   }
 
+  function handleInputNameChange(e) {
+    setName(e.target.value);
+    handleChange(e);
+  }
+
+  function handleInputEmailChange(e) {
+    setEmail(e.target.value);
+    handleChange(e);
+  }
+
   return (
     <section className="profile">
       <form className="profile__form" onSubmit={handleSubmit}>
@@ -46,7 +56,7 @@ function Profile({ onUpdateUser }) {
               name="name"
               className="profile__input"
               type="text"
-              onChange={handleChange}
+              onChange={handleInputNameChange}
               placeholder="Виталий"
               value={name || ''}
             ></input>
@@ -62,7 +72,7 @@ function Profile({ onUpdateUser }) {
               name="email"
               className="profile__input"
               type="email"
-              onChange={handleChange}
+              onChange={handleInputEmailChange}
               placeholder="vtal96@mail.ru"
               value={email || ''}
             ></input>
