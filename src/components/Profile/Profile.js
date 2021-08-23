@@ -1,21 +1,23 @@
 import React from 'react';
 
 import './Profile.css';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 function Profile() {
+  const currentUser = React.useContext(CurrentUserContext);
+
   return (
     <section className="profile">
       <form className="profile__form">
         <div>
-          <h2 className="profile__title">Привет!</h2>
+          <h2 className="profile__title">{`Привет, ${currentUser.name}!`}</h2>
           <div className="profile__inputs-block">
             <label htmlFor="password" className="profile__label">
-              Имя
+              {currentUser.name}
             </label>
             <input
               className="profile__input"
               type="text"
-              placeholder="Виталий"
             ></input>
           </div>
           <div className="profile__inputs-block">
@@ -25,8 +27,7 @@ function Profile() {
             <input
               className="profile__input"
               type="email"
-              placeholder="vital90@mail.ru"
-            ></input>
+            >{currentUser.email}</input>
           </div>
         </div>
         <div>
