@@ -11,7 +11,6 @@ function Profile({ onUpdateUser, message, status }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [showMessage, setShowMessage] = useState(false);
-  console.log(currentUser);
 
   useEffect(() => {
     if (currentUser) {

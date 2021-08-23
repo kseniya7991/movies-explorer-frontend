@@ -64,8 +64,6 @@ function App() {
     }
   }, [loggedIn]);
 
-  console.log(loggedIn);
-
   function closeInfoPopup() {
     if (statusRequest) {
       setIsInfoPopupOpen(false);
@@ -102,7 +100,6 @@ function App() {
 
   function handleSubmitRegister(values) {
     const { name, email, password } = values;
-    console.log(values);
     setIsLoading(true);
 
     mainApi
@@ -126,7 +123,6 @@ function App() {
 
   function handleUpdateUser(values) {
     const { name, email } = values;
-    console.log(name, email);
     setIsLoading(true);
     setMessage('');
 

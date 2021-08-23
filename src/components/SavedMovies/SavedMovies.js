@@ -3,7 +3,7 @@ import SearchForm from '../SearchForm/SearchForm';
 
 import './SavedMovies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import SavedMoviesContext from '../../contexts/SavedMoviesContext copy';
+import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 /* import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList'; */
 
 function SavedMovies() {
