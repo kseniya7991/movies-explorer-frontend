@@ -48,7 +48,7 @@ function Profile({ onUpdateUser }) {
     <section className="profile">
       <form className="profile__form" onSubmit={handleSubmit}>
         <div>
-          <h2 className="profile__title">{`Привет, ${currentUser.name}!`}</h2>
+          <h2 className="profile__title">{`Привет, ${currentUser.name || ''}!`}</h2>
           <div className="profile__inputs-block">
             <label htmlFor="password" className="profile__label">
               Имя

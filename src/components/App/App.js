@@ -132,8 +132,14 @@ function App() {
 
     return mainApi
       .updateUser(name, email)
-      .then((userData) => setCurrentUser(userData.user))
-      .catch((err) => console.log(err));
+      .then((userData) => {
+        setCurrentUser(userData.user);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        console.log(err);
+      });
   }
 
   console.log(setStatusInfoPopup, setMessage);
