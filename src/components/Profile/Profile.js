@@ -38,7 +38,7 @@ function Profile({ onUpdateUser }) {
               name="name"
               className="profile__input"
               type="text"
-              value={currentUser.name}
+              value={currentUser.name || ''}
               onChange={handleChange}
             ></input>
             {errors.name && (
@@ -53,9 +53,8 @@ function Profile({ onUpdateUser }) {
               name="email"
               className="profile__input"
               type="email"
-              value={currentUser.email}
               onChange={handleChange}
-            ></input>
+            >{currentUser.email}</input>
             {errors.email && (
               <span className="profile__text-error">{errors.email}</span>
             )}
