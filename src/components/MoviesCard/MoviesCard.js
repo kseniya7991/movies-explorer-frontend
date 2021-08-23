@@ -3,12 +3,13 @@ import React from 'react';
 import './MoviesCard.css';
 
 function MoviesCard({
-  children, onClickSave, movieIsSaved,
+  movie, onClickSave, movieIsSaved,
 }) {
+  console.log(movie);
   const url = 'https://api.nomoreparties.co';
 
-  const title = children.nameRU.toString();
-  const duration = children.duration.toString();
+  const title = movie.nameRU.toString();
+  const duration = movie.duration.toString();
 
   /* Расчет продолжительности фильма в часах и минутах */
   function handleTime(time) {
@@ -27,7 +28,7 @@ function MoviesCard({
 
   /* Функция сохранения фильма */
   function handleClickOnSave() {
-    onClickSave(children);
+    onClickSave(movie);
   }
 
   return (
@@ -37,7 +38,7 @@ function MoviesCard({
           <p className="moviesCard__title">{title}</p>
           <p className="moviesCard__time">{newTime}</p>
         </div>
-        <a href={children.trailerLink} target="_blank" rel="noreferrer" className="moviesCard__image-link"><img className="moviesCard__image" src={url + children.image.url} alt="Фильм В погоне за Бенкси"></img></a>
+        <a href={movie.trailerLink} target="_blank" rel="noreferrer" className="moviesCard__image-link"><img className="moviesCard__image" src={url + movie.image.url} alt="Фильм В погоне за Бенкси"></img></a>
         <button
           className={`moviesCard__button-save ${movieIsSaved ? 'moviesCard__button-save_active' : ''}`}
           type="button"
