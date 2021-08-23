@@ -5,22 +5,31 @@ import './SavedMovies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
+
 /* import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList'; */
 
 function SavedMovies() {
   const currentUser = React.useContext(CurrentUserContext);
-  const savedMovies = React.useContext(SavedMoviesContext);
+  const allSavedMovies = React.useContext(SavedMoviesContext);
+  const [savedMovies, setSavedMovies] = useState([]);
 
   const [isListEmpty, setIsListEmpty] = useState(false);
+
+  function filterAllSavedMovies() {
+    setSavedMovies(allSavedMovies.filter((movie) => movie.owner === currentUser._id));
+  }
+
+  useEffect(() => {
+    filterAllSavedMovies();
+  }, []);
 
   useEffect(() => {
     if (!savedMovies) {
       setIsListEmpty(true);
     }
-    savedMovies.filter((movie) => movie.owner === currentUser._id);
   }, []);
 
-  console.log(savedMovies);
+  console.log(allSavedMovies);
   return (
     <section className="savedMovies">
       <SearchForm />
