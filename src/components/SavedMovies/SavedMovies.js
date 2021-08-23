@@ -29,12 +29,10 @@ function SavedMovies() {
     }
   }, []);
 
-  console.log(isListEmpty);
-
   return (
     <section className="savedMovies">
       <SearchForm />
-      <MoviesCardList isEmty={isListEmpty} isSavedMovies={true} movies={savedMovies}/>
+      <MoviesCardList isEmpty={isListEmpty} isSavedMovies={true} movies={savedMovies}/>
 
       {/* Если ни один фильм не был сохранен */}
       <EmptyMoviesList isEmpty={isListEmpty} text='У вас еще нет сохраненных фильмов &#128148;' />
