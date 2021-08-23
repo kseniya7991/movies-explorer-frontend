@@ -13,12 +13,12 @@ function Profile() {
           <h2 className="profile__title">{`Привет, ${currentUser.name}!`}</h2>
           <div className="profile__inputs-block">
             <label htmlFor="password" className="profile__label">
-              {currentUser.name}
+              Имя
             </label>
             <input
               className="profile__input"
               type="text"
-            ></input>
+            >{currentUser.name}</input>
           </div>
           <div className="profile__inputs-block">
             <label htmlFor="password" className="profile__label">
