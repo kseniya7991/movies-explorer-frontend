@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './Profile.css';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
@@ -7,9 +7,15 @@ import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
 function Profile({ onUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const { name = '' } = currentUser.name;
-  const { email = '' } = currentUser.email;
-  console.log(currentUser);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    if (currentUser) {
+      setName(currentUser.name);
+      setEmail(currentUser.email);
+    }
+  }, [currentUser]);
 
   const {
     values,
