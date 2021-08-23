@@ -19,7 +19,7 @@ export const register = (name, email, password) => fetch(`${BASE_URL}/signup`, {
   }),
 })
   .then((response) => {
-    console.log('response', response, 'res json', response.json());
+    console.log('response', response);
     return response.json();
   });
 
