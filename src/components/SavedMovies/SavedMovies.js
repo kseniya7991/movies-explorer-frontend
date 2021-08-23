@@ -12,8 +12,8 @@ function SavedMovies() {
   const [isListEmpty, setIsListEmpty] = useState(false);
 
   useEffect(() => {
-    if (savedMovies) {
-      setIsListEmpty(false);
+    if (!savedMovies) {
+      setIsListEmpty(true);
     }
   }, []);
 
