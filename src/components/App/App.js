@@ -100,10 +100,14 @@ function App() {
     auth
       .register(name, email, password)
       .then((res) => {
-        console.log(res);
+        if (res.message) {
+          setMessage(res.message);
+          setIsInfoPopupOpen(true);
+        } else {
+          setCurrentUser(res);
+          handleSubmitLogin({ email, password });
+        }
         setIsLoading(false);
-        handleSubmitLogin({ email, password });
-        setCurrentUser({ name, email, password });
       })
       .catch((err) => {
         console.log(err);
