@@ -51,9 +51,9 @@ function App() {
   useEffect(() => {
     tokenCheck();
     Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
-      .then(([userData, movies]) => {
+      .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
-        setSavedMovies(movies);
+        setSavedMovies(moviesData.movies);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -149,7 +149,6 @@ function App() {
   }
 
   console.log(setStatusRequest, setMessage);
-  console.log(savedMovies);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

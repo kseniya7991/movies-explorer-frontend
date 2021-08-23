@@ -8,7 +8,7 @@ import SavedMoviesContext from '../../contexts/SavedMoviesContext copy';
 
 function SavedMovies() {
   const savedMovies = React.useContext(SavedMoviesContext);
-
+  console.log(savedMovies);
   return (
     <section className="savedMovies">
       <SearchForm />
