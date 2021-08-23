@@ -33,11 +33,18 @@ function Profile() {
           </div>
         </div>
         <div>
-          <button className="profile__submit-btn" type="submit">
+{/*           <button className="profile__submit-btn" type="submit">
             Редактировать
           </button>
           <button className="profile__logout-btn" type="button">
             Выйти из аккаунта
+          </button> */}
+          <button
+            className="profile__save-btn"
+            type="submit"
+            value="buttonValue"
+          >
+            Сохранить
           </button>
         </div>
       </form>
