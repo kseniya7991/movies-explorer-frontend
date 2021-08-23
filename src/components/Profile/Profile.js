@@ -37,6 +37,7 @@ function Profile({ onUpdateUser }) {
   function handleInputNameChange(e) {
     setName(e.target.value);
     if (currentUser && currentUser.name !== e.target.value) {
+      setIsChanged(true);
       handleChange(e);
     } else {
       setIsChanged(false);
@@ -46,6 +47,7 @@ function Profile({ onUpdateUser }) {
   function handleInputEmailChange(e) {
     setEmail(e.target.value);
     if (currentUser && currentUser.email !== e.target.value) {
+      setIsChanged(true);
       handleChange(e);
     } else {
       setIsChanged(false);
