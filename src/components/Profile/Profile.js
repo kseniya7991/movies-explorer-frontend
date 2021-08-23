@@ -28,7 +28,7 @@ function Profile({ onUpdateUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (isValid && currentUser.name !== name && currentUser.email !== email) {
+    if (isValid) {
       resetForm();
       onUpdateUser(values);
     }
@@ -88,7 +88,7 @@ function Profile({ onUpdateUser }) {
           </div>
         </div>
         <div>
-          <button className={`profile__submit-btn ${isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit">
+          <button className={`profile__submit-btn ${isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit" disabled={!isValid}>
             Редактировать
           </button>
           <button className="profile__logout-btn" type="button">
