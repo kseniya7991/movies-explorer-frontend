@@ -61,6 +61,10 @@
   color: #ee3465;
 }
 
+.profile__text-error_email {
+  bottom: -14px;
+}
+
 .profile__submit-btn {
   font-style: normal;
   font-weight: normal;

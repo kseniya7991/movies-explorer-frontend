@@ -40,7 +40,6 @@ function Profile({ onUpdateUser }) {
               name="name"
               className="profile__input"
               type="text"
-              value={currentUser.name}
               onChange={handleChange}
             >{name}</input>
             {errors.name && (
