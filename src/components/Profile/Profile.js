@@ -5,7 +5,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 function Profile() {
   const currentUser = React.useContext(CurrentUserContext);
-
+  console.log(currentUser);
   return (
     <section className="profile">
       <form className="profile__form">
