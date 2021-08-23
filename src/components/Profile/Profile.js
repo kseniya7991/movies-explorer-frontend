@@ -48,7 +48,8 @@ function Profile({ onUpdateUser }) {
               type="text"
               onChange={handleChange}
               placeholder="Виталий"
-            >{name}</input>
+              value={name || ''}
+            ></input>
             {errors.name && (
               <span className="profile__text-error">{errors.name}</span>
             )}
@@ -63,7 +64,8 @@ function Profile({ onUpdateUser }) {
               type="email"
               onChange={handleChange}
               placeholder="vtal96@mail.ru"
-            >{email}</input>
+              value={email || ''}
+            ></input>
             {errors.email && (
               <span className="profile__text-error profile__text-error_email">{errors.email}</span>
             )}
