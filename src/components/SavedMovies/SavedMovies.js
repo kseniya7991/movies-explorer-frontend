@@ -6,7 +6,7 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
-/* import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList'; */
+import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function SavedMovies() {
   const currentUser = React.useContext(CurrentUserContext);
@@ -29,14 +29,13 @@ function SavedMovies() {
     }
   }, []);
 
-  console.log(allSavedMovies);
   return (
     <section className="savedMovies">
       <SearchForm />
       <MoviesCardList isEmty={isListEmpty} isSavedMovies={true} movies={savedMovies}/>
 
-      {/* Если фильмы ни один фильм не был сохранен */}
-      {/*  <EmptyMoviesList text='У вас еще нет сохраненных фильмов &#128148;' /> */}
+      {/* Если ни один фильм не был сохранен */}
+      <EmptyMoviesList isEmpty={isListEmpty} text='У вас еще нет сохраненных фильмов &#128148;' />
     </section>
   );
 }
