@@ -29,6 +29,8 @@ function SavedMovies() {
     }
   }, []);
 
+  console.log(isListEmpty);
+
   return (
     <section className="savedMovies">
       <SearchForm />
