@@ -26,6 +26,8 @@ function SavedMovies() {
   useEffect(() => {
     if (savedMovies.length === 0) {
       setIsListEmpty(true);
+    } else {
+      setIsListEmpty(false);
     }
   }, []);
 

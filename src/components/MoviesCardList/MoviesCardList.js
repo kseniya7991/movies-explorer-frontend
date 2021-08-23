@@ -13,7 +13,7 @@ function MoviesCardList({ isEmpty, isSavedMovies, movies }) {
     console.log(movie);
   }
 
-  if (isEmpty === true) {
+  if (isEmpty) {
     return null;
   }
   return (
