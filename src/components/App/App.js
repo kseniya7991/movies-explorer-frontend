@@ -53,8 +53,7 @@ function App() {
     Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
-        console.log(moviesData, moviesData.movies);
-        setSavedMovies(moviesData);
+        setSavedMovies(moviesData.movies);
       })
       .catch((err) => console.log(err));
   }, []);
