@@ -26,7 +26,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import SavedMoviesContext from '../../contexts/SavedMoviesContext copy';
 
 function App() {
-  const [savedMovies, setSavedMovies] = useState({});
+  const [savedMovies, setSavedMovies] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
   const history = useHistory();
