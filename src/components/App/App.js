@@ -23,7 +23,7 @@ import HeaderUnauth from '../Header/HeaderUnauth/HeaderUnauth';
 
 // Импорт контекста
 import CurrentUserContext from '../../contexts/CurrentUserContext';
-import SavedMoviesContext from '../../contexts/SavedMoviesContext copy';
+import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 
 function App() {
   const [savedMovies, setSavedMovies] = useState([]);
