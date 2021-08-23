@@ -7,6 +7,7 @@ import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
 function Profile({ onUpdateUser, message, status }) {
   const currentUser = React.useContext(CurrentUserContext);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [showMessage, setShowMessage] = useState(false);

@@ -23,11 +23,13 @@ import HeaderUnauth from '../Header/HeaderUnauth/HeaderUnauth';
 
 // Импорт контекста
 import CurrentUserContext from '../../contexts/CurrentUserContext';
+import SavedMoviesContext from '../../contexts/SavedMoviesContext copy';
 
 function App() {
-  const history = useHistory();
-
+  const [savedMovies, setSavedMovies] = useState({});
   const [currentUser, setCurrentUser] = useState({});
+
+  const history = useHistory();
 
   /* Отображение прелоадера */
   const [isLoading, setIsLoading] = useState(false);
@@ -48,6 +50,12 @@ function App() {
 
   useEffect(() => {
     tokenCheck();
+    Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
+      .then(([userData, movies]) => {
+        setCurrentUser(userData.user);
+        setSavedMovies(movies);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
@@ -55,15 +63,6 @@ function App() {
       history.push('/movies');
     }
   }, [loggedIn]);
-
-  useEffect(() => {
-    mainApi
-      .getUser()
-      .then((userData) => {
-        setCurrentUser(userData.user);
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   console.log(loggedIn);
 
@@ -153,6 +152,7 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
+      <SavedMoviesContext.Provider value={savedMovies}>
       <div className="app">
         <Preloader isLoading={isLoading} />
         <InfoPopup
@@ -221,6 +221,7 @@ function App() {
           <Footer />
         </Route>
       </div>
+      </SavedMoviesContext.Provider>
     </CurrentUserContext.Provider>
   );
 }

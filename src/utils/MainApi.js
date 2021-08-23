@@ -60,3 +60,11 @@ export const updateUser = (name, email) => fetch(`${BASE_URL}/users/me`, {
   }),
 })
   .then((response) => response.json());
+
+export const getSavedMovies = () => fetch(`${BASE_URL}/movies`, {
+  method: 'GET',
+  headers: {
+    authorization: localStorage.getItem('token'),
+  },
+})
+  .then((response) => response.json());
