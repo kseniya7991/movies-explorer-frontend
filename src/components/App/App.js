@@ -56,6 +56,15 @@ function App() {
     }
   }, [loggedIn]);
 
+  useEffect(() => {
+    mainApi
+      .getUser()
+      .then((userData) => {
+        setCurrentUser(userData);
+      })
+      .catch((err) => console.log(err));
+  });
+
   console.log(loggedIn);
 
   function closeInfoPopup() {
