@@ -81,30 +81,6 @@
   cursor: pointer;
 }
 
-.profile__save-btn {
-  background-color: #4285f4;
-
-  font-family: "Inter", Arial, sans-serif;
-  color: #fff;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-
-  padding: 13px;
-  margin-bottom: 16px;
-  border-radius: 3px;
-  border: 0;
-
-  cursor: pointer;
-  display: none;
-  width: 100%;
-}
-
-.profile__save-btn_enabled {
-  display: block;
-}
-
 .profile__inputs-block {
   display: flex;
   flex-direction: row;
@@ -156,9 +132,5 @@
   }
   .profile__title {
     padding-bottom: 9vh;
-  }
-  .profile__save-btn {
-    font-size: 12px;
-    line-height: 15px;
   }
 }
