@@ -9,6 +9,7 @@ function Profile({ onUpdateUser, errorMessage, status }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [showMessage, setShowMessage] = useState(false);
   console.log(currentUser);
 
   useEffect(() => {
@@ -30,17 +31,20 @@ function Profile({ onUpdateUser, errorMessage, status }) {
     if (isValid) {
       resetForm();
       onUpdateUser({ name, email });
+      setShowMessage(true);
     }
   }
 
   function handleInputNameChange(e) {
     setName(e.target.value);
     handleChange(e);
+    setShowMessage(false);
   }
 
   function handleInputEmailChange(e) {
     setEmail(e.target.value);
     handleChange(e);
+    setShowMessage(false);
   }
 
   return (
@@ -87,8 +91,8 @@ function Profile({ onUpdateUser, errorMessage, status }) {
           </div>
         </div>
         <div>
-          {errorMessage && (<p className={'profile__api profile__api_error'}>{errorMessage}</p>)}
-          {status && (<p className={'profile__api profile__api_successful'}>Данные успешно обновлены!</p>)}
+          {errorMessage && showMessage(<p className={'profile__api profile__api_error'}>{errorMessage}</p>)}
+          {status && showMessage(<p className={'profile__api profile__api_successful'}>Данные успешно обновлены!</p>)}
           <button className={`profile__submit-btn ${isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit" disabled={!isValid}>
             Редактировать
           </button>
