@@ -5,7 +5,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList({ isEmpty, isSavedMovies, movies }) {
   const [movieIsSaved, setMovieIsSaved] = useState(false);
-  console.log(movies, isSavedMovies);
+  console.log(movies, isSavedMovies, 'isEmpty', isEmpty);
 
   /* Функция сохранения фильма - пока без обращения к API */
   function handleSaveMovie(movie) {
