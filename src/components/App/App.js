@@ -135,6 +135,7 @@ function App() {
       .then((res) => {
         if (res.message) {
           setMessage(res.message);
+          setStatusRequest(false);
         } else {
           setCurrentUser(res.user);
           setStatusRequest(true);
