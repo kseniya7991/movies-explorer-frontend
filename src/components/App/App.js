@@ -63,7 +63,7 @@ function App() {
         setCurrentUser(userData);
       })
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   console.log(loggedIn);
 
