@@ -27,7 +27,7 @@ function Profile({ onUpdateUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (isValid && currentUser.name !== values.name && currentUser.email !== values.email) {
+    if (isValid && currentUser.name !== name && currentUser.email !== email) {
       resetForm();
       onUpdateUser(values);
     }
