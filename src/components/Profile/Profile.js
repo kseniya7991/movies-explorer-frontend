@@ -87,7 +87,8 @@ function Profile({ onUpdateUser, errorMessage }) {
           </div>
         </div>
         <div>
-          {errorMessage && (<p className={'profile__api-error'}>{errorMessage}</p>)}
+          {errorMessage && (<p className={'profile__api profile__api_error'}>{errorMessage}</p>)}
+          {!errorMessage && (<p className={'profile__api profile__api_successful'}>Данные успешно обновлены!</p>)}
           <button className={`profile__submit-btn ${isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit" disabled={!isValid}>
             Редактировать
           </button>
