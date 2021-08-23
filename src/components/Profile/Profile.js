@@ -26,13 +26,12 @@ function Profile({ onUpdateUser, message, status }) {
     resetForm,
   } = useFormWithValidation();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (isValid) {
       resetForm();
-      onUpdateUser({ name, email });
+      await onUpdateUser({ name, email });
       setShowMessage(true);
-      console.log(message);
     }
   }
 
