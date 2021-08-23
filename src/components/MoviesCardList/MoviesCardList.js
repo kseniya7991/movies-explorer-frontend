@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ isEmpty, movies }) {
+function MoviesCardList({ isEmpty, savedMovies }) {
   const [movieIsSaved, setMovieIsSaved] = useState(false);
+  console.log(savedMovies);
 
   /* Функция сохранения фильма - пока без обращения к API */
   function handleSaveMovie(movie) {
@@ -18,7 +19,7 @@ function MoviesCardList({ isEmpty, movies }) {
   return (
     <>
       <ul className="moviesCardList">
-        {movies.map(({ ...movie }) => (
+        {savedMovies.map(({ ...movie }) => (
           <MoviesCard
             key={movie.id}
             onClickSave={handleSaveMovie}
