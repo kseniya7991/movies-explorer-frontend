@@ -19,7 +19,6 @@ function Profile({ onUpdateUser }) {
   }, [currentUser]);
 
   const {
-    values,
     handleChange,
     errors,
     isValid,
@@ -30,7 +29,7 @@ function Profile({ onUpdateUser }) {
     e.preventDefault();
     if (isValid) {
       resetForm();
-      onUpdateUser(values);
+      onUpdateUser({ name, email });
     }
   }
 
