@@ -10,7 +10,7 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
   const title = movie.nameRU.toString();
   const duration = movie.duration.toString();
 
-  const imageUrl = isSavedMovies === true ? movie.image : url + movie.iamge.url;
+  const imageUrl = isSavedMovies === true ? movie.image : url + movie.image.url;
   console.log(imageUrl);
 
   /* Расчет продолжительности фильма в часах и минутах */
