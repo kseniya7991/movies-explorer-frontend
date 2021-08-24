@@ -81,11 +81,10 @@ function App() {
 
   useEffect(() => {
     tokenCheck();
-    setTimeout(test, 10000);
   }, []);
 
   useEffect(() => {
-    tokenCheck();
+    setTimeout(test, 10000);
   }, [history]);
 
   /* Закрытие информационного попапа с ошибкой */
