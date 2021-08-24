@@ -32,7 +32,7 @@ function Movies({ onShowError, onClickSave }) {
   const [isLoading, setIsLoading] = useState(false);
 
   /* Определяем количество фильмов для рендеринга в зависимости от ширины экрана */
-  function handleWindowSize() {
+  const handleWindowSize = () => {
     if (window.innerWidth > 1100) {
       setSlice({ start: 0, end: 12 });
       setNumberAddedMovies(3);
@@ -42,15 +42,15 @@ function Movies({ onShowError, onClickSave }) {
     } else if (window.innerWidth <= 700) {
       setSlice({ start: 0, end: 5 });
     }
-  }
+  };
 
   /* Управление количеством карточек фильмов для рендеринга */
-  function selectionFilms(movies) { movies.slice(slice.start, slice.end); }
+  const selectionFilms = (movies) => movies.slice(slice.start, slice.end);
 
   /* Добавление карточек фильмов для рендеринга при нажатии на кнопку *Еще* */
-  function showMoreMovies() {
+  const showMoreMovies = () => {
     setSlice({ start: 0, end: slice.end + numberAddedMovies });
-  }
+  };
 
   // Отрисовка блока выдачи/не выдачи фильмов
   /* При поиске фильмов */
