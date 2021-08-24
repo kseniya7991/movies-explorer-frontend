@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 
 import './Header.css';
-/* import HeaderUnauth from './HeaderUnauth/HeaderUnauth'; */
 
 function Header({ children, isPromo }) {
   return (
@@ -12,7 +11,6 @@ function Header({ children, isPromo }) {
         <img className="header__logo" src={logo} alt="Сервис Фильмы" title="Сервис Фильмы" />
       </Link>
       {children}
-      {/* {isLogged ? '' : <HeaderUnauth />} */}
     </header>
   );
 }
