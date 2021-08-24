@@ -251,7 +251,7 @@ function App() {
               <Register onRegister={handleSubmitRegister} />
             </Route>
             <Route exact path="/signin">
-              {loggedIn ? history.push('/') : <Login onLogin={handleSubmitLogin} />}
+              {loggedIn ? history.push('/dsf') : <Login onLogin={handleSubmitLogin} />}
             </Route>
             <Route exact path="/">
               <Main />
