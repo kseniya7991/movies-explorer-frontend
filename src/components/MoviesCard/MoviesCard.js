@@ -58,7 +58,7 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
           className={isSavedBtn}
           type="button"
           onClick={handleClickOnSave}
-        >Сохранить
+        >{isSaved ? '' : 'Сохранить'}
         </button>
       </li>
 

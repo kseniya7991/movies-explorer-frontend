@@ -108,6 +108,7 @@
   transition: 0.2s;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: 13px;
 }
 /* 
 .moviesCard__button-save:focus::before {
