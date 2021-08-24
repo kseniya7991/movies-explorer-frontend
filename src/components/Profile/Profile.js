@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Profile.css';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
-function Profile({ onUpdateUser, message, status }) {
+function Profile({
+  onUpdateUser, message, status, onSignOut,
+}) {
   const currentUser = React.useContext(CurrentUserContext);
 
   const [name, setName] = useState('');
@@ -96,9 +99,9 @@ function Profile({ onUpdateUser, message, status }) {
           <button className={`profile__submit-btn ${isValid === true ? 'profile__submit-btn_enabled' : ''}`} type="submit" disabled={!isValid}>
             Редактировать
           </button>
-          <button className="profile__logout-btn" type="button">
+            <Link className="profile__logout-btn" type="button" to="/" onClick={onSignOut}>
             Выйти из аккаунта
-          </button>
+            </Link>
         </div>
       </form>
     </section>

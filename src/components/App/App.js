@@ -183,6 +183,11 @@ function App() {
     }
   };
 
+  const handleSignOut = () => {
+    localStorage.removeItem('token');
+    setLoggedIn(false);
+  };
+
   console.log(allSavedMovies, savedMovies);
 
   return (
@@ -249,6 +254,7 @@ function App() {
               onUpdateUser={handleUpdateUser}
               message={message}
               status={statusRequest}
+              onSignOut={handleSignOut}
             />
             <Route path="/*">
               <NotFoundPage />
