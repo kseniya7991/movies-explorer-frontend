@@ -79,6 +79,10 @@ function App() {
     tokenCheck();
   }, []);
 
+  useEffect(() => {
+    tokenCheck();
+  }, [history]);
+
   /* Закрытие информационного попапа с ошибкой */
   const closeInfoPopup = () => {
     if (statusRequest) {
