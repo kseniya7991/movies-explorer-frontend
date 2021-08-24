@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 
 import './Header.css';
-import HeaderUnauth from './HeaderUnauth/HeaderUnauth';
+/* import HeaderUnauth from './HeaderUnauth/HeaderUnauth'; */
 
-function Header({ children, isLogged, isPromo }) {
+function Header({ children, isPromo }) {
   return (
     <header className={`header ${isPromo ? 'header_promo' : ''}`}>
       <Link to="/">
         <img className="header__logo" src={logo} alt="Сервис Фильмы" title="Сервис Фильмы" />
       </Link>
       {children}
-      {isLogged ? '' : <HeaderUnauth />}
+      {/* {isLogged ? '' : <HeaderUnauth />} */}
     </header>
   );
 }

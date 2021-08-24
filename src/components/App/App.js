@@ -203,7 +203,7 @@ function App() {
             message={message}
           />
           <Switch>
-            <Route exact path={['/movies', '/saved-movies', '/profile', '/']}>
+            <Route exact path={['/movies', '/saved-movies', '/profile']}>
               <Header isLogged={loggedIn} isPromo={false}>
                 <ProtectedRoute
                   exact
@@ -212,17 +212,12 @@ function App() {
                   loggedIn={loggedIn}
                 />
               </Header>
+            </Route>
+            <Route exact path={'/'}>
               <Header isLogged={loggedIn} isPromo={true}>
-              <Route exact path="/">
-                {loggedIn === false ? <HeaderUnauth /> : ''}
-                </Route>
+                  {loggedIn === false ? <HeaderUnauth /> : ''}
               </Header>
             </Route>
-{/*             <Route exact path={'/'}>
-              <Header isLogged={loggedIn} isPromo={true}>
-
-              </Header>
-            </Route> */}
           </Switch>
 
           <Switch>
