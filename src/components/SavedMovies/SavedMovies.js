@@ -26,6 +26,8 @@ function SavedMovies({ onClickSave }) {
     if (filteredMovies.length === 0) {
       setIsListEmpty(true);
       setIsEmptyText('Мы ничего не нашли по вашему запросу');
+    } else {
+      setIsListEmpty(false);
     }
   }, [filteredMovies]);
 
