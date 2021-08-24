@@ -10,7 +10,7 @@ import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function SavedMovies({ onClickSave }) {
   const savedMovies = React.useContext(SavedMoviesContext);
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState(savedMovies);
   const [isEmptyText, setIsEmptyText] = useState('');
 
   const [isListEmpty, setIsListEmpty] = useState(false);
@@ -26,6 +26,8 @@ function SavedMovies({ onClickSave }) {
     if (savedMovies.length === 0) {
       setIsListEmpty(true);
       setIsEmptyText('У вас ещё нет сохраненных фильмов');
+    } else {
+      setIsListEmpty(false);
     }
   }, [filteredMovies]);
 
@@ -45,7 +47,7 @@ function SavedMovies({ onClickSave }) {
       <MoviesCardList
         isEmpty={isListEmpty}
         isSavedMovies={true}
-        movies={savedMovies}
+        movies={filteredMovies}
         onClickSave={onClickSave}
       />
 
