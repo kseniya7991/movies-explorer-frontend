@@ -49,19 +49,21 @@ function App() {
     }
   }
 
-  function filterAllSavedMovies() {
+  /*   function filterAllSavedMovies() {
     setSavedMovies(
       allSavedMovies.filter((movie) => movie.owner === currentUser._id),
     );
   }
-
+ */
   useEffect(() => {
     tokenCheck();
     Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
         setAllSavedMovies(moviesData.movies);
-        filterAllSavedMovies();
+        setSavedMovies(
+          allSavedMovies.filter((movie) => movie.owner === currentUser._id),
+        );
       })
       .catch((err) => console.log(err));
   }, []);
