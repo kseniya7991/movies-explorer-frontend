@@ -117,24 +117,6 @@
   background-repeat: no-repeat;
   background-size: 13px;
 }
-/* 
-.moviesCard__button-save:focus::before {
-  content: "✓";
-  display: block;
-  transition: 0.1s;
-  font-family: "Inter", Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 25px;
-  color: #fff;
-  position: relative;
-  text-align: center;
-  margin-top: -7px;
-}
-
-.moviesCard__button-save:focus {
-} */
 
 .moviesCard__button-save_saved::before {
   content: url("../../images/cross.png");

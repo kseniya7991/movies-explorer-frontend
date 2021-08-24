@@ -46,7 +46,6 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
     onClickSave(movie, isSaved, isSavedMovies);
   }
 
-  /* const isSaved = savedMovies.some((item) => item.id === movie.id); */
   const isSavedBtn = `moviesCard__button-save ${
     isSaved && isSavedMovies === false ? 'moviesCard__button-save_active' : ''
   } ${isSavedMovies ? 'moviesCard__button-save_delete' : ''}`;

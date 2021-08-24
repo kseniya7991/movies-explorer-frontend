@@ -2,7 +2,6 @@ import React from 'react';
 
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
-/* import * as mainApi from '../../utils/MainApi'; */
 
 function MoviesCardList({
   isEmpty, isSavedMovies, movies, onClickSave,
