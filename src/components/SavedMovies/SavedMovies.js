@@ -16,6 +16,10 @@ function SavedMovies({ onClickSave }) {
   const [isListEmpty, setIsListEmpty] = useState(false);
 
   useEffect(() => {
+    setFilteredMovies(savedMovies);
+  }, [savedMovies]);
+
+  useEffect(() => {
     if (filteredMovies.length === 0) {
       setIsListEmpty(true);
       setIsEmptyText('Мы ничего не нашли по вашему запросу');
