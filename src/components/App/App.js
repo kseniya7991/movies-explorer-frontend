@@ -80,7 +80,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log('app', loggedIn);
+    console.log('app test', loggedIn);
   }, [history, loggedIn]);
 
   /* Закрытие информационного попапа с ошибкой */
