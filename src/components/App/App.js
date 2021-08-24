@@ -248,10 +248,10 @@ function App() {
 
           <Switch>
             <Route exact path="/signup">
-              <Register onRegister={handleSubmitRegister} />
+            {loggedIn ? <Redirect push to="/" /> : <Register onRegister={handleSubmitRegister} />}
             </Route>
             <Route exact path="/signin">
-              {loggedIn ? <Redirect push to="/sdf" /> : <Login onLogin={handleSubmitLogin} />}
+              {loggedIn ? <Redirect push to="/" /> : <Login onLogin={handleSubmitLogin} />}
             </Route>
             <Route exact path="/">
               <Main />
