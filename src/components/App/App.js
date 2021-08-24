@@ -35,7 +35,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   /* Переменная залогинености пользователя */
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState();
 
   /* Переменные для обработки ошибок */
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
@@ -208,8 +208,7 @@ function App() {
     setLoggedIn(false);
   };
 
-  const returnBack = async () => {
-    await tokenCheck();
+  const returnBack = () => {
     history.goBack();
   };
 
