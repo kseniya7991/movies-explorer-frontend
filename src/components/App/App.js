@@ -63,8 +63,8 @@ function App() {
         setAllSavedMovies(moviesData.movies);
         setSavedMovies(
           moviesData.movies.filter((movie) => {
-            console.log(movie.owner, currentUser._id);
-            return movie.owner === currentUser._id;
+            console.log(movie.owner, userData.user._id);
+            return movie.owner === userData.user._id;
           }),
         );
       })
