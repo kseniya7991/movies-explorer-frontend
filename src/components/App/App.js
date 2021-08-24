@@ -81,7 +81,7 @@ function App() {
 
   useEffect(() => {
     tokenCheck();
-    console.log('effect', loggedIn);
+    setTimeout(console.log('effect', loggedIn), 10000);
   }, [history]);
 
   /* Закрытие информационного попапа с ошибкой */
