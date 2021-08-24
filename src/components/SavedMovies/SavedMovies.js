@@ -38,7 +38,7 @@ function SavedMovies({ onClickSave }) {
     if (savedMovies.length !== 0) {
       setFilteredMovies(filterMovies(savedMovies, keys, checkbox));
     } else {
-      setFilteredMovies([]);
+      setFilteredMovies(savedMovies);
     }
   };
 
@@ -50,7 +50,7 @@ function SavedMovies({ onClickSave }) {
       <MoviesCardList
         isEmpty={isListEmpty}
         isSavedMovies={true}
-        movies={savedMovies}
+        movies={filteredMovies}
         onClickSave={onClickSave}
       />
 
