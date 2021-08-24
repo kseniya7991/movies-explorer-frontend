@@ -83,7 +83,7 @@ function App() {
     if (loggedIn === true) {
       history.push('/movies');
     }
-  }, [loggedIn]);
+  }, []);
 
   /* Закрытие информационного попапа с ошибкой */
   const closeInfoPopup = () => {
