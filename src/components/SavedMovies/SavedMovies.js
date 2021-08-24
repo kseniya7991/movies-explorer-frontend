@@ -35,9 +35,9 @@ function SavedMovies({ onClickSave }) {
     }); */
 
   const handleSearchMovies = (keys, checkbox) => {
-    if (savedMovies.length !== 0) {
+    if (savedMovies.length !== 0 && keys !== '') {
       setFilteredMovies(filterMovies(savedMovies, keys, checkbox));
-    } else {
+    } else if (keys === '') {
       setFilteredMovies(savedMovies);
     }
   };
