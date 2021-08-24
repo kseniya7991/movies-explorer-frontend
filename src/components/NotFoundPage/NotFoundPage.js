@@ -6,7 +6,7 @@ import './NotFoundPage.css';
 
 function NotFoundPage() {
   const history = useHistory();
-  console.log(history.goBack());
+  console.log(history);
 
   return (
     <section className="notFoundPage">
