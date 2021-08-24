@@ -15,10 +15,10 @@ function SearchForm({ handleSearch, isRequired }) {
   const { register, formState: { errors }, handleSubmit } = useForm();
   const errorMessage = 'Нужно ввести ключевое слово';
 
-  function onSubmit(data) {
+  const onSubmit = (data) => {
     setKeys(data.searchField.toString().toLowerCase());
     handleSearch(data.searchField.toString().toLowerCase(), checked);
-  }
+  };
 
   function handleCheckbox() {
     setChecked(!checked);
