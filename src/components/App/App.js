@@ -35,7 +35,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   /* Переменная залогинености пользователя */
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   /* Переменные для обработки ошибок */
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
@@ -68,7 +68,6 @@ function App() {
 
   /* Проверка токена при загрузке страницы */
   const tokenCheck = () => {
-    setLoggedIn(true);
     const token = localStorage.getItem('token');
     if (token) {
       mainApi
