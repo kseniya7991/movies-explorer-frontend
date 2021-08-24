@@ -254,12 +254,14 @@ function App() {
               component={Movies}
               onShowError={handleErrors}
               onClickSave={handleSaveMovie}
+              history={history}
             />
             <ProtectedRoute
               path="/saved-movies"
               loggedIn={loggedIn}
               component={SavedMovies}
               onClickSave={handleSaveMovie}
+              history={history}
             />
             <ProtectedRoute
               path="/profile"
@@ -269,6 +271,7 @@ function App() {
               message={message}
               status={statusRequest}
               onSignOut={handleSignOut}
+              history={history}
             />
             <Route path="/*">
               <NotFoundPage history={history}/>
