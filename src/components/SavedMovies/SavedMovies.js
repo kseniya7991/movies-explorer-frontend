@@ -42,13 +42,15 @@ function SavedMovies({ onClickSave }) {
     }
   };
 
+  console.log(filteredMovies, savedMovies);
+
   return (
     <section className="savedMovies">
       <SearchForm handleSearch={handleSearchMovies}/>
       <MoviesCardList
         isEmpty={isListEmpty}
         isSavedMovies={true}
-        movies={`${filteredMovies || savedMovies}`}
+        movies={savedMovies}
         onClickSave={onClickSave}
       />
 
