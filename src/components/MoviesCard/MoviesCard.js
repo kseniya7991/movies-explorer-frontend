@@ -3,12 +3,14 @@ import React, { useState } from 'react';
 
 import './MoviesCard.css';
 
-function MoviesCard({ movie, onClickSave }) {
+function MoviesCard({ movie, onClickSave, isSavedMovies }) {
   /*  const savedMovies = React.useContext(SavedMoviesContext); */
   const url = 'https://api.nomoreparties.co';
 
   const title = movie.nameRU.toString();
   const duration = movie.duration.toString();
+
+  const imageUrl = isSavedMovies === true ? movie.image : url + movie.iamge.url;
 
   /* Расчет продолжительности фильма в часах и минутах */
   function handleTime(time) {
@@ -43,7 +45,7 @@ function MoviesCard({ movie, onClickSave }) {
           <p className="moviesCard__title">{title}</p>
           <p className="moviesCard__time">{newTime}</p>
         </div>
-        <a href={movie.trailerLink} target="_blank" rel="noreferrer" className="moviesCard__image-link"><img className="moviesCard__image" src={url + movie.image.url} alt="Фильм В погоне за Бенкси"></img></a>
+        <a href={movie.trailerLink} target="_blank" rel="noreferrer" className="moviesCard__image-link"><img className="moviesCard__image" src={imageUrl} alt="Фильм В погоне за Бенкси"></img></a>
         <button
           className={isSavedBtn}
           type="button"
