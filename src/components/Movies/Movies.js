@@ -52,15 +52,6 @@ function Movies({ onShowError, onClickSave }) {
     setSlice({ start: 0, end: slice.end + numberAddedMovies });
   };
 
-  /*   useEffect(() => {
-    handleWindowSize();
-    window.addEventListener('resize', handleWindowSize);
-    return () => {
-      window.removeEventListener('resize', handleWindowSize);
-    };
-  }, []);
- */
-
   // Отрисовка блока выдачи/не выдачи фильмов
   /* При поиске фильмов */
   useEffect(() => {
