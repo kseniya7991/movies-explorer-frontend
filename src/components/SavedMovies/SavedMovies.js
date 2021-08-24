@@ -40,7 +40,7 @@ function SavedMovies({ onClickSave }) {
       setFilteredMovies(filterMovies(savedMovies, keys, checkbox));
     } else if (keys === '' && checkbox === true) {
       setFilteredMovies(filterMovies(savedMovies, keys, checkbox));
-    } else if (keys === '' && checkbox === false) {
+    } else if (keys === '') {
       setFilteredMovies(savedMovies);
     }
   }
