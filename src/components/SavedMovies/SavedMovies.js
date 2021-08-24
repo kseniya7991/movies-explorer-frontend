@@ -16,34 +16,18 @@ function SavedMovies({ onClickSave }) {
   const [isListEmpty, setIsListEmpty] = useState(false);
 
   useEffect(() => {
-    if (savedMovies.length === 0) {
-      setIsListEmpty(true);
-      setIsEmptyText('У вас ещё нет сохраненных фильмов');
-    }
-  }, []);
-
-  useEffect(() => {
     if (filteredMovies.length === 0) {
       setIsListEmpty(true);
       setIsEmptyText('Мы ничего не нашли по вашему запросу');
     } else {
       setIsListEmpty(false);
     }
-  }, [filteredMovies]);
 
-  /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
-  /*     const getAllMovies = (keys, checkbox) => api
-    .getMovies()
-    .then((movies) => {
-      setAllMovies(movies);
-      setFilteredMovies(filterMovies(movies, keys, checkbox));
-      setIsLoading(false);
-    })
-    .catch((err) => {
-      console.log(err);
-      onShowError();
-      setIsLoading(false);
-    }); */
+    if (savedMovies.length === 0) {
+      setIsListEmpty(true);
+      setIsEmptyText('У вас ещё нет сохраненных фильмов');
+    }
+  }, [filteredMovies]);
 
   const handleSearchMovies = (keys, checkbox) => {
     if (savedMovies.length !== 0 && keys !== '') {

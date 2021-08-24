@@ -189,6 +189,7 @@ function App() {
   };
 
   console.log(allSavedMovies, savedMovies);
+  console.log(loggedIn);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
