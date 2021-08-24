@@ -26,7 +26,6 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 
 function App() {
-  const [isReturn, setIsReturn] = useState(false);
   const [savedMovies, setSavedMovies] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
@@ -75,10 +74,6 @@ function App() {
       getData();
     }
   };
-
-  function test() {
-    console.log(loggedIn);
-  }
 
   useEffect(() => {
     tokenCheck();
@@ -212,13 +207,10 @@ function App() {
     setLoggedIn(false);
   };
 
-  useEffect(() => {
-    history.goBack();
-  }, [isReturn]);
-
   const returnPage = () => {
-    setIsReturn(true);
+    history.goBack();
   };
+
   console.log('app', loggedIn);
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -282,9 +274,10 @@ function App() {
               status={statusRequest}
               onSignOut={handleSignOut}
             />
-            <Route path="/*">
-              <NotFoundPage onBack={returnPage}/>
-            </Route>
+            <ProtectedRoute path="/*"
+            loggedIn={loggedIn}
+            component={NotFoundPage}
+            onBack={returnPage}/>
           </Switch>
 
           <Route exact path={['/movies', '/saved-movies', '/']}>
