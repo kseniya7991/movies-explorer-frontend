@@ -22,7 +22,7 @@ function SearchForm({ handleSearch, isRequired }) {
 
   function handleCheckbox() {
     setChecked(!checked);
-    handleSearch(keys, checked);
+    handleSearch(keys, !checked);
   }
 
   return (
