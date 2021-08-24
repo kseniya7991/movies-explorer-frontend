@@ -73,10 +73,15 @@ function App() {
       mainApi
         .getContent(token)
         .then((res) => {
-          console.log(res);
-          setLoggedIn(true);
+          if (res) {
+            getData();
+            setLoggedIn(true);
+          } else {
+            setLoggedIn(false);
+          }
         })
-        .catch((err) => console.log(err));
+        .then()
+        .catch((err) => handleErrors(err.status));
     } else {
       setLoggedIn(false);
     }
