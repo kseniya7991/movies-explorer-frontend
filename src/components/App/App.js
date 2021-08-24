@@ -42,13 +42,6 @@ function App() {
   const [statusRequest, setStatusRequest] = useState(false);
   const [message, setMessage] = useState('');
 
-  function tokenCheck() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setLoggedIn(true);
-    }
-  }
-
   function getData() {
     Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
@@ -64,6 +57,14 @@ function App() {
       .catch((err) => console.log(err));
   }
 
+  function tokenCheck() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setLoggedIn(true);
+      getData();
+    }
+  }
+
   /*   function filterAllSavedMovies() {
     setSavedMovies(
       allSavedMovies.filter((movie) => movie.owner === currentUser._id),
@@ -72,9 +73,6 @@ function App() {
  */
   useEffect(() => {
     tokenCheck();
-    if (loggedIn === true) {
-      getData();
-    }
   }, []);
 
   useEffect(() => {
@@ -108,6 +106,7 @@ function App() {
       .then((res) => {
         if (res.token) {
           setLoggedIn(true);
+          getData();
           history.push('/movies');
         }
       })
@@ -130,7 +129,6 @@ function App() {
         } else {
           setCurrentUser({ name, email });
           handleSubmitLogin({ email, password });
-          getData();
         }
         setIsLoading(false);
       })
