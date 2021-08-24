@@ -79,12 +79,6 @@ function App() {
     tokenCheck();
   }, []);
 
-  useEffect(() => {
-    if (loggedIn === true) {
-      history.push('/movies');
-    }
-  }, []);
-
   /* Закрытие информационного попапа с ошибкой */
   const closeInfoPopup = () => {
     if (statusRequest) {
