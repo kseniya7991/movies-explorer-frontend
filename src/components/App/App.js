@@ -155,7 +155,8 @@ function App() {
     mainApi
       .saveMovie(movie)
       .then((savedMovie) => {
-        setSavedMovies(savedMovies.push(savedMovie));
+        setAllSavedMovies(allSavedMovies.push(savedMovie));
+        filterAllSavedMovies();
       });
   }
 
