@@ -75,13 +75,16 @@ function App() {
     }
   };
 
+  function test() {
+    console.log('effect', loggedIn);
+  }
+
   useEffect(() => {
     tokenCheck();
   }, []);
 
   useEffect(() => {
     tokenCheck();
-    setTimeout(console.log('effect', loggedIn), 10000);
   }, [history]);
 
   /* Закрытие информационного попапа с ошибкой */
@@ -212,7 +215,7 @@ function App() {
     history.goBack();
   };
   console.log('app', loggedIn);
-
+  test();
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SavedMoviesContext.Provider value={savedMovies}>
