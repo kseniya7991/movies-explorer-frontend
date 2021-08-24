@@ -43,9 +43,9 @@ function App() {
   const [message, setMessage] = useState('');
 
   /* Функция обработки ошибок */
-  const handleErrors = (status) => {
-    if (status) {
-      setMessage(status);
+  const handleErrors = (response) => {
+    if (response) {
+      setMessage(response);
     } else {
       setMessage(
         'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
@@ -150,7 +150,8 @@ function App() {
       .updateUser(name, email)
       .then((res) => {
         if (res.message) {
-          handleErrors(res.message);
+          setMessage(res.message);
+          setStatusRequest(false);
         } else {
           setCurrentUser(res.user);
           setStatusRequest(true);
@@ -216,7 +217,6 @@ function App() {
           <InfoPopup
             isOpen={isInfoPopupOpen}
             onClose={closeInfoPopup}
-            status={statusRequest}
             message={message}
           />
           <Switch>

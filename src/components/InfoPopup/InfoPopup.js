@@ -4,7 +4,7 @@ import Popup from '../Popup/Popup';
 import './InfoPopup.css';
 
 function InfoPopup({
-  isOpen, onClose, status, message,
+  isOpen, onClose, message,
 }) {
   return (
       <>
@@ -16,9 +16,8 @@ function InfoPopup({
           aria-label="close"
           onClick={onClose}
         ></button>
-        <div className={`${status ? 'infoPopup__success' : 'infoPopup__error'}`}></div>
-        <p className="infoPopup__title popup__title_info">
-          {status ? 'Вы успешно зарегистрировались!' : message}
+        <div className='infoPopup__error'></div>
+        <p className="infoPopup__title popup__title_info">{message}
         </p>
       </div>
       </Popup>
