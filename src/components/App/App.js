@@ -80,6 +80,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    tokenCheck();
     console.log('app test', loggedIn);
   }, [history, loggedIn]);
 
