@@ -81,11 +81,6 @@ function App() {
     tokenCheck();
   }, []);
 
-  useEffect(() => {
-    tokenCheck();
-    console.log('app test', loggedIn);
-  }, [history, loggedIn]);
-
   /* Закрытие информационного попапа с ошибкой */
   const closeInfoPopup = () => {
     if (statusRequest) {
@@ -210,11 +205,6 @@ function App() {
     setLoggedIn(false);
   };
 
-  const returnBack = () => {
-    history.goBack();
-  };
-
-  console.log('app', loggedIn);
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SavedMoviesContext.Provider value={savedMovies}>
@@ -280,7 +270,7 @@ function App() {
               history={history}
             />
             <Route path="*">
-              <NotFoundPage onBack={returnBack}/>
+              <NotFoundPage onBack={() => { history.goBack(); }}/>
             </Route>
           </Switch>
 
