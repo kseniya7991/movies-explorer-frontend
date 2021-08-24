@@ -156,7 +156,7 @@ function App() {
       .saveMovie(movie)
       .then((savedMovie) => {
         console.log(allSavedMovies);
-        setAllSavedMovies(allSavedMovies.push(savedMovie));
+        setAllSavedMovies([savedMovie, ...allSavedMovies]);
         filterAllSavedMovies();
       });
   }
