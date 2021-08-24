@@ -80,7 +80,6 @@ function App() {
             setLoggedIn(false);
           }
         })
-        .then()
         .catch((err) => {
           setLoggedIn(false);
           handleErrors(err.status);
