@@ -29,7 +29,7 @@ function MoviesCardList({
         {movies.map((movie) => (
           <MoviesCard
             movie={movie}
-            key={movie._id}
+            key={movie.id}
             onClickSave={onClickSave}
           />
         ))}
