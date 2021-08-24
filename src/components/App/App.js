@@ -60,7 +60,7 @@ function App() {
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
         setSavedMovies(
-          moviesData.movies.filter((movie) => movie.owner === userData.user._id),
+          moviesData.movies.reverse().filter((movie) => movie.owner === userData.user._id),
         );
       })
       .catch((err) => handleErrors(err.status));
