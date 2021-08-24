@@ -10,7 +10,7 @@ import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function SavedMovies({ onClickSave }) {
   const savedMovies = React.useContext(SavedMoviesContext);
-  const [filteredMovies, setFilteredMovies] = useState(savedMovies);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [isEmptyText, setIsEmptyText] = useState('');
 
   const [isListEmpty, setIsListEmpty] = useState(false);
@@ -27,7 +27,7 @@ function SavedMovies({ onClickSave }) {
       setIsListEmpty(true);
       setIsEmptyText('У вас ещё нет сохраненных фильмов');
     }
-  }, [filteredMovies]);
+  }, [filteredMovies, savedMovies]);
 
   const handleSearchMovies = (keys, checkbox) => {
     if (savedMovies.length !== 0 && keys !== '') {
