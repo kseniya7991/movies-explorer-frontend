@@ -72,6 +72,8 @@ function App() {
     if (token) {
       setLoggedIn(true);
       getData();
+    } else {
+      setLoggedIn(false);
     }
   };
 
