@@ -203,6 +203,10 @@ function App() {
     setLoggedIn(false);
   };
 
+  const returnPage = () => {
+    history.goBack();
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SavedMoviesContext.Provider value={savedMovies}>
@@ -266,7 +270,7 @@ function App() {
               onSignOut={handleSignOut}
             />
             <Route path="/*">
-              <NotFoundPage onBack={() => window.history.go(-1)}/>
+              <NotFoundPage onBack={returnPage}/>
             </Route>
           </Switch>
 
