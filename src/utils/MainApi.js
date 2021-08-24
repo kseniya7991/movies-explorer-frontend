@@ -69,8 +69,8 @@ export const getSavedMovies = () => fetch(`${BASE_URL}/movies`, {
 })
   .then((response) => response.json());
 
-export const saveMovie = (movie) => fetch(`${BASE_URL}/movies`, {
-  method: 'POST',
+export const saveMovie = (movie, isSaved) => fetch(`${BASE_URL}/movies/${isSaved ? movie._id : ''}`, {
+  method: isSaved ? 'DELETE' : 'POST',
   headers: {
     authorization: localStorage.getItem('token'),
     'Content-Type': 'application/json',
@@ -81,9 +81,9 @@ export const saveMovie = (movie) => fetch(`${BASE_URL}/movies`, {
     duration: movie.duration,
     year: movie.year,
     description: movie.description,
-    image: `https://api.nomoreparties.co/${movie.image.url}`,
+    image: `https://api.nomoreparties.co${movie.image.url}`,
     trailer: movie.trailerLink,
-    thumbnail: `https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`,
+    thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`,
     movieId: movie.id,
     nameRU: movie.nameRU,
     nameEN: movie.nameEN,

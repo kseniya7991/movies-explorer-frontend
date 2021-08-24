@@ -150,10 +150,10 @@ function App() {
       });
   }
 
-  function handleSaveMovie(movie) {
+  function handleSaveMovie(movie, isSaved) {
     console.log(movie);
     mainApi
-      .saveMovie(movie)
+      .saveMovie(movie, isSaved)
       .then((savedMovie) => {
         console.log(allSavedMovies);
         setAllSavedMovies([savedMovie, ...allSavedMovies]);

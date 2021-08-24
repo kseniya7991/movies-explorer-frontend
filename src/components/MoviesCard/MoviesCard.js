@@ -32,8 +32,8 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
 
   /* Функция сохранения фильма */
   function handleClickOnSave() {
-    setIsSaved(true);
-    onClickSave(movie);
+    setIsSaved(!isSaved);
+    onClickSave(movie, isSaved);
   }
 
   /* const isSaved = savedMovies.some((item) => item.id === movie.id); */
@@ -46,7 +46,7 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
           <p className="moviesCard__title">{title}</p>
           <p className="moviesCard__time">{newTime}</p>
         </div>
-        <a href={movie.trailerLink} target="_blank" rel="noreferrer" className="moviesCard__image-link"><img className="moviesCard__image" src={imageUrl} alt="Фильм В погоне за Бенкси"></img></a>
+        <a href={movie.trailerLink} target="_blank" rel="noreferrer" className="moviesCard__image-link"><img className="moviesCard__image" src={imageUrl} alt={title}></img></a>
         <button
           className={isSavedBtn}
           type="button"
