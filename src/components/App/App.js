@@ -203,10 +203,6 @@ function App() {
     setLoggedIn(false);
   };
 
-  const returnPage = () => {
-    history.goBack();
-  };
-
   console.log('app', loggedIn);
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -270,10 +266,9 @@ function App() {
               status={statusRequest}
               onSignOut={handleSignOut}
             />
-            <ProtectedRoute path="/*"
-            loggedIn={loggedIn}
-            component={NotFoundPage}
-            onBack={returnPage}/>
+            <Route path="/*">
+              <NotFoundPage history={history}/>
+            </Route>
           </Switch>
 
           <Route exact path={['/movies', '/saved-movies', '/']}>
