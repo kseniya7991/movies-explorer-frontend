@@ -8,7 +8,7 @@ function MoviesCardList({
   isEmpty, isSavedMovies, movies, onClickSave,
 }) {
   /*  const [renderedMovies, setRenderedMovies] = useState(movies); */
-  console.log(movies, isSavedMovies);
+  console.log(isSavedMovies);
 
   /* Функция сохранения фильма - пока без обращения к API */
   /*   function handleSaveMovie(movie) {

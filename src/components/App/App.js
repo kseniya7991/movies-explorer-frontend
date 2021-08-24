@@ -70,6 +70,10 @@ function App() {
     }
   }, [loggedIn]);
 
+  useEffect(() => {
+    filterAllSavedMovies();
+  }, [savedMovies]);
+
   function closeInfoPopup() {
     if (statusRequest) {
       setIsInfoPopupOpen(false);
@@ -152,6 +156,11 @@ function App() {
 
   function handleSaveMovie(movie) {
     console.log(movie);
+    mainApi
+      .saveMovie(movie)
+      .then((savedMovie) => {
+        setSavedMovies(savedMovies.push(savedMovie));
+      });
   }
 
   console.log(setStatusRequest, setMessage);
