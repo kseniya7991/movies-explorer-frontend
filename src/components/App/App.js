@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import { useHistory } from 'react-router';
+import { Redirect, useHistory } from 'react-router';
 import ProtectedRoute from '../ProtectedRoute';
 
 import * as mainApi from '../../utils/MainApi';
@@ -251,7 +251,7 @@ function App() {
               <Register onRegister={handleSubmitRegister} />
             </Route>
             <Route exact path="/signin">
-              {loggedIn ? history.push('/dsf') : <Login onLogin={handleSubmitLogin} />}
+              {loggedIn ? <Redirect push to="/sdf" /> : <Login onLogin={handleSubmitLogin} />}
             </Route>
             <Route exact path="/">
               <Main />
