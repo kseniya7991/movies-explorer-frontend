@@ -10,7 +10,7 @@ import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function SavedMovies({ onClickSave }) {
   const savedMovies = React.useContext(SavedMoviesContext);
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState(savedMovies);
 
   const [isListEmpty, setIsListEmpty] = useState(false);
 
