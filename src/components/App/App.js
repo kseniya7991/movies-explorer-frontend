@@ -160,7 +160,7 @@ function App() {
 
   function saveMovie(movie) {
     mainApi.saveMovie(movie).then((savedMovie) => {
-      console.log(allSavedMovies);
+      console.log(savedMovie.movie);
       setAllSavedMovies([savedMovie.movie, ...allSavedMovies]);
       filterAllSavedMovies();
     });
