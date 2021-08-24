@@ -27,7 +27,7 @@ function SavedMovies({ onClickSave }) {
       setIsListEmpty(true);
       setIsEmptyText('У вас ещё нет сохраненных фильмов');
     }
-  }, [filteredMovies, savedMovies]);
+  }, [filteredMovies]);
 
   const handleSearchMovies = (keys, checkbox) => {
     if (savedMovies.length !== 0 && keys !== '') {
@@ -45,7 +45,7 @@ function SavedMovies({ onClickSave }) {
       <MoviesCardList
         isEmpty={isListEmpty}
         isSavedMovies={true}
-        movies={filteredMovies}
+        movies={savedMovies}
         onClickSave={onClickSave}
       />
 
