@@ -212,7 +212,7 @@ function App() {
   };
 
   const returnPage = () => {
-    setTimeout(history.goBack(), 3000);
+    history.goBack();
   };
   console.log('app', loggedIn);
   return (
@@ -278,7 +278,7 @@ function App() {
               onSignOut={handleSignOut}
             />
             <Route path="/*">
-              <NotFoundPage onBack={returnPage}/>
+              <NotFoundPage onBack={() => setTimeout(returnPage, 3000)}/>
             </Route>
           </Switch>
 
