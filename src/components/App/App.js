@@ -127,8 +127,7 @@ function App() {
       .register(name, email, password)
       .then((res) => {
         if (res.message) {
-          setMessage(res.message);
-          setIsInfoPopupOpen(true);
+          handleErrors(res.message);
         } else {
           setCurrentUser({ name, email });
           handleSubmitLogin({ email, password });
@@ -151,8 +150,7 @@ function App() {
       .updateUser(name, email)
       .then((res) => {
         if (res.message) {
-          setMessage(res.message);
-          setStatusRequest(false);
+          handleErrors(res.message);
         } else {
           setCurrentUser(res.user);
           setStatusRequest(true);
