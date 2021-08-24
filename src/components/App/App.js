@@ -211,7 +211,9 @@ function App() {
                   component={Navigation}
                   loggedIn={loggedIn}
                 />
-                <Route exact path="/">
+              </Header>
+              <Header isLogged={loggedIn} isPromo={true}>
+              <Route exact path="/">
                 {loggedIn === false ? <HeaderUnauth /> : ''}
                 </Route>
               </Header>
