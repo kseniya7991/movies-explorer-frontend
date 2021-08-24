@@ -246,7 +246,6 @@ function App() {
             <Route exact path="/">
               <Main />
             </Route>
-            <Route exact path={['/movies', '/saved-movies', '/profile']}>
             <ProtectedRoute
               exact
               path="/movies"
@@ -273,10 +272,16 @@ function App() {
               onSignOut={handleSignOut}
               history={history}
             />
-            </Route>
-            <Route path="*">
+            <ProtectedRoute
+              path="*"
+              loggedIn={loggedIn}
+              component={NotFoundPage}
+              history={history}
+            />
+
+{/*             <Route path="*">
               <NotFoundPage history={history}/>
-            </Route>
+            </Route> */}
           </Switch>
 
           <Route exact path={['/movies', '/saved-movies', '/']}>
