@@ -274,7 +274,7 @@ function App() {
             />
             <ProtectedRoute
               path="*"
-              loggedIn={loggedIn}
+              loggedIn={true}
               component={NotFoundPage}
               history={history}
             />
