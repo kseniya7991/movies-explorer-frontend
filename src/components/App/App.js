@@ -94,6 +94,12 @@ function App() {
     tokenCheck();
   }, []);
 
+  useEffect(() => {
+    if (loggedIn) {
+      history.push('/');
+    }
+  }, [history, loggedIn]);
+
   /* Закрытие информационного попапа с ошибкой */
   const closeInfoPopup = () => {
     if (statusRequest) {
@@ -251,7 +257,7 @@ function App() {
               <Register onRegister={handleSubmitRegister} />
             </Route>
             <Route exact path="/signin">
-              <Login onLogin={handleSubmitLogin} />
+              {loggedIn ? history.push('/') : <Login onLogin={handleSubmitLogin} />}
             </Route>
             <Route exact path="/">
               <Main />
