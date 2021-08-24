@@ -1,10 +1,15 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const ProtectedRoute = ({ component: Component, ...props }) => (
-  <Route>
-    {() => (props.loggedIn === true ? <Component {...props} /> : <Redirect push to="/" />)}
-  </Route>
-);
+const ProtectedRoute = ({ component: Component, ...props }) => {
+  function render() {
+    return (
+      <Route>
+        {() => (props.loggedIn === true ? <Component {...props} /> : <Redirect push to="/" />)}
+      </Route>
+    );
+  }
+  setTimeout(render, 1000);
+};
 
 export default ProtectedRoute;
