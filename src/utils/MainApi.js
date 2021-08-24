@@ -68,3 +68,25 @@ export const getSavedMovies = () => fetch(`${BASE_URL}/movies`, {
   },
 })
   .then((response) => response.json());
+
+export const saveMovie = (movie) => fetch(`${BASE_URL}/movies`, {
+  method: 'POST',
+  headers: {
+    authorization: localStorage.getItem('token'),
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    country: movie.country,
+    director: movie.director,
+    duration: movie.diration,
+    year: movie.year,
+    description: movie.description,
+    image: movie.image,
+    trailer: movie.trailer,
+    thumbnail: movie.thumbnail,
+    movieId: movie.movieId,
+    nameRU: movie.nameRU,
+    nameEN: movie.nameEN,
+  }),
+})
+  .then((response) => response.json());

@@ -150,6 +150,10 @@ function App() {
       });
   }
 
+  function handleSaveMovie(movie) {
+    console.log(movie);
+  }
+
   console.log(setStatusRequest, setMessage);
   console.log(savedMovies);
 
@@ -201,11 +205,13 @@ function App() {
             loggedIn={loggedIn}
             component={Movies}
             onShowError={handleErrors}
+            onClickSave={handleSaveMovie}
           />
           <ProtectedRoute
             path="/saved-movies"
             loggedIn={loggedIn}
             component={SavedMovies}
+            onClickSave={handleSaveMovie}
           />
           <ProtectedRoute
             path="/profile"

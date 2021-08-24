@@ -10,7 +10,7 @@ import MoreMoviesBtn from '../MoreMoviesBtn/MoreMoviesBtn';
 import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
-function Movies({ onShowError }) {
+function Movies({ onShowError, onClickSave }) {
   const [allMovies, setAllMovies] = useState([]);
 
   /* Отфильтрованные по ключ. словам фильмы */
@@ -111,7 +111,8 @@ function Movies({ onShowError }) {
           onShowError();
           setIsLoading(false);
         });
-    } if (allMovies.length !== 0) {
+    }
+    if (allMovies.length !== 0) {
       setFilteredMovies(filterMovies(allMovies, keys, checkbox));
       setIsLoading(false);
     } else {
@@ -126,7 +127,12 @@ function Movies({ onShowError }) {
       <Preloader isLoading={isLoading} />
       <SearchForm handleSearch={handleSearchMovies} />
 
-      <MoviesCardList isEmpty={isListEmpty} isSavedMovies={false} movies={selectedMovies} />
+      <MoviesCardList
+        isEmpty={isListEmpty}
+        isSavedMovies={false}
+        movies={selectedMovies}
+        onClickSave={onClickSave}
+      />
       <MoreMoviesBtn
         isEmpty={isListEmpty}
         onMoreMovies={showMoreMovies}

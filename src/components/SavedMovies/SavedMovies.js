@@ -8,7 +8,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
-function SavedMovies() {
+function SavedMovies({ onClickSave }) {
   const currentUser = React.useContext(CurrentUserContext);
   const allSavedMovies = React.useContext(SavedMoviesContext);
   const [savedMovies, setSavedMovies] = useState([]);
@@ -16,7 +16,9 @@ function SavedMovies() {
   const [isListEmpty, setIsListEmpty] = useState(false);
 
   function filterAllSavedMovies() {
-    setSavedMovies(allSavedMovies.filter((movie) => movie.owner === currentUser._id));
+    setSavedMovies(
+      allSavedMovies.filter((movie) => movie.owner === currentUser._id),
+    );
   }
 
   useEffect(() => {
@@ -32,10 +34,18 @@ function SavedMovies() {
   return (
     <section className="savedMovies">
       <SearchForm />
-      <MoviesCardList isEmpty={isListEmpty} isSavedMovies={true} movies={savedMovies}/>
+      <MoviesCardList
+        isEmpty={isListEmpty}
+        isSavedMovies={true}
+        movies={savedMovies}
+        onClickSave={onClickSave}
+      />
 
       {/* Если ни один фильм не был сохранен */}
-      <EmptyMoviesList isEmpty={isListEmpty} text='У вас еще нет сохраненных фильмов &#128148;' />
+      <EmptyMoviesList
+        isEmpty={isListEmpty}
+        text="У вас еще нет сохраненных фильмов &#128148;"
+      />
     </section>
   );
 }

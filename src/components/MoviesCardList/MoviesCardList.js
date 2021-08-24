@@ -2,14 +2,23 @@ import React from 'react';
 
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
+/* import * as mainApi from '../../utils/MainApi'; */
 
-function MoviesCardList({ isEmpty, isSavedMovies, movies }) {
+function MoviesCardList({
+  isEmpty, isSavedMovies, movies, onClickSave,
+}) {
+  /*  const [renderedMovies, setRenderedMovies] = useState(movies); */
   console.log(movies, isSavedMovies);
 
   /* Функция сохранения фильма - пока без обращения к API */
-  function handleSaveMovie(movie) {
-    console.log(movie);
-  }
+  /*   function handleSaveMovie(movie) {
+
+         mainApi
+      .saveMovie(movie)
+      .then((newMovie) => {
+        )
+      });
+  } */
 
   if (isEmpty) {
     return null;
@@ -21,7 +30,7 @@ function MoviesCardList({ isEmpty, isSavedMovies, movies }) {
           <MoviesCard
             movie={movie}
             key={movie._id}
-            onClickSave={handleSaveMovie}
+            onClickSave={onClickSave}
           />
         ))}
       </ul>
