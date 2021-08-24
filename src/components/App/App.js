@@ -76,7 +76,7 @@ function App() {
   };
 
   function test() {
-    console.log('effect', loggedIn);
+    console.log(loggedIn);
   }
 
   useEffect(() => {
@@ -84,8 +84,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setTimeout(test, 10000);
-  }, [history]);
+    test();
+  }, [history, loggedIn]);
 
   /* Закрытие информационного попапа с ошибкой */
   const closeInfoPopup = () => {
@@ -212,7 +212,7 @@ function App() {
   };
 
   const returnPage = () => {
-    history.goBack();
+    setTimeout(history.goBack(), 3000);
   };
   console.log('app', loggedIn);
   return (
