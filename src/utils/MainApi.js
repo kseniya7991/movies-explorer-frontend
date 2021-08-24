@@ -83,7 +83,7 @@ export const saveMovie = (movie) => fetch(`${BASE_URL}/movies`, {
     description: movie.description,
     image: movie.image,
     trailer: movie.trailerLink,
-    thumbnail: movie.image.formats.thumbnail.url,
+    thumbnail: `https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`,
     movieId: movie.id,
     nameRU: movie.nameRU,
     nameEN: movie.nameEN,
