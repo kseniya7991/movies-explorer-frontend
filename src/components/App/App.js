@@ -215,7 +215,7 @@ function App() {
             </Route>
             <Route exact path={'/'}>
               <Header isLogged={loggedIn} isPromo={true}>
-                  {loggedIn === false ? <HeaderUnauth /> : ''}
+                  {loggedIn === false ? <HeaderUnauth /> : <Navigation />}
               </Header>
             </Route>
           </Switch>
