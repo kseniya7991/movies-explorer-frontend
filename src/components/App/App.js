@@ -81,7 +81,10 @@ function App() {
           }
         })
         .then()
-        .catch((err) => handleErrors(err.status));
+        .catch((err) => {
+          setLoggedIn(false);
+          handleErrors(err.status);
+        });
     } else {
       setLoggedIn(false);
     }
