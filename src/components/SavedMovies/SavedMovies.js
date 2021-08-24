@@ -48,7 +48,7 @@ function SavedMovies({ onClickSave }) {
       <MoviesCardList
         isEmpty={isListEmpty}
         isSavedMovies={true}
-        movies={filteredMovies || savedMovies}
+        movies={`${filteredMovies || savedMovies}`}
         onClickSave={onClickSave}
       />
 
