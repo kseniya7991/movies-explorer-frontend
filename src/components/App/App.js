@@ -208,6 +208,11 @@ function App() {
     setLoggedIn(false);
   };
 
+  const returnBack = async () => {
+    await tokenCheck();
+    history.goBack();
+  };
+
   console.log('app', loggedIn);
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -274,7 +279,7 @@ function App() {
               history={history}
             />
             <Route path="*">
-              <NotFoundPage onBack={() => history.goBack()}/>
+              <NotFoundPage onBack={returnBack}/>
             </Route>
           </Switch>
 
