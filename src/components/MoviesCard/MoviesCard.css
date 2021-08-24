@@ -103,7 +103,7 @@
 }
 
 .moviesCard__button-save_active {
-  background-image: url("../../images/saved.png");
+  background-image: url("../../images/saved.svg");
   background-color: #ee3465;
   transition: 0.2s;
   background-position: center;
