@@ -30,7 +30,11 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
   const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
-    setIsSaved(savedMovies.some((el) => el.movieId === movie.id));
+    if (isSavedMovies) {
+      setIsSaved(true);
+    } else {
+      setIsSaved(savedMovies.some((el) => el.movieId === movie.id));
+    }
   }, []);
 
   /* Функция сохранения фильма */
