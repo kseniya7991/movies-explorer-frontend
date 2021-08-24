@@ -70,8 +70,13 @@ function App() {
   const tokenCheck = () => {
     const token = localStorage.getItem('token');
     if (token) {
-      setLoggedIn(true);
-      getData();
+      mainApi
+        .getContent(token)
+        .then((res) => {
+          console.log(res);
+          setLoggedIn(true);
+        })
+        .catch((err) => console.log(err));
     } else {
       setLoggedIn(false);
     }
