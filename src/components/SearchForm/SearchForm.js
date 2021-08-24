@@ -9,19 +9,20 @@ import './SearchForm.css';
 function SearchForm({ handleSearch, isRequired }) {
   /* Хук чекбокса "короткометражка" */
   const [checked, setChecked] = useState(false);
+  const [keys, setKeys] = useState('');
 
   /* Хуки для валидации формы */
   const { register, formState: { errors }, handleSubmit } = useForm();
   const errorMessage = 'Нужно ввести ключевое слово';
 
   const onSubmit = (data) => {
-    const keys = (data.searchField.toString().toLowerCase());
-    handleSearch(keys, checked);
+    setKeys(data.searchField.toString().toLowerCase());
+    handleSearch(data.searchField.toString().toLowerCase(), checked);
   };
 
   function handleCheckbox() {
     setChecked(!checked);
-    handleSubmit(onSubmit);
+    handleSearch(keys, checked);
   }
 
   return (
