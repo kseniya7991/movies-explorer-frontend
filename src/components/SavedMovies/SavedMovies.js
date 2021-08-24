@@ -20,6 +20,12 @@ function SavedMovies({ onClickSave }) {
     }
   }, []);
 
+  useEffect(() => {
+    if (filteredMovies.length === 0) {
+      setIsListEmpty(true);
+    }
+  }, [filteredMovies]);
+
   /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
   /*     const getAllMovies = (keys, checkbox) => api
     .getMovies()
