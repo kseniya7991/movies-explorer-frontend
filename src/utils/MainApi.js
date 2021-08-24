@@ -69,8 +69,8 @@ export const getSavedMovies = () => fetch(`${BASE_URL}/movies`, {
 })
   .then((response) => response.json());
 
-export const saveMovie = (movie, isSaved) => fetch(`${BASE_URL}/movies/${isSaved ? movie._id : ''}`, {
-  method: isSaved ? 'DELETE' : 'POST',
+export const saveMovie = (movie) => fetch(`${BASE_URL}/movies`, {
+  method: 'POST',
   headers: {
     authorization: localStorage.getItem('token'),
     'Content-Type': 'application/json',
@@ -88,5 +88,13 @@ export const saveMovie = (movie, isSaved) => fetch(`${BASE_URL}/movies/${isSaved
     nameRU: movie.nameRU,
     nameEN: movie.nameEN,
   }),
+})
+  .then((response) => response.json());
+
+export const deleteMovie = (movieId) => fetch(`${BASE_URL}/movies/${movieId}`, {
+  method: 'DELETE',
+  headers: {
+    authorization: localStorage.getItem('token'),
+  },
 })
   .then((response) => response.json());
