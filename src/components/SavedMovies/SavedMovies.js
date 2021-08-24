@@ -20,6 +20,7 @@ function SavedMovies({ onClickSave }) {
   }, [savedMovies]);
 
   useEffect(() => {
+    console.log(filteredMovies.length);
     if (filteredMovies.length === 0) {
       setIsListEmpty(true);
       setIsEmptyText('Мы ничего не нашли по вашему запросу');
