@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-/* import SavedMoviesContext from '../../contexts/SavedMoviesContext'; */
+import React, { useState, useEffect } from 'react';
+import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 
 import './MoviesCard.css';
 
 function MoviesCard({ movie, onClickSave, isSavedMovies }) {
-  /*  const savedMovies = React.useContext(SavedMoviesContext); */
+  const savedMovies = React.useContext(SavedMoviesContext);
   const url = 'https://api.nomoreparties.co';
 
   const title = movie.nameRU.toString();
@@ -28,6 +28,10 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
   const newTime = handleTime(duration);
 
   const [isSaved, setIsSaved] = useState(false);
+
+  useEffect(() => {
+    setIsSaved(savedMovies.some((el) => el.movieId === movie.id));
+  }, []);
 
   /* Функция сохранения фильма */
   function handleClickOnSave() {
