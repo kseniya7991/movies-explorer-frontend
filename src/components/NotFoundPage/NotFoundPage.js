@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 import './NotFoundPage.css';
 
@@ -17,4 +18,4 @@ function NotFoundPage() {
   );
 }
 
-export default NotFoundPage;
+export default withRouter(NotFoundPage);
