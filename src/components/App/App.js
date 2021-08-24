@@ -57,18 +57,18 @@ function App() {
 
   useEffect(() => {
     tokenCheck();
+    Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
+      .then(([userData, moviesData]) => {
+        setCurrentUser(userData.user);
+        setAllSavedMovies(moviesData.movies);
+        filterAllSavedMovies();
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
     if (loggedIn === true) {
       history.push('/movies');
-      Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
-        .then(([userData, moviesData]) => {
-          setCurrentUser(userData.user);
-          setAllSavedMovies(moviesData.movies);
-          filterAllSavedMovies();
-        })
-        .catch((err) => console.log(err));
     }
   }, [loggedIn]);
 
@@ -168,7 +168,7 @@ function App() {
     console.log(movie);
 
     if (isSaved === true) {
-      const movieId = savedMovies.find((el) => el.movieId === movie.id);
+      const movieId = savedMovies.find((el) => el.movieId === movie.id)._id;
       deleteMovie(movieId);
     } else {
       saveMovie(movie);
