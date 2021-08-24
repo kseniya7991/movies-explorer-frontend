@@ -272,16 +272,9 @@ function App() {
               onSignOut={handleSignOut}
               history={history}
             />
-            <ProtectedRoute
-              path="*"
-              loggedIn={true}
-              component={NotFoundPage}
-              onBack={() => history.goBack()}
-            />
-
-{/*             <Route path="*">
+            <Route path="*">
               <NotFoundPage history={history}/>
-            </Route> */}
+            </Route>
           </Switch>
 
           <Route exact path={['/movies', '/saved-movies', '/']}>
