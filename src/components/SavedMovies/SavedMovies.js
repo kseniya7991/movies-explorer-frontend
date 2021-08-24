@@ -27,7 +27,6 @@ function SavedMovies({ onClickSave }) {
   }, [savedMovies]);
 
   useEffect(() => {
-    console.log(filteredMovies.length);
     if (filteredMovies.length === 0) {
       setIsListEmpty(true);
       setIsEmptyText('Мы ничего не нашли по вашему запросу');
@@ -43,8 +42,6 @@ function SavedMovies({ onClickSave }) {
       setFilteredMovies(savedMovies);
     }
   };
-
-  console.log(filteredMovies, savedMovies);
 
   return (
     <section className="savedMovies">
@@ -66,5 +63,3 @@ function SavedMovies({ onClickSave }) {
 }
 
 export default SavedMovies;
-
-/* &#128148 */

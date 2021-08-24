@@ -7,18 +7,6 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 function MoviesCardList({
   isEmpty, isSavedMovies, movies, onClickSave,
 }) {
-  /*  const [renderedMovies, setRenderedMovies] = useState(movies); */
-
-  /* Функция сохранения фильма - пока без обращения к API */
-  /*   function handleSaveMovie(movie) {
-
-         mainApi
-      .saveMovie(movie)
-      .then((newMovie) => {
-        )
-      });
-  } */
-
   if (isEmpty) {
     return null;
   }

@@ -102,8 +102,7 @@ function Movies({ onShowError, onClickSave }) {
       setIsLoading(false);
     })
     .catch((err) => {
-      console.log(err);
-      onShowError();
+      onShowError(err.status);
       setIsLoading(false);
     });
 

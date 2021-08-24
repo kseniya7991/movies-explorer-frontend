@@ -26,7 +26,6 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 
 function App() {
-  const [allSavedMovies, setAllSavedMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
@@ -38,22 +37,36 @@ function App() {
   /* Переменная залогинености пользователя */
   const [loggedIn, setLoggedIn] = useState(false);
 
+  /* Переменные для обработки ошибок */
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
   const [statusRequest, setStatusRequest] = useState(false);
   const [message, setMessage] = useState('');
 
+  /* Функция обработки ошибок */
+  const handleErrors = (status) => {
+    if (status) {
+      setMessage(status);
+    } else {
+      setMessage(
+        'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+      );
+    }
+    setIsInfoPopupOpen(true);
+  };
+
+  /* Получаем данные пользователя: информация пользователя и его сохраненные фильмы */
   const getData = () => {
     Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
-        setAllSavedMovies(moviesData.movies);
         setSavedMovies(
           moviesData.movies.filter((movie) => movie.owner === userData.user._id),
         );
       })
-      .catch((err) => console.log(err));
+      .catch((err) => handleErrors(err.status));
   };
 
+  /* Проверка токена при загрузке страницы */
   const tokenCheck = () => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -62,12 +75,6 @@ function App() {
     }
   };
 
-  /*   function filterAllSavedMovies() {
-    setSavedMovies(
-      allSavedMovies.filter((movie) => movie.owner === currentUser._id),
-    );
-  }
- */
   useEffect(() => {
     tokenCheck();
   }, []);
@@ -78,6 +85,7 @@ function App() {
     }
   }, [loggedIn]);
 
+  /* Закрытие информационного попапа с ошибкой */
   const closeInfoPopup = () => {
     if (statusRequest) {
       setIsInfoPopupOpen(false);
@@ -87,13 +95,7 @@ function App() {
     }
   };
 
-  const handleErrors = () => {
-    setMessage(
-      'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
-    );
-    setIsInfoPopupOpen(true);
-  };
-
+  /* Авторизация */
   const handleSubmitLogin = (values) => {
     const { email, password } = values;
     setIsLoading(true);
@@ -110,9 +112,13 @@ function App() {
       .then(() => {
         setIsLoading(false);
       })
-      .catch((err) => console.err(err));
+      .catch((err) => {
+        handleErrors(err.status);
+        setIsLoading(false);
+      });
   };
 
+  /* Регистрация */
   const handleSubmitRegister = (values) => {
     const { name, email, password } = values;
     setIsLoading(true);
@@ -130,12 +136,12 @@ function App() {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err);
-        handleErrors();
+        handleErrors(err.status);
         setIsLoading(false);
       });
   };
 
+  /* Обновление данных пользователя */
   const handleUpdateUser = (values) => {
     const { name, email } = values;
     setIsLoading(true);
@@ -154,23 +160,38 @@ function App() {
         setIsLoading(false);
       })
       .catch((err) => {
+        handleErrors(err.status);
         setIsLoading(false);
-        console.log(err);
       });
   };
 
+  /* Удаление фильма из сохраненных фильмов */
   const deleteMovie = (movieId) => {
-    mainApi.deleteMovie(movieId).then(() => {
-      setSavedMovies(savedMovies.filter((el) => el._id !== movieId));
-    });
+    mainApi
+      .deleteMovie(movieId)
+      .then(() => {
+        setSavedMovies(savedMovies.filter((el) => el._id !== movieId));
+      })
+      .catch((err) => {
+        handleErrors(err.status);
+        setIsLoading(false);
+      });
   };
 
+  /* Добавление фильма в сохраненные фильмы */
   const saveMovie = (movie) => {
-    mainApi.saveMovie(movie).then((savedMovie) => {
-      setSavedMovies([savedMovie.movie, ...savedMovies]);
-    });
+    mainApi
+      .saveMovie(movie)
+      .then((savedMovie) => {
+        setSavedMovies([savedMovie.movie, ...savedMovies]);
+      })
+      .catch((err) => {
+        handleErrors(err.status);
+        setIsLoading(false);
+      });
   };
 
+  /* Обработка клика по кнопке сохранения фильма: удаление или сохранение фильма */
   const handleSaveMovie = (movie, isSaved, isSavedMovies) => {
     if (isSaved && isSavedMovies === false) {
       const movieId = savedMovies.find((el) => el.movieId === movie.id)._id;
@@ -183,13 +204,11 @@ function App() {
     }
   };
 
+  /* Выход из аккаунта */
   const handleSignOut = () => {
     localStorage.removeItem('token');
     setLoggedIn(false);
   };
-
-  console.log(allSavedMovies, savedMovies);
-  console.log(loggedIn);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
