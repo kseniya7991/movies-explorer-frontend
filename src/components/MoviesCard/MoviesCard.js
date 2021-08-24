@@ -39,8 +39,10 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
 
   /* Функция сохранения фильма */
   function handleClickOnSave() {
-    setIsSaved(!isSaved);
-    onClickSave(movie, isSaved);
+    if (!isSavedMovies) {
+      setIsSaved(!isSaved);
+    }
+    onClickSave(movie, isSaved, isSavedMovies);
   }
 
   /* const isSaved = savedMovies.some((item) => item.id === movie.id); */

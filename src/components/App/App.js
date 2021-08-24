@@ -174,11 +174,14 @@ function App() {
     });
   }
 
-  function handleSaveMovie(movie, isSaved) {
+  function handleSaveMovie(movie, isSaved, isSavedMovies) {
     console.log(movie);
 
-    if (isSaved === true) {
+    if (isSaved && isSavedMovies === false) {
       const movieId = savedMovies.find((el) => el.movieId === movie.id)._id;
+      deleteMovie(movieId);
+    } else if (isSavedMovies === true) {
+      const movieId = movie._id;
       deleteMovie(movieId);
     } else {
       saveMovie(movie);
