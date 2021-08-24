@@ -62,7 +62,7 @@ function App() {
         setCurrentUser(userData.user);
         setAllSavedMovies(moviesData.movies);
         setSavedMovies(
-          allSavedMovies.filter((movie) => {
+          moviesData.movies.filter((movie) => {
             console.log(movie.owner, currentUser._id);
             return movie.owner === currentUser._id;
           }),
@@ -181,7 +181,7 @@ function App() {
   }
 
   console.log(setStatusRequest, setMessage);
-  console.log(savedMovies);
+  console.log(allSavedMovies, savedMovies);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

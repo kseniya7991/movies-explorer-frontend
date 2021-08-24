@@ -11,7 +11,6 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
   const duration = movie.duration.toString();
 
   const imageUrl = isSavedMovies === true ? movie.image : url + movie.image.url;
-  console.log(imageUrl);
 
   /* Расчет продолжительности фильма в часах и минутах */
   function handleTime(time) {
