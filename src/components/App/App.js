@@ -74,7 +74,9 @@ function App() {
       mainApi
         .getContent(token)
         .then((res) => {
-          if (res) {
+          if (res.message) {
+            history.push('/');
+          } else {
             getData();
             setLoggedIn(true);
           }
