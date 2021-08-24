@@ -11,6 +11,7 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
   const duration = movie.duration.toString();
 
   const imageUrl = isSavedMovies === true ? movie.image : url + movie.image.url;
+  const trailer = isSavedMovies === true ? movie.trailer : movie.trailerLink;
 
   /* Расчет продолжительности фильма в часах и минутах */
   function handleTime(time) {
@@ -58,7 +59,7 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
           <p className="moviesCard__time">{newTime}</p>
         </div>
         <a
-          href={movie.trailerLink}
+          href={trailer}
           target="_blank"
           rel="noreferrer"
           className="moviesCard__image-link"
