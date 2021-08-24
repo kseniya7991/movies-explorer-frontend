@@ -49,14 +49,7 @@ function App() {
     }
   }
 
-  /*   function filterAllSavedMovies() {
-    setSavedMovies(
-      allSavedMovies.filter((movie) => movie.owner === currentUser._id),
-    );
-  }
- */
-  useEffect(() => {
-    tokenCheck();
+  function getData() {
     Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
@@ -69,6 +62,19 @@ function App() {
         );
       })
       .catch((err) => console.log(err));
+  }
+
+  /*   function filterAllSavedMovies() {
+    setSavedMovies(
+      allSavedMovies.filter((movie) => movie.owner === currentUser._id),
+    );
+  }
+ */
+  useEffect(() => {
+    tokenCheck();
+    if (loggedIn === true) {
+      getData();
+    }
   }, []);
 
   useEffect(() => {
@@ -124,6 +130,7 @@ function App() {
         } else {
           setCurrentUser({ name, email });
           handleSubmitLogin({ email, password });
+          getData();
         }
         setIsLoading(false);
       })
