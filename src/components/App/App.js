@@ -81,6 +81,7 @@ function App() {
 
   useEffect(() => {
     tokenCheck();
+    setTimeout(test, 10000);
   }, []);
 
   useEffect(() => {
@@ -215,7 +216,6 @@ function App() {
     history.goBack();
   };
   console.log('app', loggedIn);
-  test();
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SavedMoviesContext.Provider value={savedMovies}>
