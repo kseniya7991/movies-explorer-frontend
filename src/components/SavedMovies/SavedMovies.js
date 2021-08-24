@@ -35,13 +35,13 @@ function SavedMovies({ onClickSave }) {
     }
   }, [filteredMovies]);
 
-  const handleSearchMovies = (keys, checkbox) => {
+  function handleSearchMovies(keys, checkbox) {
     if (savedMovies.length !== 0 && keys !== '') {
       setFilteredMovies(filterMovies(savedMovies, keys, checkbox));
     } else if (keys === '') {
       setFilteredMovies(savedMovies);
     }
-  };
+  }
 
   return (
     <section className="savedMovies">

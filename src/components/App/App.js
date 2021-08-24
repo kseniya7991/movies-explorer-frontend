@@ -43,7 +43,7 @@ function App() {
   const [message, setMessage] = useState('');
 
   /* Функция обработки ошибок */
-  const handleErrors = (response) => {
+  function handleErrors(response) {
     if (response) {
       setMessage(response);
     } else {
@@ -52,10 +52,10 @@ function App() {
       );
     }
     setIsInfoPopupOpen(true);
-  };
+  }
 
   /* Получаем данные пользователя: информация пользователя и его сохраненные фильмы */
-  const getData = () => {
+  function getData() {
     Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
@@ -64,10 +64,10 @@ function App() {
         );
       })
       .catch((err) => handleErrors(err.status));
-  };
+  }
 
   /* Проверка токена при загрузке страницы */
-  const tokenCheck = () => {
+  function tokenCheck() {
     const token = localStorage.getItem('token');
     if (token) {
       mainApi
@@ -88,24 +88,24 @@ function App() {
     } else {
       setLoggedIn(false);
     }
-  };
+  }
 
   useEffect(() => {
     tokenCheck();
   }, []);
 
   /* Закрытие информационного попапа с ошибкой */
-  const closeInfoPopup = () => {
+  function closeInfoPopup() {
     if (statusRequest) {
       setIsInfoPopupOpen(false);
       history.push('/signin');
     } else {
       setIsInfoPopupOpen(false);
     }
-  };
+  }
 
   /* Авторизация */
-  const handleSubmitLogin = (values) => {
+  function handleSubmitLogin(values) {
     const { email, password } = values;
     setIsLoading(true);
 
@@ -125,10 +125,10 @@ function App() {
         handleErrors(err.status);
         setIsLoading(false);
       });
-  };
+  }
 
   /* Регистрация */
-  const handleSubmitRegister = (values) => {
+  function handleSubmitRegister(values) {
     const { name, email, password } = values;
     setIsLoading(true);
 
@@ -147,10 +147,10 @@ function App() {
         handleErrors(err.status);
         setIsLoading(false);
       });
-  };
+  }
 
   /* Обновление данных пользователя */
-  const handleUpdateUser = (values) => {
+  function handleUpdateUser(values) {
     const { name, email } = values;
     setIsLoading(true);
     setMessage('');
@@ -171,10 +171,10 @@ function App() {
         handleErrors(err.status);
         setIsLoading(false);
       });
-  };
+  }
 
   /* Удаление фильма из сохраненных фильмов */
-  const deleteMovie = (movieId) => {
+  function deleteMovie(movieId) {
     mainApi
       .deleteMovie(movieId)
       .then(() => {
@@ -184,10 +184,10 @@ function App() {
         handleErrors(err.status);
         setIsLoading(false);
       });
-  };
+  }
 
   /* Добавление фильма в сохраненные фильмы */
-  const saveMovie = (movie) => {
+  function saveMovie(movie) {
     mainApi
       .saveMovie(movie)
       .then((savedMovie) => {
@@ -197,10 +197,10 @@ function App() {
         handleErrors(err.status);
         setIsLoading(false);
       });
-  };
+  }
 
   /* Обработка клика по кнопке сохранения фильма: удаление или сохранение фильма */
-  const handleSaveMovie = (movie, isSaved, isSavedMovies) => {
+  function handleSaveMovie(movie, isSaved, isSavedMovies) {
     if (isSaved && isSavedMovies === false) {
       const movieId = savedMovies.find((el) => el.movieId === movie.id)._id;
       deleteMovie(movieId);
@@ -210,13 +210,13 @@ function App() {
     } else {
       saveMovie(movie);
     }
-  };
+  }
 
   /* Выход из аккаунта */
-  const handleSignOut = () => {
+  function handleSignOut() {
     localStorage.removeItem('token');
     setLoggedIn(false);
-  };
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
