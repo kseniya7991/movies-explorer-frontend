@@ -35,7 +35,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   /* Переменная залогинености пользователя */
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   /* Переменные для обработки ошибок */
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
@@ -68,7 +68,7 @@ function App() {
 
   /* Проверка токена при загрузке страницы */
   const tokenCheck = () => {
-    setLoggedIn(false);
+    setLoggedIn(true);
     const token = localStorage.getItem('token');
     if (token) {
       mainApi
@@ -76,14 +76,18 @@ function App() {
         .then((res) => {
           if (res.message) {
             history.push('/');
+            setLoggedIn(false);
           } else {
             getData();
             setLoggedIn(true);
           }
         })
         .catch((err) => {
+          setLoggedIn(false);
           handleErrors(err.status);
         });
+    } else {
+      setLoggedIn(false);
     }
   };
 
