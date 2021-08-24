@@ -94,23 +94,25 @@ function Movies({ onShowError, onClickSave }) {
 
   // Запрос к API
   /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
+  const getAllMovies = (keys, checkbox) => api
+    .getMovies()
+    .then((movies) => {
+      setAllMovies(movies);
+      setFilteredMovies(filterMovies(movies, keys, checkbox));
+      setIsLoading(false);
+    })
+    .catch((err) => {
+      console.log(err);
+      onShowError();
+      setIsLoading(false);
+    });
+
   const handleSearchMovies = (keys, checkbox) => {
     setIsLoading(true);
     const arrayMovies = JSON.parse(localStorage.getItem('movies'));
 
     if (!arrayMovies && allMovies.length === 0) {
-      return api
-        .getMovies()
-        .then((movies) => {
-          setAllMovies(movies);
-          setFilteredMovies(filterMovies(movies, keys, checkbox));
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          onShowError();
-          setIsLoading(false);
-        });
+      getAllMovies(keys, checkbox);
     }
     if (allMovies.length !== 0) {
       setFilteredMovies(filterMovies(allMovies, keys, checkbox));

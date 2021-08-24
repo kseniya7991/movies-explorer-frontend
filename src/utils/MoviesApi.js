@@ -19,7 +19,6 @@ class Api {
     })
       .then(handleResponse)
       .then((data) => {
-        console.log(data);
         localStorage.setItem('movies', JSON.stringify(data));
         return data;
       });

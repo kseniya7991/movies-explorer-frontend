@@ -42,28 +42,25 @@ function App() {
   const [statusRequest, setStatusRequest] = useState(false);
   const [message, setMessage] = useState('');
 
-  function getData() {
+  const getData = () => {
     Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
         setAllSavedMovies(moviesData.movies);
         setSavedMovies(
-          moviesData.movies.filter((movie) => {
-            console.log(movie.owner, userData.user._id);
-            return movie.owner === userData.user._id;
-          }),
+          moviesData.movies.filter((movie) => movie.owner === userData.user._id),
         );
       })
       .catch((err) => console.log(err));
-  }
+  };
 
-  function tokenCheck() {
+  const tokenCheck = () => {
     const token = localStorage.getItem('token');
     if (token) {
       setLoggedIn(true);
       getData();
     }
-  }
+  };
 
   /*   function filterAllSavedMovies() {
     setSavedMovies(
@@ -81,23 +78,23 @@ function App() {
     }
   }, [loggedIn]);
 
-  function closeInfoPopup() {
+  const closeInfoPopup = () => {
     if (statusRequest) {
       setIsInfoPopupOpen(false);
       history.push('/signin');
     } else {
       setIsInfoPopupOpen(false);
     }
-  }
+  };
 
-  function handleErrors() {
+  const handleErrors = () => {
     setMessage(
       'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
     );
     setIsInfoPopupOpen(true);
-  }
+  };
 
-  function handleSubmitLogin(values) {
+  const handleSubmitLogin = (values) => {
     const { email, password } = values;
     setIsLoading(true);
 
@@ -114,9 +111,9 @@ function App() {
         setIsLoading(false);
       })
       .catch((err) => console.err(err));
-  }
+  };
 
-  function handleSubmitRegister(values) {
+  const handleSubmitRegister = (values) => {
     const { name, email, password } = values;
     setIsLoading(true);
 
@@ -137,9 +134,9 @@ function App() {
         handleErrors();
         setIsLoading(false);
       });
-  }
+  };
 
-  function handleUpdateUser(values) {
+  const handleUpdateUser = (values) => {
     const { name, email } = values;
     setIsLoading(true);
     setMessage('');
@@ -160,23 +157,21 @@ function App() {
         setIsLoading(false);
         console.log(err);
       });
-  }
+  };
 
-  function deleteMovie(movieId) {
+  const deleteMovie = (movieId) => {
     mainApi.deleteMovie(movieId).then(() => {
       setSavedMovies(savedMovies.filter((el) => el._id !== movieId));
     });
-  }
+  };
 
-  function saveMovie(movie) {
+  const saveMovie = (movie) => {
     mainApi.saveMovie(movie).then((savedMovie) => {
       setSavedMovies([savedMovie.movie, ...savedMovies]);
     });
-  }
+  };
 
-  function handleSaveMovie(movie, isSaved, isSavedMovies) {
-    console.log(movie);
-
+  const handleSaveMovie = (movie, isSaved, isSavedMovies) => {
     if (isSaved && isSavedMovies === false) {
       const movieId = savedMovies.find((el) => el.movieId === movie.id)._id;
       deleteMovie(movieId);
@@ -186,9 +181,8 @@ function App() {
     } else {
       saveMovie(movie);
     }
-  }
+  };
 
-  console.log(setStatusRequest, setMessage);
   console.log(allSavedMovies, savedMovies);
 
   return (
