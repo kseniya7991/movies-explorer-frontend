@@ -68,6 +68,7 @@ function App() {
 
   /* Проверка токена при загрузке страницы */
   const tokenCheck = () => {
+    setLoggedIn(false);
     const token = localStorage.getItem('token');
     if (token) {
       mainApi
@@ -76,16 +77,11 @@ function App() {
           if (res) {
             getData();
             setLoggedIn(true);
-          } else {
-            setLoggedIn(false);
           }
         })
         .catch((err) => {
-          setLoggedIn(false);
           handleErrors(err.status);
         });
-    } else {
-      setLoggedIn(false);
     }
   };
 
