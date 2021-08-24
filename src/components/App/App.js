@@ -160,9 +160,7 @@ function App() {
 
   function saveMovie(movie) {
     mainApi.saveMovie(movie).then((savedMovie) => {
-      console.log(savedMovie.movie);
-      setAllSavedMovies([savedMovie.movie, ...allSavedMovies]);
-      filterAllSavedMovies();
+      setSavedMovies([savedMovie.movie, ...savedMovies]);
     });
   }
 
@@ -170,14 +168,15 @@ function App() {
     console.log(movie);
 
     if (isSaved === true) {
-      deleteMovie(movie._id);
+      const movieId = savedMovies.find((el) => el.movieId === movie.id);
+      deleteMovie(movieId);
     } else {
       saveMovie(movie);
     }
   }
 
   console.log(setStatusRequest, setMessage);
-  console.log(allSavedMovies);
+  console.log(savedMovies);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
