@@ -100,13 +100,20 @@
   text-overflow: ellipsis;
   overflow: hidden;
   cursor: pointer;
+  background-position: center;
 }
 
 .moviesCard__button-save_active {
   background-image: url("../../images/saved.svg");
   background-color: #ee3465;
   transition: 0.2s;
-  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 13px;
+}
+
+.moviesCard__button-save_delete {
+  background-image: url("../../images/delete-movie.svg");
+  transition: 0.2s;
   background-repeat: no-repeat;
   background-size: 13px;
 }

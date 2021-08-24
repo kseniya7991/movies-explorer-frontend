@@ -44,7 +44,9 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
   }
 
   /* const isSaved = savedMovies.some((item) => item.id === movie.id); */
-  const isSavedBtn = `moviesCard__button-save ${isSaved ? 'moviesCard__button-save_active' : ''}`;
+  const isSavedBtn = `moviesCard__button-save ${
+    isSaved && isSavedMovies === false ? 'moviesCard__button-save_active' : ''
+  } ${isSavedMovies ? 'moviesCard__button-save_delete' : ''}`;
 
   return (
     <>
@@ -53,16 +55,24 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
           <p className="moviesCard__title">{title}</p>
           <p className="moviesCard__time">{newTime}</p>
         </div>
-        <a href={movie.trailerLink} target="_blank" rel="noreferrer" className="moviesCard__image-link"><img className="moviesCard__image" src={imageUrl} alt={title}></img></a>
+        <a
+          href={movie.trailerLink}
+          target="_blank"
+          rel="noreferrer"
+          className="moviesCard__image-link"
+        >
+          <img className="moviesCard__image" src={imageUrl} alt={title}></img>
+        </a>
         <button
           className={isSavedBtn}
           type="button"
           onClick={handleClickOnSave}
-        >{isSaved ? '' : 'Сохранить'}
+        >
+          {isSaved ? '' : 'Сохранить'}
         </button>
       </li>
 
-{/*       <li className="moviesCard">
+      {/*       <li className="moviesCard">
         <div className="moviesCard__title-wrap">
           <p className="moviesCard__title">В погоне за Бенкси</p>
           <p className="moviesCard__time">27 минут</p>
