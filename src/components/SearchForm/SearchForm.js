@@ -10,10 +10,6 @@ function SearchForm({ handleSearch, isRequired }) {
   /* Хук чекбокса "короткометражка" */
   const [checked, setChecked] = useState(false);
 
-  function handleCheckbox() {
-    setChecked(!checked);
-  }
-
   /* Хуки для валидации формы */
   const { register, formState: { errors }, handleSubmit } = useForm();
   const errorMessage = 'Нужно ввести ключевое слово';
@@ -22,6 +18,11 @@ function SearchForm({ handleSearch, isRequired }) {
     const keys = (data.searchField.toString().toLowerCase());
     handleSearch(keys, checked);
   };
+
+  function handleCheckbox() {
+    setChecked(!checked);
+    handleSubmit(onSubmit);
+  }
 
   return (
     <form className="searchForm" onSubmit={handleSubmit(onSubmit)}>
