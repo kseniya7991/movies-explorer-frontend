@@ -26,6 +26,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 
 function App() {
+  const [isReturn, setIsReturn] = useState(false);
   const [savedMovies, setSavedMovies] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
@@ -211,8 +212,12 @@ function App() {
     setLoggedIn(false);
   };
 
-  const returnPage = () => {
+  useEffect(() => {
     history.goBack();
+  }, [isReturn]);
+
+  const returnPage = () => {
+    setIsReturn(true);
   };
   console.log('app', loggedIn);
   return (
@@ -278,7 +283,7 @@ function App() {
               onSignOut={handleSignOut}
             />
             <Route path="/*">
-              <NotFoundPage onBack={() => setTimeout(returnPage, 3000)}/>
+              <NotFoundPage onBack={returnPage}/>
             </Route>
           </Switch>
 
