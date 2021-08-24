@@ -80,8 +80,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setLoggedIn(true);
-  }, [history]);
+    console.log('app', loggedIn);
+  }, [history, loggedIn]);
 
   /* Закрытие информационного попапа с ошибкой */
   const closeInfoPopup = () => {
