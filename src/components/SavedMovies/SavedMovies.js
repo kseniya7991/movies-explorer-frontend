@@ -46,7 +46,7 @@ function SavedMovies({ onClickSave }) {
 
   return (
     <section className="savedMovies">
-      <SearchForm handleSearch={handleSearchMovies}/>
+      <SearchForm handleSearch={handleSearchMovies} isRequired={false}/>
       <MoviesCardList
         isEmpty={isListEmpty}
         isSavedMovies={true}

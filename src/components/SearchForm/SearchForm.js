@@ -6,7 +6,7 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import '../SignForm/SignForm.css';
 import './SearchForm.css';
 
-function SearchForm({ handleSearch }) {
+function SearchForm({ handleSearch, isRequired }) {
   /* Хук чекбокса "короткометражка" */
   const [checked, setChecked] = useState(false);
 
@@ -27,7 +27,7 @@ function SearchForm({ handleSearch }) {
     <form className="searchForm" onSubmit={handleSubmit(onSubmit)}>
       <div className="searchForm__search-block">
         <input
-          {...register('searchField', { required: true })}
+          {...register('searchField', { required: isRequired })}
           id="searchField"
           className="searchForm__search"
           type="text"

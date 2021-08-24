@@ -127,7 +127,7 @@ function Movies({ onShowError, onClickSave }) {
   return (
     <>
       <Preloader isLoading={isLoading} />
-      <SearchForm handleSearch={handleSearchMovies} />
+      <SearchForm handleSearch={handleSearchMovies} isRequired={true} />
 
       <MoviesCardList
         isEmpty={isListEmpty}
