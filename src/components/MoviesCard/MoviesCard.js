@@ -21,10 +21,10 @@ function MoviesCard({ movie, onClickSave, isSavedMovies }) {
       if (minutes < 5) {
         minutes = 0;
       }
-      const newTime = `${hours} ч ${minutes || ''} ${minutes ? 'минут' : ''}`;
+      const newTime = `${hours} ч ${minutes || ''} ${minutes ? 'мин' : ''}`;
       return newTime;
     }
-    return `${time} минут`;
+    return `${time} мин`;
   }
   const newTime = handleTime(duration);
 
