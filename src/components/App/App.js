@@ -80,7 +80,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    tokenCheck();
+    setLoggedIn(true);
   }, [history]);
 
   /* Закрытие информационного попапа с ошибкой */
