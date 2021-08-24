@@ -266,7 +266,7 @@ function App() {
               onSignOut={handleSignOut}
             />
             <Route path="/*">
-              <NotFoundPage />
+              <NotFoundPage onBack={() => history.goBack()}/>
             </Route>
           </Switch>
 
