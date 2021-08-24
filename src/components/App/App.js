@@ -276,7 +276,7 @@ function App() {
               path="*"
               loggedIn={true}
               component={NotFoundPage}
-              history={history}
+              onBack={() => history.goBack()}
             />
 
 {/*             <Route path="*">
