@@ -205,8 +205,8 @@ function App() {
 
   const returnPage = () => {
     history.goBack();
-    console.log('app', loggedIn);
   };
+  console.log('app', loggedIn);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
