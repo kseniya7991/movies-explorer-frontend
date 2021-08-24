@@ -17,6 +17,13 @@ function SavedMovies({ onClickSave }) {
 
   useEffect(() => {
     setFilteredMovies(savedMovies);
+
+    if (savedMovies.length === 0) {
+      setIsListEmpty(true);
+      setIsEmptyText('У вас ещё нет сохраненных фильмов');
+    } else {
+      setIsListEmpty(false);
+    }
   }, [savedMovies]);
 
   useEffect(() => {
@@ -24,13 +31,6 @@ function SavedMovies({ onClickSave }) {
     if (filteredMovies.length === 0) {
       setIsListEmpty(true);
       setIsEmptyText('Мы ничего не нашли по вашему запросу');
-    } else {
-      setIsListEmpty(false);
-    }
-
-    if (savedMovies.length === 0) {
-      setIsListEmpty(true);
-      setIsEmptyText('У вас ещё нет сохраненных фильмов');
     } else {
       setIsListEmpty(false);
     }
