@@ -9,7 +9,7 @@ const ProtectedRoute = ({ component: Component, ...props }) => {
       </Route>
     );
   }
-  setTimeout(render, 1000);
+  return setTimeout(render, 1000);
 };
 
 export default ProtectedRoute;
