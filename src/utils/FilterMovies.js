@@ -12,10 +12,8 @@ const filterMovies = (movies, searchKey, checkbox) => {
   }
 
   if (keys.length !== 0) {
-    console.log(keys);
     return keys.map((key) => filterBykey(key)).flat();
   }
-  console.log(filterByDuration);
   return filterByDuration;
 };
 

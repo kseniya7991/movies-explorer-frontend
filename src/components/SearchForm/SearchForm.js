@@ -12,7 +12,6 @@ function SearchForm({ handleSearch, isRequired }) {
   const [checked, setChecked] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  console.log();
   const {
     values, handleChange, errors, isValid,
   } = useFormWithValidation();
@@ -27,7 +26,6 @@ function SearchForm({ handleSearch, isRequired }) {
 
   function handleCheckbox() {
     setChecked(!checked);
-    console.log(isSubmitted);
     if (isSubmitted && isValid) {
       handleSearch(values.searchField.toLowerCase(), !checked);
     }
