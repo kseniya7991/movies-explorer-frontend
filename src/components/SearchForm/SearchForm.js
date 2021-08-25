@@ -1,22 +1,33 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
 
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 import '../SignForm/SignForm.css';
 import './SearchForm.css';
 
+import { useFormWithValidation } from '../ValidationForm/ValidationForm';
+
 function SearchForm({ handleSearch, isRequired }) {
   /* Хук чекбокса "короткометражка" */
   const [checked, setChecked] = useState(false);
-  const [keys, setKeys] = useState('');
-  console.log(keys);
+  /*   const [keys, setKeys] = useState(''); */
 
-  /* Хуки для валидации формы */
-  const { register, formState: { errors }, handleSubmit } = useForm();
-  const errorMessage = 'Нужно ввести ключевое слово';
+  console.log();
+  const {
+    values, handleChange, errors, isValid, resetForm,
+  } = useFormWithValidation();
 
-  const onSubmit = (data) => {
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (isValid) {
+      resetForm();
+      handleSearch(values);
+      console.log(values);
+      /*  onSubmitForm(values); */
+    }
+  }
+
+  /*  const onSubmit = (data) => {
     setKeys(data.searchField.toString().toLowerCase());
     handleSearch(data.searchField.toString().toLowerCase(), checked);
   };
@@ -24,20 +35,25 @@ function SearchForm({ handleSearch, isRequired }) {
   function handleCheckbox() {
     setChecked(!checked);
     onSubmit();
+  } */
+
+  function handleCheckbox() {
+    setChecked(!checked);
   }
 
   return (
-    <form className="searchForm" onSubmit={handleSubmit(onSubmit)}>
+    <form className="searchForm" onSubmit={handleSubmit}>
       <div className="searchForm__search-block">
         <input
-          {...register('searchField', { required: isRequired })}
           id="searchField"
           className="searchForm__search"
           type="text"
           placeholder="Фильм"
+          onChange={handleChange}
+          required={isRequired}
         ></input>
-        {errors.searchField?.type === 'required' && <span className={'searchForm__text-error'}>
-          {errorMessage}
+        {errors.searchField && <span className={'searchForm__text-error'}>
+          {errors.searchField}
         </span>}
 
         <div className="searchForm__find-block">
