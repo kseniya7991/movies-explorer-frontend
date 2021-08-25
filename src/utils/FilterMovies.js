@@ -11,7 +11,10 @@ const filterMovies = (movies, searchKey, checkbox) => {
     return arrMovies.filter((el) => Object.values(el).join().toLowerCase().includes(key));
   }
 
-  return keys.map((key) => filterBykey(key)).flat();
+  if (keys !== '') {
+    return keys.map((key) => filterBykey(key)).flat();
+  }
+  return keys.map();
 };
 
 export default filterMovies;
