@@ -35,7 +35,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   /* Переменная залогинености пользователя */
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   /* Переменные для обработки ошибок */
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
@@ -93,6 +93,10 @@ function App() {
   useEffect(() => {
     tokenCheck();
   }, []);
+
+  useEffect(() => {
+    tokenCheck();
+  }, [history]);
 
   /* Закрытие информационного попапа с ошибкой */
   function closeInfoPopup() {
