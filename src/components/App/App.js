@@ -282,14 +282,15 @@ function App() {
               onSignOut={handleSignOut}
               history={history}
             />
-            <Route path="*">
-              <NotFoundPage onBack={() => { window.history.go(-1); }}/>
-            </Route>
+
           </Switch>
 
           <Route exact path={['/movies', '/saved-movies', '/']}>
             <Footer />
           </Route>
+          <Route path="*">
+              <NotFoundPage onBack={() => { window.history.go(-1); }}/>
+            </Route>
         </div>
       </SavedMoviesContext.Provider>
     </CurrentUserContext.Provider>
