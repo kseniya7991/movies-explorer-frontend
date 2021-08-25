@@ -15,14 +15,13 @@ function SearchForm({ handleSearch, isRequired }) {
 
   console.log();
   const {
-    values, handleChange, errors, isValid, resetForm,
+    values, handleChange, errors, isValid,
   } = useFormWithValidation();
 
   function handleSubmit(e) {
     e.preventDefault();
     if (isValid) {
       setIsSubmitted(true);
-      resetForm();
       handleSearch(values.searchField.toLowerCase(), checked);
     }
   }
