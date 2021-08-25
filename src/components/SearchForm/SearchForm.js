@@ -28,7 +28,7 @@ function SearchForm({ handleSearch, isRequired }) {
   function handleCheckbox() {
     setChecked(!checked);
     console.log(isSubmitted);
-    if (isSubmitted) {
+    if (isSubmitted && isValid) {
       handleSearch(values.searchField.toLowerCase(), !checked);
     }
   }
