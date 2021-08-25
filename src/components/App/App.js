@@ -214,7 +214,6 @@ function App() {
 
   /* Выход из аккаунта */
   function handleSignOut() {
-    <Redirect push to="/signin" />;
     localStorage.removeItem('token');
     setLoggedIn(false);
   }
