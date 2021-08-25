@@ -3,7 +3,7 @@ Web API for registration and authorization on site of films for the Yandex Prakt
 
 # Дипломный проект Movie (frontend)
 
-#### Задача проекта: создание и верстка реакт-приложения через CRA для проекта "Movies".
+#### Задача этапа:Функциональность на «React» и JS для проекта "Movies".
 
 ---------
 ### Обзор
@@ -25,6 +25,13 @@ Web API for registration and authorization on site of films for the Yandex Prakt
 2. Вёрстка на Flex layout и/или Grid layout.
 3. Использован normalize.сss
 4. Стилизация по БЭМ
+5. React
+6. Использование Хуков
+7. Защита роутов ProtectedRoute
+8. Условный рендеринг элементов
+9. Работа с двумя API
+10. Валидация форм на стороне клиента
+
 
 **Стек**
 1. HTML
