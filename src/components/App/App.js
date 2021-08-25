@@ -224,9 +224,7 @@ function App() {
 
   function returnPage(e) {
     e.preventDefault();
-    if (e) {
-      history.goBack();
-    }
+    history.goBack();
   }
 
   return (
