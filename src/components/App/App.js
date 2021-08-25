@@ -216,6 +216,7 @@ function App() {
   function handleSignOut() {
     localStorage.removeItem('token');
     setLoggedIn(false);
+    history.push('/signin');
   }
 
   return (
