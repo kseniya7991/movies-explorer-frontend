@@ -11,6 +11,7 @@ function SearchForm({ handleSearch, isRequired }) {
   /* Хук чекбокса "короткометражка" */
   const [checked, setChecked] = useState(false);
   /*   const [keys, setKeys] = useState(''); */
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   console.log();
   const {
@@ -20,10 +21,9 @@ function SearchForm({ handleSearch, isRequired }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (isValid) {
+      setIsSubmitted(true);
       resetForm();
-      handleSearch(values);
-      console.log(values);
-      /*  onSubmitForm(values); */
+      handleSearch(values.searchField.toLowerCase(), checked);
     }
   }
 
@@ -39,13 +39,16 @@ function SearchForm({ handleSearch, isRequired }) {
 
   function handleCheckbox() {
     setChecked(!checked);
+    if (isSubmitted) {
+      handleSearch(values.searchField.toLowerCase(), checked);
+    }
   }
 
   return (
     <form className="searchForm" onSubmit={handleSubmit}>
       <div className="searchForm__search-block">
         <input
-          id="searchField"
+          name="searchField"
           className="searchForm__search"
           type="text"
           placeholder="Фильм"
