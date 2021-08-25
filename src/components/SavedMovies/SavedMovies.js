@@ -41,6 +41,7 @@ function SavedMovies({ onClickSave }) {
       console.log('1');
     } else if (keys === '' && checkbox === true) {
       console.log('2');
+      console.log(filterMovies(savedMovies, keys, checkbox));
       setFilteredMovies(filterMovies(savedMovies, keys, checkbox));
     } else if (keys === '') {
       console.log('3');
