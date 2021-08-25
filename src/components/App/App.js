@@ -96,7 +96,7 @@ function App() {
 
   useEffect(() => {
     tokenCheck();
-  }, [history]);
+  });
 
   /* Закрытие информационного попапа с ошибкой */
   function closeInfoPopup() {
@@ -222,6 +222,13 @@ function App() {
     setLoggedIn(false);
   }
 
+  function returnPage(e) {
+    e.preventDefault();
+    if (e) {
+      history.goBack();
+    }
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SavedMoviesContext.Provider value={savedMovies}>
@@ -287,7 +294,7 @@ function App() {
               history={history}
             />
             <Route path="*">
-              <NotFoundPage onBack={() => { history.goBack(); }}/>
+              <NotFoundPage onBack={returnPage}/>
             </Route>
           </Switch>
 
