@@ -244,6 +244,9 @@ function App() {
                   {loggedIn === false ? <HeaderUnauth /> : <Navigation />}
               </Header>
             </Route>
+            <Route path="*">
+              <NotFoundPage onBack={() => { window.history.go(-1); }}/>
+            </Route>
           </Switch>
 
           <Switch>
@@ -288,9 +291,7 @@ function App() {
           <Route exact path={['/movies', '/saved-movies', '/']}>
             <Footer />
           </Route>
-          <Route path="*">
-              <NotFoundPage onBack={() => { window.history.go(-1); }}/>
-            </Route>
+
         </div>
       </SavedMoviesContext.Provider>
     </CurrentUserContext.Provider>
