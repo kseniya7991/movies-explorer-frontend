@@ -35,7 +35,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   /* Переменная залогинености пользователя */
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   /* Переменные для обработки ошибок */
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
@@ -244,9 +244,7 @@ function App() {
                   {loggedIn === false ? <HeaderUnauth /> : <Navigation />}
               </Header>
             </Route>
-            <Route path="*">
-              <NotFoundPage onBack={() => { window.history.go(-1); }}/>
-            </Route>
+
           </Switch>
 
           <Switch>
@@ -285,7 +283,9 @@ function App() {
               onSignOut={handleSignOut}
               history={history}
             />
-
+            <Route path="*">
+              <NotFoundPage onBack={() => { history.goBack(); }}/>
+            </Route>
           </Switch>
 
           <Route exact path={['/movies', '/saved-movies', '/']}>
