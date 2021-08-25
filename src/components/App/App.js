@@ -222,8 +222,7 @@ function App() {
     setLoggedIn(false);
   }
 
-  function returnPage(e) {
-    e.preventDefault();
+  function returnPage() {
     history.goBack();
   }
 
