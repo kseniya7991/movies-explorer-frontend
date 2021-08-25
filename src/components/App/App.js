@@ -283,7 +283,7 @@ function App() {
               history={history}
             />
             <Route path="*">
-              <NotFoundPage onBack={() => { history.goBack(); }}/>
+              <NotFoundPage onBack={() => { window.history.go(-1); }}/>
             </Route>
           </Switch>
 
