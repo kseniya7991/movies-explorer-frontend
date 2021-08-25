@@ -38,8 +38,9 @@ function SearchForm({ handleSearch, isRequired }) {
 
   function handleCheckbox() {
     setChecked(!checked);
+    console.log(isSubmitted);
     if (isSubmitted) {
-      handleSearch(values.searchField.toLowerCase(), checked);
+      handleSearch(values.searchField.toLowerCase(), !checked);
     }
   }
 
