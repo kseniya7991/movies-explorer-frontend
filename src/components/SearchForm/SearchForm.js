@@ -23,7 +23,7 @@ function SearchForm({ handleSearch, isRequired }) {
 
   function handleCheckbox() {
     setChecked(!checked);
-    handleSubmit(onSubmit);
+    onSubmit();
   }
 
   return (
