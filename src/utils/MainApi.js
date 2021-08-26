@@ -1,11 +1,3 @@
-const handleResponse = (res) => {
-  console.log('message', res.json().message);
-  if (!res.ok && res.message !== '') {
-    return Promise.reject(new Error(`Error: ${res.status}`));
-  }
-  return res.json();
-};
-
 export const BASE_URL = 'https://movies.kst.nomoredomains.monster/api';
 
 export const register = (name, email, password) => fetch(`${BASE_URL}/signup`, {
@@ -19,7 +11,7 @@ export const register = (name, email, password) => fetch(`${BASE_URL}/signup`, {
     password,
   }),
 })
-  .then(handleResponse);
+  .then((response) => response.json());
 
 export const authorize = (email, password) => fetch(`${BASE_URL}/signin`, {
   method: 'POST',
@@ -32,7 +24,7 @@ export const authorize = (email, password) => fetch(`${BASE_URL}/signin`, {
     password,
   }),
 })
-  .then(handleResponse)
+  .then((response) => response.json())
   .then((res) => {
     if (res) {
       localStorage.setItem('token', res.token);
@@ -47,16 +39,16 @@ export const getUser = () => fetch(`${BASE_URL}/users/me`, {
     authorization: localStorage.getItem('token'),
   },
 })
-  .then(handleResponse);
+  .then((response) => response.json());
 
-export const getContent = (token) => fetch(`${BASE_URL}/users/me`, {
+export const getToken = (token) => fetch(`${BASE_URL}/users/me`, {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
     authorization: `Bearer ${token}`,
   },
 })
-  .then(handleResponse);
+  .then((response) => response.json());
 
 export const updateUser = (name, email) => fetch(`${BASE_URL}/users/me`, {
   method: 'PATCH',
@@ -69,7 +61,7 @@ export const updateUser = (name, email) => fetch(`${BASE_URL}/users/me`, {
     email,
   }),
 })
-  .then(handleResponse);
+  .then((response) => response.json());
 
 export const getSavedMovies = () => fetch(`${BASE_URL}/movies`, {
   method: 'GET',
@@ -77,7 +69,7 @@ export const getSavedMovies = () => fetch(`${BASE_URL}/movies`, {
     authorization: localStorage.getItem('token'),
   },
 })
-  .then(handleResponse);
+  .then((response) => response.json());
 
 export const saveMovie = (movie) => fetch(`${BASE_URL}/movies`, {
   method: 'POST',
@@ -99,7 +91,7 @@ export const saveMovie = (movie) => fetch(`${BASE_URL}/movies`, {
     nameEN: movie.nameEN,
   }),
 })
-  .then(handleResponse);
+  .then((response) => response.json());
 
 export const deleteMovie = (movieId) => fetch(`${BASE_URL}/movies/${movieId}`, {
   method: 'DELETE',
@@ -107,4 +99,4 @@ export const deleteMovie = (movieId) => fetch(`${BASE_URL}/movies/${movieId}`, {
     authorization: localStorage.getItem('token'),
   },
 })
-  .then(handleResponse);
+  .then((response) => response.json());
