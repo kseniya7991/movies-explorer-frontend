@@ -23,10 +23,10 @@ function SearchForm({
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log('отправлен запрос');
     if (values.searchField && isValid) {
       handleSearch(values.searchField.toLowerCase(), checked);
-    }
-    if (previousKey) {
+    } else if (previousKey) {
       handleSearch(previousKey, checked);
     }
   }
