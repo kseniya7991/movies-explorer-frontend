@@ -95,6 +95,7 @@ function Movies({ onShowError, onClickSave }) {
     const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
     if (foundMovies && foundMovies.length !== 0) {
       console.log('получили данные из локал стораж');
+      setSelectedMovies(selectionFilms(foundMovies, slice));
     }
 
     setIsListEmpty(true);
