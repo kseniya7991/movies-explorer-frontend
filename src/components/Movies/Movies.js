@@ -136,6 +136,7 @@ function Movies({ onShowError, onClickSave }) {
     return null;
   };
 
+  handleWindowSize();
   console.log('передаваемый селектед', selectedMovies);
 
   return (
