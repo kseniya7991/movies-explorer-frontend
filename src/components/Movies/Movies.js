@@ -55,13 +55,13 @@ function Movies({ onShowError, onClickSave }) {
   // Отрисовка блока выдачи/не выдачи фильмов
   useEffect(() => {
     handleWindowSize();
-    localStorage.setItem('filtered-movies', JSON.stringify(filteredMovies));
 
     const filtered = localStorage.getItem('filtered-movies');
 
     if (filteredMovies.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
+      localStorage.setItem('filtered-movies', JSON.stringify(filteredMovies));
     } else if (filtered && filtered.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filtered, slice));
