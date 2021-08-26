@@ -7,7 +7,9 @@ import './SearchForm.css';
 
 import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
-function SearchForm({ handleSearch, isRequired, isCardsDisplaying }) {
+function SearchForm({
+  handleSearch, isRequired, isCardsDisplaying, previousKey,
+}) {
   /* Хук чекбокса "короткометражка" */
   const [checked, setChecked] = useState(false);
 
@@ -24,7 +26,7 @@ function SearchForm({ handleSearch, isRequired, isCardsDisplaying }) {
 
   function handleCheckbox() {
     setChecked(!checked);
-    if (isCardsDisplaying && isValid) {
+    if (previousKey && isCardsDisplaying && isValid) {
       handleSearch(values.searchField.toLowerCase(), !checked);
     }
   }

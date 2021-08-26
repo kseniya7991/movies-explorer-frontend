@@ -12,6 +12,7 @@ import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError, onClickSave, savedMovies }) {
   const dataForSearch = JSON.parse(localStorage.getItem('data-for-search'));
+  const previousKey = dataForSearch.keys;
   const [allMovies, setAllMovies] = useState([]);
 
   /* Отфильтрованные по ключ. словам фильмы */
@@ -139,6 +140,7 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
         handleSearch={handleSearchMovies}
         isRequired={true}
         isCardsDisplaying={isCardsDisplaying}
+        previousKey={previousKey}
       />
 
       <MoviesCardList
