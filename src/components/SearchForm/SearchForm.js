@@ -41,7 +41,7 @@ function SearchForm({
           placeholder="Фильм"
           onChange={handleChange}
           required={isRequired}
-        >{previousKey || ''}</input>
+        >{previousKey}</input>
         {errors.searchField && <span className={'searchForm__text-error'}>
           {errors.searchField}
         </span>}
