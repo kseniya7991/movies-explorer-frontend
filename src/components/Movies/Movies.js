@@ -56,7 +56,7 @@ function Movies({ onShowError, onClickSave }) {
     if (filteredMovies.length !== 0) {
       setSelectedMovies(filteredMovies.slice(0, slice.end + numberAddedMovies));
     } else if (foundMovies.length !== 0) {
-      setSelectedMovies(foundMovies.slice(slice.start, slice.end));
+      setSelectedMovies(foundMovies.slice(0, slice.end + numberAddedMovies));
     }
   };
 
