@@ -55,8 +55,8 @@ function App() {
   }
 
   /* Получаем данные пользователя: информация пользователя и его сохраненные фильмы */
-  function getData() {
-    Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
+  async function getData() {
+    await Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
         setSavedMovies(
