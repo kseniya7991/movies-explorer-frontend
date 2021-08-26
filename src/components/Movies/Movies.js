@@ -12,6 +12,7 @@ import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError, onClickSave }) {
   const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
+  const dataForSearch = JSON.parse(localStorage.getItem('data-for-search'));
   const [allMovies, setAllMovies] = useState([]);
 
   /* Отфильтрованные по ключ. словам фильмы */
@@ -43,6 +44,36 @@ function Movies({ onShowError, onClickSave }) {
     } else if (window.innerWidth <= 700) {
       setSlice({ start: 0, end: 5 });
     }
+  };
+
+  // Запрос к API
+  /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
+  const getAllMovies = (keys, checkbox) => api
+    .getMovies()
+    .then((movies) => {
+      setAllMovies(movies);
+      setFilteredMovies(filterMovies(movies, keys, checkbox));
+      setIsLoading(false);
+    })
+    .catch((err) => {
+      onShowError(err.status);
+      setIsLoading(false);
+    });
+
+  /* Поиск по ключевым словам */
+  const handleSearchMovies = (keys, checkbox) => {
+    const data = { keys, checkbox };
+    localStorage.setItem('data-for-search', JSON.stringify(data));
+    setIsLoading(true);
+    const arrayMovies = JSON.parse(localStorage.getItem('movies'));
+
+    if (!arrayMovies && allMovies.length === 0) {
+      getAllMovies(keys, checkbox);
+    } else {
+      setFilteredMovies(filterMovies(arrayMovies, keys, checkbox));
+      setIsLoading(false);
+    }
+    return null;
   };
 
   /* Управление количеством карточек фильмов для рендеринга */
@@ -96,41 +127,15 @@ function Movies({ onShowError, onClickSave }) {
 
   /* При первой загрузке страницы */
   useEffect(() => {
-    if (foundMovies && foundMovies.length !== 0) {
+    if (Object.keys(dataForSearch).length !== 0) {
+      const { keys, checkbox } = dataForSearch;
       setIsListEmpty(false);
-      setSelectedMovies(selectionFilms(foundMovies, slice));
+      handleSearchMovies(keys, checkbox);
     } else {
       setIsListEmpty(true);
       setMoviesBlockText('Введите запрос в строку поиска');
     }
   }, []);
-
-  // Запрос к API
-  /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
-  const getAllMovies = (keys, checkbox) => api
-    .getMovies()
-    .then((movies) => {
-      setAllMovies(movies);
-      setFilteredMovies(filterMovies(movies, keys, checkbox));
-      setIsLoading(false);
-    })
-    .catch((err) => {
-      onShowError(err.status);
-      setIsLoading(false);
-    });
-
-  const handleSearchMovies = (keys, checkbox) => {
-    setIsLoading(true);
-    const arrayMovies = JSON.parse(localStorage.getItem('movies'));
-
-    if (!arrayMovies && allMovies.length === 0) {
-      getAllMovies(keys, checkbox);
-    } else {
-      setFilteredMovies(filterMovies(arrayMovies, keys, checkbox));
-      setIsLoading(false);
-    }
-    return null;
-  };
 
   console.log(filteredMovies);
 
