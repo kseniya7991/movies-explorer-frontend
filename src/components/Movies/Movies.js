@@ -53,6 +53,7 @@ function Movies({ onShowError, onClickSave }) {
   const showMoreMovies = () => {
     handleWindowSize();
     /*  setSlice({ start: 0, end: slice.end + numberAddedMovies }); */
+    console.log(slice.end + numberAddedMovies);
     if (filteredMovies.length !== 0) {
       setSelectedMovies(filteredMovies.slice(0, slice.end + numberAddedMovies));
     } else if (foundMovies.length !== 0) {
