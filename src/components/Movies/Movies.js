@@ -65,7 +65,7 @@ function Movies({ onShowError, onClickSave }) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
       localStorage.setItem('filtered-movies', JSON.stringify(testObject));
-      console.log(JSON.stringify(filteredMovies));
+      console.log(localStorage.getItem('filtered-movies'));
     }
     setMoviesBlockText('Мы ничего не нашли по вашему запросу');
   }, [filteredMovies]);
