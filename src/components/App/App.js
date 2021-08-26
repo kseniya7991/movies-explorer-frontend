@@ -173,8 +173,7 @@ function App() {
         }
         setIsLoading(false);
       })
-      .catch((err) => {
-        handleErrors(err.status);
+      .catch(() => {
         setIsLoading(false);
       });
   }
