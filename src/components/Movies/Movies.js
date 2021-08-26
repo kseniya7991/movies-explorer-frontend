@@ -86,6 +86,7 @@ function Movies({ onShowError, onClickSave }) {
       console.log('set selected', filtered);
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filtered, slice));
+      console.log('5', selectionFilms(filtered, slice));
     } else {
       console.log('4');
       setIsListEmpty(true);
