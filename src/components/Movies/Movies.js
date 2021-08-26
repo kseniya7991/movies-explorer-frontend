@@ -56,10 +56,18 @@ function Movies({ onShowError, onClickSave }) {
   };
 
   // Отрисовка блока выдачи/не выдачи фильмов
+
+  useEffect(() => {
+    const filtered = JSON.parse(localStorage.getItem('filtered-movies'));
+    if (filtered && filtered.length !== 0) {
+      console.log('0', filtered);
+      setIsListEmpty(false);
+      setSelectedMovies(selectionFilms(filtered, slice));
+    }
+  }, []);
+
   useEffect(() => {
     handleWindowSize();
-
-    const filtered = JSON.parse(localStorage.getItem('filtered-movies'));
 
     if (filteredMovies.length !== 0) {
       console.log('1');
@@ -67,10 +75,6 @@ function Movies({ onShowError, onClickSave }) {
       setSelectedMovies(selectionFilms(filteredMovies, slice));
       console.log(filteredMovies);
       localStorage.setItem('filtered-movies', JSON.stringify(filteredMovies));
-    } else if (filtered && filtered.length !== 0) {
-      console.log('2', filtered);
-      setIsListEmpty(false);
-      setSelectedMovies(selectionFilms(filtered, slice));
     } else {
       console.log('3');
       setIsListEmpty(true);
@@ -82,12 +86,7 @@ function Movies({ onShowError, onClickSave }) {
   useEffect(() => {
     console.log('first');
     const filtered = JSON.parse(localStorage.getItem('filtered-movies'));
-    if (filtered && filtered.length !== 0) {
-      console.log('set selected', filtered);
-      setIsListEmpty(false);
-      setSelectedMovies(selectionFilms(filtered, slice));
-      console.log('5', selectionFilms(filtered, slice));
-    } else {
+    if (!filtered || filtered.length === 0) {
       console.log('4');
       setIsListEmpty(true);
       console.log('empty');
@@ -131,10 +130,6 @@ function Movies({ onShowError, onClickSave }) {
 
     if (!arrayMovies && allMovies.length === 0) {
       getAllMovies(keys, checkbox);
-    }
-    if (allMovies.length !== 0) {
-      setFilteredMovies(filterMovies(allMovies, keys, checkbox));
-      setIsLoading(false);
     } else {
       setFilteredMovies(filterMovies(arrayMovies, keys, checkbox));
       setIsLoading(false);
