@@ -57,47 +57,18 @@ function Movies({ onShowError, onClickSave }) {
 
   // Отрисовка блока выдачи/не выдачи фильмов
 
-  useEffect(() => {
-    const filtered = JSON.parse(localStorage.getItem('filtered-movies'));
-    if (filtered && filtered.length !== 0) {
-      console.log('0', filtered);
-      setIsListEmpty(false);
-      setSelectedMovies(selectionFilms(filtered, slice));
-    }
-    setMoviesBlockText('Мы ничего не нашли по вашему запросу');
-  }, []);
-
-  console.log('test');
+  /* При поиске фильмов */
   useEffect(() => {
     handleWindowSize();
 
-    /*  if (filteredMovies.length !== 0) {
-      console.log('1');
+    if (filteredMovies.length === 0) {
+      setIsListEmpty(true);
+    } else {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
-      console.log(filteredMovies);
-      localStorage.setItem('filtered-movies', JSON.stringify(filteredMovies));
-    } else {
-      console.log('3');
-      setIsListEmpty(true);
-      setMoviesBlockText('Мы ничего не нашли по вашему запросу');
-    } */
-  }, [filteredMovies]);
-
-  /* При первой загрузке страницы */
-  /*   useEffect(() => {
-    console.log('first');
-    const filtered = JSON.parse(localStorage.getItem('filtered-movies'));
-    if (!filtered || filtered.length === 0) {
-      console.log('4');
-      setIsListEmpty(true);
-      console.log('empty');
-      setMoviesBlockText('Введите запрос в строку поиска');
     }
-  }, []); */
-
-  console.log('передаваемый селектед', selectedMovies);
-  /* При поиске фильмов */
+    setMoviesBlockText('Мы ничего не нашли по вашему запросу');
+  }, [filteredMovies]);
 
   useEffect(() => {
     if (selectedMovies.length === filteredMovies.length) {
@@ -111,6 +82,11 @@ function Movies({ onShowError, onClickSave }) {
   useEffect(() => {
     setSelectedMovies(filteredMovies.slice(slice.start, slice.end));
   }, [slice]);
+
+  /* При первой загрузке страницы */
+  useEffect(() => {
+    setMoviesBlockText('Введите запрос в строку поиска');
+  }, []);
 
   // Запрос к API
   /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
@@ -138,6 +114,8 @@ function Movies({ onShowError, onClickSave }) {
     }
     return null;
   };
+
+  console.log('передаваемый селектед', selectedMovies);
 
   return (
     <>
