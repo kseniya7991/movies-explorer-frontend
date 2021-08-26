@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
@@ -23,7 +23,6 @@ function SearchForm({
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('отправлен запрос');
     if (values.searchField && isValid) {
       handleSearch(values.searchField.toLowerCase(), checked);
     } else if (previousKey) {
@@ -31,14 +30,17 @@ function SearchForm({
     }
   }
 
-  useEffect(() => {});
-
   function handleCheckbox() {
     setChecked(!checked);
     console.log(previousKey, isCardsDisplaying, isValid);
     if (previousKey && isCardsDisplaying) {
       handleSearch(previousKey.toLowerCase(), !checked);
+    } else if (previousKey) {
+      handleSearch(values.searchField.toLowerCase(), checked);
     }
+    /*     if (previousKey && isCardsDisplaying) {
+      handleSearch(previousKey.toLowerCase(), !checked);
+    } */
   }
 
   function handleInput(e) {

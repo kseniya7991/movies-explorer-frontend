@@ -164,9 +164,7 @@ function App() {
     return mainApi
       .updateUser(name, email)
       .then((res) => {
-        console.log('res', res);
         if (res.message) {
-          console.log(res.message);
           setMessage(res.message);
           setStatusRequest(false);
         } else {
@@ -175,8 +173,7 @@ function App() {
         }
         setIsLoading(false);
       })
-      .catch((err) => {
-        console.log('err', err);
+      .catch(() => {
         setIsLoading(false);
       });
   }
