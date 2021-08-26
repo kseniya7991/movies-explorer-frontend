@@ -23,7 +23,6 @@ import HeaderUnauth from '../Header/HeaderUnauth/HeaderUnauth';
 
 // Импорт контекста
 import CurrentUserContext from '../../contexts/CurrentUserContext';
-import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 
 function App() {
   const [savedMovies, setSavedMovies] = useState([]);
@@ -74,8 +73,6 @@ function App() {
 
   /* Проверка токена при загрузке страницы */
   async function tokenCheck() {
-    setIsLoading(true);
-    console.log('fesf');
     const token = localStorage.getItem('token');
     if (token) {
       await mainApi
@@ -99,6 +96,7 @@ function App() {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     tokenCheck();
   }, []);
 
@@ -228,7 +226,6 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <SavedMoviesContext.Provider value={savedMovies}>
         <div className="app">
           <Preloader isLoading={isLoading} />
           <InfoPopup
@@ -313,7 +310,6 @@ function App() {
             <Footer />
           </Route>
         </div>
-      </SavedMoviesContext.Provider>
     </CurrentUserContext.Provider>
   );
 }

@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-/* import SavedMoviesContext from '../../contexts/SavedMoviesContext'; */
 
 import './MoviesCard.css';
 
 function MoviesCard({
   movie, onClickSave, isSavedMovies, savedMovies,
 }) {
-  /* const savedMovies = React.useContext(SavedMoviesContext); */
   const url = 'https://api.nomoreparties.co';
-  console.log(savedMovies);
 
   const title = movie.nameRU.toString();
   const duration = movie.duration.toString();

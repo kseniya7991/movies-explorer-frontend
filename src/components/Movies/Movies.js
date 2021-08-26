@@ -11,7 +11,6 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError, onClickSave, savedMovies }) {
-  console.log(savedMovies, 'movies');
   const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
   const dataForSearch = JSON.parse(localStorage.getItem('data-for-search'));
   const [allMovies, setAllMovies] = useState([]);
@@ -100,14 +99,6 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
   useEffect(() => {
     handleWindowSize();
 
-    /*     if (filteredMovies.length === 0) {
-      setIsListEmpty(true);
-    } else {
-      setIsListEmpty(false);
-      setSelectedMovies(selectionFilms(filteredMovies, slice));
-      localStorage.setItem('found-movies', JSON.stringify(filteredMovies));
-    } */
-    console.log('dsde');
     if (filteredMovies.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
