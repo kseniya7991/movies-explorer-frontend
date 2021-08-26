@@ -27,7 +27,7 @@ function SearchForm({
   function handleCheckbox() {
     setChecked(!checked);
     if (previousKey && isCardsDisplaying && isValid) {
-      handleSearch(values.searchField.toLowerCase(), !checked);
+      handleSearch(previousKey, !checked);
     }
   }
 
@@ -41,7 +41,7 @@ function SearchForm({
           placeholder="Фильм"
           onChange={handleChange}
           required={isRequired}
-        ></input>
+        >{previousKey || ''}</input>
         {errors.searchField && <span className={'searchForm__text-error'}>
           {errors.searchField}
         </span>}
