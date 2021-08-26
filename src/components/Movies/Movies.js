@@ -9,10 +9,8 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoreMoviesBtn from '../MoreMoviesBtn/MoreMoviesBtn';
 import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
-import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 
-function Movies({ onShowError, onClickSave }) {
-  const savedMovies = React.useContext(SavedMoviesContext);
+function Movies({ onShowError, onClickSave, savedMovies }) {
   console.log(savedMovies, 'movies');
   const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
   const dataForSearch = JSON.parse(localStorage.getItem('data-for-search'));
