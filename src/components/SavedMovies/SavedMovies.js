@@ -15,13 +15,6 @@ function SavedMovies({ onClickSave, savedMovies }) {
 
   useEffect(() => {
     setFilteredMovies(savedMovies);
-
-    /*     if (savedMovies.length === 0) {
-      setIsListEmpty(true);
-      setIsEmptyText('У вас ещё нет сохраненных фильмов');
-    } else {
-      setIsListEmpty(false);
-    } */
   }, [savedMovies]);
 
   useEffect(() => {

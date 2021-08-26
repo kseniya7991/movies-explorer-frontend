@@ -11,7 +11,6 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError, onClickSave, savedMovies }) {
-  const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
   const dataForSearch = JSON.parse(localStorage.getItem('data-for-search'));
   const [allMovies, setAllMovies] = useState([]);
 
@@ -90,8 +89,6 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
   useEffect(() => {
     if (filteredMovies.length !== 0) {
       setSelectedMovies(filteredMovies.slice(slice.start, slice.end));
-    } else if (foundMovies.length !== 0) {
-      setSelectedMovies(foundMovies.slice(slice.start, slice.end));
     }
   }, [slice]);
 
@@ -102,9 +99,7 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
     if (filteredMovies.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
-      localStorage.setItem('found-movies', JSON.stringify(filteredMovies));
     } else {
-      console.log('второй');
       setIsListEmpty(true);
       setMoviesBlockText('Мы ничего не нашли по вашему запросу');
     }
@@ -126,7 +121,6 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
       setIsListEmpty(false);
       handleSearchMovies(keys, checkbox);
     } else {
-      console.log('первый');
       setIsListEmpty(true);
       setMoviesBlockText('Введите запрос в строку поиска');
     }
