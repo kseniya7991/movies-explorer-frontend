@@ -13,11 +13,9 @@ import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 function Movies({ onShowError, onClickSave }) {
   const [allMovies, setAllMovies] = useState([]);
 
-  const foundMovies = JSON.parce(localStorage.getItem('found-movies'));
-
   /* Отфильтрованные по ключ. словам фильмы */
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [selectedMovies, setSelectedMovies] = useState(foundMovies || []);
+  const [selectedMovies, setSelectedMovies] = useState([]);
 
   /* Проверка наличия фильмов в выдаче */
   const [isListEmpty, setIsListEmpty] = useState(false);
