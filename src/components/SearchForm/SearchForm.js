@@ -34,15 +34,11 @@ function SearchForm({
 
   function handleCheckbox() {
     setChecked(!checked);
-    console.log(previousKey, isCardsDisplaying, isValid);
     if (previousKey && isCardsDisplaying) {
       handleSearch(previousKey.toLowerCase(), !checked);
     } else {
       handleSearch(keys, !checked);
     }
-    /*     if (previousKey && isCardsDisplaying) {
-      handleSearch(previousKey.toLowerCase(), !checked);
-    } */
   }
 
   function handleInput(e) {
