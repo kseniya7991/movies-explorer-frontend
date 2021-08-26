@@ -46,7 +46,7 @@ function Movies({ onShowError, onClickSave }) {
 
   /* Управление количеством карточек фильмов для рендеринга */
   const selectionFilms = (movies) => {
-    console.log('в селекшен попали', movies);
+    console.log('в селекшен попали', movies.slice(slice.start, slice.end));
     return movies.slice(slice.start, slice.end);
   };
 
