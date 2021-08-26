@@ -61,6 +61,7 @@ function Movies({ onShowError, onClickSave }) {
     if (filteredMovies.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
+      console.log(filteredMovies);
       localStorage.setItem('filtered-movies', JSON.stringify(filteredMovies));
     } else if (filtered && filtered.length !== 0) {
       setIsListEmpty(false);
