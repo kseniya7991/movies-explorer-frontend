@@ -63,7 +63,7 @@ function Movies({ onShowError, onClickSave }) {
       console.log('set selected');
       setSelectedMovies(localStorage.getItem('filtered-movies'));
     } else {
-      console.log('first end');
+      setIsListEmpty(true);
       setMoviesBlockText('Введите запрос в строку поиска');
     }
   }, []);
