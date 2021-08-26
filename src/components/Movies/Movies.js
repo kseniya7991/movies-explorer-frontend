@@ -75,7 +75,7 @@ function Movies({ onShowError, onClickSave }) {
       setSelectedMovies(selectionFilms(filteredMovies, slice));
       localStorage.setItem('found-movies', JSON.stringify(filteredMovies));
     } */
-
+    console.log('dsde');
     if (filteredMovies.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
