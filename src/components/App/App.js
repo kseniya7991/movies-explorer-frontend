@@ -283,6 +283,7 @@ function App() {
               component={SavedMovies}
               onClickSave={handleSaveMovie}
               history={history}
+              savedMovies={savedMovies}
             />
             <ProtectedRoute
               path="/profile"

@@ -54,7 +54,6 @@ function MoviesCard({
   } ${isSavedMovies ? 'moviesCard__button-save_delete' : ''}`;
 
   return (
-    <>
       <li className="moviesCard">
         <div className="moviesCard__title-wrap">
           <p className="moviesCard__title">{title}</p>
@@ -76,7 +75,6 @@ function MoviesCard({
           {isSaved ? '' : 'Сохранить'}
         </button>
       </li>
-    </>
   );
 }
 

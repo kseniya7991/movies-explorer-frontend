@@ -3,13 +3,11 @@ import SearchForm from '../SearchForm/SearchForm';
 
 import './SavedMovies.css';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 import filterMovies from '../../utils/FilterMovies';
 
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
-function SavedMovies({ onClickSave }) {
-  const savedMovies = React.useContext(SavedMoviesContext);
+function SavedMovies({ onClickSave, savedMovies }) {
   const [filteredMovies, setFilteredMovies] = useState(savedMovies);
   const [isEmptyText, setIsEmptyText] = useState('');
 
