@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 /* import SavedMoviesContext from '../../contexts/SavedMoviesContext'; */
 
 import './MoviesCard.css';
@@ -33,13 +33,13 @@ function MoviesCard({
 
   const [isSaved, setIsSaved] = useState(false);
 
-  /*   useEffect(() => {
+  useEffect(() => {
     if (isSavedMovies) {
       setIsSaved(true);
     } else {
       setIsSaved(savedMovies.some((el) => el.movieId === movie.id));
     }
-  }, []); */
+  }, []);
 
   /* Функция сохранения фильма */
   function handleClickOnSave() {
