@@ -127,7 +127,7 @@ function Movies({ onShowError, onClickSave }) {
 
   /* При первой загрузке страницы */
   useEffect(() => {
-    if (Object.keys(dataForSearch).length !== 0) {
+    if (dataForSearch && Object.keys(dataForSearch).length !== 0) {
       const { keys, checkbox } = dataForSearch;
       setIsListEmpty(false);
       handleSearchMovies(keys, checkbox);
