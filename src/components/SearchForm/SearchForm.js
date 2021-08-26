@@ -31,6 +31,10 @@ function SearchForm({
     }
   }
 
+  function handleInput(e) {
+    handleChange(e);
+  }
+
   return (
     <form className="searchForm" onSubmit={handleSubmit}>
       <div className="searchForm__search-block">
@@ -39,9 +43,10 @@ function SearchForm({
           className="searchForm__search"
           type="text"
           placeholder="Фильм"
-          onChange={handleChange}
+          onChange={handleInput}
           required={isRequired}
           value={previousKey || ''}
+          disabled={false}
         ></input>
         {errors.searchField && <span className={'searchForm__text-error'}>
           {errors.searchField}
