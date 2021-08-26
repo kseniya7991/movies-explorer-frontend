@@ -59,14 +59,17 @@ function Movies({ onShowError, onClickSave }) {
     const filtered = JSON.parse(localStorage.getItem('filtered-movies'));
 
     if (filteredMovies.length !== 0) {
+      console.log('1');
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
       console.log(filteredMovies);
       localStorage.setItem('filtered-movies', JSON.stringify(filteredMovies));
     } else if (filtered && filtered.length !== 0) {
+      console.log('2');
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filtered, slice));
     } else {
+      console.log('3');
       setIsListEmpty(true);
       setMoviesBlockText('Мы ничего не нашли по вашему запросу');
     }
@@ -81,6 +84,7 @@ function Movies({ onShowError, onClickSave }) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filtered, slice));
     } else {
+      console.log('4');
       setIsListEmpty(true);
       console.log('empty');
       setMoviesBlockText('Введите запрос в строку поиска');
