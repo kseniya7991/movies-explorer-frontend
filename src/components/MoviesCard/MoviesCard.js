@@ -39,7 +39,7 @@ function MoviesCard({
     } else {
       setIsSaved(savedMovies.some((el) => el.movieId === movie.id));
     }
-  }, []);
+  }, [savedMovies]);
 
   /* Функция сохранения фильма */
   function handleClickOnSave() {
