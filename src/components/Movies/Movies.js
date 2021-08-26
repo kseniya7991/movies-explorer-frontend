@@ -11,13 +11,6 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError, onClickSave }) {
-/*   const getFoundMovies = () => {
-    const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
-    if (foundMovies && foundMovies.length !== 0) {
-      return foundMovies;
-    }
-    return [];
-  }; */
   const [allMovies, setAllMovies] = useState([]);
 
   /* Отфильтрованные по ключ. словам фильмы */
@@ -52,10 +45,7 @@ function Movies({ onShowError, onClickSave }) {
   };
 
   /* Управление количеством карточек фильмов для рендеринга */
-  const selectionFilms = (movies) => {
-    console.log('в селекшен попали', movies.slice(slice.start, slice.end));
-    return movies.slice(slice.start, slice.end);
-  };
+  const selectionFilms = (movies) => movies.slice(slice.start, slice.end);
 
   /* Добавление карточек фильмов для рендеринга при нажатии на кнопку *Еще* */
   const showMoreMovies = () => {
@@ -94,11 +84,22 @@ function Movies({ onShowError, onClickSave }) {
 
   /* При нажатии на кнопку "ещё"  */
   useEffect(() => {
-    console.log('1');
     if (filteredMovies.length !== 0) {
       setSelectedMovies(filteredMovies.slice(slice.start, slice.end));
     }
   }, [slice]);
+
+  /* При первой загрузке страницы */
+  useEffect(() => {
+    const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
+    if (foundMovies && foundMovies.length !== 0) {
+      setIsListEmpty(false);
+      setSelectedMovies(selectionFilms(foundMovies, slice));
+    } else {
+      setIsListEmpty(true);
+      setMoviesBlockText('Введите запрос в строку поиска');
+    }
+  }, []);
 
   // Запрос к API
   /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
@@ -127,17 +128,6 @@ function Movies({ onShowError, onClickSave }) {
     return null;
   };
 
-  /* При первой загрузке страницы */
-  useEffect(() => {
-    const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
-    if (foundMovies && foundMovies.length !== 0) {
-      console.log('получили данные из локал стораж');
-      setSelectedMovies(selectionFilms(foundMovies, slice));
-    }
-
-    setIsListEmpty(true);
-    setMoviesBlockText('Введите запрос в строку поиска');
-  }, []);
   console.log('передаваемый селектед', selectedMovies);
 
   return (
