@@ -35,7 +35,7 @@ function SearchForm({
     console.log(previousKey, isCardsDisplaying, isValid);
     if (previousKey && isCardsDisplaying) {
       handleSearch(previousKey.toLowerCase(), !checked);
-    } else if (previousKey) {
+    } else {
       handleSearch(values.searchField.toLowerCase(), checked);
     }
     /*     if (previousKey && isCardsDisplaying) {
