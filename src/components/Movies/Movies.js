@@ -80,8 +80,10 @@ function Movies({ onShowError, onClickSave }) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
       localStorage.setItem('found-movies', JSON.stringify(filteredMovies));
+    } else {
+      setIsListEmpty(true);
+      setMoviesBlockText('Мы ничего не нашли по вашему запросу');
     }
-    setMoviesBlockText('Мы ничего не нашли по вашему запросу');
   }, [filteredMovies]);
 
   useEffect(() => {
