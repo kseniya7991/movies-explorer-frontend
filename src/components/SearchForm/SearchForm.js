@@ -16,6 +16,7 @@ function SearchForm({
   /* Хук чекбокса "короткометражка" */
   const [checked, setChecked] = useState(false);
   const [inputPrevious, setInputPrevious] = useState(previousKey);
+  const [keys, setKeys] = useState('');
 
   const {
     values, handleChange, errors, isValid,
@@ -24,6 +25,7 @@ function SearchForm({
   function handleSubmit(e) {
     e.preventDefault();
     if (values.searchField && isValid) {
+      setKeys(values.searchField.toLowerCase());
       handleSearch(values.searchField.toLowerCase(), checked);
     } else if (previousKey) {
       handleSearch(previousKey, checked);
@@ -36,7 +38,7 @@ function SearchForm({
     if (previousKey && isCardsDisplaying) {
       handleSearch(previousKey.toLowerCase(), !checked);
     } else {
-      handleSearch(values.searchField.toLowerCase(), checked);
+      handleSearch(keys, !checked);
     }
     /*     if (previousKey && isCardsDisplaying) {
       handleSearch(previousKey.toLowerCase(), !checked);
