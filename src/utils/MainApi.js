@@ -1,5 +1,5 @@
 const handleResponse = (res) => {
-  if (!res.ok) {
+  if (!res.ok && !res.message) {
     return Promise.reject(new Error(`Error: ${res.status}`));
   }
   return res.json();
