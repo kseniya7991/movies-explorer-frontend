@@ -59,8 +59,15 @@ function App() {
     await Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
+        console.log(
+          moviesData.movies
+            .reverse()
+            .filter((movie) => movie.owner === userData.user._id),
+        );
         setSavedMovies(
-          moviesData.movies.reverse().filter((movie) => movie.owner === userData.user._id),
+          moviesData.movies
+            .reverse()
+            .filter((movie) => movie.owner === userData.user._id),
         );
       })
       .catch((err) => handleErrors(err.status));
@@ -241,18 +248,25 @@ function App() {
             </Route>
             <Route exact path={'/'}>
               <Header isLogged={loggedIn} isPromo={true}>
-                  {loggedIn === false ? <HeaderUnauth /> : <Navigation />}
+                {loggedIn === false ? <HeaderUnauth /> : <Navigation />}
               </Header>
             </Route>
-
           </Switch>
 
           <Switch>
             <Route exact path="/signup">
-            {loggedIn ? <Redirect push to="/" /> : <Register onRegister={handleSubmitRegister} />}
+              {loggedIn ? (
+                <Redirect push to="/" />
+              ) : (
+                <Register onRegister={handleSubmitRegister} />
+              )}
             </Route>
             <Route exact path="/signin">
-              {loggedIn ? <Redirect push to="/" /> : <Login onLogin={handleSubmitLogin} />}
+              {loggedIn ? (
+                <Redirect push to="/" />
+              ) : (
+                <Login onLogin={handleSubmitLogin} />
+              )}
             </Route>
             <Route exact path="/">
               <Main />
@@ -284,14 +298,17 @@ function App() {
               history={history}
             />
             <Route path="*">
-              <NotFoundPage onBack={() => { history.goBack(); }}/>
+              <NotFoundPage
+                onBack={() => {
+                  history.goBack();
+                }}
+              />
             </Route>
           </Switch>
 
           <Route exact path={['/movies', '/saved-movies', '/']}>
             <Footer />
           </Route>
-
         </div>
       </SavedMoviesContext.Provider>
     </CurrentUserContext.Provider>
