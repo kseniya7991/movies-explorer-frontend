@@ -4,7 +4,7 @@ import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList({
-  isEmpty, isSavedMovies, movies, onClickSave,
+  isEmpty, isSavedMovies, movies, onClickSave, savedMovies,
 }) {
   if (isEmpty) {
     return null;
@@ -18,6 +18,7 @@ function MoviesCardList({
             key={movie.id}
             onClickSave={onClickSave}
             isSavedMovies={isSavedMovies}
+            savedMovies={savedMovies}
           />
         ))}
       </ul>
