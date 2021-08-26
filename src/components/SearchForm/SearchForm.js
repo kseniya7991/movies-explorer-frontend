@@ -12,6 +12,7 @@ function SearchForm({
 }) {
   /* Хук чекбокса "короткометражка" */
   const [checked, setChecked] = useState(false);
+  const [inputPrevious, setInputPrevious] = useState(previousKey);
 
   const {
     values, handleChange, errors, isValid,
@@ -32,6 +33,7 @@ function SearchForm({
   }
 
   function handleInput(e) {
+    setInputPrevious(e.target.value);
     handleChange(e);
   }
 
@@ -45,7 +47,7 @@ function SearchForm({
           placeholder="Фильм"
           onChange={handleInput}
           required={isRequired}
-          value={previousKey || ''}
+          value={inputPrevious || ''}
           disabled={false}
         ></input>
         {errors.searchField && <span className={'searchForm__text-error'}>
