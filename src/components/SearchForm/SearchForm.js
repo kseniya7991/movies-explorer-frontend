@@ -23,8 +23,11 @@ function SearchForm({
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (isValid) {
+    if (values.searchField && isValid) {
       handleSearch(values.searchField.toLowerCase(), checked);
+    }
+    if (previousKey) {
+      handleSearch(previousKey, checked);
     }
   }
 
