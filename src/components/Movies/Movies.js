@@ -137,8 +137,6 @@ function Movies({ onShowError, onClickSave }) {
     }
   }, []);
 
-  console.log(filteredMovies);
-
   return (
     <>
       <Preloader isLoading={isLoading} />
