@@ -22,7 +22,7 @@ function Profile({
     }
   }, [currentUser]);
 
-  console.log('status', status);
+  console.log('status', status, showMessage);
   const {
     handleChange,
     errors,
