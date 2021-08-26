@@ -65,7 +65,7 @@ function Movies({ onShowError, onClickSave }) {
       console.log(filteredMovies);
       localStorage.setItem('filtered-movies', JSON.stringify(filteredMovies));
     } else if (filtered && filtered.length !== 0) {
-      console.log('2');
+      console.log('2', filtered);
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filtered, slice));
     } else {
@@ -91,8 +91,7 @@ function Movies({ onShowError, onClickSave }) {
     }
   }, []);
 
-  console.log(isListEmpty);
-
+  console.log('передаваемый селектед', selectedMovies);
   /* При поиске фильмов */
 
   useEffect(() => {
