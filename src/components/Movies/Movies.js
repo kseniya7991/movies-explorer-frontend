@@ -17,7 +17,6 @@ function Movies({ onShowError, onClickSave }) {
   /* Отфильтрованные по ключ. словам фильмы */
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [selectedMovies, setSelectedMovies] = useState([]);
-  const [isCheckbox, setIsCheckbox] = useState(false);
 
   /* Проверка наличия фильмов в выдаче */
   const [isListEmpty, setIsListEmpty] = useState(false);
