@@ -45,7 +45,10 @@ function Movies({ onShowError, onClickSave }) {
   };
 
   /* Управление количеством карточек фильмов для рендеринга */
-  const selectionFilms = (movies) => movies.slice(slice.start, slice.end);
+  const selectionFilms = (movies) => {
+    console.log('в селекшен попали', movies);
+    return movies.slice(slice.start, slice.end);
+  };
 
   /* Добавление карточек фильмов для рендеринга при нажатии на кнопку *Еще* */
   const showMoreMovies = () => {
