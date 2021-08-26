@@ -64,8 +64,7 @@ function Movies({ onShowError, onClickSave }) {
     } else {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
-      localStorage.setItem('filtered-movies', JSON.stringify(testObject));
-      console.log(localStorage.getItem('filtered-movies'));
+      localStorage.setItem('filtered-movies', JSON.stringify(filteredMovies));
     }
     setMoviesBlockText('Мы ничего не нашли по вашему запросу');
   }, [filteredMovies]);
@@ -90,10 +89,6 @@ function Movies({ onShowError, onClickSave }) {
     }
     setMoviesBlockText('Введите запрос в строку поиска');
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem('filtered-movies', filteredMovies);
-  }, [filteredMovies]);
 
   // Запрос к API
   /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
