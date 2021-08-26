@@ -33,7 +33,7 @@ function MoviesCard({
   const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
-    console.log(savedMovies);
+    console.log(savedMovies.some((el) => el.movieId === movie.id));
     if (isSavedMovies) {
       setIsSaved(true);
     } else {
