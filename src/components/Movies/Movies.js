@@ -64,6 +64,7 @@ function Movies({ onShowError, onClickSave }) {
       setSelectedMovies(localStorage.getItem('filtered-movies'));
     }
     setIsListEmpty(true);
+    console.log('empty');
     setMoviesBlockText('Введите запрос в строку поиска');
   }, []);
 
