@@ -17,7 +17,7 @@ function Movies({ onShowError, onClickSave }) {
   /* Отфильтрованные по ключ. словам фильмы */
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [selectedMovies, setSelectedMovies] = useState([]);
-  /*   const [isCheckbox, setIsCheckbox] = useState(false); */
+  const [isCheckbox, setIsCheckbox] = useState(false);
 
   /* Проверка наличия фильмов в выдаче */
   const [isListEmpty, setIsListEmpty] = useState(false);
@@ -51,17 +51,19 @@ function Movies({ onShowError, onClickSave }) {
 
   /* Добавление карточек фильмов для рендеринга при нажатии на кнопку *Еще* */
   const showMoreMovies = () => {
-    handleWindowSize();
-    /*  setSlice({ start: 0, end: slice.end + numberAddedMovies }); */
-    console.log(slice.end + numberAddedMovies);
-    if (filteredMovies.length !== 0) {
-      setSelectedMovies(filteredMovies.slice(0, slice.end + numberAddedMovies));
-    } else if (foundMovies.length !== 0) {
-      setSelectedMovies(foundMovies.slice(0, slice.end + numberAddedMovies));
-    }
+    setSlice({ start: 0, end: slice.end + numberAddedMovies });
   };
 
   // Отрисовка блока выдачи/не выдачи фильмов
+
+  /* При нажатии на кнопку "ещё"  */
+  useEffect(() => {
+    if (filteredMovies.length !== 0) {
+      setSelectedMovies(filteredMovies.slice(slice.start, slice.end));
+    } else if (foundMovies.length !== 0) {
+      setSelectedMovies(foundMovies.slice(slice.start, slice.end));
+    }
+  }, [slice]);
 
   /* При поиске фильмов */
   useEffect(() => {
@@ -91,18 +93,8 @@ function Movies({ onShowError, onClickSave }) {
     }
   }, [selectedMovies]);
 
-  /* При нажатии на кнопку "ещё"  */
-  /*   useEffect(() => {
-    if (filteredMovies.length !== 0) {
-      setSelectedMovies(filteredMovies.slice(slice.start, slice.end));
-    } else if (foundMovies.length !== 0) {
-      setSelectedMovies(foundMovies.slice(slice.start, slice.end));
-    }
-  }, [slice]); */
-
   /* При первой загрузке страницы */
   useEffect(() => {
-    handleWindowSize();
     if (foundMovies && foundMovies.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(foundMovies, slice));
