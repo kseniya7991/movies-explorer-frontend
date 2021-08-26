@@ -56,7 +56,6 @@ function App() {
 
   /* Получаем данные пользователя: информация пользователя и его сохраненные фильмы */
   function getData() {
-    setIsLoading(true);
     Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
@@ -75,6 +74,7 @@ function App() {
 
   /* Проверка токена при загрузке страницы */
   async function tokenCheck() {
+    setIsLoading(true);
     console.log('fesf');
     const token = localStorage.getItem('token');
     if (token) {
