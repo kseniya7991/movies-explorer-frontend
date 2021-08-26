@@ -92,6 +92,11 @@ function Movies({ onShowError, onClickSave }) {
 
   /* При первой загрузке страницы */
   useEffect(() => {
+    const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
+    if (foundMovies && foundMovies.length !== 0) {
+      console.log('получили данные из локал стораж');
+    }
+
     setIsListEmpty(true);
     setMoviesBlockText('Введите запрос в строку поиска');
   }, []);
