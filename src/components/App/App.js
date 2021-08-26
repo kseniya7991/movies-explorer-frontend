@@ -165,6 +165,7 @@ function App() {
       .updateUser(name, email)
       .then((res) => {
         if (res.message) {
+          console.log(res.message);
           setMessage(res.message);
           setStatusRequest(false);
         } else {
