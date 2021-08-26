@@ -78,11 +78,13 @@ function Movies({ onShowError, onClickSave }) {
     const filtered = JSON.parse(localStorage.getItem('filtered-movies'));
     if (filtered && filtered.length !== 0) {
       console.log('set selected');
+      setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filtered, slice));
+    } else {
+      setIsListEmpty(true);
+      console.log('empty');
+      setMoviesBlockText('Введите запрос в строку поиска');
     }
-    setIsListEmpty(true);
-    console.log('empty');
-    setMoviesBlockText('Введите запрос в строку поиска');
   }, []);
 
   console.log(isListEmpty);
