@@ -53,11 +53,23 @@ function Movies({ onShowError, onClickSave }) {
   };
 
   // Отрисовка блока выдачи/не выдачи фильмов
+
+  /* При первой загрузке страницы */
+  useEffect(() => {
+    console.log('first');
+    if (localStorage.getItem('filtered-movies').length !== 0) {
+      console.log('set selected');
+      setSelectedMovies(localStorage.getItem('filtered-movies'));
+    } else {
+      setMoviesBlockText('Введите запрос в строку поиска');
+    }
+  }, []);
+
   /* При поиске фильмов */
 
   useEffect(() => {
     handleWindowSize();
-    console.log('filtered');
+    console.log(filteredMovies);
 
     if (filteredMovies.length === 0) {
       setIsListEmpty(true);
@@ -81,16 +93,6 @@ function Movies({ onShowError, onClickSave }) {
   useEffect(() => {
     setSelectedMovies(filteredMovies.slice(slice.start, slice.end));
   }, [slice]);
-
-  /* При первой загрузке страницы */
-  useEffect(() => {
-    console.log('first');
-    if (localStorage.getItem('filtered-movies').length !== 0) {
-      setSelectedMovies(localStorage.getItem('filtered-movies'));
-    } else {
-      setMoviesBlockText('Введите запрос в строку поиска');
-    }
-  }, []);
 
   // Запрос к API
   /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
