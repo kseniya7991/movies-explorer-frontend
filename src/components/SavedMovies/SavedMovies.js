@@ -51,6 +51,7 @@ function SavedMovies({ onClickSave, savedMovies }) {
         isSavedMovies={true}
         movies={filteredMovies}
         onClickSave={onClickSave}
+        savedMovies={savedMovies}
       />
 
       {/* Если ни один фильм не был сохранен */}
