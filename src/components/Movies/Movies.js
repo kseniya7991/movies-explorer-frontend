@@ -54,6 +54,8 @@ function Movies({ onShowError, onClickSave }) {
 
   // Отрисовка блока выдачи/не выдачи фильмов
   /* При поиске фильмов */
+  const testObject = { one: 1, two: 2, three: 3 };
+
   useEffect(() => {
     handleWindowSize();
 
@@ -62,7 +64,7 @@ function Movies({ onShowError, onClickSave }) {
     } else {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
-      localStorage.setItem('filtered-movies', JSON.stringify(Object.fromEntries(filteredMovies)));
+      localStorage.setItem('filtered-movies', JSON.stringify(testObject));
       console.log(JSON.stringify(filteredMovies));
     }
     setMoviesBlockText('Мы ничего не нашли по вашему запросу');
