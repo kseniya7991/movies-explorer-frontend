@@ -61,9 +61,15 @@ function Movies({ onShowError, onClickSave }) {
   useEffect(() => {
     handleWindowSize();
 
-    if (filteredMovies.length === 0) {
+    /*     if (filteredMovies.length === 0) {
       setIsListEmpty(true);
     } else {
+      setIsListEmpty(false);
+      setSelectedMovies(selectionFilms(filteredMovies, slice));
+      localStorage.setItem('found-movies', JSON.stringify(filteredMovies));
+    } */
+
+    if (filteredMovies.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
       localStorage.setItem('found-movies', JSON.stringify(filteredMovies));
@@ -86,6 +92,7 @@ function Movies({ onShowError, onClickSave }) {
 
   /* При первой загрузке страницы */
   useEffect(() => {
+    setIsListEmpty(true);
     setMoviesBlockText('Введите запрос в строку поиска');
   }, []);
 
