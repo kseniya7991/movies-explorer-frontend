@@ -84,6 +84,10 @@ function Movies({ onShowError, onClickSave }) {
     setMoviesBlockText('Введите запрос в строку поиска');
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('filtered-movies', selectedMovies);
+  }, [selectedMovies]);
+
   // Запрос к API
   /* Функция поиска фильмов: получение фильмов из API и фильтрация по условиям */
   const getAllMovies = (keys, checkbox) => api
