@@ -7,6 +7,7 @@ function MoviesCardList({
   isEmpty, isSavedMovies, movies, onClickSave,
 }) {
   console.log(isEmpty);
+  console.log('фильмы для отрисовки', movies);
   if (isEmpty) {
     return null;
   }
