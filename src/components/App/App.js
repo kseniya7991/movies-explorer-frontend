@@ -55,15 +55,10 @@ function App() {
   }
 
   /* Получаем данные пользователя: информация пользователя и его сохраненные фильмы */
-  async function getData() {
-    await Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
+  function getData() {
+    Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
-        console.log(
-          moviesData.movies
-            .reverse()
-            .filter((movie) => movie.owner === userData.user._id),
-        );
         setSavedMovies(
           moviesData.movies
             .reverse()
@@ -74,11 +69,11 @@ function App() {
   }
 
   /* Проверка токена при загрузке страницы */
-  function tokenCheck() {
+  async function tokenCheck() {
     console.log('fesf');
     const token = localStorage.getItem('token');
     if (token) {
-      mainApi
+      await mainApi
         .getContent(token)
         .then((res) => {
           if (res.message) {
