@@ -53,23 +53,6 @@ function Movies({ onShowError, onClickSave }) {
   };
 
   // Отрисовка блока выдачи/не выдачи фильмов
-
-  /* При первой загрузке страницы */
-  useEffect(() => {
-    console.log('first');
-    const filtered = localStorage.getItem('filtered-movies');
-    console.log(filtered);
-    if (filtered && filtered.length !== 0) {
-      console.log('set selected');
-      setSelectedMovies(localStorage.getItem('filtered-movies'));
-    }
-    setIsListEmpty(true);
-    console.log('empty');
-    setMoviesBlockText('Введите запрос в строку поиска');
-  }, []);
-
-  /* При поиске фильмов */
-
   useEffect(() => {
     handleWindowSize();
     localStorage.setItem('filtered-movies', JSON.stringify(filteredMovies));
@@ -87,6 +70,24 @@ function Movies({ onShowError, onClickSave }) {
       setMoviesBlockText('Мы ничего не нашли по вашему запросу');
     }
   }, [filteredMovies]);
+
+  /* При первой загрузке страницы */
+  useEffect(() => {
+    console.log('first');
+    const filtered = localStorage.getItem('filtered-movies');
+    console.log(filtered);
+    if (filtered && filtered.length !== 0) {
+      console.log('set selected');
+      setSelectedMovies(localStorage.getItem('filtered-movies'));
+    }
+    setIsListEmpty(true);
+    console.log('empty');
+    setMoviesBlockText('Введите запрос в строку поиска');
+  }, []);
+
+  console.log(isListEmpty);
+
+  /* При поиске фильмов */
 
   useEffect(() => {
     if (selectedMovies.length === filteredMovies.length) {
