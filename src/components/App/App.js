@@ -56,6 +56,7 @@ function App() {
 
   /* Получаем данные пользователя: информация пользователя и его сохраненные фильмы */
   function getData() {
+    setIsLoading(true);
     Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
         setCurrentUser(userData.user);
@@ -64,8 +65,12 @@ function App() {
             .reverse()
             .filter((movie) => movie.owner === userData.user._id),
         );
+        setIsLoading(false);
       })
-      .catch((err) => handleErrors(err.status));
+      .catch((err) => {
+        handleErrors(err.status);
+        setIsLoading(false);
+      });
   }
 
   /* Проверка токена при загрузке страницы */
