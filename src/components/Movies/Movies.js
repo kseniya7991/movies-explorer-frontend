@@ -11,6 +11,7 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError, onClickSave }) {
+  const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
   const [allMovies, setAllMovies] = useState([]);
 
   /* Отфильтрованные по ключ. словам фильмы */
@@ -86,12 +87,13 @@ function Movies({ onShowError, onClickSave }) {
   useEffect(() => {
     if (filteredMovies.length !== 0) {
       setSelectedMovies(filteredMovies.slice(slice.start, slice.end));
+    } else if (foundMovies.length !== 0) {
+      setSelectedMovies(foundMovies.slice(slice.start, slice.end));
     }
   }, [slice]);
 
   /* При первой загрузке страницы */
   useEffect(() => {
-    const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
     if (foundMovies && foundMovies.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(foundMovies, slice));
