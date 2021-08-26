@@ -54,7 +54,6 @@ function Movies({ onShowError, onClickSave }) {
 
   // Отрисовка блока выдачи/не выдачи фильмов
   /* При поиске фильмов */
-  const testObject = { one: 1, two: 2, three: 3 };
 
   useEffect(() => {
     handleWindowSize();
