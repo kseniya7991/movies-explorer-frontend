@@ -130,7 +130,7 @@ function Movies({ onShowError, onClickSave }) {
     return null;
   };
 
-  console.log('передаваемый селектед', selectedMovies);
+  console.log(filteredMovies);
 
   return (
     <>
