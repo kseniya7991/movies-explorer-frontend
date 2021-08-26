@@ -57,6 +57,7 @@ function Movies({ onShowError, onClickSave }) {
 
   useEffect(() => {
     handleWindowSize();
+    console.log('filtered');
 
     if (filteredMovies.length === 0) {
       setIsListEmpty(true);
@@ -83,6 +84,7 @@ function Movies({ onShowError, onClickSave }) {
 
   /* При первой загрузке страницы */
   useEffect(() => {
+    console.log('first');
     if (localStorage.getItem('filtered-movies').length !== 0) {
       setSelectedMovies(localStorage.getItem('filtered-movies'));
     } else {
