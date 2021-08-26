@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 /* import SavedMoviesContext from '../../contexts/SavedMoviesContext'; */
 
 import './MoviesCard.css';
