@@ -57,7 +57,8 @@ function Movies({ onShowError, onClickSave }) {
   /* При первой загрузке страницы */
   useEffect(() => {
     console.log('first');
-    if (localStorage.getItem('filtered-movies').length !== 0) {
+    const filtered = localStorage.getItem('filtered-movies');
+    if (filtered && filtered.length !== 0) {
       console.log('set selected');
       setSelectedMovies(localStorage.getItem('filtered-movies'));
     } else {
