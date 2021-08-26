@@ -62,8 +62,10 @@ function Movies({ onShowError, onClickSave }) {
     if (filtered && filtered.length !== 0) {
       console.log('set selected');
       setSelectedMovies(localStorage.getItem('filtered-movies'));
+    } else {
+      console.log('first end');
+      setMoviesBlockText('Введите запрос в строку поиска');
     }
-    setMoviesBlockText('Введите запрос в строку поиска');
   }, []);
 
   /* При поиске фильмов */
