@@ -6,7 +6,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 function MoviesCardList({
   isEmpty, isSavedMovies, movies, onClickSave,
 }) {
-  console.log(movies);
+  console.log(isEmpty);
   if (isEmpty) {
     return null;
   }

@@ -13,9 +13,11 @@ import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 function Movies({ onShowError, onClickSave }) {
   const [allMovies, setAllMovies] = useState([]);
 
+  const foundMovies = JSON.parce(localStorage.getItem('found-movies'));
+
   /* Отфильтрованные по ключ. словам фильмы */
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [selectedMovies, setSelectedMovies] = useState([]);
+  const [selectedMovies, setSelectedMovies] = useState(foundMovies || []);
 
   /* Проверка наличия фильмов в выдаче */
   const [isListEmpty, setIsListEmpty] = useState(false);
@@ -66,6 +68,7 @@ function Movies({ onShowError, onClickSave }) {
     } else {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
+      localStorage.setItem('found-movies', JSON.stringify(filteredMovies));
     }
     setMoviesBlockText('Мы ничего не нашли по вашему запросу');
   }, [filteredMovies]);
