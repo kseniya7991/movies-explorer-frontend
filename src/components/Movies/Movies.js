@@ -95,6 +95,20 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
     }
   }, [slice]);
 
+  /* При первой загрузке страницы */
+  useEffect(() => {
+    handleWindowSize();
+    if (dataForSearch && Object.keys(dataForSearch).length !== 0) {
+      const { keys, checkbox } = dataForSearch;
+      setIsListEmpty(false);
+      handleSearchMovies(keys, checkbox);
+    } else {
+      console.log('первый');
+      setIsListEmpty(true);
+      setMoviesBlockText('Введите запрос в строку поиска');
+    }
+  }, []);
+
   /* При поиске фильмов */
   useEffect(() => {
     handleWindowSize();
@@ -104,6 +118,7 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
       setSelectedMovies(selectionFilms(filteredMovies, slice));
       localStorage.setItem('found-movies', JSON.stringify(filteredMovies));
     } else {
+      console.log('второй');
       setIsListEmpty(true);
       setMoviesBlockText('Мы ничего не нашли по вашему запросу');
     }
@@ -116,18 +131,6 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
       setIsEnabledBtn(true);
     }
   }, [selectedMovies]);
-
-  /* При первой загрузке страницы */
-  useEffect(() => {
-    if (dataForSearch && Object.keys(dataForSearch).length !== 0) {
-      const { keys, checkbox } = dataForSearch;
-      setIsListEmpty(false);
-      handleSearchMovies(keys, checkbox);
-    } else {
-      setIsListEmpty(true);
-      setMoviesBlockText('Введите запрос в строку поиска');
-    }
-  }, []);
 
   return (
     <>
