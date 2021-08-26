@@ -58,6 +58,7 @@ function Movies({ onShowError, onClickSave }) {
   useEffect(() => {
     console.log('first');
     const filtered = localStorage.getItem('filtered-movies');
+    console.log(filtered, filtered.length);
     if (filtered && filtered.length !== 0) {
       console.log('set selected');
       setSelectedMovies(localStorage.getItem('filtered-movies'));
