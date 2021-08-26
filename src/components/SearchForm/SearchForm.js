@@ -7,10 +7,9 @@ import './SearchForm.css';
 
 import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
-function SearchForm({ handleSearch, isRequired }) {
+function SearchForm({ handleSearch, isRequired, isCardsDisplaying }) {
   /* Хук чекбокса "короткометражка" */
   const [checked, setChecked] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const {
     values, handleChange, errors, isValid,
@@ -19,14 +18,13 @@ function SearchForm({ handleSearch, isRequired }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (isValid) {
-      setIsSubmitted(true);
       handleSearch(values.searchField.toLowerCase(), checked);
     }
   }
 
   function handleCheckbox() {
     setChecked(!checked);
-    if (isSubmitted && isValid) {
+    if (isCardsDisplaying && isValid) {
       handleSearch(values.searchField.toLowerCase(), !checked);
     }
   }

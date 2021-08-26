@@ -32,6 +32,9 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
   /* Отображение прелоадера */
   const [isLoading, setIsLoading] = useState(false);
 
+  /* Проверка отображены ли карточки */
+  const [isCardsDisplaying, setIsCardsDisplaying] = useState(false);
+
   /* Определяем количество фильмов для рендеринга в зависимости от ширины экрана */
   const handleWindowSize = () => {
     if (window.innerWidth > 1100) {
@@ -99,9 +102,11 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
     if (filteredMovies.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
+      setIsCardsDisplaying(true);
     } else {
       setIsListEmpty(true);
       setMoviesBlockText('Мы ничего не нашли по вашему запросу');
+      setIsCardsDisplaying(false);
     }
   }, [filteredMovies]);
 
@@ -123,13 +128,18 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
     } else {
       setIsListEmpty(true);
       setMoviesBlockText('Введите запрос в строку поиска');
+      setIsCardsDisplaying(false);
     }
   }, []);
 
   return (
     <>
       <Preloader isLoading={isLoading} />
-      <SearchForm handleSearch={handleSearchMovies} isRequired={true} />
+      <SearchForm
+        handleSearch={handleSearchMovies}
+        isRequired={true}
+        isCardsDisplaying={isCardsDisplaying}
+      />
 
       <MoviesCardList
         isEmpty={isListEmpty}
