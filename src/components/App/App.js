@@ -75,6 +75,7 @@ function App() {
 
   /* Проверка токена при загрузке страницы */
   function tokenCheck() {
+    console.log('fesf');
     const token = localStorage.getItem('token');
     if (token) {
       mainApi
