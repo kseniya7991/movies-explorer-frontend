@@ -69,7 +69,7 @@ function Movies({ onShowError, onClickSave }) {
   useEffect(() => {
     handleWindowSize();
 
-    if (filteredMovies.length !== 0) {
+    /*  if (filteredMovies.length !== 0) {
       console.log('1');
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
@@ -79,7 +79,7 @@ function Movies({ onShowError, onClickSave }) {
       console.log('3');
       setIsListEmpty(true);
       setMoviesBlockText('Мы ничего не нашли по вашему запросу');
-    }
+    } */
   }, [filteredMovies]);
 
   /* При первой загрузке страницы */
