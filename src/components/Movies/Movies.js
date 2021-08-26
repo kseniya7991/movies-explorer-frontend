@@ -150,6 +150,7 @@ function Movies({ onShowError, onClickSave }) {
         isSavedMovies={false}
         movies={selectedMovies}
         onClickSave={onClickSave}
+        savedMovies={savedMovies}
       />
       <MoreMoviesBtn
         isEmpty={isListEmpty}
