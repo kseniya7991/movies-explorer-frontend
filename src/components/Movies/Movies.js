@@ -83,10 +83,11 @@ function Movies({ onShowError, onClickSave }) {
 
   /* При первой загрузке страницы */
   useEffect(() => {
-    if (localStorage.getItem('filtered-movies')) {
+    if (localStorage.getItem('filtered-movies').length !== 0) {
       setSelectedMovies(localStorage.getItem('filtered-movies'));
+    } else {
+      setMoviesBlockText('Введите запрос в строку поиска');
     }
-    setMoviesBlockText('Введите запрос в строку поиска');
   }, []);
 
   // Запрос к API
