@@ -75,11 +75,11 @@ function Movies({ onShowError, onClickSave }) {
   /* При первой загрузке страницы */
   useEffect(() => {
     console.log('first');
-    const filtered = localStorage.getItem('filtered-movies');
+    const filtered = JSON.parselocalStorage.getItem('filtered-movies');
     console.log(JSON.parse(filtered));
     if (filtered && filtered.length !== 0) {
       console.log('set selected');
-      setSelectedMovies(localStorage.getItem('filtered-movies'));
+      setSelectedMovies(selectionFilms(filtered, slice));
     }
     setIsListEmpty(true);
     console.log('empty');
