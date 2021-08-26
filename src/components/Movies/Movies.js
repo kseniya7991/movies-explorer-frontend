@@ -107,7 +107,6 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
     } else {
       setIsListEmpty(true);
       setMoviesBlockText('Мы ничего не нашли по вашему запросу');
-      setIsCardsDisplaying(false);
     }
   }, [filteredMovies]);
 

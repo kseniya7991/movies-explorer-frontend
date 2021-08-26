@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
@@ -8,7 +8,10 @@ import './SearchForm.css';
 import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
 function SearchForm({
-  handleSearch, isRequired, isCardsDisplaying, previousKey,
+  handleSearch,
+  isRequired,
+  isCardsDisplaying,
+  previousKey,
 }) {
   /* Хук чекбокса "короткометражка" */
   const [checked, setChecked] = useState(false);
@@ -24,6 +27,8 @@ function SearchForm({
       handleSearch(values.searchField.toLowerCase(), checked);
     }
   }
+
+  useEffect(() => {});
 
   function handleCheckbox() {
     setChecked(!checked);
@@ -51,9 +56,9 @@ function SearchForm({
           value={inputPrevious || ''}
           disabled={false}
         ></input>
-        {errors.searchField && <span className={'searchForm__text-error'}>
-          {errors.searchField}
-        </span>}
+        {errors.searchField && (
+          <span className={'searchForm__text-error'}>{errors.searchField}</span>
+        )}
 
         <div className="searchForm__find-block">
           <button
@@ -63,7 +68,10 @@ function SearchForm({
           ></button>
         </div>
       </div>
-      <FilterCheckbox onClick={handleCheckbox} isChecked={checked}/>
+      <FilterCheckbox
+        onClick={handleCheckbox}
+        isChecked={checked}
+      />
     </form>
   );
 }
