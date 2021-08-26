@@ -94,7 +94,10 @@ function Movies({ onShowError, onClickSave }) {
 
   /* При нажатии на кнопку "ещё"  */
   useEffect(() => {
-    setSelectedMovies(filteredMovies.slice(slice.start, slice.end));
+    console.log('1');
+    if (filteredMovies.length !== 0) {
+      setSelectedMovies(filteredMovies.slice(slice.start, slice.end));
+    }
   }, [slice]);
 
   // Запрос к API
