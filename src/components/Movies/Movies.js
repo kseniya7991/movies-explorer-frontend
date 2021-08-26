@@ -56,7 +56,7 @@ function Movies({ onShowError, onClickSave }) {
   useEffect(() => {
     handleWindowSize();
 
-    const filtered = localStorage.getItem('filtered-movies');
+    const filtered = JSON.parse(localStorage.getItem('filtered-movies'));
 
     if (filteredMovies.length !== 0) {
       setIsListEmpty(false);
@@ -75,7 +75,7 @@ function Movies({ onShowError, onClickSave }) {
   /* При первой загрузке страницы */
   useEffect(() => {
     console.log('first');
-    const filtered = JSON.parselocalStorage.getItem('filtered-movies');
+    const filtered = JSON.parse(localStorage.getItem('filtered-movies'));
     console.log(JSON.parse(filtered));
     if (filtered && filtered.length !== 0) {
       console.log('set selected');
