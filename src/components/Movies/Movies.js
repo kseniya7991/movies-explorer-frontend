@@ -67,6 +67,7 @@ function Movies({ onShowError, onClickSave }) {
     setMoviesBlockText('Мы ничего не нашли по вашему запросу');
   }, []);
 
+  console.log('test');
   useEffect(() => {
     handleWindowSize();
 
