@@ -11,11 +11,18 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError, onClickSave }) {
+  const getFoundMovies = () => {
+    const foundMovies = JSON.parse(localStorage.getItem('found-movies'));
+    if (foundMovies && foundMovies.length !== 0) {
+      return foundMovies;
+    }
+    return [];
+  };
   const [allMovies, setAllMovies] = useState([]);
 
   /* Отфильтрованные по ключ. словам фильмы */
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [selectedMovies, setSelectedMovies] = useState([]);
+  const [selectedMovies, setSelectedMovies] = useState(getFoundMovies());
 
   /* Проверка наличия фильмов в выдаче */
   const [isListEmpty, setIsListEmpty] = useState(false);
