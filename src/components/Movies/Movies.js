@@ -61,25 +61,28 @@ function Movies({ onShowError, onClickSave }) {
     if (filtered && filtered.length !== 0) {
       console.log('set selected');
       setSelectedMovies(localStorage.getItem('filtered-movies'));
-    } else {
-      setMoviesBlockText('Введите запрос в строку поиска');
     }
+    setMoviesBlockText('Введите запрос в строку поиска');
   }, []);
 
   /* При поиске фильмов */
 
   useEffect(() => {
     handleWindowSize();
-    console.log(filteredMovies);
+    localStorage.setItem('filtered-movies', JSON.stringify(filteredMovies));
 
-    if (filteredMovies.length === 0) {
-      setIsListEmpty(true);
-    } else {
+    const filtered = localStorage.getItem('filtered-movies');
+
+    if (filteredMovies.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filteredMovies, slice));
-      localStorage.setItem('filtered-movies', JSON.stringify(filteredMovies));
+    } else if (filtered && filtered.length !== 0) {
+      setIsListEmpty(false);
+      setSelectedMovies(selectionFilms(filtered, slice));
+    } else {
+      setIsListEmpty(true);
+      setMoviesBlockText('Мы ничего не нашли по вашему запросу');
     }
-    setMoviesBlockText('Мы ничего не нашли по вашему запросу');
   }, [filteredMovies]);
 
   useEffect(() => {
