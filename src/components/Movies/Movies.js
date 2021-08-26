@@ -64,6 +64,7 @@ function Movies({ onShowError, onClickSave }) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(filtered, slice));
     }
+    setMoviesBlockText('Мы ничего не нашли по вашему запросу');
   }, []);
 
   useEffect(() => {
@@ -83,7 +84,7 @@ function Movies({ onShowError, onClickSave }) {
   }, [filteredMovies]);
 
   /* При первой загрузке страницы */
-  useEffect(() => {
+  /*   useEffect(() => {
     console.log('first');
     const filtered = JSON.parse(localStorage.getItem('filtered-movies'));
     if (!filtered || filtered.length === 0) {
@@ -92,7 +93,7 @@ function Movies({ onShowError, onClickSave }) {
       console.log('empty');
       setMoviesBlockText('Введите запрос в строку поиска');
     }
-  }, []);
+  }, []); */
 
   console.log('передаваемый селектед', selectedMovies);
   /* При поиске фильмов */
