@@ -27,8 +27,9 @@ function SearchForm({
 
   function handleCheckbox() {
     setChecked(!checked);
+    console.log(previousKey, isCardsDisplaying, isValid);
     if (previousKey && isCardsDisplaying && isValid) {
-      handleSearch(previousKey, !checked);
+      handleSearch(previousKey.toLowerCase(), !checked);
     }
   }
 
