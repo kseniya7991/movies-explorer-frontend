@@ -16,16 +16,19 @@ function SavedMovies({ onClickSave, savedMovies }) {
   useEffect(() => {
     setFilteredMovies(savedMovies);
 
-    if (savedMovies.length === 0) {
+    /*     if (savedMovies.length === 0) {
       setIsListEmpty(true);
       setIsEmptyText('У вас ещё нет сохраненных фильмов');
     } else {
       setIsListEmpty(false);
-    }
+    } */
   }, [savedMovies]);
 
   useEffect(() => {
-    if (filteredMovies.length === 0) {
+    if (filteredMovies.length === 0 && savedMovies.length === 0) {
+      setIsListEmpty(true);
+      setIsEmptyText('У вас ещё нет сохраненных фильмов');
+    } else if (filteredMovies.length === 0) {
       setIsListEmpty(true);
       setIsEmptyText('Мы ничего не нашли по вашему запросу');
     } else {
