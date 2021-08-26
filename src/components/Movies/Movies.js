@@ -51,6 +51,7 @@ function Movies({ onShowError, onClickSave }) {
 
   /* Добавление карточек фильмов для рендеринга при нажатии на кнопку *Еще* */
   const showMoreMovies = () => {
+    handleWindowSize();
     /*  setSlice({ start: 0, end: slice.end + numberAddedMovies }); */
     if (filteredMovies.length !== 0) {
       setSelectedMovies(filteredMovies.slice(0, slice.end + numberAddedMovies));
@@ -100,6 +101,7 @@ function Movies({ onShowError, onClickSave }) {
 
   /* При первой загрузке страницы */
   useEffect(() => {
+    handleWindowSize();
     if (foundMovies && foundMovies.length !== 0) {
       setIsListEmpty(false);
       setSelectedMovies(selectionFilms(foundMovies, slice));
@@ -136,7 +138,6 @@ function Movies({ onShowError, onClickSave }) {
     return null;
   };
 
-  handleWindowSize();
   console.log('передаваемый селектед', selectedMovies);
 
   return (
