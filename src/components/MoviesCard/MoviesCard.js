@@ -8,6 +8,7 @@ function MoviesCard({
 }) {
   /* const savedMovies = React.useContext(SavedMoviesContext); */
   const url = 'https://api.nomoreparties.co';
+  console.log(savedMovies);
 
   const title = movie.nameRU.toString();
   const duration = movie.duration.toString();
@@ -32,14 +33,13 @@ function MoviesCard({
 
   const [isSaved, setIsSaved] = useState(false);
 
-  useEffect(() => {
-    console.log(savedMovies.some((el) => el.movieId === movie.id));
+  /*   useEffect(() => {
     if (isSavedMovies) {
       setIsSaved(true);
     } else {
       setIsSaved(savedMovies.some((el) => el.movieId === movie.id));
     }
-  }, []);
+  }, []); */
 
   /* Функция сохранения фильма */
   function handleClickOnSave() {
