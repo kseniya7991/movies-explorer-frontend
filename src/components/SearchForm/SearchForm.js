@@ -34,7 +34,7 @@ function SearchForm({
       handleSearch(previousKey, checked);
     } else if (isValid) {
       console.log('3');
-      handleSearch('', checked);
+      handleSearch(keys, checked);
     }
   }
 
@@ -52,6 +52,7 @@ function SearchForm({
   function handleInput(e) {
     setInputPrevious(e.target.value);
     handleChange(e);
+    setKeys(e.target.value);
   }
 
   return (
