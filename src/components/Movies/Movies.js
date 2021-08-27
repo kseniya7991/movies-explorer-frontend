@@ -11,9 +11,9 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError, onClickSave, savedMovies }) {
-  const [previousKey, setPreviousKey] = useState('');
-  /*  const dataForSearch = JSON.parse(localStorage.getItem('data-for-search')); */
-  /*   const previousKey = dataForSearch.keys || ''; */
+  const dataForSearch = JSON.parse(localStorage.getItem('data-for-search'));
+  const { previousKey = '' } = dataForSearch.keys;
+
   const [allMovies, setAllMovies] = useState([]);
 
   /* Отфильтрованные по ключ. словам фильмы */
@@ -68,7 +68,6 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
   const handleSearchMovies = (keys, checkbox) => {
     const data = { keys, checkbox };
     localStorage.setItem('data-for-search', JSON.stringify(data));
-    setPreviousKey(keys);
     setIsLoading(true);
     const arrayMovies = JSON.parse(localStorage.getItem('movies'));
 
@@ -127,11 +126,9 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
 
   /* При первой загрузке страницы */
   useEffect(() => {
-    const searchData = JSON.parse(localStorage.getItem('data-for-search'));
-
     handleWindowSize();
-    if (searchData && Object.keys(searchData).length !== 0) {
-      const { keys, checkbox } = searchData;
+    if (dataForSearch && Object.keys(dataForSearch).length !== 0) {
+      const { keys, checkbox } = dataForSearch;
       setIsListEmpty(false);
       handleSearchMovies(keys, checkbox);
     } else {
