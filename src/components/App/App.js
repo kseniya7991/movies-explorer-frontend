@@ -79,7 +79,7 @@ function App() {
         .getContent(token)
         .then((res) => {
           if (res.message) {
-            history.push('/');
+            history.push('/signin');
             setLoggedIn(false);
           } else {
             getData();
@@ -87,10 +87,12 @@ function App() {
           }
         })
         .catch((err) => {
+          history.push('/signin');
           setLoggedIn(false);
           handleErrors(err.status);
         });
     } else {
+      history.push('/signin');
       setLoggedIn(false);
     }
   }
