@@ -11,8 +11,8 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError, onClickSave, savedMovies }) {
-  const dataForSearch = JSON.parse(localStorage.getItem('data-for-search'));
-  const { previousKey = '' } = dataForSearch.keys;
+  const dataForSearch = JSON.parse(localStorage.getItem('data-for-search')) || {};
+  const previousKey = dataForSearch.keys || '';
 
   const [allMovies, setAllMovies] = useState([]);
 
