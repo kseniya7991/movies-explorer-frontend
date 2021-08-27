@@ -89,6 +89,14 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
     setSlice({ start: 0, end: slice.end + numberAddedMovies });
   };
 
+  // Определение данных прошлого поиска фильмов
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem('data-for-search'))) {
+      setDataForSearch(JSON.parse(localStorage.getItem('data-for-search')));
+      setPreviousKey(dataForSearch.keys);
+    }
+  }, []);
+
   // Отрисовка блока выдачи/не выдачи фильмов
 
   /* При нажатии на кнопку "ещё"  */
@@ -122,12 +130,8 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
 
   /* При первой загрузке страницы */
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem('data-for-search'))) {
-      setDataForSearch(JSON.parse(localStorage.getItem('data-for-search')));
-      setPreviousKey(dataForSearch.keys);
-    }
-
     handleWindowSize();
+    console.log(dataForSearch);
     if (dataForSearch && Object.keys(dataForSearch).length !== 0) {
       const { keys, checkbox } = dataForSearch;
       setIsListEmpty(false);
