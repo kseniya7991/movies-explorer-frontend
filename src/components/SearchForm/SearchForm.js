@@ -36,6 +36,8 @@ function SearchForm({
     setChecked(!checked);
     if (previousKey && isCardsDisplaying) {
       handleSearch(previousKey.toLowerCase(), !checked);
+    } else if (previousKey) {
+      handleSearch(previousKey, !checked);
     } else {
       handleSearch(keys, !checked);
     }
