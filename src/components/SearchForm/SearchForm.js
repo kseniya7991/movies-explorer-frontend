@@ -34,7 +34,7 @@ function SearchForm({
       handleSearch(previousKey, checked);
     } else if (isValid) {
       console.log('3');
-      handleSearch(keys, checked);
+      handleSearch('', checked);
     }
   }
 
