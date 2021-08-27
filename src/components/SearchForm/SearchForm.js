@@ -30,7 +30,7 @@ function SearchForm({
     } else if (previousKey) {
       handleSearch(previousKey, checked);
     } else if (isValid) {
-      handleSearch(values.toLowerCase(), checked);
+      handleSearch(values, checked);
     }
   }
 
