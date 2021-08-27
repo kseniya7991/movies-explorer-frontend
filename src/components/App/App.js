@@ -94,7 +94,7 @@ function App() {
           handleErrors(err.status);
         });
     } else {
-      history.push('/signin');
+      history.push('/');
       setLoggedIn(false);
       setIsLoading(false);
     }
