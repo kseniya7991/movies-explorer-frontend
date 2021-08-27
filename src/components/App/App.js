@@ -79,8 +79,9 @@ function App() {
         .getContent(token)
         .then((res) => {
           if (res.message) {
-            history.push('/signin');
+            <Redirect to='/signin'/>;
             setLoggedIn(false);
+            setIsLoading(false);
           } else {
             getData();
             setLoggedIn(true);
@@ -89,11 +90,13 @@ function App() {
         .catch((err) => {
           history.push('/signin');
           setLoggedIn(false);
+          setIsLoading(false);
           handleErrors(err.status);
         });
     } else {
       history.push('/signin');
       setLoggedIn(false);
+      setIsLoading(false);
     }
   }
 
