@@ -11,7 +11,6 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError, onClickSave, savedMovies }) {
-  const [dataForSearch, setDataForSearch] = useState({});
   const [previousKey, setPreviousKey] = useState('');
   /*  const dataForSearch = JSON.parse(localStorage.getItem('data-for-search')); */
   /*   const previousKey = dataForSearch.keys || ''; */
@@ -92,10 +91,6 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
   // Определение данных прошлого поиска фильмов
   useEffect(() => {
     console.log(JSON.parse(localStorage.getItem('data-for-search')));
-    if (JSON.parse(localStorage.getItem('data-for-search'))) {
-      setDataForSearch(JSON.parse(localStorage.getItem('data-for-search')));
-      setPreviousKey(dataForSearch.keys);
-    }
   }, []);
 
   // Отрисовка блока выдачи/не выдачи фильмов
@@ -131,10 +126,14 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
 
   /* При первой загрузке страницы */
   useEffect(() => {
+    const searchData = JSON.parse(localStorage.getItem('data-for-search'));
+    if (searchData) {
+      setPreviousKey(searchData.keys);
+    }
+
     handleWindowSize();
-    console.log(dataForSearch);
-    if (dataForSearch && Object.keys(dataForSearch).length !== 0) {
-      const { keys, checkbox } = dataForSearch;
+    if (searchData && Object.keys(searchData).length !== 0) {
+      const { keys, checkbox } = searchData;
       setIsListEmpty(false);
       handleSearchMovies(keys, checkbox);
     } else {
