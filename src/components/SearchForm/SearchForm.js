@@ -24,16 +24,12 @@ function SearchForm({
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(values);
     if (values.searchField && isValid) {
-      console.log('1');
       setKeys(values.searchField.toLowerCase());
       handleSearch(values.searchField.toLowerCase(), checked);
     } else if (previousKey) {
-      console.log('2');
       handleSearch(previousKey, checked);
     } else if (isValid) {
-      console.log('3');
       handleSearch(keys, checked);
     }
   }

@@ -88,11 +88,6 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
     setSlice({ start: 0, end: slice.end + numberAddedMovies });
   };
 
-  // Определение данных прошлого поиска фильмов
-  useEffect(() => {
-    console.log(JSON.parse(localStorage.getItem('data-for-search')));
-  }, []);
-
   // Отрисовка блока выдачи/не выдачи фильмов
 
   /* При нажатии на кнопку "ещё"  */
@@ -137,8 +132,6 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
       setIsCardsDisplaying(false);
     }
   }, []);
-
-  console.log(previousKey);
 
   return (
     <>
