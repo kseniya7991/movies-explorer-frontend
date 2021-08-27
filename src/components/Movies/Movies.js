@@ -91,6 +91,7 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
 
   // Определение данных прошлого поиска фильмов
   useEffect(() => {
+    console.log(JSON.parse(localStorage.getItem('data-for-search')));
     if (JSON.parse(localStorage.getItem('data-for-search'))) {
       setDataForSearch(JSON.parse(localStorage.getItem('data-for-search')));
       setPreviousKey(dataForSearch.keys);
