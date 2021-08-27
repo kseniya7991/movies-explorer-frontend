@@ -1,4 +1,4 @@
-import SHORT_FILM from './constants';
+import { SHORT_FILM } from './constants';
 
 const filterMovies = (movies, searchKey, checkbox) => {
   const keys = searchKey.split(',').map((key) => key.trim()).filter((el) => el.trim() !== '');
