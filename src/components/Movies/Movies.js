@@ -10,6 +10,8 @@ import MoreMoviesBtn from '../MoreMoviesBtn/MoreMoviesBtn';
 import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
+import * as constant from '../../utils/constants';
+
 function Movies({ onShowError, onClickSave, savedMovies }) {
   const dataForSearch = JSON.parse(localStorage.getItem('data-for-search')) || {};
   const previousKey = dataForSearch.keys || '';
@@ -40,13 +42,13 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
   /* Определяем количество фильмов для рендеринга в зависимости от ширины экрана */
   const handleWindowSize = () => {
     if (window.innerWidth > 1100) {
-      setSlice({ start: 0, end: 12 });
-      setNumberAddedMovies(3);
+      setSlice(constant.RENDER_MOVIES_1100);
+      setNumberAddedMovies(constant.ADD_MOVIES_DEFAULT);
     } else if (window.innerWidth > 700 && window.innerWidth <= 1100) {
-      setSlice({ start: 0, end: 8 });
-      setNumberAddedMovies(2);
+      setSlice(constant.RENDER_MOVIES_700_1100);
+      setNumberAddedMovies(constant.ADD_MOVIES_700_1100);
     } else if (window.innerWidth <= 700) {
-      setSlice({ start: 0, end: 5 });
+      setSlice(constant.RENDER_MOVIES_700);
     }
   };
 

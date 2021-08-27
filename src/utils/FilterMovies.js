@@ -1,8 +1,10 @@
+import SHORT_FILM from './constants';
+
 const filterMovies = (movies, searchKey, checkbox) => {
   const keys = searchKey.split(',').map((key) => key.trim()).filter((el) => el.trim() !== '');
   const arrMovies = Array.from(movies);
 
-  const filterByDuration = arrMovies.filter((el) => el.duration <= 40);
+  const filterByDuration = arrMovies.filter((el) => el.duration <= SHORT_FILM);
 
   function filterBykey(key) {
     if (checkbox) {
