@@ -31,10 +31,13 @@ function SavedMovies({ onClickSave, savedMovies }) {
 
   function handleSearchMovies(keys, checkbox) {
     if (savedMovies.length !== 0 && keys !== '') {
+      console.log('6');
       setFilteredMovies(filterMovies(savedMovies, keys, checkbox));
     } else if (keys === '' && checkbox === true) {
+      console.log('5');
       setFilteredMovies(filterMovies(savedMovies, keys, checkbox));
     } else if (keys === '') {
+      console.log('4', savedMovies);
       setFilteredMovies(savedMovies);
     }
   }
