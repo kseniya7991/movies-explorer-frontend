@@ -31,7 +31,7 @@ function SavedMovies({ onClickSave, savedMovies }) {
 
   function handleSearchMovies(keys, checkbox) {
     if (savedMovies.length !== 0 && keys !== '') {
-      console.log('6');
+      console.log('6', keys);
       setFilteredMovies(filterMovies(savedMovies, keys, checkbox));
     } else if (keys === '' && checkbox === true) {
       console.log('5');
