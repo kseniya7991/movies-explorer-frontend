@@ -68,6 +68,7 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
   const handleSearchMovies = (keys, checkbox) => {
     const data = { keys, checkbox };
     localStorage.setItem('data-for-search', JSON.stringify(data));
+    setPreviousKey(keys);
     setIsLoading(true);
     const arrayMovies = JSON.parse(localStorage.getItem('movies'));
 
@@ -127,9 +128,6 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
   /* При первой загрузке страницы */
   useEffect(() => {
     const searchData = JSON.parse(localStorage.getItem('data-for-search'));
-    if (searchData) {
-      setPreviousKey(searchData.keys);
-    }
 
     handleWindowSize();
     if (searchData && Object.keys(searchData).length !== 0) {
