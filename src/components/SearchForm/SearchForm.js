@@ -29,6 +29,8 @@ function SearchForm({
       handleSearch(values.searchField.toLowerCase(), checked);
     } else if (previousKey) {
       handleSearch(previousKey, checked);
+    } else if (isValid) {
+      handleSearch(values.toLowerCase(), checked);
     }
   }
 
