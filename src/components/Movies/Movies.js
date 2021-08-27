@@ -143,6 +143,8 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
     }
   }, []);
 
+  console.log(previousKey);
+
   return (
     <>
       <Preloader isLoading={isLoading} />
