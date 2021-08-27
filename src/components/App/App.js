@@ -80,7 +80,7 @@ function App() {
         .then((res) => {
           if (res.message) {
             setLoggedIn(false);
-            <Redirect to='/signin'/>;
+            history.push('/signin');
             setIsLoading(false);
           } else {
             getData();
