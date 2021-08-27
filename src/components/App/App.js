@@ -79,8 +79,8 @@ function App() {
         .getContent(token)
         .then((res) => {
           if (res.message) {
-            <Redirect to='/signin'/>;
             setLoggedIn(false);
+            <Redirect to='/signin'/>;
             setIsLoading(false);
           } else {
             getData();
