@@ -12,7 +12,7 @@ import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 function Movies({ onShowError, onClickSave, savedMovies }) {
   const dataForSearch = JSON.parse(localStorage.getItem('data-for-search'));
-  const previousKey = dataForSearch.keys;
+  const previousKey = dataForSearch.keys || '';
   const [allMovies, setAllMovies] = useState([]);
 
   /* Отфильтрованные по ключ. словам фильмы */
