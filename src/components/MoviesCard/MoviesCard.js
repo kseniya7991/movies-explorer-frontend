@@ -51,27 +51,23 @@ function MoviesCard({
   } ${isSavedMovies ? 'moviesCard__button-save_delete' : ''}`;
 
   return (
-      <li className="moviesCard">
-        <div className="moviesCard__title-wrap">
-          <p className="moviesCard__title">{title}</p>
-          <p className="moviesCard__time">{newTime}</p>
-        </div>
-        <a
-          href={trailer}
-          target="_blank"
-          rel="noreferrer"
-          className="moviesCard__image-link"
-        >
-          <img className="moviesCard__image" src={imageUrl} alt={title}></img>
-        </a>
-        <button
-          className={isSavedBtn}
-          type="button"
-          onClick={handleClickOnSave}
-        >
-          {isSaved ? '' : 'Сохранить'}
-        </button>
-      </li>
+    <li className="moviesCard">
+      <div className="moviesCard__title-wrap">
+        <p className="moviesCard__title">{title}</p>
+        <p className="moviesCard__time">{newTime}</p>
+      </div>
+      <a
+        href={trailer}
+        target="_blank"
+        rel="noreferrer"
+        className="moviesCard__image-link"
+      >
+        <img className="moviesCard__image" src={imageUrl} alt={title}></img>
+      </a>
+      <button className={isSavedBtn} type="button" onClick={handleClickOnSave}>
+        {isSaved ? '' : 'Сохранить'}
+      </button>
+    </li>
   );
 }
 

@@ -7,7 +7,6 @@ function InfoPopup({
   isOpen, onClose, message,
 }) {
   return (
-      <>
     <Popup popupOpened={isOpen} onClose={onClose} >
       <div className="infoPopup">
         <button
@@ -21,7 +20,6 @@ function InfoPopup({
         </p>
       </div>
       </Popup>
-    </>
   );
 }
 
