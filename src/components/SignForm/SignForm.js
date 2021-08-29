@@ -9,6 +9,12 @@ import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 function SignForm({
   name, title, buttonValue, text, linkText, onSubmitForm,
 }) {
+  const sLetters = 'qwertyuiopasdfghjklzxcvbnm'; // Буквы в нижнем регистре
+  const bLetters = 'QWERTYUIOPLKJHGFDSAZXCVBNM'; // Буквы в верхнем регистре
+  const digits = '0123456789'; // Цифры
+  const specials = '!@#$%^&*()_-+=|/.,:;[]{}'; // Спецсимволы
+
+  const [passwordСomplexity, setPasswordСomplexity] = useState(0);
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
   const {
@@ -24,6 +30,25 @@ function SignForm({
     if (isValid) {
       resetForm();
       onSubmitForm(values);
+    }
+  }
+
+  function checkPasswordComplexity(e) {
+    handleChange(e);
+    if (sLetters.indexOf(e.target.value)) {
+      setPasswordСomplexity(passwordСomplexity + 1); // Пароль слабый
+    }
+
+    if (bLetters.indexOf(e.target.value)) {
+      setPasswordСomplexity(passwordСomplexity + 1); // Пароль хороший
+    }
+
+    if (digits.indexOf(e.target.value)) {
+      setPasswordСomplexity(passwordСomplexity + 1); // Пароль сильный
+    }
+
+    if (specials.indexOf(e.target.value)) {
+      setPasswordСomplexity(passwordСomplexity + 1); // Пароль супер сильный
     }
   }
 
@@ -66,6 +91,18 @@ function SignForm({
               {errors.name && (
                 <span className="signForm__text-error">{errors.name}</span>
               )}
+              {passwordСomplexity === 1 && !errors.name(
+                <span className="signForm__text-password password_weak">Пароль слабый</span>,
+              )}
+              {passwordСomplexity === 2 && !errors.name(
+                <span className="signForm__text-password password_good">Пароль хороший</span>,
+              )}
+              {passwordСomplexity === 3 && !errors.name(
+                <span className="signForm__text-password password_strong">Пароль хороший</span>,
+              )}
+              {passwordСomplexity === 4 && !errors.name(
+                <span className="signForm__text-password password_very-strong">Пароль хороший</span>,
+              )}
             </div>
 
             <div className={'signForm__inputs-block'}>
@@ -99,7 +136,7 @@ function SignForm({
                 }`}
                 type={`${isVisiblePassword ? 'text' : 'password'}`}
                 id="password"
-                onChange={handleChange}
+                onChange={checkPasswordComplexity}
                 required
               ></input>
               {errors.password && (
