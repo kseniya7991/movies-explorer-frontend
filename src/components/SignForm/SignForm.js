@@ -67,6 +67,8 @@ function SignForm({
     else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3);
   }
 
+  console.log(passwordComplexity);
+
   return (
     <section className="signForm">
       <form className="signForm__form" onSubmit={handleSubmit}>
