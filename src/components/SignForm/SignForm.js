@@ -91,16 +91,16 @@ function SignForm({
               {errors.name && (
                 <span className="signForm__text-error">{errors.name}</span>
               )}
-              {passwordСomplexity === 1 && !errors.name(
+              {passwordСomplexity === 1 && !errors.name &&(
                 <span className="signForm__text-password password_weak">Пароль слабый</span>,
               )}
-              {passwordСomplexity === 2 && !errors.name(
+              {passwordСomplexity === 2 && !errors.name &&(
                 <span className="signForm__text-password password_good">Пароль хороший</span>,
               )}
-              {passwordСomplexity === 3 && !errors.name(
+              {passwordСomplexity === 3 && !errors.name &&(
                 <span className="signForm__text-password password_strong">Пароль хороший</span>,
               )}
-              {passwordСomplexity === 4 && !errors.name(
+              {passwordСomplexity === 4 && !errors.name &&(
                 <span className="signForm__text-password password_very-strong">Пароль хороший</span>,
               )}
             </div>
