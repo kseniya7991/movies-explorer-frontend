@@ -40,19 +40,19 @@ function SignForm({
   function checkPasswordComplexity(e) {
     handleChange(e);
     if (sLetters.indexOf(e.target.value)) {
-      setPasswordСomplexity(passwordСomplexity + 1); // Пароль слабый
+      setPasswordСomplexity(1); // Пароль слабый
     }
 
     if (bLetters.indexOf(e.target.value)) {
-      setPasswordСomplexity(passwordСomplexity + 1); // Пароль хороший
+      setPasswordСomplexity(2); // Пароль хороший
     }
 
     if (digits.indexOf(e.target.value)) {
-      setPasswordСomplexity(passwordСomplexity + 1); // Пароль сильный
+      setPasswordСomplexity(3); // Пароль сильный
     }
 
     if (specials.indexOf(e.target.value)) {
-      setPasswordСomplexity(passwordСomplexity + 1); // Пароль супер сильный
+      setPasswordСomplexity(4); // Пароль супер сильный
     }
   }
 
@@ -95,7 +95,27 @@ function SignForm({
               {errors.name && (
                 <span className="signForm__text-error">{errors.name}</span>
               )}
-              <span
+            </div>
+
+            <div className={'signForm__inputs-block'}>
+              <label htmlFor="email" className="signForm__label">
+                E-mail
+              </label>
+              <input
+                name="email"
+                className={`signForm__input-text ${
+                  errors.email ? 'signForm__input-text_error' : ''
+                }`}
+                type="email"
+                id="email"
+                placeholder="vital90@mail.ru"
+                onChange={handleChange}
+                required
+              ></input>
+              {errors.email && (
+                <span className="signForm__text-error">{errors.email}</span>
+              )}
+                            <span
                 className={`signForm__text-password ${
                   passwordСomplexity === 1 && !errors.name
                     ? 'password_weak'
@@ -131,26 +151,6 @@ function SignForm({
               >
                 Пароль супер отличный
               </span>
-            </div>
-
-            <div className={'signForm__inputs-block'}>
-              <label htmlFor="email" className="signForm__label">
-                E-mail
-              </label>
-              <input
-                name="email"
-                className={`signForm__input-text ${
-                  errors.email ? 'signForm__input-text_error' : ''
-                }`}
-                type="email"
-                id="email"
-                placeholder="vital90@mail.ru"
-                onChange={handleChange}
-                required
-              ></input>
-              {errors.email && (
-                <span className="signForm__text-error">{errors.email}</span>
-              )}
             </div>
 
             <div className={'signForm__inputs-block'}>
