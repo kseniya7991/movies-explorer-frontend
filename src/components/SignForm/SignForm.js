@@ -65,9 +65,9 @@ function SignForm({
     else if (password.length >= 6 && passwordRate === 1) setPasswordComplexity(1);
     else if (password.length >= 6 && passwordRate > 1 && passwordRate < 4) setPasswordComplexity(2);
     else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3);
-  }
 
-  console.log(passwordComplexity);
+    console.log(passwordComplexity);
+  }
 
   return (
     <section className="signForm">
