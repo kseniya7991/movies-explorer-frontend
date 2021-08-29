@@ -128,22 +128,27 @@
   font-weight: normal;
   font-size: 10px;
   line-height: 12px;
+  display: none;
 }
 
 .password_weak {
   color: #f1d21f;
+  display: block;
 }
 
 .password_good {
   color: #caf11f;
+  display: block;
 }
 
 .password_strong {
   color: #85f11f;
+  display: block;
 }
 
 .password_very-strong {
   color: #2be080;
+  display: block;
 }
 
 .signForm_disabled {

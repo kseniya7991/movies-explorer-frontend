@@ -18,7 +18,11 @@ function SignForm({
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
   const {
-    values, handleChange, errors, isValid, resetForm,
+    values,
+    handleChange,
+    errors,
+    isValid,
+    resetForm,
   } = useFormWithValidation();
 
   function onShowPassword() {
@@ -91,18 +95,42 @@ function SignForm({
               {errors.name && (
                 <span className="signForm__text-error">{errors.name}</span>
               )}
-              {passwordСomplexity === 1 && !errors.name &&(
-                <span className="signForm__text-password password_weak">Пароль слабый</span>,
-              )}
-              {passwordСomplexity === 2 && !errors.name &&(
-                <span className="signForm__text-password password_good">Пароль хороший</span>,
-              )}
-              {passwordСomplexity === 3 && !errors.name &&(
-                <span className="signForm__text-password password_strong">Пароль хороший</span>,
-              )}
-              {passwordСomplexity === 4 && !errors.name &&(
-                <span className="signForm__text-password password_very-strong">Пароль хороший</span>,
-              )}
+              <span
+                className={`signForm__text-password ${
+                  passwordСomplexity === 1 && !errors.name
+                    ? 'password_weak'
+                    : ''
+                }`}
+              >
+                Пароль слабый
+              </span>
+              <span
+                className={`signForm__text-password ${
+                  passwordСomplexity === 2 && !errors.name
+                    ? 'password_good'
+                    : ''
+                }`}
+              >
+                Пароль хороший
+              </span>
+              <span
+                className={`signForm__text-password ${
+                  passwordСomplexity === 3 && !errors.name
+                    ? 'password_strong'
+                    : ''
+                }`}
+              >
+                Пароль отличный
+              </span>
+              <span
+                className={`signForm__text-password ${
+                  passwordСomplexity === 4 && !errors.name
+                    ? 'password_very-strong'
+                    : ''
+                }`}
+              >
+                Пароль супер отличный
+              </span>
             </div>
 
             <div className={'signForm__inputs-block'}>
