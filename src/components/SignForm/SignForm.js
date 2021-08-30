@@ -9,7 +9,7 @@ import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 function SignForm({
   name, title, buttonValue, text, linkText, onSubmitForm,
 }) {
-/*   const sLetters = [
+  /*   const sLetters = [
     'q',
     'w',
     'e',
@@ -106,8 +106,8 @@ function SignForm({
   const [isDigitsIncl, setIsDigitsIncl] = useState(false);
   const [isSpecialsIncl, setIsSpecialsIncl] = useState(false); */
 
-  /*   const [passwordRate, setPasswordRate] = useState(0);
-  const [passwordComplexity, setPasswordComplexity] = useState(0); */
+  const [passwordStrength, setPasswordStrength] = useState(0);
+  /* const [passwordComplexity, setPasswordComplexity] = useState(0); */
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
   const {
@@ -134,12 +134,13 @@ function SignForm({
     handleChange(e);
     const password = e.target.value;
 
-    const reg = '/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/';
-    const test = reg.test(password);
-    if (test) {
-      console.log('pass');
+    const reg = /(?=.*[0-9])(?=.*[!@#$%^&*])((?=.*[a-z])|(?=.*[а-я]))((?=.*[A-Z])|(?=.*[А-Я]))/g;
+    if (reg.test(password) && password.length >= 8) {
+      setPasswordStrength(3);
+    } else if (reg.test(password) || password.length >= 8) {
+      setPasswordStrength(2);
     } else {
-      console.log('fail');
+      setPasswordStrength(1);
     }
   }
 
@@ -221,33 +222,39 @@ function SignForm({
               {errors.password && (
                 <span className="signForm__text-error">{errors.password}</span>
               )}
-{/*               <span
+              <span
                 className={`signForm__text-password ${
-                  passwordComplexity === 1 && !errors.password
+                  passwordStrength === 1 && !errors.password
                     ? 'password_weak'
                     : ''
                 }`}
               >
-                Пароль слабый
+                Пароль слабый. Рекомендация: длина пароля от 8-ми символов,
+                пароль должен содержать хотя бы одну цифру, одну букву в нижнем
+                регистре, одну букву в верхнем регистре, один специальный
+                символ.
               </span>
               <span
                 className={`signForm__text-password ${
-                  passwordComplexity === 2 && !errors.password
+                  passwordStrength === 2 && !errors.password
                     ? 'password_middle'
                     : ''
                 }`}
               >
-                Пароль средний
+                Пароль средний. Рекомендация: длина пароля от 8-ми символов,
+                пароль должен содержать хотя бы одну цифру, одну букву в нижнем
+                регистре, одну букву в верхнем регистре, один специальный
+                символ.
               </span>
               <span
                 className={`signForm__text-password ${
-                  passwordComplexity === 3 && !errors.password
+                  passwordStrength === 3 && !errors.password
                     ? 'password_strong'
                     : ''
                 }`}
               >
-                Пароль сильный
-              </span> */}
+                Проверка сложности пароля пройдена!
+              </span>
               <button
                 className={`signForm__password_unvisible ${
                   isVisiblePassword ? 'signForm__password_visible' : ''
