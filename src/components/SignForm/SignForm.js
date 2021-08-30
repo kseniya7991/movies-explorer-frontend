@@ -9,20 +9,105 @@ import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 function SignForm({
   name, title, buttonValue, text, linkText, onSubmitForm,
 }) {
-  const sLetters = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm']; // Буквы в нижнем регистре
-  const [isSLettersIncl, setIsSLettersIncl] = useState(false);
-
+  const sLetters = [
+    'q',
+    'w',
+    'e',
+    'r',
+    't',
+    'y',
+    'u',
+    'i',
+    'o',
+    'p',
+    'a',
+    's',
+    'd',
+    'f',
+    'g',
+    'h',
+    'j',
+    'k',
+    'l',
+    'z',
+    'x',
+    'c',
+    'v',
+    'b',
+    'n',
+    'm',
+  ]; // Буквы в нижнем регистре
+  /* const [isSLettersIncl, setIsSLettersIncl] = useState(false); */
+  const bLetters = [
+    'Q',
+    'W',
+    'E',
+    'R',
+    'T',
+    'Y',
+    'U',
+    'I',
+    'O',
+    'P',
+    'L',
+    'K',
+    'J',
+    'H',
+    'G',
+    'F',
+    'D',
+    'S',
+    'A',
+    'Z',
+    'X',
+    'C',
+    'V',
+    'B',
+    'N',
+    'M',
+  ]; // Буквы в верхнем регистре
+  /* const [isBLettersIncl, setIsBLettersIncl] = useState(false); */
+  const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']; // Цифры
+  /* const [isDigitsIncl, setIsDigitsIncl] = useState(false); */
+  const specials = [
+    '!',
+    '@',
+    '#',
+    '$',
+    '%',
+    '^',
+    '&',
+    '*',
+    '(',
+    ')',
+    '_',
+    '-',
+    '+',
+    "'",
+    '=',
+    '|',
+    '/',
+    '.',
+    ',',
+    ':',
+    ';',
+    '[',
+    ']',
+    '{',
+    '}',
+  ]; // Спецсимволы
+  /*  const [isSpecialsIncl, setIsSpecialsIncl] = useState(false); */
   /*
   const bLetters = 'QWERTYUIOPLKJHGFDSAZXCVBNM'; // Буквы в верхнем регистре
-  const digits = '0123456789'; // Цифры
+
   const specials = '!@#$%^&*()_-+=|/.,:;[]{}'; // Спецсимволы
 
   const [isBLettersIncl, setIsBLettersIncl] = useState(false);
   const [isDigitsIncl, setIsDigitsIncl] = useState(false);
-  const [isSpecialsIncl, setIsSpecialsIncl] = useState(false);
+  const [isSpecialsIncl, setIsSpecialsIncl] = useState(false); */
 
   const [passwordRate, setPasswordRate] = useState(0);
-  const [passwordComplexity, setPasswordComplexity] = useState(0); */
+  const [passwordComplexity, setPasswordComplexity] = useState(0);
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
   const {
@@ -45,32 +130,36 @@ function SignForm({
     }
   }
 
-  function checkPasswordComplexity(e) {
-    handleChange(e);
-
-    if (e.target.value === 'abc') console.log('все ок');
-    if (sLetters.some((el) => e.target.value.includes(el))) setIsSLettersIncl(true);
-    /* for (let i = 0; i < password.length; i + 1) {
-      if (sLetters.indexOf(password[i])) setIsSLettersIncl(true);
-      if (bLetters.indexOf(password[i])) setIsBLettersIncl(true);
-      if (digits.indexOf(password[i])) setIsDigitsIncl(true);
-      if (specials.indexOf(password[i])) setIsSpecialsIncl(true);
-    }
-
-    if (isSLettersIncl)setPasswordRate(passwordRate + 1); // Пароль супер сильный
-    if (isBLettersIncl)setPasswordRate(passwordRate + 1); // Пароль супер сильный
-    if (isDigitsIncl) setPasswordRate(passwordRate + 1); // Пароль супер сильный
-    if (isSpecialsIncl) setPasswordRate(passwordRate + 1); // Пароль супер сильный
-
+  function determineComplexity(password) {
     if (password.length < 6 && passwordRate < 3) setPasswordComplexity(1);
     else if (password.length < 6 && passwordRate >= 3) setPasswordComplexity(1);
     else if (password.length >= 8 && passwordRate < 3) setPasswordComplexity(2);
     else if (password.length >= 8 && passwordRate >= 3) setPasswordComplexity(3);
     else if (password.length >= 6 && passwordRate === 1) setPasswordComplexity(1);
     else if (password.length >= 6 && passwordRate > 1 && passwordRate < 4) setPasswordComplexity(2);
-    else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3); */
+    else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3);
   }
-  console.log(isSLettersIncl);
+
+  function checkPasswordComplexity(e) {
+    handleChange(e);
+    const password = e.target.value;
+
+    if (sLetters.some((el) => password.includes(el))) {
+      setPasswordRate(passwordRate + 1); // Пароль супер сильный
+    }
+    if (bLetters.some((el) => password.includes(el))) {
+      setPasswordRate(passwordRate + 1); // Пароль супер сильный
+    }
+    if (digits.some((el) => password.includes(el))) {
+      setPasswordRate(passwordRate + 1); // Пароль супер сильный
+    }
+    if (specials.some((el) => password.includes(el))) {
+      setPasswordRate(passwordRate + 1);
+      // Пароль супер сильный
+    }
+
+    determineComplexity(password);
+  }
 
   return (
     <section className="signForm">
@@ -150,7 +239,7 @@ function SignForm({
               {errors.password && (
                 <span className="signForm__text-error">{errors.password}</span>
               )}
-             {/*  <span
+              <span
                 className={`signForm__text-password ${
                   passwordComplexity === 1 && !errors.password
                     ? 'password_weak'
@@ -176,7 +265,7 @@ function SignForm({
                 }`}
               >
                 Пароль сильный
-              </span> */}
+              </span>
               <button
                 className={`signForm__password_unvisible ${
                   isVisiblePassword ? 'signForm__password_visible' : ''
