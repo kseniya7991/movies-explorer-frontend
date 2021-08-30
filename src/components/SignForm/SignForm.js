@@ -43,7 +43,7 @@ function SignForm({
     }
   }
 
-  /* function checkPasswordComplexity(e) {
+  function checkPasswordComplexity(e) {
     handleChange(e);
     const password = e.target.value;
     /* for (let i = 0; i < password.length; i + 1) {
@@ -64,10 +64,10 @@ function SignForm({
     else if (password.length >= 8 && passwordRate >= 3) setPasswordComplexity(3);
     else if (password.length >= 6 && passwordRate === 1) setPasswordComplexity(1);
     else if (password.length >= 6 && passwordRate > 1 && passwordRate < 4) setPasswordComplexity(2);
-    else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3);
+    else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3); */
 
     console.log(password);
-  } */
+  }
 
   return (
     <section className="signForm">
@@ -141,7 +141,7 @@ function SignForm({
                 }`}
                 type={`${isVisiblePassword ? 'text' : 'password'}`}
                 id="password"
-                onChange={handleChange}
+                onChange={checkPasswordComplexity}
                 required
               ></input>
               {errors.password && (
