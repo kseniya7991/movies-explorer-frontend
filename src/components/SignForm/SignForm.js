@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './SignForm.css';
@@ -9,7 +9,7 @@ import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 function SignForm({
   name, title, buttonValue, text, linkText, onSubmitForm,
 }) {
-  const sLetters = [
+/*   const sLetters = [
     'q',
     'w',
     'e',
@@ -36,8 +36,8 @@ function SignForm({
     'b',
     'n',
     'm',
-  ]; // Буквы в нижнем регистре
-  const [isSLettersIncl, setIsSLettersIncl] = useState(false);
+  ]; // Буквы в нижнем регистре */
+  /*   const [isSLettersIncl, setIsSLettersIncl] = useState(false);
   const bLetters = [
     'Q',
     'W',
@@ -65,8 +65,8 @@ function SignForm({
     'B',
     'N',
     'M',
-  ]; // Буквы в верхнем регистре
-  const [isBLettersIncl, setIsBLettersIncl] = useState(false);
+  ]; // Буквы в верхнем регистре */
+  /* const [isBLettersIncl, setIsBLettersIncl] = useState(false);
   const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']; // Цифры
   const [isDigitsIncl, setIsDigitsIncl] = useState(false);
   const specials = [
@@ -95,8 +95,8 @@ function SignForm({
     ']',
     '{',
     '}',
-  ]; // Спецсимволы
-  const [isSpecialsIncl, setIsSpecialsIncl] = useState(false);
+  ]; // Спецсимволы */
+  /*   const [isSpecialsIncl, setIsSpecialsIncl] = useState(false); */
   /*
   const bLetters = 'QWERTYUIOPLKJHGFDSAZXCVBNM'; // Буквы в верхнем регистре
 
@@ -106,8 +106,8 @@ function SignForm({
   const [isDigitsIncl, setIsDigitsIncl] = useState(false);
   const [isSpecialsIncl, setIsSpecialsIncl] = useState(false); */
 
-  const [passwordRate, setPasswordRate] = useState(0);
-  const [passwordComplexity, setPasswordComplexity] = useState(0);
+  /*   const [passwordRate, setPasswordRate] = useState(0);
+  const [passwordComplexity, setPasswordComplexity] = useState(0); */
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
   const {
@@ -130,46 +130,17 @@ function SignForm({
     }
   }
 
-  useEffect(() => {
-    console.log(passwordRate);
-  }, [passwordRate]);
-
-  function determineComplexity() {
-    if (isSLettersIncl) setPasswordRate(passwordRate + 1);
-    if (isBLettersIncl) setPasswordRate(passwordRate + 1);
-    if (isDigitsIncl) setPasswordRate(passwordRate + 1);
-    if (isSpecialsIncl) setPasswordRate(passwordRate + 1);
-    setPasswordComplexity(1);
-    /*
-    if (password.length < 6 && passwordRate < 3) setPasswordComplexity(1);
-    else if (password.length < 6 && passwordRate >= 3) setPasswordComplexity(1);
-    else if (password.length >= 8 && passwordRate < 3) setPasswordComplexity(2);
-    else if (password.length >= 8 && passwordRate >= 3) setPasswordComplexity(3);
-    else if (password.length >= 6 && passwordRate === 1) setPasswordComplexity(1);
-    else if (password.length >= 6 && passwordRate > 1 && passwordRate < 4) setPasswordComplexity(2);
-    else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3); */
-  }
-
   function checkPasswordComplexity(e) {
     handleChange(e);
     const password = e.target.value;
 
-    if (sLetters.some((el) => password.includes(el))) {
-      setIsSLettersIncl(true);
-      setPasswordRate(passwordRate + 1); // Пароль супер сильный
+    const reg = '/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/';
+    const test = reg.test(password);
+    if (test) {
+      console.log('pass');
+    } else {
+      console.log('fail');
     }
-    if (bLetters.some((el) => password.includes(el))) {
-      setIsBLettersIncl(true);
-    }
-    if (digits.some((el) => password.includes(el))) {
-      setIsDigitsIncl(true);
-    }
-    if (specials.some((el) => password.includes(el))) {
-      setIsSpecialsIncl(true);
-      // Пароль супер сильный
-    }
-
-    determineComplexity(password);
   }
 
   return (
@@ -250,7 +221,7 @@ function SignForm({
               {errors.password && (
                 <span className="signForm__text-error">{errors.password}</span>
               )}
-              <span
+{/*               <span
                 className={`signForm__text-password ${
                   passwordComplexity === 1 && !errors.password
                     ? 'password_weak'
@@ -276,7 +247,7 @@ function SignForm({
                 }`}
               >
                 Пароль сильный
-              </span>
+              </span> */}
               <button
                 className={`signForm__password_unvisible ${
                   isVisiblePassword ? 'signForm__password_visible' : ''
