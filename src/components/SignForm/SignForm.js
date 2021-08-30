@@ -69,7 +69,7 @@ function SignForm({
     else if (password.length >= 6 && passwordRate > 1 && passwordRate < 4) setPasswordComplexity(2);
     else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3); */
 
-    console.log(isSLettersIncl);
+    console.log(e.target.value, values, isSLettersIncl);
   }
 
   return (
