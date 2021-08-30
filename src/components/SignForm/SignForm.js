@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './SignForm.css';
@@ -37,7 +37,7 @@ function SignForm({
     'n',
     'm',
   ]; // Буквы в нижнем регистре
-  /* const [isSLettersIncl, setIsSLettersIncl] = useState(false); */
+  const [isSLettersIncl, setIsSLettersIncl] = useState(false);
   const bLetters = [
     'Q',
     'W',
@@ -66,9 +66,9 @@ function SignForm({
     'N',
     'M',
   ]; // Буквы в верхнем регистре
-  /* const [isBLettersIncl, setIsBLettersIncl] = useState(false); */
+  const [isBLettersIncl, setIsBLettersIncl] = useState(false);
   const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']; // Цифры
-  /* const [isDigitsIncl, setIsDigitsIncl] = useState(false); */
+  const [isDigitsIncl, setIsDigitsIncl] = useState(false);
   const specials = [
     '!',
     '@',
@@ -96,7 +96,7 @@ function SignForm({
     '{',
     '}',
   ]; // Спецсимволы
-  /*  const [isSpecialsIncl, setIsSpecialsIncl] = useState(false); */
+  const [isSpecialsIncl, setIsSpecialsIncl] = useState(false);
   /*
   const bLetters = 'QWERTYUIOPLKJHGFDSAZXCVBNM'; // Буквы в верхнем регистре
 
@@ -130,16 +130,24 @@ function SignForm({
     }
   }
 
-  function determineComplexity(password) {
+  useEffect(() => {
+    console.log(passwordRate);
+  }, [passwordRate]);
+
+  function determineComplexity() {
+    if (isSLettersIncl) setPasswordRate(passwordRate + 1);
+    if (isBLettersIncl) setPasswordRate(passwordRate + 1);
+    if (isDigitsIncl) setPasswordRate(passwordRate + 1);
+    if (isSpecialsIncl) setPasswordRate(passwordRate + 1);
+    setPasswordComplexity(1);
+    /*
     if (password.length < 6 && passwordRate < 3) setPasswordComplexity(1);
     else if (password.length < 6 && passwordRate >= 3) setPasswordComplexity(1);
     else if (password.length >= 8 && passwordRate < 3) setPasswordComplexity(2);
     else if (password.length >= 8 && passwordRate >= 3) setPasswordComplexity(3);
     else if (password.length >= 6 && passwordRate === 1) setPasswordComplexity(1);
     else if (password.length >= 6 && passwordRate > 1 && passwordRate < 4) setPasswordComplexity(2);
-    else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3);
-
-    console.log(passwordRate);
+    else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3); */
   }
 
   function checkPasswordComplexity(e) {
@@ -147,16 +155,17 @@ function SignForm({
     const password = e.target.value;
 
     if (sLetters.some((el) => password.includes(el))) {
+      setIsSLettersIncl(true);
       setPasswordRate(passwordRate + 1); // Пароль супер сильный
     }
     if (bLetters.some((el) => password.includes(el))) {
-      setPasswordRate(passwordRate + 1); // Пароль супер сильный
+      setIsBLettersIncl(true);
     }
     if (digits.some((el) => password.includes(el))) {
-      setPasswordRate(passwordRate + 1); // Пароль супер сильный
+      setIsDigitsIncl(true);
     }
     if (specials.some((el) => password.includes(el))) {
-      setPasswordRate(passwordRate + 1);
+      setIsSpecialsIncl(true);
       // Пароль супер сильный
     }
 
