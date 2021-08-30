@@ -9,11 +9,7 @@ import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 function SignForm({
   name, title, buttonValue, text, linkText, onSubmitForm,
 }) {
-<<<<<<< HEAD
   const sLetters = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm']; // Буквы в нижнем регистре
-=======
-  const sLetters = 'qwertyuiopasdfghjklzxcvbnm'; // Буквы в нижнем регистре
->>>>>>> 76cdc31d436ddec4785bed9dc6e2e95d3176a247
   const [isSLettersIncl, setIsSLettersIncl] = useState(false);
 
   /*
@@ -53,11 +49,7 @@ function SignForm({
     handleChange(e);
     const password = e.target.value;
 
-<<<<<<< HEAD
     if (sLetters.some((el) => password.includes(el))) setIsSLettersIncl(true);
-=======
-    if (password.includes(sLetters)) setIsSLettersIncl(true);
->>>>>>> 76cdc31d436ddec4785bed9dc6e2e95d3176a247
     /* for (let i = 0; i < password.length; i + 1) {
       if (sLetters.indexOf(password[i])) setIsSLettersIncl(true);
       if (bLetters.indexOf(password[i])) setIsBLettersIncl(true);
