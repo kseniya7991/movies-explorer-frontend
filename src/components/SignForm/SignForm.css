@@ -104,6 +104,7 @@
   bottom: 4px;
 }
 
+/*Текст ошибок */
 .signForm__input-text_error {
   color: #ee3465;
 }
@@ -120,9 +121,10 @@
   color: #ee3465;
 }
 
+/*Текст проверки сложности пароля */
 .signForm__text-password {
   position: absolute;
-  bottom: -1px;
+  bottom: -3px;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -231,5 +233,15 @@
   .signForm__text {
     font-size: 12px;
     line-height: 15px;
+  }
+  .signForm__text-password {
+    position: absolute;
+    bottom: -13px;
+  }
+  .signForm__input-text {
+    margin-bottom: 35px;
+  }
+  .signForm__text-error {
+    bottom: 10px;
   }
 }
