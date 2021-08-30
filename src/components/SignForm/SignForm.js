@@ -3,111 +3,14 @@ import { Link } from 'react-router-dom';
 
 import './SignForm.css';
 import logo from '../../images/logo.svg';
+import { REG_EXP_PASSWORD, WEAK_PASSWORD } from '../../utils/constants';
 
 import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
 function SignForm({
   name, title, buttonValue, text, linkText, onSubmitForm,
 }) {
-  /*   const sLetters = [
-    'q',
-    'w',
-    'e',
-    'r',
-    't',
-    'y',
-    'u',
-    'i',
-    'o',
-    'p',
-    'a',
-    's',
-    'd',
-    'f',
-    'g',
-    'h',
-    'j',
-    'k',
-    'l',
-    'z',
-    'x',
-    'c',
-    'v',
-    'b',
-    'n',
-    'm',
-  ]; // Буквы в нижнем регистре */
-  /*   const [isSLettersIncl, setIsSLettersIncl] = useState(false);
-  const bLetters = [
-    'Q',
-    'W',
-    'E',
-    'R',
-    'T',
-    'Y',
-    'U',
-    'I',
-    'O',
-    'P',
-    'L',
-    'K',
-    'J',
-    'H',
-    'G',
-    'F',
-    'D',
-    'S',
-    'A',
-    'Z',
-    'X',
-    'C',
-    'V',
-    'B',
-    'N',
-    'M',
-  ]; // Буквы в верхнем регистре */
-  /* const [isBLettersIncl, setIsBLettersIncl] = useState(false);
-  const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']; // Цифры
-  const [isDigitsIncl, setIsDigitsIncl] = useState(false);
-  const specials = [
-    '!',
-    '@',
-    '#',
-    '$',
-    '%',
-    '^',
-    '&',
-    '*',
-    '(',
-    ')',
-    '_',
-    '-',
-    '+',
-    "'",
-    '=',
-    '|',
-    '/',
-    '.',
-    ',',
-    ':',
-    ';',
-    '[',
-    ']',
-    '{',
-    '}',
-  ]; // Спецсимволы */
-  /*   const [isSpecialsIncl, setIsSpecialsIncl] = useState(false); */
-  /*
-  const bLetters = 'QWERTYUIOPLKJHGFDSAZXCVBNM'; // Буквы в верхнем регистре
-
-  const specials = '!@#$%^&*()_-+=|/.,:;[]{}'; // Спецсимволы
-
-  const [isBLettersIncl, setIsBLettersIncl] = useState(false);
-  const [isDigitsIncl, setIsDigitsIncl] = useState(false);
-  const [isSpecialsIncl, setIsSpecialsIncl] = useState(false); */
-
   const [passwordStrength, setPasswordStrength] = useState(0);
-  /* const [passwordComplexity, setPasswordComplexity] = useState(0); */
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
   const {
@@ -134,10 +37,9 @@ function SignForm({
     handleChange(e);
     const password = e.target.value;
 
-    const reg = /(?=.*[0-9])(?=.*[!@#$%^&*])((?=.*[a-z])|(?=.*[а-я]))((?=.*[A-Z])|(?=.*[А-Я]))/g;
-    if (reg.test(password) && password.length >= 8) {
+    if (REG_EXP_PASSWORD.test(password) && password.length >= 8) {
       setPasswordStrength(3);
-    } else if (reg.test(password) || password.length >= 8) {
+    } else if (REG_EXP_PASSWORD.test(password) || password.length >= 8) {
       setPasswordStrength(2);
     } else {
       setPasswordStrength(1);
@@ -228,11 +130,7 @@ function SignForm({
                     ? 'password_weak'
                     : ''
                 }`}
-              >
-                Пароль слабый. Рекомендация: длина пароля от 8-ми символов,
-                пароль должен содержать хотя бы одну цифру, одну букву в нижнем
-                регистре, одну букву в верхнем регистре, один специальный
-                символ.
+              >{`'Сложность: слабый.' ${WEAK_PASSWORD}`}
               </span>
               <span
                 className={`signForm__text-password ${
@@ -241,10 +139,7 @@ function SignForm({
                     : ''
                 }`}
               >
-                Пароль средний. Рекомендация: длина пароля от 8-ми символов,
-                пароль должен содержать хотя бы одну цифру, одну букву в нижнем
-                регистре, одну букву в верхнем регистре, один специальный
-                символ.
+                {`'Сложность: средний.' ${WEAK_PASSWORD}`}
               </span>
               <span
                 className={`signForm__text-password ${
@@ -253,7 +148,7 @@ function SignForm({
                     : ''
                 }`}
               >
-                Проверка сложности пароля пройдена!
+                Сложность: сильный пароль!
               </span>
               <button
                 className={`signForm__password_unvisible ${
