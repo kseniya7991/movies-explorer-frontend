@@ -9,7 +9,7 @@ import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 function SignForm({
   name, title, buttonValue, text, linkText, onSubmitForm,
 }) {
-  const sLetters = 'qwertyuiopasdfghjklzxcvbnm'; // Буквы в нижнем регистре
+  /*  const sLetters = 'qwertyuiopasdfghjklzxcvbnm'; // Буквы в нижнем регистре
   const bLetters = 'QWERTYUIOPLKJHGFDSAZXCVBNM'; // Буквы в верхнем регистре
   const digits = '0123456789'; // Цифры
   const specials = '!@#$%^&*()_-+=|/.,:;[]{}'; // Спецсимволы
@@ -20,7 +20,7 @@ function SignForm({
   const [isSpecialsIncl, setIsSpecialsIncl] = useState(false);
 
   const [passwordRate, setPasswordRate] = useState(0);
-  const [passwordComplexity, setPasswordComplexity] = useState(0);
+  const [passwordComplexity, setPasswordComplexity] = useState(0); */
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
   const {
@@ -46,7 +46,7 @@ function SignForm({
   function checkPasswordComplexity(e) {
     handleChange(e);
     const password = e.target.value;
-    for (let i = 0; i < password.length; i + 1) {
+    /* for (let i = 0; i < password.length; i + 1) {
       if (sLetters.indexOf(password[i])) setIsSLettersIncl(true);
       if (bLetters.indexOf(password[i])) setIsBLettersIncl(true);
       if (digits.indexOf(password[i])) setIsDigitsIncl(true);
@@ -64,9 +64,9 @@ function SignForm({
     else if (password.length >= 8 && passwordRate >= 3) setPasswordComplexity(3);
     else if (password.length >= 6 && passwordRate === 1) setPasswordComplexity(1);
     else if (password.length >= 6 && passwordRate > 1 && passwordRate < 4) setPasswordComplexity(2);
-    else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3);
+    else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3); */
 
-    console.log(passwordComplexity);
+    console.log(password);
   }
 
   return (
@@ -147,7 +147,7 @@ function SignForm({
               {errors.password && (
                 <span className="signForm__text-error">{errors.password}</span>
               )}
-              <span
+             {/*  <span
                 className={`signForm__text-password ${
                   passwordComplexity === 1 && !errors.password
                     ? 'password_weak'
@@ -173,7 +173,7 @@ function SignForm({
                 }`}
               >
                 Пароль сильный
-              </span>
+              </span> */}
               <button
                 className={`signForm__password_unvisible ${
                   isVisiblePassword ? 'signForm__password_visible' : ''
