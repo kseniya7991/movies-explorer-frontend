@@ -9,12 +9,14 @@ import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 function SignForm({
   name, title, buttonValue, text, linkText, onSubmitForm,
 }) {
-  /*  const sLetters = 'qwertyuiopasdfghjklzxcvbnm'; // Буквы в нижнем регистре
+  const sLetters = 'qwertyuiopasdfghjklzxcvbnm'; // Буквы в нижнем регистре
+  const [isSLettersIncl, setIsSLettersIncl] = useState(false);
+
+  /*
   const bLetters = 'QWERTYUIOPLKJHGFDSAZXCVBNM'; // Буквы в верхнем регистре
   const digits = '0123456789'; // Цифры
   const specials = '!@#$%^&*()_-+=|/.,:;[]{}'; // Спецсимволы
 
-  const [isSLettersIncl, setIsSLettersIncl] = useState(false);
   const [isBLettersIncl, setIsBLettersIncl] = useState(false);
   const [isDigitsIncl, setIsDigitsIncl] = useState(false);
   const [isSpecialsIncl, setIsSpecialsIncl] = useState(false);
@@ -46,6 +48,8 @@ function SignForm({
   function checkPasswordComplexity(e) {
     handleChange(e);
     const password = e.target.value;
+
+    if (password.includes(sLetters)) setIsSLettersIncl(true);
     /* for (let i = 0; i < password.length; i + 1) {
       if (sLetters.indexOf(password[i])) setIsSLettersIncl(true);
       if (bLetters.indexOf(password[i])) setIsBLettersIncl(true);
@@ -66,7 +70,7 @@ function SignForm({
     else if (password.length >= 6 && passwordRate > 1 && passwordRate < 4) setPasswordComplexity(2);
     else if (password.length >= 6 && passwordRate === 4) setPasswordComplexity(3); */
 
-    console.log(password);
+    console.log(isSLettersIncl);
   }
 
   return (
