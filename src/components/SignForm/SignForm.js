@@ -47,9 +47,8 @@ function SignForm({
 
   function checkPasswordComplexity(e) {
     handleChange(e);
-    const password = e.target.value;
 
-    if (sLetters.some((el) => password.includes(el))) setIsSLettersIncl(true);
+    if (sLetters.some((el) => e.target.value.includes(el))) setIsSLettersIncl(true);
     /* for (let i = 0; i < password.length; i + 1) {
       if (sLetters.indexOf(password[i])) setIsSLettersIncl(true);
       if (bLetters.indexOf(password[i])) setIsBLettersIncl(true);
