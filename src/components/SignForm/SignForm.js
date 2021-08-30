@@ -130,7 +130,7 @@ function SignForm({
                     ? 'password_weak'
                     : ''
                 }`}
-              >{`'Сложность: слабый.' ${WEAK_PASSWORD}`}
+              >{`Сложность: слабый. ${WEAK_PASSWORD}`}
               </span>
               <span
                 className={`signForm__text-password ${
@@ -139,7 +139,7 @@ function SignForm({
                     : ''
                 }`}
               >
-                {`'Сложность: средний.' ${WEAK_PASSWORD}`}
+                {`Сложность: средний. ${WEAK_PASSWORD}`}
               </span>
               <span
                 className={`signForm__text-password ${
