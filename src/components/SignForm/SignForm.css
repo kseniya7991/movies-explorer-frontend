@@ -238,7 +238,7 @@
     position: absolute;
     bottom: 10px;
   }
-  #password + .signForm__input-text {
+  #password.signForm__input-text {
     margin-bottom: 50px;
   }
   .signForm__text-error {
