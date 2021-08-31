@@ -26,6 +26,8 @@ function Navigation() {
     };
   }, []);
 
+  console.log(isMobile);
+
   // Скрываем/раскрываем меню при клике на кнопку закрытия или гамбургера
   function handleMenuOpening() {
     if (isMobile) {
