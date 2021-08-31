@@ -25,6 +25,9 @@ import HeaderUnauth from '../Header/HeaderUnauth/HeaderUnauth';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 function App() {
+  /* Определение устройства */
+  const [isMobile, setIsMobile] = useState(false);
+
   const [savedMovies, setSavedMovies] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
@@ -99,6 +102,22 @@ function App() {
       setIsLoading(false);
     }
   }
+
+  // Определяем девайс через ширину экрана при монтировании элемента
+  useEffect(() => {
+    const handleWindowResize = () => {
+      if (window.innerWidth > 768) {
+        setIsMobile(false);
+      } else {
+        setIsMobile(true);
+      }
+    };
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
 
   useEffect(() => {
     setIsLoading(true);
@@ -250,7 +269,7 @@ function App() {
           </Route>
           <Route exact path={'/'}>
             <Header isLogged={loggedIn} isPromo={true}>
-              {loggedIn === false ? <HeaderUnauth /> : <Navigation />}
+              {loggedIn === false ? <HeaderUnauth /> : <Navigation isMobile={isMobile}/>}
             </Header>
           </Route>
         </Switch>
