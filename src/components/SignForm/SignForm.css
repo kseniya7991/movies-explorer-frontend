@@ -249,8 +249,8 @@
   }
 }
 
-@media screen and (max-height: 500px) {
+@media screen and (max-height: 600px) {
   .signForm {
-    padding-top: 20px;
+    padding-top: 5%;
   }
 }
