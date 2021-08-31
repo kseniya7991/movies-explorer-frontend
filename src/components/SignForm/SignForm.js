@@ -126,7 +126,7 @@ function SignForm({
               )}
               <span
                 className={`signForm__text-password ${
-                  passwordStrength === 1 && !errors.password
+                  passwordStrength === 1 && !errors.password && name !== 'login'
                     ? 'password_weak'
                     : ''
                 }`}
@@ -134,7 +134,7 @@ function SignForm({
               </span>
               <span
                 className={`signForm__text-password ${
-                  passwordStrength === 2 && !errors.password
+                  passwordStrength === 2 && !errors.password && name !== 'login'
                     ? 'password_middle'
                     : ''
                 }`}
@@ -143,7 +143,7 @@ function SignForm({
               </span>
               <span
                 className={`signForm__text-password ${
-                  passwordStrength === 3 && !errors.password
+                  passwordStrength === 3 && !errors.password && name !== 'login'
                     ? 'password_strong'
                     : ''
                 }`}

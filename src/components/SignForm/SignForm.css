@@ -236,11 +236,15 @@
   }
   .signForm__text-password {
     position: absolute;
+    bottom: 10px;
   }
-  .signForm__input-text {
-    margin-bottom: 35px;
+  #password + .signForm__input-text {
+    margin-bottom: 50px;
   }
   .signForm__text-error {
     bottom: 10px;
+  }
+  .password_strong {
+    bottom: 30px;
   }
 }
