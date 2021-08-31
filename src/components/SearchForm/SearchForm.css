@@ -86,3 +86,10 @@
     padding: 84px 14px 50px 14px;
   }
 }
+
+@media screen and (max-height: 700px) {
+  .searchForm {
+    padding-top: 5vh;
+    padding-bottom: 0;
+  }
+}
