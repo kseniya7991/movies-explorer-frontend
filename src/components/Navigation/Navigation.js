@@ -5,13 +5,27 @@ import './Navigation.css';
 import '../Header/Header.css';
 import Popup from '../Popup/Popup';
 
-function Navigation({ isMobile }) {
+function Navigation() {
   const [menuOpened, setMenuOpened] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  /* Определение типа устройства */
+  const handleWindowResize = () => {
+    if (window.innerWidth > 768) {
+      setIsMobile(false);
+      setMenuOpened(false);
+    } else {
+      setIsMobile(true);
+    }
+  };
 
   useEffect(() => {
-    if (!isMobile) {
-      setMenuOpened(false);
-    }
+    handleWindowResize();
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
   }, []);
 
   // Скрываем/раскрываем меню при клике на кнопку закрытия или гамбургера
@@ -53,18 +67,14 @@ function Navigation({ isMobile }) {
           Главная
         </Link>
         <Link
-          className={`navigation__link ${
-            isMobile ? 'navigation__link_mobile' : ''
-          } `}
+          className={`navigation__link ${isMobile ? 'navigation__link_mobile' : ''} `}
           to="/movies"
           onClick={handleMenuOpening}
         >
           Фильмы
         </Link>
         <Link
-          className={`navigation__link ${
-            isMobile ? 'navigation__link_mobile' : ''
-          } `}
+          className={`navigation__link ${isMobile ? 'navigation__link_mobile' : ''} `}
           to="/saved-movies"
           onClick={handleMenuOpening}
         >
