@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './AboutProject.css';
 import '../Main/Main.css';
 
 function AboutProject() {
-  const [isInWindow, setIsInWindow] = useState(false);
+/*   const [isInWindow, setIsInWindow] = useState(false); */
 
   function renderAnimation() {
-    console.log(window.scrollTop, window.pageYOffset);
-    if (window.scrollTop > 1422) {
+    console.log(window.pageYOffset);
+    /*     if (window.scrollTop > 1422) {
       setIsInWindow(true);
     } else {
       setIsInWindow(false);
-    }
+    } */
   }
 
   window.onscroll = renderAnimation;
@@ -37,7 +37,7 @@ function AboutProject() {
           соблюдать, чтобы успешно защититься.
         </p>
       </div>
-      <div className={`aboutProject__progress-bar ${isInWindow ? 'aboutProject__progress-bar_active' : ''}`}>
+      <div className={'aboutProject__progress-bar}'}>
         <div className="aboutProject__progress-bar progress-bar_backend">
           1 неделя
         </div>
