@@ -24,6 +24,10 @@ function AboutProject() {
     };
   }, []);
 
+  function tester(e) {
+    console.log(e.pageY, e.pageYOffset);
+  }
+
   return (
     <section className="aboutProject">
       <h2 className="main__title">О проекте</h2>
@@ -45,7 +49,7 @@ function AboutProject() {
           соблюдать, чтобы успешно защититься.
         </p>
       </div>
-      <div className={'aboutProject__progress-bar}'}>
+      <div className={'aboutProject__progress-bar}'} onClick={tester}>
         <div className="aboutProject__progress-bar progress-bar_backend">
           1 неделя
         </div>
