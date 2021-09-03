@@ -49,7 +49,7 @@ function AboutProject() {
           соблюдать, чтобы успешно защититься.
         </p>
       </div>
-      <div className={'aboutProject__progress-bar}'} onClick={tester}>
+      <div className={'aboutProject__progress-bar aboutProject__progress-bar_active}'} onClick={tester}>
         <div className="aboutProject__progress-bar progress-bar_backend">
           1 неделя
         </div>
