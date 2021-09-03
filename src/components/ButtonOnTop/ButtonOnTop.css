@@ -1,15 +1,23 @@
 .buttonOnTop {
+  display: none;
   position: fixed;
   right: 30px;
   bottom: 30px;
-  opacity: 1;
+  opacity: 0;
 
   background-image: url("../../images/top-arrow.png");
   background-position: center;
   background-repeat: no-repeat;
   padding: 24px 24px;
   border-radius: 50%;
+  border: 0;
+  background-color: transparent;
 
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+
+.buttonOnTop_active {
+  opacity: 1;
+  display: block;
 }
