@@ -87,7 +87,7 @@
 .progress-bar_backend_active {
   animation-name: progress-backend;
   animation-iteration-count: 1;
-  animation-duration: 5s;
+  animation-duration: 2s;
 }
 
 .progress-bar_frontend {
@@ -102,7 +102,7 @@
 .progress-bar_frontend_active {
   animation-name: progress-frontend;
   animation-iteration-count: 1;
-  animation-duration: 5s;
+  animation-duration: 2s;
 }
 
 @keyframes progress-frontend {

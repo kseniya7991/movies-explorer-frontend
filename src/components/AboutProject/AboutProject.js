@@ -45,10 +45,6 @@ function AboutProject() {
     };
   }, []);
 
-  function tester(e) {
-    console.log(e.pageY, e.pageYOffset);
-  }
-
   return (
     <section className="aboutProject">
       <h2 className="main__title">О проекте</h2>
@@ -70,7 +66,7 @@ function AboutProject() {
           соблюдать, чтобы успешно защититься.
         </p>
       </div>
-      <div className={`aboutProject__progress-bar ${!isInWindow ? 'aboutProject__progress-bar_disabled' : ''}`} onClick={tester}>
+      <div className={`aboutProject__progress-bar ${!isInWindow ? 'aboutProject__progress-bar_disabled' : ''}`}>
         <div className={`aboutProject__progress-bar progress-bar_backend ${isInWindow ? 'progress-bar_backend_active' : ''}`}>
           1 неделя
         </div>
