@@ -63,7 +63,7 @@ function App() {
             handleErrors();
             setIsLoading(false);
           }
-        }, 10000);
+        }, 20000);
         setCurrentUser(userData.user);
         setSavedMovies(
           moviesData.movies
