@@ -70,7 +70,7 @@ function AboutProject() {
           соблюдать, чтобы успешно защититься.
         </p>
       </div>
-      <div className={`aboutProject__progress-bar ${isInWindow ? 'aboutProject__progress-bar_active' : ''}`} onClick={tester}>
+      <div className={`aboutProject__progress-bar ${!isInWindow ? 'aboutProject__progress-bar_disabled' : ''}`} onClick={tester}>
         <div className="aboutProject__progress-bar progress-bar_backend">
           1 неделя
         </div>

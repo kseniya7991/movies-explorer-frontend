@@ -50,6 +50,7 @@
 }
 
 .aboutProject__progress-bar {
+  display: flex;
   align-items: center;
   justify-content: center;
 
@@ -58,12 +59,11 @@
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  display: none;
   transition: 2s;
 }
 
-.aboutProject__progress-bar_active {
-  display: flex;
+.aboutProject__progress-bar_disabled {
+  display: none;
   transition: 2s;
 }
 
