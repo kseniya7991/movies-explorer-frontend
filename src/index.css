@@ -19,3 +19,7 @@ body {
     margin: 0 auto;
   }
 }
+
+html {
+  scroll-behavior: smooth; /* свойство scroll-behavior не наследуется, применяется к прокручиваемым блокам */
+}

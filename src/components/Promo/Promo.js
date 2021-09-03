@@ -15,6 +15,7 @@ function Promo() {
         title="Спираль"
         className="promo__img"
       ></img>
+      <a href="#page">page</a>
     </section>
   );
 }

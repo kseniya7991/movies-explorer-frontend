@@ -36,6 +36,7 @@ function Techs() {
           <span className="list-item__text">mongoDB</span>
         </li>
       </ul>
+      <div id="page"></div>
     </section>
   );
 }
