@@ -33,7 +33,7 @@ export const authorize = (email, password) => fetch(`${BASE_URL}/signin`, {
     return null;
   });
 
-export const getUserReal = () => fetch(`${BASE_URL}/users/me`, {
+export const getUser = () => fetch(`${BASE_URL}/users/me`, {
   headers: {
     method: 'GET',
     authorization: localStorage.getItem('token'),
