@@ -75,12 +75,46 @@
   height: 36px;
 
   background-color: #3ddc84;
+
+  animation-name: progress-backend;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
+.progress-bar_backend_active {
+  animation-name: progress-frontend;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
 }
 
 .progress-bar_frontend {
   width: 80%;
   height: 36px;
   background-color: #303030;
+}
+
+.progress-bar_frontend_active {
+  animation-name: progress-frontend;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
+@keyframes progress-frontend {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes progress-backend {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 20%;
+  }
 }
 
 .progress-bar_caption {

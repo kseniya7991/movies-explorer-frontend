@@ -71,10 +71,10 @@ function AboutProject() {
         </p>
       </div>
       <div className={`aboutProject__progress-bar ${!isInWindow ? 'aboutProject__progress-bar_disabled' : ''}`} onClick={tester}>
-        <div className="aboutProject__progress-bar progress-bar_backend">
+        <div className={`aboutProject__progress-bar progress-bar_backend ${isInWindow ? 'progress-bar_backend_active' : ''}`}>
           1 неделя
         </div>
-        <div className="aboutProject__progress-bar progress-bar_frontend">
+        <div className={`aboutProject__progress-bar progress-bar_frontend ${isInWindow ? 'progress-bar_frontend_active' : ''}`}>
           4 недели
         </div>
       </div>
