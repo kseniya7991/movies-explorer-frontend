@@ -57,6 +57,13 @@ function App() {
   function getData() {
     Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
       .then(([userData, moviesData]) => {
+        setTimeout(() => {
+          if (!userData || !moviesData) {
+            console.log(userData, moviesData);
+            handleErrors();
+            setIsLoading(false);
+          }
+        }, 10000);
         setCurrentUser(userData.user);
         setSavedMovies(
           moviesData.movies
