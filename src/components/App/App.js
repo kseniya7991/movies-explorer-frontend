@@ -60,7 +60,7 @@ function App() {
         setTimeout(() => {
           if (!userData || !moviesData) {
             console.log(userData, moviesData);
-            handleErrors();
+            handleErrors('rere');
             setIsLoading(false);
           }
         }, 20000);
