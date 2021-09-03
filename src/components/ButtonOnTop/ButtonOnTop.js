@@ -6,8 +6,7 @@ function ButtonOnTop() {
   const [isEnabled, setIsEnabled] = useState(false);
 
   function showButton() {
-    console.log(window.pageYOffset);
-    if (window.pageYOffset > 200) {
+    if (window.pageYOffset > 600) {
       setIsEnabled(true);
     } else {
       setIsEnabled(false);
