@@ -4,6 +4,8 @@ import './AboutProject.css';
 import '../Main/Main.css';
 
 function AboutProject() {
+  const tester = document.querySelector('aboutProject__progress-bar');
+  console.log(tester.offsetTop);
   return (
     <section className="aboutProject">
       <h2 className="main__title">О проекте</h2>
