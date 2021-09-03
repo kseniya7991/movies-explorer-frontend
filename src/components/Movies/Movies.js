@@ -13,7 +13,9 @@ import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 import * as constant from '../../utils/constants';
 import ButtonOnTop from '../ButtonOnTop/ButtonOnTop';
 
-function Movies({ onShowError, onClickSave, savedMovies }) {
+function Movies({
+  onShowError, onClickSave, savedMovies, handleErrors,
+}) {
   const dataForSearch = JSON.parse(localStorage.getItem('data-for-search')) || {};
   const previousKey = dataForSearch.keys || '';
 
@@ -58,6 +60,12 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
   const getAllMovies = (keys, checkbox) => api
     .getMovies()
     .then((movies) => {
+      setTimeout(() => {
+        if (!movies) {
+          handleErrors();
+          setIsLoading(false);
+        }
+      }, 12000);
       setAllMovies(movies);
       setFilteredMovies(filterMovies(movies, keys, checkbox));
       setIsLoading(false);

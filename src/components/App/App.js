@@ -288,6 +288,7 @@ function App() {
             onClickSave={handleSaveMovie}
             history={history}
             savedMovies={savedMovies}
+            handleErrors={handleErrors}
           />
           <ProtectedRoute
             path="/saved-movies"
