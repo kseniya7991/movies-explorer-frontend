@@ -39,9 +39,7 @@ export const getUser = () => fetch(`${BASE_URL}/users/me`, {
     authorization: localStorage.getItem('token'),
   },
 })
-  .then((res) => {
-    setTimeout(() => res.json(), 15000);
-  });
+  .then((res) => res.json());
 
 export const getContent = (token) => fetch(`${BASE_URL}/users/me`, {
   method: 'GET',
