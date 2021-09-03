@@ -8,7 +8,7 @@ function AboutProject() {
 
   function renderAnimation() {
     console.log(window.scrollTop);
-    if (window.scrollTop === 1422) {
+    if (window.scrollTop > 1422) {
       setIsInWindow(true);
     } else {
       setIsInWindow(false);
