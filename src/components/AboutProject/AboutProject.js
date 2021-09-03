@@ -78,7 +78,7 @@ function AboutProject() {
           4 недели
         </div>
       </div>
-      <div className="aboutProject__progress-bar">
+      <div className="aboutProject__progress-bar aboutProject__progress-bar_caption">
         <div className="aboutProject__progress-bar progress-bar_backend progress-bar_caption">
           Backend
         </div>
