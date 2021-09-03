@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './ButtonOnTop.css';
 
@@ -6,7 +6,6 @@ function ButtonOnTop() {
   const [isEnabled, setIsEnabled] = useState(false);
 
   function showButton() {
-    console.log(window.pageYOffset);
     if (window.pageYOffset > 600) {
       setIsEnabled(true);
     } else {
@@ -20,7 +19,14 @@ function ButtonOnTop() {
   }
 
   // When scrolling, we run the function
-  window.onscroll = showButton;
+  useEffect(() => {
+    showButton();
+    window.addEventListener('scroll', showButton);
+
+    return () => {
+      window.removeEventListener('scroll', showButton);
+    };
+  }, []);
 
   return (
     <button

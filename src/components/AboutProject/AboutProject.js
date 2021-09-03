@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './AboutProject.css';
 import '../Main/Main.css';
@@ -15,7 +15,14 @@ function AboutProject() {
     } */
   }
 
-  window.onscroll = showAnimation;
+  useEffect(() => {
+    showAnimation();
+    window.addEventListener('scroll', showAnimation);
+
+    return () => {
+      window.removeEventListener('scroll', showAnimation);
+    };
+  }, []);
 
   return (
     <section className="aboutProject">
