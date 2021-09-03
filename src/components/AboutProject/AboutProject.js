@@ -6,7 +6,7 @@ import '../Main/Main.css';
 function AboutProject() {
 /*   const [isInWindow, setIsInWindow] = useState(false); */
 
-  function renderAnimation() {
+  function showAnimation() {
     console.log(window.pageYOffset);
     /*     if (window.scrollTop > 1422) {
       setIsInWindow(true);
@@ -15,7 +15,8 @@ function AboutProject() {
     } */
   }
 
-  window.onscroll = renderAnimation;
+  window.onscroll = showAnimation;
+
   return (
     <section className="aboutProject">
       <h2 className="main__title">О проекте</h2>
