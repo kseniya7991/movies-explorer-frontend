@@ -33,16 +33,16 @@ export const authorize = (email, password) => fetch(`${BASE_URL}/signin`, {
     return null;
   });
 
-export const getUserReal = () => fetch(`${BASE_URL}/users/me`, {
+/* export const getUserReal = () => fetch(`${BASE_URL}/users/me`, {
   headers: {
     method: 'GET',
     authorization: localStorage.getItem('token'),
   },
 })
-  .then((res) => res.json());
+  .then((res) => res.json()); */
 
 export const getUser = () => {
-  setTimeout(getUserReal, 10000);
+  setTimeout(() => 'sdad', 10000);
 };
 
 export const getContent = (token) => fetch(`${BASE_URL}/users/me`, {
