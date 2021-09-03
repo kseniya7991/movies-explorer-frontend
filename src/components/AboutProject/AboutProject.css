@@ -60,11 +60,13 @@
   line-height: 17px;
   text-align: center;
   transition: 2s;
+  opacity: 1;
 }
 
 .aboutProject__progress-bar_disabled {
   display: none;
   transition: 2s;
+  opacity: 0;
 }
 
 .progress-bar_backend {
