@@ -59,6 +59,13 @@
   font-size: 14px;
   line-height: 17px;
   text-align: center;
+  display: none;
+  transition: 2s;
+}
+
+.aboutProject__progress-bar_active {
+  display: block;
+  transition: 2s;
 }
 
 .progress-bar_backend {

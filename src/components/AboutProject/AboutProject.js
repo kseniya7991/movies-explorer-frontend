@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './AboutProject.css';
 import '../Main/Main.css';
 
 function AboutProject() {
-  function isTester(e) {
-    console.log(e.target.offsetTop);
+  const [isInWindow, setIsInWindow] = useState(false);
+
+  function renderAnimation() {
+    if (window.scrollTop === 1422) {
+      setIsInWindow(true);
+    } else {
+      setIsInWindow(false);
+    }
   }
+
+  window.onscroll = renderAnimation;
   return (
     <section className="aboutProject">
       <h2 className="main__title">О проекте</h2>
@@ -28,7 +36,7 @@ function AboutProject() {
           соблюдать, чтобы успешно защититься.
         </p>
       </div>
-      <div className="aboutProject__progress-bar" onClick={isTester}>
+      <div className={`aboutProject__progress-bar ${isInWindow ? 'aboutProject__progress-bar_active' : ''}`}>
         <div className="aboutProject__progress-bar progress-bar_backend">
           1 неделя
         </div>
