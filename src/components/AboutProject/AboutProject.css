@@ -50,7 +50,6 @@
 }
 
 .aboutProject__progress-bar {
-  display: flex;
   align-items: center;
   justify-content: center;
 
@@ -64,7 +63,7 @@
 }
 
 .aboutProject__progress-bar_active {
-  display: block;
+  display: flex;
   transition: 2s;
 }
 
