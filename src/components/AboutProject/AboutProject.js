@@ -7,7 +7,7 @@ function AboutProject() {
   const [isInWindow, setIsInWindow] = useState(false);
 
   function renderAnimation() {
-    console.log(window.scrollTop);
+    console.log(window.scrollTop, window.pageYOffset);
     if (window.scrollTop > 1422) {
       setIsInWindow(true);
     } else {
