@@ -6,6 +6,7 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import filterMovies from '../../utils/FilterMovies';
 
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
+import ButtonOnTop from '../ButtonOnTop/ButtonOnTop';
 
 function SavedMovies({ onClickSave, savedMovies }) {
   const [filteredMovies, setFilteredMovies] = useState(savedMovies);
@@ -55,6 +56,8 @@ function SavedMovies({ onClickSave, savedMovies }) {
         isEmpty={isListEmpty}
         text={isEmptyText}
       />
+
+      <ButtonOnTop />
     </section>
   );
 }

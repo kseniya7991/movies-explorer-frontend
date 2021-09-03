@@ -11,6 +11,7 @@ import Preloader from '../Preloader/Preloader';
 import EmptyMoviesList from '../EmptyMoviesList/EmptyMoviesList';
 
 import * as constant from '../../utils/constants';
+import ButtonOnTop from '../ButtonOnTop/ButtonOnTop';
 
 function Movies({ onShowError, onClickSave, savedMovies }) {
   const dataForSearch = JSON.parse(localStorage.getItem('data-for-search')) || {};
@@ -160,6 +161,8 @@ function Movies({ onShowError, onClickSave, savedMovies }) {
 
       {/* Отображаем компонент, если фильмы не найдены */}
       <EmptyMoviesList isEmpty={isListEmpty} text={moviesBlockText} />
+
+      <ButtonOnTop />
     </>
   );
 }
