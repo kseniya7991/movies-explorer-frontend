@@ -59,11 +59,10 @@ function App() {
       .then(([userData, moviesData]) => {
         setTimeout(() => {
           if (!userData || !moviesData) {
-            console.log(userData, moviesData);
-            handleErrors('rere');
+            handleErrors();
             setIsLoading(false);
           }
-        }, 9000);
+        }, 12000);
         setCurrentUser(userData.user);
         setSavedMovies(
           moviesData.movies
