@@ -116,7 +116,7 @@
 
 @keyframes progress-backend {
   0% {
-    width: 0%;
+    width: 10%;
   }
   100% {
     width: 20%;
