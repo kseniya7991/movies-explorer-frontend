@@ -25,8 +25,8 @@ function AboutMe() {
         </p>
         <img className="resume__image" src={photo} alt="Фото студента"></img>
         <ul className="resume__links">
-          <li className="resume__links-item">GitHub</li>
-          <li className="resume__links-item">LinkedIn</li>
+          <li className="resume__links-item"><a className="resume__link" href="https://github.com/kseniya7991" rel="noreferrer" target="_blank">GitHub</a></li>
+          <li className="resume__links-item"><a className="resume__link" href="https://www.linkedin.com/in/kseniya-stoychikova-907594201/" rel="noreferrer" target="_blank">LinkedIn</a></li>
         </ul>
       </div>
       <Portfolio />
