@@ -34,7 +34,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   /* Переменная залогинености пользователя */
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(null);
 
   /* Переменные для обработки ошибок */
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
