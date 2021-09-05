@@ -3,7 +3,7 @@ Web API for registration and authorization on site of films for the Yandex Prakt
 
 # Дипломный проект Movie (frontend)
 
-#### Задача этапа:Функциональность на «React» и JS для проекта "Movies".
+#### Задача: написать проект на React и JS + бэкенд. Создать сервер, разместить на нем фронтенд и бэкенд. Созданный бэкенд API необходим для записи пользователей в базу данных (регистрация, авторизация), а также для добавление и удаление фильмов из сохраненных для каждого юзера.
 
 ---------
 ### Обзор
@@ -38,6 +38,9 @@ Web API for registration and authorization on site of films for the Yandex Prakt
 2. CSS
 3. React
 4. JS
+5. Node.js
+6. Ecpress.js
+7. MongoDB
 
 ### Как развернуть проект локально
 1. `npm run start` - локальная сборка проекта на localhost:3000
