@@ -59,6 +59,7 @@
 }
 
 .techs__list-item:hover .list-item__text {
+  display: none;
   color: transparent;
 }
 

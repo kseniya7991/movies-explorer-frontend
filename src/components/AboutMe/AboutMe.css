@@ -58,6 +58,7 @@
 .resume__link {
   text-decoration: none;
   cursor: pointer;
+  color: white;
 }
 
 .resume__links-item:last-child {
