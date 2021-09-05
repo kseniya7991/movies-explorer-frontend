@@ -3,7 +3,11 @@ import SignForm from '../SignForm/SignForm';
 
 import './Register.css';
 
-function Register() {
+function Register({ onRegister }) {
+  function handleSubmitForm(values) {
+    onRegister(values);
+  }
+
   return (
     <SignForm
       name="register"
@@ -11,6 +15,7 @@ function Register() {
       buttonValue="Зарегистрироваться"
       text="Уже зарегистрированы? "
       linkText="Войти"
+      onSubmitForm={handleSubmitForm}
     />
   );
 }

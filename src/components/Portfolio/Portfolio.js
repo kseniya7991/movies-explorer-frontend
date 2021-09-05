@@ -21,7 +21,7 @@ function Portfolio() {
         </a>
         <a
           className="portfolio__list-link"
-          href="https://kst.mesto.nomoredomains.club/" target="_blank" rel="noreferrer"
+          href="https://kst.mesto.nomoredomains.club/sign-up" target="_blank" rel="noreferrer"
         >
           <li className="portfolio__list-item">Одностраничное приложение</li>
         </a>

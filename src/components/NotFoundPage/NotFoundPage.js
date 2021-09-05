@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import './NotFoundPage.css';
 
-function NotFoundPage() {
+function NotFoundPage({ onBack }) {
   return (
     <section className="notFoundPage">
       <p className="notFoundPage__error">404</p>
       <p className="notFoundPage__text">Страница не найдена</p>
-      <Link to="/" className="notFoundPage__previous-link">
+      <button onClick={onBack} className="notFoundPage__previous-link">
         Назад
-      </Link>
+      </button>
     </section>
   );
 }
 
-export default NotFoundPage;
+export default withRouter(NotFoundPage);

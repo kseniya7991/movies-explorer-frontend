@@ -3,19 +3,52 @@ import { Link } from 'react-router-dom';
 
 import './SignForm.css';
 import logo from '../../images/logo.svg';
+import { REG_EXP_PASSWORD, WEAK_PASSWORD } from '../../utils/constants';
+
+import { useFormWithValidation } from '../ValidationForm/ValidationForm';
 
 function SignForm({
-  name, title, buttonValue, text, linkText,
+  name, title, buttonValue, text, linkText, onSubmitForm,
 }) {
+  const [passwordStrength, setPasswordStrength] = useState(0);
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    resetForm,
+  } = useFormWithValidation();
 
   function onShowPassword() {
     setIsVisiblePassword(!isVisiblePassword);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (isValid) {
+      resetForm();
+      onSubmitForm(values);
+    }
+  }
+
+  function checkPasswordComplexity(e) {
+    handleChange(e);
+    const password = e.target.value;
+
+    if (REG_EXP_PASSWORD.test(password) && password.length >= 8) {
+      setPasswordStrength(3);
+    } else if (REG_EXP_PASSWORD.test(password) || password.length >= 8) {
+      setPasswordStrength(2);
+    } else {
+      setPasswordStrength(1);
+    }
+  }
+
   return (
     <section className="signForm">
-      <form className="signForm__form">
+      <form className="signForm__form" onSubmit={handleSubmit}>
         <div>
           <img
             className="header__logo logo_sign"
@@ -35,12 +68,23 @@ function SignForm({
                 Имя
               </label>
               <input
-                className="signForm__input-text"
+                name="name"
+                className={`signForm__input-text ${
+                  errors.name ? 'signForm__input-text_error' : ''
+                }`}
                 type="text"
                 id="name"
                 placeholder="Виталий"
+                onChange={handleChange}
+                minLength="2"
+                maxLength="30"
+                pattern="^[a-zA-Zа-яёЁА-Я\s-]+$"
                 required
+                disabled={`${name === 'login' ? 'true' : ''}`}
               ></input>
+              {errors.name && (
+                <span className="signForm__text-error">{errors.name}</span>
+              )}
             </div>
 
             <div className={'signForm__inputs-block'}>
@@ -48,12 +92,19 @@ function SignForm({
                 E-mail
               </label>
               <input
-                className="signForm__input-text"
+                name="email"
+                className={`signForm__input-text ${
+                  errors.email ? 'signForm__input-text_error' : ''
+                }`}
                 type="email"
                 id="email"
                 placeholder="vital90@mail.ru"
+                onChange={handleChange}
                 required
               ></input>
+              {errors.email && (
+                <span className="signForm__text-error">{errors.email}</span>
+              )}
             </div>
 
             <div className={'signForm__inputs-block'}>
@@ -61,13 +112,43 @@ function SignForm({
                 Пароль
               </label>
               <input
-                className="signForm__input-text signForm__input-text_error"
+                name="password"
+                className={`signForm__input-text ${
+                  errors.password ? 'signForm__input-text_error' : ''
+                }`}
                 type={`${isVisiblePassword ? 'text' : 'password'}`}
                 id="password"
+                onChange={checkPasswordComplexity}
                 required
               ></input>
-              <span className="signForm__text-error">
-                Что-то пошло не так..
+              {errors.password && (
+                <span className="signForm__text-error">{errors.password}</span>
+              )}
+              <span
+                className={`signForm__text-password ${
+                  passwordStrength === 1 && !errors.password && name !== 'login'
+                    ? 'password_weak'
+                    : ''
+                }`}
+              >{`Сложность: слабый. ${WEAK_PASSWORD}`}
+              </span>
+              <span
+                className={`signForm__text-password ${
+                  passwordStrength === 2 && !errors.password && name !== 'login'
+                    ? 'password_middle'
+                    : ''
+                }`}
+              >
+                {`Сложность: средний. ${WEAK_PASSWORD}`}
+              </span>
+              <span
+                className={`signForm__text-password ${
+                  passwordStrength === 3 && !errors.password && name !== 'login'
+                    ? 'password_strong'
+                    : ''
+                }`}
+              >
+                Сложность: сильный пароль!
               </span>
               <button
                 className={`signForm__password_unvisible ${
@@ -82,9 +163,12 @@ function SignForm({
 
         <section className="signForm__buttons">
           <button
-            className="signForm__register-btn"
+            className={`signForm__register-btn ${
+              isValid ? '' : 'signForm__register-btn_disabled'
+            }`}
             type="submit"
             value="buttonValue"
+            disabled={!isValid}
           >
             {buttonValue}
           </button>

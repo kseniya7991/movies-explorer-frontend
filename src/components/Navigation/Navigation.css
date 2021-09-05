@@ -55,6 +55,9 @@
 .navigation__link_mobile {
   padding: 0;
   margin-bottom: 24px;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: center;
 }
 
 .navigation__link_mobile_active {

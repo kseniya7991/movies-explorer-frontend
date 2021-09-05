@@ -10,10 +10,11 @@
 }
 
 .moviesCard__title-wrap {
+  max-height: 36px;
   padding: 18px;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   align-self: stretch;
 
@@ -22,21 +23,26 @@
 
 .moviesCard__title {
   margin: 0;
+  height: 36px;
 
   font-weight: 500;
   font-size: 15px;
   line-height: 18px;
 
   padding-right: 10px;
+  overflow: hidden;
 }
 
 .moviesCard__time {
   margin: 0;
+  min-width: 55px;
+  max-width: 70px;
 
   font-weight: normal;
   font-size: 13px;
   line-height: 18px;
   color: #8b8b8b;
+  text-align: right;
 }
 
 .moviesCard__image {
@@ -44,6 +50,12 @@
   min-width: 100%;
   min-height: 168px;
   max-height: 200px;
+
+  cursor: pointer;
+}
+
+.moviesCard__image-link {
+  display: contents;
 }
 
 .moviesCard__image::before {
@@ -69,15 +81,15 @@
 
 .moviesCard__button-save {
   width: 100px;
-  height: 29px;
+  min-height: 29px;
   margin: 18px 0;
-  padding: 9px;
+  padding: 9px 0 10px 0;
 
   background-color: #313131;
 
   font-weight: normal;
   font-size: 12px;
-  line-height: 11px;
+  line-height: 12px;
   text-align: center;
   color: #fff;
 
@@ -88,43 +100,30 @@
   text-overflow: ellipsis;
   overflow: hidden;
   cursor: pointer;
-}
-
-.moviesCard__button-save::before {
-  content: "Сохранить";
-}
-
-.moviesCard__button-save:focus::before {
-  content: "✓";
-  display: block;
-  transition: 0.1s;
-  font-family: "Inter", Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 25px;
-  color: #fff;
-  position: relative;
-  text-align: center;
-  margin-top: -7px;
-}
-
-.moviesCard__button-save:focus {
-  background-color: #ee3465;
-  transition: 0.2s;
+  background-position: center;
 }
 
 .moviesCard__button-save_active {
+  background-image: url("../../images/saved.svg");
   background-color: #ee3465;
-  transition: 0.5s;
+  transition: 0.2s;
+  background-repeat: no-repeat;
+  background-size: 13px;
+}
+
+.moviesCard__button-save_delete {
+  background-image: url("../../images/delete-movie.svg");
+  transition: 0.2s;
+  background-repeat: no-repeat;
+  background-size: 13px;
 }
 
 .moviesCard__button-save_saved::before {
-  content: "✖";
+  content: url("../../images/cross.png");
 }
 
 .moviesCard__button-save_saved:focus::before {
-  content: "✖";
+  content: url("../../images/cross.png");
 }
 
 .moviesCard__button-save_saved:focus {

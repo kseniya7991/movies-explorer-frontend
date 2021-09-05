@@ -1,10 +1,4 @@
 .app {
-  /*   background-color: #202020;
-  font-family: "Inter", Arial, sans-serif;
-  overflow: hidden;
-  min-width: 320px;
-  color: #fff; */
-
   height: 100vh;
   display: flex;
   flex-direction: column;

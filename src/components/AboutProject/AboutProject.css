@@ -52,16 +52,30 @@
 .aboutProject__progress-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
+  transition: 2s;
+  opacity: 1;
+}
+
+.aboutProject__progress-bar_caption {
+  justify-content: center;
+}
+
+.aboutProject__progress-bar_disabled {
+  transition: 2s;
+  opacity: 0;
 }
 
 .progress-bar_backend {
+  display: flex;
+  justify-content: center;
+
   color: #000;
 
   width: 20%;
@@ -70,10 +84,43 @@
   background-color: #3ddc84;
 }
 
+.progress-bar_backend_active {
+  animation-name: progress-backend;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
 .progress-bar_frontend {
+  display: flex;
+  justify-content: center;
+
   width: 80%;
   height: 36px;
   background-color: #303030;
+}
+
+.progress-bar_frontend_active {
+  animation-name: progress-frontend;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
+@keyframes progress-frontend {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes progress-backend {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 20%;
+  }
 }
 
 .progress-bar_caption {

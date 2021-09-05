@@ -9,16 +9,18 @@ function Navigation() {
   const [menuOpened, setMenuOpened] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Определяем девайс через ширину экрана при монтировании элемента
+  /* Определение типа устройства */
+  const handleWindowResize = () => {
+    if (window.innerWidth > 768) {
+      setIsMobile(false);
+      setMenuOpened(false);
+    } else {
+      setIsMobile(true);
+    }
+  };
+
   useEffect(() => {
-    const handleWindowResize = () => {
-      if (window.innerWidth > 768) {
-        setIsMobile(false);
-        setMenuOpened(false);
-      } else {
-        setIsMobile(true);
-      }
-    };
+    handleWindowResize();
     window.addEventListener('resize', handleWindowResize);
 
     return () => {

@@ -17,17 +17,16 @@ function AboutMe() {
           Junior фронтенд-разработчик, 24 года
         </p>
         <p className="resume__about">
-          Я живу в городе Минске, Беларусь. Занимаюсь бегом уже около 6-ти лет.
+          Я живу в городе Минске, Беларусь. Занимаюсь бегом около 6-ти лет.
           Люблю ультрамарафоны. Имею высшее образование в области маркетинга и
-          2х-летний опыт работы в digital-маркетинге. Разработка - это моё
-          большое хобби. Хочу попробовать работу в компании по разработке игр,
-          потому что я геймер со стажем. В будущем интересно было бы попробовать
-          фриланс.
+          2х-летний опыт работы в отделе маркетинга. Разработка - это моё
+          хобби и немного больше, чем просто работа. Интересно будет попробовать
+          работать в компании по разработке игр, потому что я тот еще геймер со стажем.
         </p>
         <img className="resume__image" src={photo} alt="Фото студента"></img>
         <ul className="resume__links">
-          <li className="resume__links-item">GitHub</li>
-          <li className="resume__links-item">LinkedIn</li>
+          <li className="resume__links-item"><a className="resume__link" href="https://github.com/kseniya7991" rel="noreferrer" target="_blank">GitHub</a></li>
+          <li className="resume__links-item"><a className="resume__link" href="https://www.linkedin.com/in/kseniya-stoychikova-907594201/" rel="noreferrer" target="_blank">LinkedIn</a></li>
         </ul>
       </div>
       <Portfolio />
